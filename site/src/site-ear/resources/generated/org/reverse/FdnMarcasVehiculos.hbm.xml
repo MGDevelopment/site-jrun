@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.FdnMarcasVehiculos"
+    table="FDN_MARCAS_VEHICULOS"
+>
+
+	<id 
+        name="idMarca"
+        type="string"
+    >
+    
+<column name="ID_MARCA" length="2" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="descripcion"
+	    type="string"
+    >
+<column name="DESCRIPCION" length="60" />
+  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="35" not-null="true" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="35" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+	<set name="fdnModelosVehiculoses"
+table="FDN_MODELOS_VEHICULOS"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_MARCA" length="2" not-null="true" />
+		</key>
+<one-to-many class="org.reverse.FdnModelosVehiculos"
+/>
+	</set>
+
+</class>
+
+</hibernate-mapping>

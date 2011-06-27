@@ -1,0 +1,114 @@
+<!-- modal de agregar lista -->
+<div class="ventModal-wrapper" id="modalDom" style="display:none;position:fixed">
+	<div class="vModTop">
+    	<div class="hModUsrNombre">Crear Lista</div>
+        <a class="hModUsrCerrar" href="javascript:mostrarDiv('modalDom'); javascript:mostrarDiv('modalBack');" title="Cerrar">cerrar</a>
+	</div>    
+   <div class="vModContent"  id="divModalOculto" style="display:none; "></div>
+   	<div class="vModContent"  id="divModal">      
+    	<div class="cProcFor-wrapper cProcForms">
+    		<form id="frmContact" name="frmContact" onkeypress="manejarEvento(event,'modalDom','modalBack');">
+				<input type="hidden" name="method" value="POST" />
+				<b><p></p>Categoria de mi lista:</b>
+				<div class="cProcForDom" style="font-colo:gray;">
+					<input type="radio" checked="" value="1" name="categoria_seccion"/><font>Libros</font><br/><br/>
+            		<input type="radio" value="4" name="categoria_seccion"/><font>Musica</font><br/><br/>
+            		<input type="radio" value="5" name="categoria_seccion"/><font>Peliculas</font><br/><br/>
+            		<input type="radio" value="3" name="categoria_seccion"/><font>Pasatiempos</font>
+				</div>
+				<b><p></p>Titulo:</b>
+					<div class="cProcForDom">
+						<input type="text" id="lblTitulo" value="" maxlength="255" class="textField error" name="titulo" onblur="validarForm($('#frmContact').get(0));"/>
+						<!-- label class="error" id="errorTitulo">Por favor el titulo de la lista</label-->
+					</div>
+				<b><p></p>Descripcion(m&aacute;x 150)</b>
+					<div class="cProcForDom">
+						<textarea name="descripcion" cols="5" rows="3" class="area" id="lblDescripcion" onkeypress="validarTextAreaLength(this, 'digitado', 'restante', 150)" onkeyup="validarTextAreaLength(this, 'digitado', 'restante', 150);" onblur="validarForm($('#frmContact').get(0));"></textarea>
+						<!--label class="error" id="errorDecripcion">Por favor, decriba su lista</label-->
+						<span id="digitado" style="color:red">0</span> Caracteres digitados / Restan <label id="restante"  style="color:red">150</label>
+					</div>
+				<b><p></p>Publica:</b>
+					<div class="cProcForDom">
+        				<input type="radio" checked="" value="S" name="publica"/><font>Si</</font><br/><br/>
+            			<input type="radio" value="N" name="publica"/><font>No</font><br/><br/>
+        			</div>        
+       	 		<!-- <div style="text-align:center" id="divMensajes"></div>-->
+				<input type="button"  value="Crear Lista" class="groovybutton" onclick="enviarForm('frmContact');"/>
+			</form>
+		</div>
+		<div><label class="error" style="text-align:center" id="divMensajes"></label></div>
+    	<!--  <a href="javascript:validarForm();" class="vModButton">Crear Lista</a>-->
+	</div>
+</div>
+<!-- modal de avisos -->
+<div class="ventModal-wrapper" id="modalDomListas" style="display:none;position:fixed;left:70%;width:300px;top:150px;">
+	<div class="vModTop"><div class="hModUsrNombre">Agregando articulo</div>
+        <a class="hModUsrCerrar" href="javascript:mostrarDiv('modalDomListas'); javascript:mostrarDiv('modalBack');" title="Cerrar">cerrar</a>
+   </div>    
+   <div class="vModContent"  id="divModalOculto" style="display:none;"></div>
+   	<div class="vModContent"  id="mensajeRetorno">
+   		<div><label class="error" style="text-align:center" id="mensajeRetorno"></label></div>     	
+	</div>
+</div>
+<!-- modal de login -->
+<div class="ventModal-wrapper" id="modalDomLogin" style="display:none;position:fixed">
+	<div class="vModTop">
+    	<div class="hModUsrNombre">Login de usuarios</div>
+        <a class="hModUsrCerrar" href="javascript:mostrarDiv('modalDomLogin'); javascript:mostrarDiv('modalBack');" title="Cerrar">cerrar</a>
+   </div>    
+   <div class="vModContent"  id="divModalOculto" style="display:none;"></div>
+   <div class="vModContent"  id="divModal">      
+    	<div class="cProcFor-wrapper cProcForms">
+    		<form id="frmLogin" onkeypress="manejarEvento(event,'modalDomLogin','modalBack')";>
+				<input type="hidden" name="_method" value="POST" />		
+					<b><p></p>E-mail:</b>
+						<div class="cProcForDom">
+        					<input name="login" type="text" class="textField " value="" id="lblE_mail" />
+        				</div>
+					<b><p></p>Password:</b>
+					<div class="cProcForDom" style="font-colo:gray;">
+						<input name="password" type="password" class="textField " value="" id="lblPassword" />
+					</div>
+					<input type="button"  value="Iniciar Sesion" class="groovybutton" onclick="iniciarSesion();"/>
+			</form>
+        </div>
+        <div><label class="error" style="text-align:center" id="divMensajeLogin"></label></div>       
+       <!-- <a href="javascript:enviarForm();" class="vModButton">Crear Lista</a>-->
+	</div>
+</div>
+<!--MODAL DE COMENTARIOS-->
+<div class="ventModal-wrapper" id="modalDomComentario" style="display:none;position:fixed">
+	<div class="vModTop">
+    	<div class="hModUsrNombre">Agregar comentario</div>
+        <a class="hModUsrCerrar" href="javascript:mostrarDiv('modalDomComentario'); javascript:mostrarDiv('modalBack');" title="Cerrar">cerrar</a>
+	</div>    
+   <div class="vModContent"  id="divModalOculto" style="display:none; "></div>
+   	<div class="vModContent"  id="divModalComentario">      
+    	<div class="cProcFor-wrapper cProcForms">
+    		<form id="frmComentario" name="frmComentario" onkeypress="manejarEvento(event,'modalDomComentario','modalBack');">				
+				<!-- <b><p></p>Titulo:</b>
+					<div class="cProcForDom">
+						<input type="text" id="lblTitulo" value="" maxlength="255" class="textField error" name="titulo" onblur="validarForm($('#frmComentario').get(0));"/>
+					</div>
+				-->
+				<b><p></p>Comentario(m&aacute;x 4000)</b>
+					<div class="cProcForDom">
+						<textarea name="comentario" cols="5" rows="3" class="area" id="lblDescripcion" onkeypress="validarTextAreaLength(this, 'digitadoComentario', 'restanteComentario', 4000)" onkeyup="validarTextAreaLength(this, 'digitadoComentario', 'restanteComentario', 4000);" onblur="validarForm($('#frmComentario').get(0));"></textarea>
+						<!--label class="error" id="errorDecripcion">Por favor, decriba su lista</label-->
+						<span id="digitadoComentario" style="color:red">0</span> Caracteres digitados / Restan <label id="restanteComentario"  style="color:red">4000</label>
+					</div>
+				<b><p></p>Calificacion:</b>
+				<div class="cProcForDom" style="font-colo:gray;">
+					<input type="radio" checked="" value="1" name="evaluacion"/><font>Malo</font><br/><br/>
+            		<input type="radio" value="2" name="evaluacion"/><font>Regular</font><br/><br/>
+            		<input type="radio" value="3" name="evaluacion"/><font>Bueno</font><br/><br/>
+            		<input type="radio" value="4" name="evaluacion"/><font>Muy bueo</font><br/><br/>
+            		<input type="radio" value="5" name="evaluacion"/><font>Excelente</font>
+				</div>
+				<input type="button"  value="Crear Lista" class="groovybutton" onclick="enviarFormComentario('frmComentario','/Comentario2','Comentario','Comentario');"/>
+			</form>
+		</div>
+		<div><label class="error" style="text-align:center" id="divMensajesComentario"></label></div>
+    	<!--  <a href="javascript:validarForm();" class="vModButton">Crear Lista</a>-->
+	</div>
+</div>

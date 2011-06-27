@@ -1,0 +1,79 @@
+<table width="492" align="left" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">
+	<tr>
+		<td colspan=2>
+			<b>Reporte de Actualización de datos eXtra</b>
+		</td>
+	</tr>
+	<tr>
+		<td width="240" valign="top">
+			<table width="240" align="left" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">
+				<tr>
+					<td colspan="3">
+						<b>Total Mensual</b>
+					</td>
+				</tr>
+				<tmpl_loop repRowMensual>
+				<tr>
+					<td width="160">
+						<tmpl_var row1>
+					</td>
+					<td align="right">
+						<tmpl_var row3>
+					</td>
+					<td align="right" style="font-size:10">
+						(<tmpl_var row2>%)
+					</td>
+				</tr>
+				</tmpl_loop>
+				<tr>
+					<td>
+						<b>Total</b>
+					</td>
+					<td align="right">
+						<tmpl_var totalMensual>
+					</td>
+					<td></td>
+				</tr>
+			</table>
+		</td>
+		<td Style="font-size:1">
+			<img src="<tmpl_var imgMensual>">
+		</td>
+	</tr>
+	<tr>
+		<td width="240" valign="top">
+			<table width="240" align="left" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">
+				<tr>
+					<td colspan="3">
+						<b>Total Acumulado</b>
+					</td>
+				</tr>
+				<tmpl_loop repRowAcumulado>
+				<tr>
+					<td width="160">
+						<tmpl_var row1>
+					</td>
+					<td align="right">
+						<tmpl_var row3>
+					</td>
+					<td align="right" style="font-size:10">
+						(<tmpl_var row2>%)
+					</td>
+				</tr>
+				</tmpl_loop>
+				<tr>
+					<td>
+						<b>Total</b>
+					</td>
+					<td align="right">
+						<tmpl_var totalAcumulado>
+					</td>
+					<td></td>					
+				</tr>
+			</table>
+		</td>
+		<td Style="font-size:1">
+			<img src="<tmpl_var imgAcumulado>">
+		</td>
+	</tr>
+</table>			

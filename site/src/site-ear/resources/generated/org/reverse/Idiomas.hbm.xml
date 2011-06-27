@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.Idiomas"
+    table="IDIOMAS"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.IdiomasId"
+    >		
+	        <key-property name="idIdioma" type="short">
+<column name="ID_IDIOMA" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="idioma" type="string">
+<column name="IDIOMA" length="50" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

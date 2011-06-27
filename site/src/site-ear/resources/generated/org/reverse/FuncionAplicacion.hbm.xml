@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.FuncionAplicacion"
+    table="FUNCION_APLICACION"
+>
+
+ <comment>Funciones de la aplicacion</comment>
+	<id 
+        name="funcion"
+        type="string"
+    >
+    
+<column name="FUNCION" length="100" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="estado"
+	    type="boolean"
+    >
+<column name="ESTADO" precision="1" scale="0" not-null="true" >
+<comment>0: inactiva 1:Activa</comment>
+</column>  </property>
+
+    <property
+        name="fechaAlta"
+	    type="date"
+    >
+<column name="FECHA_ALTA" length="7" not-null="true" >
+<comment>fecha de creacion del registro</comment>
+</column>  </property>
+
+    <property
+        name="usuarioAlta"
+	    type="string"
+    >
+<column name="USUARIO_ALTA" length="50" not-null="true" >
+<comment>usuario de creacion del registro</comment>
+</column>  </property>
+
+    <property
+        name="usuarioModif"
+	    type="string"
+    >
+<column name="USUARIO_MODIF" length="50" >
+<comment>usuario de modificacion del registro</comment>
+</column>  </property>
+
+    <property
+        name="fechaModif"
+	    type="date"
+    >
+<column name="FECHA_MODIF" length="7" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+	<set name="funcionXRolAplicacions"
+table="FUNCION_X_ROL_APLICACION"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="FUNCION" length="100" not-null="true" />
+		</key>
+<one-to-many class="org.reverse.FuncionXRolAplicacion"
+/>
+	</set>
+
+</class>
+
+</hibernate-mapping>

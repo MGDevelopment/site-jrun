@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.ActualizacionMailExtra"
+    table="ACTUALIZACION_MAIL_EXTRA"
+>
+
+	<id 
+        name="codigoActualizacion"
+        type="long"
+    >
+    
+<column name="CODIGO_ACTUALIZACION" precision="12" scale="0" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="tipoDoc"
+	    type="string"
+    >
+<column name="TIPO_DOC" length="4" not-null="true" />
+  </property>
+
+    <property
+        name="nroDoc"
+	    type="long"
+    >
+<column name="NRO_DOC" precision="15" scale="0" not-null="true" />
+  </property>
+
+    <property
+        name="nacionalidad"
+	    type="int"
+    >
+<column name="NACIONALIDAD" precision="5" scale="0" not-null="true" />
+  </property>
+
+    <property
+        name="sexo"
+	    type="string"
+    >
+<column name="SEXO" length="1" not-null="true" />
+  </property>
+
+    <property
+        name="login"
+	    type="binary"
+    >
+<column name="LOGIN" not-null="true" >
+<comment>Login del socio a modificar o crear</comment>
+</column>  </property>
+
+    <property
+        name="password"
+	    type="binary"
+    >
+<column name="PASSWORD" not-null="true" >
+<comment>Password del socio a modificar o crear</comment>
+</column>  </property>
+
+    <property
+        name="estado"
+	    type="string"
+    >
+<column name="ESTADO" length="1" not-null="true" >
+<comment>1-a confirmar, 2-confirmado/modificado</comment>
+</column>  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+    <property
+        name="tipoTelefono"
+	    type="string"
+    >
+<column name="TIPO_TELEFONO" length="4" />
+  </property>
+
+    <property
+        name="codArea"
+	    type="string"
+    >
+<column name="COD_AREA" length="10" />
+  </property>
+
+    <property
+        name="nroTel"
+	    type="string"
+    >
+<column name="NRO_TEL" length="15" />
+  </property>
+
+    <property
+        name="extInt"
+	    type="string"
+    >
+<column name="EXT_INT" length="10" />
+  </property>
+
+    <property
+        name="tipoDomicilio"
+	    type="string"
+    >
+<column name="TIPO_DOMICILIO" length="4" />
+  </property>
+
+    <property
+        name="calle"
+	    type="string"
+    >
+<column name="CALLE" length="100" />
+  </property>
+
+    <property
+        name="numero"
+	    type="java.lang.Long"
+    >
+<column name="NUMERO" precision="10" scale="0" />
+  </property>
+
+    <property
+        name="edificio"
+	    type="string"
+    >
+<column name="EDIFICIO" length="40" />
+  </property>
+
+    <property
+        name="piso"
+	    type="java.lang.Short"
+    >
+<column name="PISO" precision="4" scale="0" />
+  </property>
+
+    <property
+        name="depto"
+	    type="string"
+    >
+<column name="DEPTO" length="4" />
+  </property>
+
+    <property
+        name="cp"
+	    type="string"
+    >
+<column name="CP" length="20" />
+  </property>
+
+    <property
+        name="idLocalidad"
+	    type="java.lang.Integer"
+    >
+<column name="ID_LOCALIDAD" precision="5" scale="0" />
+  </property>
+
+    <property
+        name="idProvincia"
+	    type="java.lang.Integer"
+    >
+<column name="ID_PROVINCIA" precision="5" scale="0" />
+  </property>
+
+    <property
+        name="idPais"
+	    type="java.lang.Integer"
+    >
+<column name="ID_PAIS" precision="5" scale="0" />
+  </property>
+
+    <property
+        name="descripcionProvinciaInex"
+	    type="string"
+    >
+<column name="DESCRIPCION_PROVINCIA_INEX" length="50" />
+  </property>
+
+    <property
+        name="descripcionLocalidadInex"
+	    type="string"
+    >
+<column name="DESCRIPCION_LOCALIDAD_INEX" length="50" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

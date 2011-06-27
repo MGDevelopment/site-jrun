@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<rss xmlns:tmk="http://www.tematika.com.com/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+	<channel>
+		<title>Tematika.com - Novedades</title>
+		<link>http://www.tematika.com/rss/novedadesRss.jsp</link>
+		<description>Ultimas novedades de Pasatiempos en Tematika.com</description>
+		<copyright>Tematika.com - All rights reserved</copyright>
+		<pubDate>Tue, 29 Jan 2008 16:11:38 -0300</pubDate>
+		<image>
+			<title>Tematika.com - Novedades Pasatiempos</title>
+			<url>http://www.tematika.com/imagenes/Logo-Tematika.gif</url>
+			<link>http://www.tematika.com/novedadesRss.jsp</link>
+		</image>
+		<ttl>10</ttl>
+		<category domain="Pasatiempos">Pasatiempos</category>
+		<language>es-ar</language>
+		<generator>Exportador de Novedades de Pasatiempos RSS Tematika.com</generator>
+</channel></rss>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.CarritoChequeObsequio"
+    table="CARRITO_CHEQUE_OBSEQUIO"
+>
+
+ <comment>Tabla de cheque obsequio asignado al socio por el pack de promo</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.CarritoChequeObsequioId"
+    >		
+	        <key-property name="idSucursalSocio" type="short">
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="idSocio" type="long">
+<column name="ID_SOCIO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idArticulo" type="long">
+<column name="ID_ARTICULO" precision="10" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <many-to-one
+	    name="articulos"
+	    class="org.reverse.Articulos"
+	    
+        update="false"
+        insert="false"
+        fetch="select"
+    >
+<column name="ID_ARTICULO" precision="10" scale="0" not-null="true" />
+   </many-to-one>
+    <property
+        name="precioUnitario"
+	    type="big_decimal"
+    >
+<column name="PRECIO_UNITARIO" precision="15" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

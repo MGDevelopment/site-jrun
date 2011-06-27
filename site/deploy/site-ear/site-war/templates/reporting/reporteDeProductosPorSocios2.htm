@@ -1,0 +1,94 @@
+<table  align="left" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">
+	<tr>
+		<td>
+			<b>Reporte de Productos por socios</b>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<table align="left" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">
+				<tr bgcolor="DDDDEF">
+					<td width="150">
+						E-Mail
+					</td>	
+					<!-- AGREGADO DE CAMPOS SEGUN WORK FLOW -->
+					<td width="100">
+						Nombre Cliente
+					</td>
+					<td width="100">
+						Articulo
+					</td>
+					<td width="20">
+						ID Articulo
+					</td>
+					<td width="100">
+						Autor De Articulo
+					</td>
+					<td width="100">
+						Grupo
+					</td>
+					<td width="100">
+						Seccion
+					</td>
+					<td width="100">
+						Fue Regalo?
+					</td>
+					<!-- HASTA ACA LOS AGREGADOS DE CAMPOS -->
+					
+					
+					
+					
+					
+						
+					
+							
+							
+						
+					
+				</tr>
+				<tmpl_loop repRow>
+				<tr>
+					<td>
+						<tmpl_var login>
+					</td>
+					<!-- datos del workFlow -->
+					<td>
+						<tmpl_var nombreCliente>
+					</td>
+					<td>
+						<tmpl_var titulo_articulo>
+					</td>
+					<td>
+						<tmpl_var id_articulo>
+					</td>
+					<td>
+						<tmpl_var autor>
+					</td>
+					<td>
+						<tmpl_var grupo><!-- (del articulo, ejemplo "Ficcion y literatura, etc) -->
+					</td>
+					<td>
+						<tmpl_var seccion><!-- (libros, musica, peliculas, etc) -->
+					</td>
+					<td>
+						<tmpl_var esRegalo>
+					</td>
+					<!-- fin de datos-->
+					
+					
+					
+					
+						
+						
+					
+							
+							
+						
+						
+				</tr>
+				</tmpl_loop>
+			</table>
+		</td>
+	</tr>
+</table>				
+		

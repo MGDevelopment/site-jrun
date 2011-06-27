@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jrun-ejb-jar PUBLIC "-//Macromedia, Inc.//DTD jrun-ejb 4.0//EN" "http://jrun.macromedia.com/dtds/jrun-ejb-jar.dtd">
+<jrun-ejb-jar>
+	<source>jdbc/site</source>
+	<enterprise-beans>
+		<entity>
+			<ejb-name>Articulo</ejb-name>
+			<jndi-name>Articulo</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+
+			</jdbc-mappings>
+		</entity>
+		<!--entity>
+			<ejb-name>ArticuloISBN</ejb-name>
+			<jndi-name>ArticuloISBN</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity-->
+		<entity>
+			<ejb-name>ArticuloTexto</ejb-name>
+			<jndi-name>ArticuloTexto</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity>
+		<entity>
+			<ejb-name>Autor</ejb-name>
+			<jndi-name>Autor</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity>
+		<!--entity>
+			<ejb-name>Impuesto</ejb-name>
+			<jndi-name>Impuesto</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity-->
+		<!--entity>
+			<ejb-name>TipoDeArticulo</ejb-name>
+			<jndi-name>TipoDeArticulo</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity-->
+		<entity>
+			<ejb-name>Editor</ejb-name>
+			<jndi-name>Editor</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+                <!--busqueda de editoriales-->
+                <jdbc-mapping>
+					<name>findByNombreEditorial</name>
+					<statement>
+						<action>SELECT "ID_EDITOR" FROM EDITORES o WHERE o.ID_EDITOR = ?1 OR UPPER(o.NOMBRE) like UPPER(?2) OR UPPER(o.RAZON_SOCIAL) like UPPER(?2) ORDER BY o.NOMBRE asc</action>
+						<params>
+							<param>
+								<name>ID_EDITOR</name>
+								<type>INTEGER</type>
+							</param>
+                            <param>
+								<name>NOMBRE</name>
+								<type>VARCHAR</type>
+							</param>
+						</params>
+						<fields>
+							<field>ID_EDITOR</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+                <!--busqueda de editoriales-->
+			</jdbc-mappings>
+		</entity>
+
+        <entity>
+			<ejb-name>Proveedor</ejb-name>
+			<jndi-name>Proveedor</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity>
+		<!--entity>
+			<ejb-name>Disponibilidad</ejb-name>
+			<jndi-name>Disponibilidad</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity-->
+		<!--entity>
+			<ejb-name>Tasa</ejb-name>
+			<jndi-name>Tasa</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity-->
+		<entity>
+			<ejb-name>ArticuloAutores</ejb-name>
+			<jndi-name>ArticuloAutores</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity>
+
+		<entity>
+         <ejb-name>ArticuloReducido</ejb-name>
+         <jndi-name>ArticuloReducido</jndi-name>
+         <commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+         </entity>
+
+
+	</enterprise-beans>
+
+
+
+
+</jrun-ejb-jar>

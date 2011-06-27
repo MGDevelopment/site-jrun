@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.ArticulosGeneradosBup"
+    table="ARTICULOS_GENERADOS_BUP"
+>
+
+	<id 
+        name="idArtGen"
+        type="big_decimal"
+    >
+    
+<column name="ID_ART_GEN" precision="20" scale="0" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="clave"
+	    type="int"
+    >
+<column name="CLAVE" precision="8" scale="0" not-null="true" >
+<comment>Articulo a generar</comment>
+</column>  </property>
+
+    <property
+        name="alcance"
+	    type="byte"
+    >
+<column name="ALCANCE" precision="2" scale="0" not-null="true" >
+<comment>0:AUTORES - 1:EDITORES - 2:RECOMENDACION_ARTICULOS- 3:ARTICULOS, ARTICULOS_AUTORES_BIOGRAFIA, ARTICULOS_TEXTOS, ARTICULOS_AUTORES - 4:CATEG_GRUPOS - 5:CATEG_FAMILIAS - 6:CATEG_SUBFAMILIAS</comment>
+</column>  </property>
+
+    <property
+        name="fecha"
+	    type="date"
+    >
+<column name="FECHA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="procesado"
+	    type="string"
+    >
+<column name="PROCESADO" length="1" not-null="true" >
+<comment>Indica si fue o no procesado el detalle</comment>
+</column>  </property>
+
+    <property
+        name="extra"
+	    type="string"
+    >
+<column name="EXTRA" length="20" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

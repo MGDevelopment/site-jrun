@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Server xsi:noNamespaceSchemaLocation="server.xsd" url="http://int-tmk2:8005/" modoAplicacionHabilitado="false" dominioSitio="www.tematika.com" dominioIntranet="//int-tmk2:8005/intranet" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Aplicacion>intranet</Aplicacion>
+    <Log>alto</Log>
+    <Modo>debug</Modo>
+    <Mailing habilitado="true" mailer="intranet@tematika.com" smtpHost="172.29.0.20" webmasterMail="clopez@ilhsa.com" serverMail="http://int-tmk2:8005" mailLargos="true"/>
+    <Control habilitado="true" iteraciones="2" memoriaAlerta="45000" memoriaMaxima="1040000" consola="taskkill /F /IM jrun.exe"/>
+    <ProgramaExtra habilitado="true"/>
+    <GPay host="172.29.0.10" port="20001" comercio="tematikasite" mensaje="COMPRA EN TEMATIKA" baseTerminal="tematika-" tiempoEsperaMaxima="60" cantidadDeTerminales="7" habilitaCuotas="true">
+        <Errores mensajePorDefecto="Su operación ha fallado por un problema de comunicación. Por favor, intente nuevamente más tarde y disculpe las molestias ocasionadas.">
+            <Error codigo="0" mensajeAMostrar="Su operación ha fallado por un problema de comunicación. Por favor, intente nuevamente más tarde y disculpe las molestias ocasionadas."/>
+            <Error codigo="1" mensajeAMostrar="La operación no ha sido aprobada ya que ha ingresado algún dato de su tarjeta en forma errónea. Por favor, verifique la fecha de vencimiento y el código de seguridad y vuelva a intentar el pago."/>
+            <Error codigo="2" mensajeAMostrar="La operación no ha sido aprobada ya que ha ingresado algún dato de su tarjeta en forma errónea. Por favor, verifique la fecha de vencimiento y el código de seguridad y vuelva a intentar el pago."/>
+            <Error codigo="4" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras. Le pedimos por favor se contacte con el Banco o Entidad emisora de la misma para regularizar la situación."/>
+            <Error codigo="5" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras. Le pedimos por favor se contacte con el Banco o Entidad emisora de la misma para regularizar la situación."/>
+            <Error codigo="7" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras. Le pedimos por favor se contacte con el Banco o Entidad emisora de la misma para regularizar la situación."/>
+            <Error codigo="12" mensajeAMostrar="Por favor, verifique que todos los datos ingresados sean correctos e intente nuevamente la operación. Tenga en cuenta que las tarjetas de débito no se encuentran habilitadas en nuestro sistema para realizar compras."/>
+            <Error codigo="14" mensajeAMostrar="Por favor, verifique que todos los datos ingresados sean correctos e intente nuevamente la operación. Tenga en cuenta que las tarjetas de débito no se encuentran habilitadas en nuestro sistema para realizar compras."/>
+            <Error codigo="25" mensajeAMostrar="La operación no ha sido aprobada ya que ha ingresado algún dato de su tarjeta en forma errónea. Por favor, verifique la fecha de vencimiento y el código de seguridad y vuelva a intentar el pago."/>
+            <Error codigo="30" mensajeAMostrar="Por favor, verifique que todos los datos ingresados sean correctos e intente nuevamente la operación. Tenga en cuenta que las tarjetas de débito no se encuentran habilitadas en nuestro sistema para realizar compras."/>
+            <Error codigo="43" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras. Le pedimos por favor se contacte con el Banco o Entidad emisora de la misma para regularizar la situación."/>
+            <Error codigo="45" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras en cuotas en nuestro site. Le pedimos por favor realice el pedido a través del pago en una única cuota. Muchas gracias."/>
+            <Error codigo="48" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras en cuotas en nuestro site. Le pedimos por favor realice el pedido a través del pago en una única cuota. Muchas gracias."/>
+            <Error codigo="50" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras ya que no posee los fondos suficientes para realizar esta operación."/>
+            <Error codigo="51" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras ya que no posee los fondos suficientes para realizar esta operación."/>
+            <Error codigo="53" mensajeAMostrar="La operación no ha sido aprobada ya que ha ingresado algún dato de su tarjeta en forma errónea. Por favor, verifique los datos ingresados y vuelva a intentar el pago."/>
+            <Error codigo="54" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras ya que la misma se encuentra vencida. Verifique los datos ingresados y en caso de ser correctos comuníquese con el Banco o Entidad emisora de la misma para regularizar la situación."/>
+            <Error codigo="57" mensajeAMostrar="Por favor, verifique que todos los datos ingresados sean correctos e intente nuevamente la operación. Tenga en cuenta que las tarjetas de débito no se encuentran habilitadas en nuestro sistema para realizar compras."/>
+            <Error codigo="94" mensajeAMostrar="Su compra se encuentra en proceso de aprobación y será contactado por nuestro personal de Atención al Cliente para verificar sus datos. El contacto se realizará a la mayor brevedad posible vía mail o telefónicamente al número ingresado en el pedido. Le recordamos que nuestro horario de atención es de Lunes a Viernes de 9 a 20hs. Muchas Gracias.">
+                <Email>laguirre@ilhsa.com</Email>
+				<Email>lcejas@ilhsa.com</Email>
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+            </Error>
+            <Error codigo="96" mensajeAMostrar="Su operación ha fallado por un problema de comunicación. Por favor, intente nuevamente más tarde y disculpe las molestias ocasionadas."/>
+            <Error codigo="110">
+                <Email>apaz@ilhsa.com</Email>
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="111">
+                <Email>apaz@ilhsa.com</Email>
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="120">
+                <Email>apaz@ilhsa.com</Email>
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="121">
+                <Email>apaz@ilhsa.com</Email>
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="130">
+                <Email>apaz@ilhsa.com</Email>
+                <Email>clopez@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="131">
+                <Email>apaz@ilhsa.com</Email>
+                <Email>clopez@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="141">
+                <Email>apaz@ilhsa.com</Email>
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="142" mensajeAMostrar="Por favor, verifique que todos los datos ingresados sean correctos e intente nuevamente la operación. Tenga en cuenta que las tarjetas de débito no se encuentran habilitadas en nuestro sistema para realizar compras. En caso de seguir con el inconveniente, puede contactarse con nuestro Departamento de Atención al Cliente al 011-4943-8292 de Lunes a Viernes de 9 a 20hs. Muchas Gracias."/>
+            <Error codigo="143" mensajeAMostrar="La operación no ha sido aprobada ya que ha ingresado algún dato de su tarjeta en forma errónea. Por favor, verifique la fecha de vencimiento y el código de seguridad y vuelva a intentar el pago."/>
+            <Error codigo="147" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras ya que la misma se encuentra vencida. Verifique los datos ingresados y en caso de ser correctos comuníquese con el Banco o Entidad emisora de la misma para regularizar la situación."/>
+            <Error codigo="151">
+                <Email>apaz@ilhsa.com</Email>
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="152">
+                <Email>apaz@ilhsa.com</Email>
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="153">
+                <Email>apaz@ilhsa.com</Email>
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="154" mensajeAMostrar="Su compra se encuentra en proceso de aprobación y será contactado por nuestro personal de Atención al Cliente para verificar sus datos. El contacto se realizará a la mayor brevedad posible vía mail o telefónicamente al número ingresado en el pedido. Le recordamos que nuestro horario de atención es de Lunes a Viernes de 9 a 20hs. Muchas Gracias.">
+                <Email>laguirre@ilhsa.com</Email>
+                <Email>lcejas@ilhsa.com</Email>
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="160">
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+                <Email>1154202396@sms.ctimovil.com.ar</Email>
+                <Email>1154202435@sms.ctimovil.com.ar</Email>
+                <Email>CelularesSoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="161" mensajeAMostrar="Su compra se encuentra en proceso de aprobación y será contactado por nuestro personal de Atención al Cliente para verificar sus datos. El contacto se realizará a la mayor brevedad posible vía mail o telefónicamente al número ingresado en el pedido. Le recordamos que nuestro horario de atención es de Lunes a Viernes de 9 a 20hs. Muchas Gracias.">
+                <Email>laguirre@ilhsa.com</Email>
+                <Email>lcejas@ilhsa.com</Email>
+                <Email>apaz@ilhsa.com</Email>
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="178">
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="180">
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+                <Email>1154202396@sms.ctimovil.com.ar</Email>
+                <Email>1154202435@sms.ctimovil.com.ar</Email>
+                <Email>CelularesSoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="181">
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="182">
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+                <Email>1154202396@sms.ctimovil.com.ar</Email>
+                <Email>1154202435@sms.ctimovil.com.ar</Email>
+                <Email>CelularesSoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="183">
+                <Email>dwainer@ilhsa.com</Email>
+                <Email>laguirre@ilhsa.com</Email>
+                <Email>lcejas@ilhsa.com</Email>
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+                <Email>1154202396@sms.ctimovil.com.ar</Email>
+                <Email>1154202435@sms.ctimovil.com.ar</Email>
+                <Email>CelularesSoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="184">
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="185">
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+            </Error>
+            <Error codigo="215" mensajeAMostrar="Su compra se encuentra en proceso de aprobación y será contactado por nuestro personal de Atención al Cliente para verificar sus datos. El contacto se realizará a la mayor brevedad posible vía mail o telefónicamente al número ingresado en el pedido. Le recordamos que nuestro horario de atención es de Lunes a Viernes de 9 a 20hs. Muchas Gracias.">
+                <Email>laguirre@ihlsa.com</Email>
+				<Email>lcejas@ilhsa.com</Email>
+                <Email>clopez@ilhsa.com</Email>
+                <Email>cconfeggi@ilhsa.com</Email>
+                <Email>sistemassoporte@ilhsa.com</Email>
+                <Email>1154202396@sms.ctimovil.com.ar</Email>
+                <Email>1154202435@sms.ctimovil.com.ar</Email>
+                <Email>CelularesSoporte@ilhsa.com</Email>
+            </Error>
+        </Errores>
+    </GPay>
+    <Inactividad mensajeMantenimiento="Espere un momento mientras actualizamos nuestro contenido..." mensajePrevio="Nuestro servicio será interrumpido por unos minutos.&lt;br&gt;Disculpe las molestias." minutosDeAnticipacion="20">
+        <Cronograma modo="backup" dia="viernes" comienzo="02:45:00" fin="05:00:00"/>
+        <Cronograma modo="reset" dia="viernes" comienzo="05:00:00" fin="05:01:30"/>
+    </Inactividad>
+    <ProgramaReferido habilitado="true" vigenciaReferente="90" vigenciaReferido="30"/>
+    <PromoChequeObsequio habilitado="true" codigoChequeObsequio="00050"/>
+    <PromoDiaDeLaMadre habilitado="false" pesosPorCupon="50.0"/>
+    <BloqueoIP habilitado="true" hits="50" tiempoEntreHits="2000"/>
+    <Dominios>
+        <Principal>int-tmk2:8005</Principal>
+        <Secundario/>
+    </Dominios>
+    <MusicaOnLine habilitado="false" seccion="4" grupo="20" familia="0" subfamilia="0" disponibilidad="100"/>
+    <ProcesosBackground>
+        <Proceso id="DirectorioDaemon" nombre="Mapa de Productos (Directorio)" habilitado="true"/>
+        <!--Proceso id="LimpiadorDeCarritoDaemon" nombre="Limpiador de carrito" habilitado="false"/-->
+        <Proceso id="ReporteDeComprasPorAlianzasDaemon" nombre="Reporte" habilitado="true"/>
+        <Proceso id="ReporteDeComprasPorSociosDaemon" nombre="Reporte" habilitado="true"/>
+        <Proceso id="ReporteDeMedioDeCobroDaemon" nombre="Reporte" habilitado="true"/>
+        <Proceso id="ReporteDePedidosEspecialesDaemon" nombre="Reporte" habilitado="true"/>
+        <Proceso id="ReporteDeReferenteBeneficioDaemon" nombre="Reporte" habilitado="true"/>
+        <Proceso id="ReporteDeReferenteComprasDaemon" nombre="Reporte" habilitado="true"/>
+        <Proceso id="ReporteDeReferidosCompraAprobadaDaemon" nombre="Reporte" habilitado="true"/>
+        <Proceso id="ReporteDeReferidosNoRegistradosDaemon" nombre="Reporte" habilitado="true"/>
+        <Proceso id="ReporteDeReferidosRegistradosDaemon" nombre="Reporte" habilitado="true"/>
+        <Proceso id="ReporteDeReferidosXDiaDaemon" nombre="Reporte" habilitado="true"/>
+        <Proceso id="ReporteDeSociosRegistradosDaemon" nombre="Reporte" habilitado="true"/>
+        <Proceso id="ReporteVisitasDaemon" nombre="Reporte" habilitado="true"/>
+        <Proceso id="ReporteDeComentariosDaemon" nombre="Reporte" habilitado="true"/>
+        <Proceso id="ReporteEstadisticasDaemon" nombre="Reporte" habilitado="true"/>
+        <Proceso id="ReporteEstadisticasTemporalesDaemon" nombre="Reporte" habilitado="false"/>
+        <Proceso id="ReporteDeOrdenesPorAlianzaDaemon" nombre="Reporte" habilitado="true"/>
+        <!--Proceso id="GeneradorDeArticulos" nombre="Generacion de Articulos" habilitado="true"/-->
+        <!--Proceso id="SessionTracker" nombre="Seguimiento de sessiones registros y compras" habilitado="false"/-->
+        <!--Proceso id="SiteMap"  nombre="Genera el site map para google" habilitado="true"/-->
+        <!--Proceso id="ReporteDeSociosRegistradosAyerSinCompras" nombre="Reporte" habilitado="true"/-->
+        <!--Proceso id="GeneradorDeHomes" nombre="Genera las homes" habilitado="true"/-->
+		<!--Proceso id="GeneradorDeRanking" nombre="Genera los ranking" habilitado="true"/-->
+	    <!--Proceso id="GeneradorDeTopFamilia" nombre="Genera el top y el arbol" habilitado="true"/-->
+		<!--Proceso id="GeneradorDeCatalogo" nombre="Generador de Catalogo" habilitado="true"/-->
+		<Proceso id="LogBusquedas" nombre="LogBusquedas" habilitado="false"/>
+	 </ProcesosBackground>
+    <Generacion sentenciaDeMapeo="net use /persistent:no u: \\172.29.0.10\tematika /user:administrator somosseis06" 
+		directorioDeGeneracion="u:\recursos" directorioRaiz="u:\produccion\server\site-ear\site-war" sentenciaDeDesMapeo="net use /delete u: /yes"
+		 url="http://int-tmk2:8005"/>
+	
+ 	<Procesos>
+		<RunPro nombre="CargadorDeCategorias" clase="com.tmk.service.categoria.CategoriaService" metodo="cargarCategorias"
+			comienzo="20" espera="10800"/>		
+		<RunPro nombre="Generador de Feed de Comentarios" clase="com.tmk.generacion.feed.ComentarioFeed" metodo="generarFeed"
+			comienzo="600" espera="82800" hora="7"/>	 
+		<RunPro nombre="Generador de Feed de Listas de Deseos"  clase="com.tmk.generacion.feed.WishListFeed" metodo="generarFeed" comienzo="600"
+			espera="82800" hora="10"/>
+		<RunPro nombre="Generador de RSS de Novedades"  clase="com.tmk.generacion.rss.GeneradorDeRSS" metodo="generadorDeNovedades"
+			comienzo="600" espera="82800" hora="11"><DiaSemana>6</DiaSemana></RunPro>
+		<RunPro nombre="Generador de RSS de Top"  clase="com.tmk.generacion.rss.GeneradorDeRSS" metodo="generadorDeTop" comienzo="700"
+			espera="82800" hora="11"><DiaSemana>5</DiaSemana></RunPro>
+		<RunPro nombre="Generador de RSS de Categorias"  clase="com.tmk.generacion.rss.GeneradorDeRSS" metodo="generadorDeCategoria"
+			comienzo="600" espera="82800" dia="26"></RunPro>
+		<RunPro nombre="Reporte de actualizacion de mail eXtra" clase="com.tmk.report.Report" metodo="reporteDeActualizacionMailExtra"
+			espera="82800" comienzo="600" dia="1" hora="9">
+			<Email>clopez@ilhsa.com</Email>
+			<Email>mbernazza@ilhsa.com</Email>
+			<Email>hcayssials@ilhsa.com</Email>
+		</RunPro>
+		<RunPro nombre="Reporte de carrito de socios registrados ayer sin compras" clase="com.tmk.report.Report"
+			metodo="reporteDeCarritoDeSociosRegistradosAyerSinCompras" espera="82800" comienzo="600" hora="12">
+			<Email>laguirre@ilhsa.com</Email>
+			<Email>lcejas@ilhsa.com</Email>
+			 <Email>clopez@ilhsa.com</Email>			 
+		</RunPro>
+		<RunPro nombre="Reporte de clientes nuevos y repetitivos" clase="com.tmk.report.Report" metodo="reporteDeClientesNuevosYRepetitivos"
+			espera="82800" comienzo="600" dia="1" hora="10">
+			<Email>laguirre@ilhsa.com</Email>
+			<Email>lcejas@ilhsa.com</Email>
+			<Email>dwinnik@ilhsa.com</Email>
+ 			 <Email>clopez@ilhsa.com</Email>			 
+		</RunPro>		
+		<RunPro nombre="Reporte de productos por socios" clase="com.tmk.report.Report" metodo="reporteDeProductosPorSocios" espera="82800"
+			 comienzo="600" dia="1" hora="9">
+			<Email>laguirre@ilhsa.com</Email>
+			<Email>lcejas@ilhsa.com</Email>
+ 		   <Email>clopez@ilhsa.com</Email>			 
+		</RunPro>	
+		
+		<RunPro nombre="Reporte de socios Registrados" clase="com.tmk.report.Report" metodo="reporteDeSociosRegistradosTotal" espera="82800"
+			 comienzo="600" dia="1" hora="5">
+			<Email>laguirre@ilhsa.com</Email>
+			<Email>lcejas@ilhsa.com</Email>
+			<Email>clopez@ilhsa.com</Email>			 
+		</RunPro>
+		<RunPro  nombre="Generador de Ranking Mediodia" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarRanking" espera="82800"
+			 comienzo="600" hora="12" minuto="30"/>
+		<RunPro  nombre="Generador de Ranking Tarde" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarRanking" espera="82800"
+			 comienzo="600" hora="16" minuto="25"/>
+		<RunPro  nombre="Generador de Ranking Noche" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarRanking" espera="82800"
+			 comienzo="600" hora="23" minuto="25"/>
+		<!--<RunPro nombre="Generador de Homes" clase="com.tmk.bus.categoria.CategoriaManager" metodo="generarHomes" espera="1800" comienzo="600"/>-->
+		<RunPro nombre="Generador de Top Familia" clase="com.tmk.service.categoria.CategoriaService" metodo="generarTopFamilia" espera="82800" comienzo="300" hora="17" minuto="5"/>
+		<!--RunPro nombre="Limpiador de Carrito" clase="com.tmk.kernel.DBUtil" metodo="limpiarCarrito" espera="21600" comienzo="60"/-->
+		<RunPro nombre="SiteMap" clase="com.tmk.generacion.SiteMap" metodo="generarSiteMap" espera="82800" comienzo="600" dia="6" hora="6"/>
+		<RunPro nombre="GeneradorDeArticulos" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarArticulo"
+			comienzo="600" espera="1800"/>
+		<RunPro nombre="MesaXCategoria" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarMesa"
+			comienzo="600" espera="86000" hora="7"/>
+		<RunPro nombre="GeneracionDeArbol" clase="com.tmk.service.categoria.CategoriaService" metodo="generarArbolEstatico"
+			comienzo="700" espera="86000" hora="8"/>
+		<RunPro nombre="GeneradorDeCatalogo" clase="com.tmk.service.categoria.CategoriaService" metodo="generarCatalogo"
+			comienzo="600" espera="86000" dia="1" hora="6"/>	
+		 <RunPro nombre="Reporte de socios registrados ayer sin compras" clase="com.tmk.report.Report" metodo="reporteDeSociosRegistradosAyerSinCompras" espera="82800"
+			 comienzo="600" hora="6">
+				<Email>laguirre@ilhsa.com</Email>
+				<Email>lcejas@ilhsa.com</Email>
+				 <Email>clopez@ilhsa.com</Email>
+		</RunPro>			
+		<!-- NUEVOS PROCESOS POST SARTORI-->
+		<RunPro nombre="Reporte de socios de tematika asocioados a popego" clase="com.tmk.report.Report" metodo="reporteDeSociosRegitradosPopegoSemanal" espera="300"
+			 comienzo="60" dia="7" hora="18" minuto="0">
+ 		   <Email>dariowainer@gmail.com</Email>
+ 		   <Email>clopez@ilhsa.com</Email>
+		</RunPro>
+		<RunPro nombre="Reporte de productos por socios, informando si fue regalo" clase="com.tmk.report.Report" metodo="reporteDeProductosPorSocios2" espera="82800"
+			 comienzo="600" dia="1" hora="9">
+		   <Email>laguirre@ilhsa.com</Email>
+		   <Email>lcejas@ilhsa.com</Email>
+		   <Email>clopez@ilhsa.com</Email>
+		</RunPro>
+		
+
+	 </Procesos>
+	<UbicacionDeRed>
+			<Ubicacion ip="172.29.0.10" host="app-tmk2" id="contenidosEstaticos" defaultDir="y:\recursos\contenidosEstaticos"  password="217F3A2B520913ABB3C80243E3A60602" user="A244B1A3DA214356F5F7A8BC026EB908"/>
+			<Ubicacion ip="172.29.0.10" host="app-tmk2" id="appRaiz" defaultDir="z:\produccion\server\site-ear\site-war"  password="217F3A2B520913ABB3C80243E3A60602" user="A244B1A3DA214356F5F7A8BC026EB908"/>
+			<Ubicacion ip="172.29.0.10" host="app-tmk2" id="recursos" defaultDir="x:\recursos"  password="217F3A2B520913ABB3C80243E3A60602" user="A244B1A3DA214356F5F7A8BC026EB908"/>		
+	</UbicacionDeRed>
+</Server>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 rel. 3 sp2 (http://www.altova.com) by Miguel (Miguel) -->
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Sistemas (ILHSA) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:simpleType name="ModoType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="debug"/>
+			<xs:enumeration value="backup"/>
+			<xs:enumeration value="mantenimiento"/>
+			<xs:enumeration value="reset"/>
+			<xs:enumeration value="release"/>
+			<xs:enumeration value="inicializacion"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LogType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="alto"/>
+			<xs:enumeration value="medio"/>
+			<xs:enumeration value="bajo"/>
+			<xs:enumeration value="ninguno"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DiaType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="lunes"/>
+			<xs:enumeration value="martes"/>
+			<xs:enumeration value="miercoles"/>
+			<xs:enumeration value="jueves"/>
+			<xs:enumeration value="viernes"/>
+			<xs:enumeration value="sabado"/>
+			<xs:enumeration value="domingo"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Server">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Aplicacion" type="AplicacionType"/>
+				<xs:element name="Log" type="LogType"/>
+				<xs:element name="Modo" type="ModoType"/>
+				<xs:element name="Mailing">
+					<xs:complexType>
+						<xs:attribute name="habilitado" type="xs:boolean" use="required"/>
+						<xs:attribute name="mailer" type="xs:string" use="required"/>
+						<xs:attribute name="smtpHost" type="xs:string" use="required"/>
+						<xs:attribute name="webmasterMail" type="xs:string" use="required"/>
+						<xs:attribute name="serverMail" type="xs:string" use="required"/>
+						<xs:attribute name="mailLargos" type="xs:boolean" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Control">
+					<xs:complexType>
+						<xs:attribute name="habilitado" type="xs:boolean" use="required"/>
+						<xs:attribute name="iteraciones" type="xs:int" use="required"/>
+						<xs:attribute name="memoriaAlerta" type="xs:int" use="required"/>
+						<xs:attribute name="memoriaMaxima" type="xs:int" use="required"/>
+						<xs:attribute name="consola" type="xs:string" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ProgramaExtra">
+					<xs:complexType>
+						<xs:attribute name="habilitado" type="xs:boolean" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="GPay">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Errores">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="Error" maxOccurs="unbounded"/>
+									</xs:sequence>
+									<xs:attribute name="mensajePorDefecto" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="host" type="xs:string" use="required"/>
+						<xs:attribute name="port" type="xs:int" use="required"/>
+						<xs:attribute name="comercio" type="xs:string" use="required"/>
+						<xs:attribute name="mensaje" type="xs:string" use="required"/>
+						<xs:attribute name="baseTerminal" type="xs:string" use="required"/>
+						<xs:attribute name="tiempoEsperaMaxima" type="xs:int" use="required"/>
+						<xs:attribute name="cantidadDeTerminales" type="xs:int" use="required"/>
+						<xs:attribute name="habilitaCuotas" type="xs:boolean" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Inactividad">
+					<xs:complexType>
+						<xs:sequence minOccurs="0" maxOccurs="unbounded">
+							<xs:element name="Cronograma">
+								<xs:complexType>
+									<xs:attribute name="modo" type="ModoType" use="required"/>
+									<xs:attribute name="dia" type="DiaType" use="required"/>
+									<xs:attribute name="comienzo" type="xs:time" use="required"/>
+									<xs:attribute name="fin" type="xs:time" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="mensajeMantenimiento" type="xs:string" use="required"/>
+						<xs:attribute name="mensajePrevio" type="xs:string" use="required"/>
+						<xs:attribute name="minutosDeAnticipacion" type="xs:int" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ProgramaReferido">
+					<xs:complexType>
+						<xs:attribute name="habilitado" type="xs:boolean" use="required"/>
+						<xs:attribute name="vigenciaReferente" type="xs:int" use="required"/>
+						<xs:attribute name="vigenciaReferido" type="xs:int" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="PromoChequeObsequio">
+					<xs:complexType>
+						<xs:attribute name="habilitado" type="xs:boolean" use="required"/>
+						<xs:attribute name="codigoChequeObsequio" type="xs:string" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="PromoDiaDeLaMadre">
+					<xs:complexType>
+						<xs:attribute name="habilitado" type="xs:boolean" use="required"/>
+						<xs:attribute name="pesosPorCupon" type="xs:double" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="BloqueoIP">
+					<xs:complexType>
+						<xs:attribute name="habilitado" type="xs:boolean" use="required"/>
+						<xs:attribute name="hits" type="xs:int" use="required"/>
+						<xs:attribute name="tiempoEntreHits" type="xs:int" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Dominios">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Principal" type="xs:string"/>
+							<xs:element name="Secundario" type="xs:string" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="MusicaOnLine">
+					<xs:complexType>
+						<xs:attribute name="habilitado" type="xs:boolean" use="required"/>
+						<xs:attribute name="seccion" type="xs:int" use="required"/>
+						<xs:attribute name="grupo" type="xs:int" use="required"/>
+						<xs:attribute name="familia" type="xs:int" use="required"/>
+						<xs:attribute name="subfamilia" type="xs:int" use="required"/>
+						<xs:attribute name="disponibilidad" type="xs:int" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ProcesosBackground">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Proceso" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="id" type="xs:string" use="required"/>
+									<xs:attribute name="nombre" type="xs:string" use="required"/>
+									<xs:attribute name="habilitado" type="xs:boolean" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Generacion">
+					<xs:complexType>
+						<xs:attribute name="sentenciaDeMapeo" type="xs:string" use="required"/>
+						<xs:attribute name="directorioDeGeneracion" type="xs:string" use="required"/>
+						<xs:attribute name="directorioRaiz" type="xs:string" use="required"/>
+						<xs:attribute name="sentenciaDeDesMapeo" type="xs:string" use="required"/>
+						<xs:attribute name="url" type="xs:string" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Procesos" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence minOccurs="0">
+							<xs:element name="RunPro" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence minOccurs="0">
+										<xs:element name="DiaSemana" minOccurs="0" maxOccurs="7">
+											<xs:simpleType>
+												<xs:restriction base="xs:int">
+													<xs:enumeration value="1"/>
+													<xs:enumeration value="2"/>
+													<xs:enumeration value="3"/>
+													<xs:enumeration value="4"/>
+													<xs:enumeration value="5"/>
+													<xs:enumeration value="6"/>
+													<xs:enumeration value="7"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element ref="Email" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+									<xs:attribute name="nombre" type="xs:string" use="required"/>
+									<xs:attribute name="clase" type="xs:string" use="required"/>
+									<xs:attribute name="metodo" type="xs:string" use="required"/>
+									<xs:attribute name="comienzo" type="xs:string" use="required"/>
+									<xs:attribute name="espera" type="xs:string" use="required"/>
+									<xs:attribute name="dia" type="xs:string" use="optional"/>
+									<xs:attribute name="hora" type="xs:string" use="optional"/>
+									<xs:attribute name="minuto" type="xs:string" use="optional"/>
+									<xs:attribute name="rangoRepMen" type="xs:string" use="optional"/>
+									<xs:attribute name="rangoRepMay" type="xs:string" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="UbicacionDeRed" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence minOccurs="0">
+							<xs:element name="Ubicacion" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="id" type="xs:string" use="required"/>
+									<xs:attribute name="user" type="xs:string" use="required"/>
+									<xs:attribute name="password" type="xs:string" use="required"/>
+									<xs:attribute name="host" type="xs:string" use="required"/>
+									<xs:attribute name="ip" type="xs:string" use="required"/>
+									<xs:attribute name="defaultDir" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="url" type="xs:string" use="required"/>
+			<xs:attribute name="modoAplicacionHabilitado" type="xs:boolean" use="required"/>
+			<xs:attribute name="dominioSitio" type="xs:string" use="required"/>
+			<xs:attribute name="dominioIntranet" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Error">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Email" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="codigo" type="xs:int" use="required"/>
+			<xs:attribute name="mensajeAMostrar" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="AplicacionType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="intranet"/>
+			<xs:enumeration value="sitio"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Email" type="xs:string"/>
+</xs:schema>

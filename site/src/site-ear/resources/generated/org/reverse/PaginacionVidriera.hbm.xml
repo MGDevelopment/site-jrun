@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.PaginacionVidriera"
+    table="PAGINACION_VIDRIERA"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.PaginacionVidrieraId"
+    >		
+	        <key-property name="idseccion" type="java.lang.Boolean">
+<column name="IDSECCION" precision="1" scale="0" />
+	        </key-property>
+	        <key-property name="fecha" type="date">
+<column name="FECHA" length="7" />
+	        </key-property>
+	        <key-property name="fechaModi" type="date">
+<column name="FECHA_MODI" length="7" />
+	        </key-property>
+	        <key-property name="totalAcumulado" type="big_decimal">
+<column name="TOTAL_ACUMULADO" precision="22" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

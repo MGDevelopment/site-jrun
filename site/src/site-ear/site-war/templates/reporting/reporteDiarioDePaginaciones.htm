@@ -1,0 +1,73 @@
+<html>
+	<body>
+				
+		<br><br>
+		<table align="center" width="420" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">
+			<tr>
+				<td colspan="3">
+					<B>Reporte de paginaciones por seccion.<br>
+					Desde <tmpl_var fechaDesde> hasta <tmpl_var fecha></B>			
+				</td>				
+			</tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr>
+				<td width="70">
+					<B>Seccion</B>
+				</td>
+				<td width="100">
+					<B>Paginaciones</B>
+				</td>				
+				<!--<td width="200">
+					<B>E-MAIL</B>
+				</td>-->				
+			</tr>
+			<tmpl_loop repRow>
+			<tr>
+				<td>
+					<tmpl_var SECCION>
+				</td>
+				<td align="right">
+					<tmpl_var TOTAL_PAGINACIONES>
+				</td>
+				<!--<td  align="right">
+					<tmpl_var EMAIL>
+				</td>-->							
+			</tr>
+			</tmpl_loop>
+		</table>
+		
+		
+		<table align="center" width="420" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">
+			<tr>
+				<td colspan="3">
+					<B>Cambio de filtros<br>
+				</td>				
+			</tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr>
+				<td width="70">
+					<B>Seccion</B>
+				</td>
+				<td width="100">
+					<B>Cantidad cambios</B>
+				</td>				
+				<!--<td width="200">
+					<B>E-MAIL</B>
+				</td>-->				
+			</tr>
+			<tmpl_loop repRowFiltros>
+			<tr>
+				<td>
+					<tmpl_var SECCION>
+				</td>
+				<td align="right">
+					<tmpl_var TOTAL_PAGINACIONES>
+				</td>
+				<!--<td  align="right">
+					<tmpl_var EMAIL>
+				</td>-->							
+			</tr>
+			</tmpl_loop>
+		</table>
+	</body>
+</html>

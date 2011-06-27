@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.EstadoProceso"
+    table="ESTADO_PROCESO"
+>
+
+	<id 
+        name="idEstado"
+        type="int"
+    >
+    
+<column name="ID_ESTADO" precision="5" scale="0" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="nombre"
+	    type="string"
+    >
+<column name="NOMBRE" length="1" >
+<comment>No Utilizada</comment>
+</column>  </property>
+
+    <property
+        name="descripcion"
+	    type="string"
+    >
+<column name="DESCRIPCION" length="25" >
+<comment>Descripcion del estado</comment>
+</column>  </property>
+
+
+	<set name="corridaProcesos"
+table="CORRIDA_PROCESO"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_ESTADO" precision="5" scale="0" >
+<comment>Estado del proceso</comment>
+</column>		</key>
+<one-to-many class="org.reverse.CorridaProceso"
+/>
+	</set>
+
+</class>
+
+</hibernate-mapping>

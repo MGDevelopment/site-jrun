@@ -1,0 +1,38 @@
+<div class="compraWrapper">
+    <form name="frm" action="/SeleccionarPapelDeRegalo" method="post">    	
+    	<input type="hidden" name="seguir" value="true"/>    	
+    	<tmpl_loop articulos>
+	        <div class="cProcPapel-wrapper">        	
+	            <div class="cProcPapInfo">
+	            	<input type="hidden" name="posicionEnLista" value="<tmpl_var posicionEnLista>">
+		            <a href="<tmpl_var urlDetalle>" class="dInfoTit"><tmpl_var titulo></a>
+		            <div class="dInfoAutor"><tmpl_var textoAutor>
+			            <tmpl_loop autores>                    		
+				        	<a href="<tmpl_var urlAutor>"><tmpl_var autor></a>
+				        </tmpl_loop>
+				    </div>  	   
+	            </div>	           
+	            <div class="cProcPap">
+	            	<b>Podés seleccionar un sobre:</b>
+	                <div class="cProcPapSel">	                
+	                	<img src="/tapas/chicas/125929.jpg"  STYLE="visibility: hidden"/>
+	                    <input name="PAPEL_DE_REGALO<tmpl_var posicionEnLista>" type="radio" <tmpl_var chequearSinPapel> />
+	                    Sin sobre de regalo
+	                </div>
+	                <tmpl_loop papeles>
+		                <div class="cProcPapSel">
+		                	<img src="<tmpl_var imagenPapel>" />
+		                    <input name="<tmpl_var nameCampoPapel><tmpl_var posicionEnLista>" type="radio" value="<tmpl_var valueRadioPapel>" <tmpl_var estaChequeado> />
+		                    <tmpl_var tipoDePapel> <br />Precio: <tmpl_var precioPapel>
+		                </div>		                		               
+		             </tmpl_loop>
+	                <b>Podés escribir una dedicatoria que acompañará al producto:</b>
+	                <textarea name="<tmpl_var nombreMensaje><tmpl_var posicionEnLista>" cols="" rows=""><tmpl_var textoMensaje></textarea>
+	            </div>		        
+    		</div>       
+    	</tmpl_loop>
+	</form>        
+</div>    
+<a href="<tmpl_var pantallaAnterior>" class="b-prev">VOLVER AL CARRITO</a>
+<a href="<tmpl_var pantallaSiguiente>" class="b-next">DATOS DE ENTREGA</a>
+<tmpl_var googleSSL>

@@ -1,0 +1,103 @@
+<!-- **** VENTANAS MODALES **** -->
+<div class="ventModal-wrapper" id="modalDom" style="display:none;position:fixed;background-color: #FBF5EF">
+    <div class="vModTop">
+    	<div class="hModUsrNombre">Agregar nuevo domicilio</div>
+        <a class="hModUsrCerrar" href="javascript:mostrarDiv('modalDom'); javascript:mostrarDiv('modalBack');" title="Cerrar">cerrar</a>
+    </div>    
+   <div class="vModContent">
+    <div class="cProcFor-wrapper cProcForms">
+    	<form action="/AgregarDomicilio" method="post" name="formDomicilio">
+    		<INPUT TYPE="HIDDEN" NAME="seguir" VALUE="true"/>
+    		<INPUT TYPE="HIDDEN" id="TIPO_DOMICILIO_A_AGREGAR" NAME="TIPO_DOMICILIO_A_AGREGAR" VALUE=""/>
+            <b><label style="color:red;">*</label> Calle:</b><div><input name="CALLE" type="text" style="width:250px;" /></div>
+            <b><label style="color:red;">*</label>  N&uacute;mero:</b><div><input name="NUMERO" type="text" style="width:100px;" /></div>
+            <b>Piso:</b><div><input name="PISO" type="text" style="width:100px;" /></div>
+            <b>Departamento:</b><div><input name="DEPTO" type="text" style="width:100px;" /></div>
+            <b>Edificio:</b><div><input name="EDIFICIO" type="text" style="width:150px;" /></div>
+            <b><label style="color:red;">*</label>  Pa&iacute;s:</b><div>
+            	<select name="ID_PAIS" onChange="javascript:INDEX_PAIS = actualizarCombo(this, document.formDomicilio.ID_PROVINCIA, paises);INDEX_PROVINCIA = actualizarCombo(formDomicilio.ID_PROVINCIA, document.formDomicilio.ID_LOCALIDAD, paises[INDEX_PAIS].comboDependiente);activarOtraProvincia();" onKeyPress="cambiarFoco(event,'document.formDomicilio.ID_PROVINCIA');" style="width:200px;">
+                    <script type="text/javascript">
+						for(i = 0; i < paises.length; i++) {
+							var selected;	
+							if (paises[i].id == <tmpl_var paisDefaultId>) {
+								selected =  " selected ";
+								INDEX_PAIS = i ;
+							} else {
+								selected = ""
+							}	
+							document.write('<option value="' + paises[i].id + '"' + selected + '>');
+							document.write(paises[i].descripcion);
+							document.write('</option>');
+						}
+					</script>
+               </select>            
+            </div>
+            <b><label style="color:red;">*</label> Provincia:</b><div>
+            <select name="ID_PROVINCIA" onfocus="activarOtraLocalidad()" onChange="javascript:INDEX_PROVINCIA = actualizarCombo(this, document.formDomicilio.ID_LOCALIDAD, paises[INDEX_PAIS].comboDependiente);activarOtraProvincia();" onKeyPress="cambiarFoco(event,'document.formDomicilio.ID_LOCALIDAD');" style="width:200px;">
+                <option value="-1">Elegir de la lista</option>
+				<script type="text/javascript">
+					for(i = 0; i < paises[INDEX_PAIS].comboDependiente.length; i++){
+                        if (paises[INDEX_PAIS].comboDependiente[i].id == <tmpl_var provinciaDefaultId>) {
+                            selected = " selected";
+                            INDEX_PROVINCIA = i;
+                        } else {
+                            selected = "";
+                        }
+                        document.write('<option value="' + paises[INDEX_PAIS].comboDependiente[i].id + '"'  + selected + '>');
+						document.write(paises[INDEX_PAIS].comboDependiente[i].descripcion);
+						document.write('</option>');
+					}
+				</script>
+              </select>
+            </div>
+            <b>Otra:</b><div><input name="PROVINCIA_EXTERNA" disabled="" type="text" style="width:150px;" /></div>
+            <b><label style="color:red;">*</label>  C&oacute;digo postal:</b><div><input name="CP" type="text" style="width:100px;" /></div>
+            <b style="margin-bottom:0;"><p>*</p> Localidad:</b><div style="margin-bottom:0;">            
+	            <select name="ID_LOCALIDAD" onchange="activarOtraLocalidad();" onfocus="activarOtraLocalidad();"  style="width:200px;">
+	            	<option value="-1">Elegir de la lista</option>
+					<script type="text/javascript">
+						if(paises[INDEX_PAIS].comboDependiente.length > 0) {
+							for(i = 0; i < paises[INDEX_PAIS].comboDependiente[INDEX_PROVINCIA].comboDependiente.length; i++) {
+								var selected;
+	        					selected = (paises[INDEX_PAIS].comboDependiente[INDEX_PROVINCIA].comboDependiente[i].id == <tmpl_var localidadDefaultId>) ? " selected " : "";
+								document.write('<option value="' + paises[INDEX_PAIS].comboDependiente[INDEX_PROVINCIA].comboDependiente[i].id + '"' + selected + '>');
+								document.write(paises[INDEX_PAIS].comboDependiente[INDEX_PROVINCIA].comboDependiente[i].descripcion);
+								document.write('</option>');
+							}
+						}
+					</script>
+				</select>
+            </div>        
+        </div>     
+        <a href="javascript:validarForm();" class="vModButton">AGREGAR DOMICILIO</a>
+        </form>
+    </div>    
+</div>
+<div id="modalBack" style="display:none;"></div>
+
+<div class="compraWrapper2"><!-- style="background-color: #FBF5EF">-->    
+    <div class="cProcTit" style="margin-top:0px;"><span>Domicilios de entrega:</span></div>             
+    <!-- ENTREGA-->
+        <tmpl_loop domiciliosEnvio>
+	        <div class="cProcFor-wrapper2 cProcForDom2" style="padding-bottom:0px;">
+	        	<!-- <input name="TIPO_DOMICILIO" type="radio" value="<tmpl_var id>" id="<tmpl_var id>" <tmpl_var chequeado> <tmpl_var disabled>/>-->
+	            <p><tmpl_var direccion>, <tmpl_var codigoPostal>, <tmpl_var localidad>.<br /><tmpl_var provincia>, <tmpl_var pais></p>
+	            <tmpl_if tieneOrdenEnProgreso>
+	            	No se puede modificar este domicilio, tiene ordenes asociadas.
+	            </tmpl_else>
+	            	<a href="/miCuenta/modificarDomicilio.jsp?idDomicilio=<tmpl_var idDomicilio>" class="cProcForButton">Modificar</a>
+	            </tmpl_if>
+	        </div>
+	    </tmpl_loop>        
+        <!-- fin-->  
+        <div class="cProcFor-wrapper2 cProcForDom2">
+            <a href="javascript:borrarCamposAntesDeMostrar('EN');javascript:mostrarDiv('modalDom'); javascript:mostrarDiv('modalBack');" class="detalleBoton">
+            	<span>NUEVO DOMICILIO</span>
+            </a>
+        </div>
+        <tmpl_if mostratMensajeDomicilioFueraArgentina>
+        	<div class="cProcFor-wrapper2 cProcForDom2">
+        		<p style="color:red">Nota: Las direcciones ubicadas en el exterior de Argentina no podrán ser utilizadas debido a que su compra cuenta con artículos de las categorías Pasatiempos, para los cuales no está permitido el envío al exterior de Argentina.</p> 
+        	</div>
+        </tmpl_if>
+    </div>    

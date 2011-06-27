@@ -1,0 +1,67 @@
+.disabledEfect {
+	position:fixed;
+	width:200px;
+	height:350px;
+	/*left:0px;
+	top:0px;*/
+	background-color:#AAA;
+	filter:alpha(opacity=40);
+	opacity: 0.4;
+	position:expression('absolute');
+	z-index:1;
+}
+
+.disabledEfectCtrl {
+	position:fixed;
+	width:800px;
+	height:375px;
+	/*left:0px;
+	top:0px;*/
+	background-color:#AAA;
+	filter:alpha(opacity=40);
+	opacity: 0.4;
+	position:expression('absolute');
+	z-index:1;
+}
+
+.globoArticulo {
+	/*overflow:hidden;*/
+	position:absolute;
+	background-color:#333333;
+	position:expression('absolute');
+	z-index:2;
+}
+
+.globoArticuloLoad {
+	overflow:hidden;
+	position:fixed;
+	background-color:#AAA;
+	position:expression('absolute');
+	z-index:1;
+}
+
+.divMesa{
+	position:relative;
+	width:200px;
+	height:300;
+	background-color:#AAA;
+	overflow:hidden;
+}
+
+.imgTapa {
+	border:0px;
+}
+
+#modalBack {
+	position:fixed;
+	width:100%;
+	height:100%;
+	left:0px;
+	top:0px;
+	background-color:#CCC;
+	filter:alpha(opacity=60);
+	opacity: 0.6;
+	position:expression('absolute');
+	z-index:99;
+
+}

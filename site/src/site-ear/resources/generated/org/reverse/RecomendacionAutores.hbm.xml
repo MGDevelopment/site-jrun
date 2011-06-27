@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.RecomendacionAutores"
+    table="RECOMENDACION_AUTORES"
+>
+
+ <comment>Aqui se guardaran las recomendaciones por autores que surgan de la rutina que utiliza el metodo TOP-N(ver modulo suggest en http://www-users.cs.umn.edu/~karypis/suggest/).</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.RecomendacionAutoresId"
+    >		
+	        <key-property name="idAutor" type="big_decimal">
+<column name="ID_AUTOR" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="idAutorRecomendado" type="big_decimal">
+<column name="ID_AUTOR_RECOMENDADO" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="orden" type="java.lang.Byte">
+<column name="ORDEN" precision="2" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

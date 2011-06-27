@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.Proceso"
+    table="PROCESO"
+>
+
+	<id 
+        name="idProceso"
+        type="int"
+    >
+    
+<column name="ID_PROCESO" precision="5" scale="0" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="nombre"
+	    type="string"
+    >
+<column name="NOMBRE" length="40" >
+<comment>Descripcion</comment>
+</column>  </property>
+
+    <property
+        name="callFuncion"
+	    type="string"
+    >
+<column name="CALL_FUNCION" length="40" >
+<comment>Procedimiento que utiliza de la aplicacion TmkInterfaz. Esta tabla se carga automaticamente con el boton GENERAR PROCESOS DE TMKINTERFASES</comment>
+</column>  </property>
+
+
+</class>
+
+</hibernate-mapping>

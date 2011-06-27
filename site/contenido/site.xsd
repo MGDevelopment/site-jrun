@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSpy v2006 rel. 3 sp2 (http://www.altova.com) by Miguel (Miguel) -->
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Sistemas (ILHSA) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:simpleType name="PosicionesType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="ArribaIzquierda"/>
+			<xs:enumeration value="ArribaCentrado"/>
+			<xs:enumeration value="ArribaDerecha"/>
+			<xs:enumeration value="MedioIzquierda"/>
+			<xs:enumeration value="MedioCentrado"/>
+			<xs:enumeration value="MedioDerecha"/>
+			<xs:enumeration value="AbajoIzquierda"/>
+			<xs:enumeration value="AbajoCentrado"/>
+			<xs:enumeration value="AbajoDerecha"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TipoUrlType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="HTML"/>
+			<xs:enumeration value="JPG"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TipoMapaType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="BIOGRAFIA"/>
+			<xs:enumeration value="ENTREVISTA"/>
+			<xs:enumeration value="COMENTARIO"/>
+			<xs:enumeration value="INDICEDECONTENIDO"/>
+			<xs:enumeration value="PRIMERCAPITULO"/>
+			<xs:enumeration value="EDITORIAL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Producto">
+		<xs:complexType>
+			<xs:attribute name="id" type="xs:int" use="required"/>
+			<xs:attribute name="icono" type="xs:string" use="optional"/>
+			<xs:attribute name="texto" type="xs:string" use="optional"/>
+			<xs:attribute name="hint" type="xs:string" use="optional"/>
+			<xs:attribute name="vencimiento" type="xs:dateTime" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Link">
+		<xs:complexType>
+			<xs:attribute name="pagina" type="xs:string" use="optional"/>
+			<xs:attribute name="icono" type="xs:string" use="required"/>
+			<xs:attribute name="texto" type="xs:string" use="optional"/>
+			<xs:attribute name="hint" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Html">
+		<xs:complexType>
+			<xs:attribute name="url" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Flash">
+		<xs:complexType>
+			<xs:attribute name="file" type="xs:string" use="required"/>
+			<xs:attribute name="ancho" type="xs:int" use="required"/>
+			<xs:attribute name="alto" type="xs:int" use="required"/>
+			<xs:attribute name="texto" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ClaveRPT">
+		<xs:sequence>
+			<xs:element ref="Producto" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Editorial" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="id" type="xs:int" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Proveedor" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="id" type="xs:int" use="required"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ListaMultipleType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element ref="Producto"/>
+			<xs:element ref="Link"/>
+			<xs:element ref="Flash"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ListaProductosType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element ref="Producto"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ComponentesType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element ref="Producto"/>
+			<xs:element ref="Link"/>
+			<xs:element name="Componentes" type="ComponentesType"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ReemplazoType">
+		<xs:sequence>
+			<xs:element name="Reemplazo" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Origen" type="xs:string"/>
+						<xs:element name="Destino" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TextoType">
+		<xs:sequence>
+			<xs:element name="Texto" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PaginaType">
+		<xs:sequence>
+			<xs:element name="Home">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element ref="Producto"/>
+						<xs:element ref="Link"/>
+						<xs:element ref="Flash"/>
+						<xs:element ref="Html"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PrimerLista" type="ListaMultipleType" minOccurs="0"/>
+			<xs:element name="SegundaLista" type="ListaMultipleType" minOccurs="0"/>
+			<xs:element name="TercerLista" type="ListaMultipleType" minOccurs="0"/>
+			<xs:element name="PromocionesVert" type="ListaMultipleType" minOccurs="0"/>
+			<xs:element name="PromocionesHorz" type="ListaMultipleType" minOccurs="0"/>
+			<xs:element name="BannerSuperior">
+				<xs:complexType>
+					<xs:attribute name="paginaFuente" type="xs:string" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="BannersTop" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Banner" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Principal" minOccurs="0">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="Articulos">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element ref="Articulo" maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="Banner"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Destacados" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Articulo" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Favoritos" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Autor" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:attribute name="id" type="xs:int"/>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Recorridos" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Recorrido" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:attribute name="idGrupo" type="xs:int" use="required"/>
+								<xs:attribute name="descripcion" type="xs:string" use="required"/>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LinkBusqueda" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Categoria" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:attribute name="idGrupo" type="xs:int" use="required"/>
+								<xs:attribute name="idFamilia" type="xs:int" use="optional" default="-1"/>
+								<xs:attribute name="idSubFamilia" type="xs:int" use="optional" default="-1"/>
+								<xs:attribute name="descripcion" type="xs:string" use="required"/>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Mapas" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Mapa" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:attribute name="tipo" type="TipoMapaType" use="required"/>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="BannerCatalogo" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence maxOccurs="unbounded">
+						<xs:element name="BannerGrupo" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence maxOccurs="unbounded">
+									<xs:element name="BannerFamilia" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence maxOccurs="unbounded">
+												<xs:element name="BannerSubFamilia" minOccurs="0" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:attribute name="id" type="xs:int" use="required"/>
+														<xs:attribute name="url" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:int" use="required"/>
+											<xs:attribute name="url" type="xs:string" use="required"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								<xs:attribute name="id" type="xs:int" use="required"/>
+								<xs:attribute name="url" type="xs:string" use="required"/>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:int" use="required"/>
+	</xs:complexType>
+	<xs:element name="Evento">
+		<xs:complexType>
+			<xs:attribute name="activo" type="xs:boolean" use="required"/>
+			<xs:attribute name="descripcion" type="xs:string" use="required"/>
+			<xs:attribute name="sucursal" type="xs:int" use="required"/>
+			<xs:attribute name="fecha" type="xs:dateTime" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Site">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Configuracion">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="Flash"/>
+							<xs:element name="Formatos">
+								<xs:complexType>
+									<xs:attribute name="fechaCorto" type="xs:string" use="required"/>
+									<xs:attribute name="fechaLargo" type="xs:string" use="required"/>
+									<xs:attribute name="fechaPublicacion" type="xs:string" use="required"/>
+									<xs:attribute name="porcentaje" type="xs:string" use="required"/>
+									<xs:attribute name="monedaPeso" type="xs:string" use="required"/>
+									<xs:attribute name="monedaDollar" type="xs:string" use="required"/>
+									<xs:attribute name="monedaEuro" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Administrador">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Email" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="CallCenter">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Email" type="xs:string"/>
+										<xs:element name="Horario" type="xs:string"/>
+										<xs:element name="Telefono" type="xs:string"/>
+										<xs:element name="TelefonoExterior" type="xs:string"/>
+										<xs:element name="FAX" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Alianzas">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Email" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="OfertaDeTrabajo">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Email" type="xs:string" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ReporteDeContenido">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Email" type="xs:string" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ReporteDePedidosEspeciales">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Email" type="xs:string" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ReporteDeOrdenes">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Email" type="xs:string" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ReporteDeEstadoDeOrden">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Email" type="xs:string" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ReporteDeVisitas">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Email" type="xs:string" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ReporteDeClientesInstitucionales">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Email" type="xs:string" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ReporteDeSocios">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Email" type="xs:string" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="TarjetasVerificadas">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Email" type="xs:string" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="AlertaRegistracionConDocDuplicado">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Email" type="xs:string" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Correcciones">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Minusculizar" type="TextoType"/>
+										<xs:element name="Mayusculizar" type="TextoType"/>
+										<xs:element name="Puntuacion" type="ReemplazoType"/>
+										<xs:element name="Articulacion" type="ReemplazoType"/>
+									</xs:sequence>
+									<xs:attribute name="mejorarTextos" type="xs:boolean" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Encuestas">
+								<xs:complexType>
+									<xs:attribute name="habilitarEncuestas" type="xs:boolean" use="required"/>
+									<xs:attribute name="paginaFuente" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="logo" type="xs:string" use="required"/>
+						<xs:attribute name="mensajeLogo" type="xs:string" use="required"/>
+						<xs:attribute name="vigenciaDelCarritoEnDias" type="xs:int" use="required"/>
+						<xs:attribute name="generarTapasProtegidas" type="xs:boolean" use="required"/>
+						<xs:attribute name="vigenciaTapasProtegidas" type="xs:int" use="required"/>
+						<xs:attribute name="diasConsideradosNovedad" type="xs:int" use="required"/>
+						<xs:attribute name="diasIgnoradosNovedad" type="xs:int" use="required"/>
+						<xs:attribute name="solapasEnMultilinea" type="xs:boolean" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Paginas">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Pagina" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="PaginaType">
+											<xs:attribute name="posicionMarcaChica" type="PosicionesType" use="optional"/>
+											<xs:attribute name="posicionMarcaGrande" type="PosicionesType" use="optional"/>
+											<xs:attribute name="porcentajeAlphaMarca" type="xs:int" use="optional" default="100"/>
+											<xs:attribute name="posicionDescuentoChico" type="PosicionesType" use="optional"/>
+											<xs:attribute name="posicionDescuentoGrande" type="PosicionesType" use="optional"/>
+											<xs:attribute name="porcentajeAlphaDescuento" type="xs:int" use="optional" default="100"/>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="textoParaBuscadores" type="xs:string" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="PapelesDeRegalo" type="ListaProductosType"/>
+				<xs:element name="ListaDeDeseos" type="ListaProductosType"/>
+				<xs:element name="Ranking">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="RankingSeccion" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="RankingGrupo" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:complexContent>
+													<xs:extension base="ListaProductosType">
+														<xs:attribute name="nombre" type="xs:string" use="required"/>
+													</xs:extension>
+												</xs:complexContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="id" type="xs:int" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="RecorridoPorTemas">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="RecorridoSecciones">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Claves" type="ClaveRPT"/>
+										<xs:element name="RecorridoSeccion" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Claves" type="ClaveRPT" minOccurs="0"/>
+													<xs:element name="RecorridoGrupos">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Claves" type="ClaveRPT" minOccurs="0"/>
+																<xs:element name="RecorridoGrupo" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Claves" type="ClaveRPT" minOccurs="0"/>
+																			<xs:element name="RecorridoFamilias" minOccurs="0">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="Claves" type="ClaveRPT" minOccurs="0"/>
+																						<xs:element name="RecorridoFamilia" maxOccurs="unbounded">
+																							<xs:complexType>
+																								<xs:sequence>
+																									<xs:element name="Claves" type="ClaveRPT" minOccurs="0"/>
+																								</xs:sequence>
+																								<xs:attribute name="id" type="xs:int" use="required"/>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																		<xs:attribute name="id" type="xs:int" use="required"/>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="id" type="xs:int" use="required"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="NuestrasCategorias">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="NuestraCategoriasSeccion" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="NuestraCategoriasGrupo" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:attribute name="id" type="xs:int" use="required"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="id" type="xs:int" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Eventos">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="Evento" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Cupones">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Registro">
+								<xs:complexType>
+									<xs:attribute name="id" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Referido">
+								<xs:complexType>
+									<xs:attribute name="id" type="xs:string" use="required"/>
+									<xs:attribute name="beneficio" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Referente" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="id" type="xs:string" use="required"/>
+									<xs:attribute name="beneficio" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Banner">
+		<xs:complexType>
+			<xs:attribute name="tipoUrl" type="TipoUrlType" use="required"/>
+			<xs:attribute name="url" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Articulo">
+		<xs:complexType>
+			<xs:attribute name="id" type="xs:int" use="required"/>
+			<xs:attribute name="idSeccion" type="xs:int" use="required"/>
+			<xs:attribute name="texto" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

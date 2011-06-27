@@ -1,0 +1,58 @@
+<html>
+	<body>
+		
+		<B>Reporte de cantidad de tiempo que tarda en realizarse una orden.<br>
+			
+		<table align="center" width="800" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">			
+			<tr>
+				<td >
+					<B>Fecha</B>
+				</td>
+				<td >
+					<B>Usuario</B>
+				</td>				
+				<td >
+					<B>Fecha Inicio</B>
+				</td>
+				<td >
+					<B>Fecha Finalizacion</B>
+				</td>				
+				<td >
+					<B>Tiempo Total</B>
+				</td>		
+				<td >
+					<B>idOrden</B>
+				</td>
+				<td >
+					<B>Nueva UI</B>
+				</td>			
+			</tr>
+			<tmpl_loop repRow>
+			<tr>
+				<td>
+					<tmpl_var fecha>
+				</td>
+				<td>
+					<tmpl_var login>
+				</td>
+				<td align="right">
+					<tmpl_var fechaInicio>
+				</td>
+				<td  align="right">
+					<tmpl_var fechaFinalizacion>
+				</td>
+				<td  align="right">
+					<tmpl_var tiempoTotal>
+				</td>
+				<td  align="right">
+					<tmpl_var idOrden>
+				</td>
+				<td  align="right">
+					<tmpl_var esProcesoNuevo>
+				</td>
+			</tr>
+			</tmpl_loop>
+		</table>
+				
+	</body>
+</html>

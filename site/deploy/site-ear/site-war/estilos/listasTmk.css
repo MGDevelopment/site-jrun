@@ -1,0 +1,90 @@
+form div {
+	color: #000;
+	font-size: 1em;
+	display: inline-block;
+}
+
+form div .rado {
+	margin: 10px 0px 0px 0px;
+}
+
+label {
+	color: #000;
+	font-size: 1em;
+	margin: 10px 0 .2em 15px;
+}
+
+input.textField {
+	width: 260px;
+	color: #000;
+	font-size: 1.1em;
+	padding: 4px;
+	background: #fff;
+	border: 1px solid #999;
+	margin: 0 0 20px 0;
+	display: inline;
+	margin: 0 0 .2em 15px;
+}
+
+textarea.textArea {
+	width: 500px;
+	height: 150px;
+	color: #000;
+	font-family: Tahoma, tahoma, sans-serif, Arial, Tahoma, Verdana;
+	font-size: 1em;
+	padding: 4px;
+	background: #fff;
+	border: 1px solid #999;
+	margin: 0 0 .2em 15px;
+	overflow: auto;
+}
+
+.error-message,label.error {
+	color:#004B85;
+	display: block;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+/* para controlar el spam en formularios */
+#messageLabel {
+	display: none !important;
+}
+
+#message {
+	display: none !important;
+}
+
+.groovybutton {
+	font-size: 11px;
+	font-family: Verdana, sans-serif;
+	font-weight: bold;
+	width: 120px;
+	color: #FFFFFF;
+	background-color: #004B85;
+	border-top-style: solid;
+	border-top-color: #AAAAAA;
+	border-top-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #AAAAAA;
+	border-bottom-width: 1px;
+	border-left-style: solid;
+	border-left-color: #FFEEDD;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-right-color: #FFFFFF;
+	border-right-width: 1px;
+	margin: 15px 10px 0 1px;
+}
+.area {
+	background: #FFFFFF none repeat scroll 0 0;
+	border: 1px solid #999999;
+	color: #000000;
+	font-family: Tahoma, tahoma, sans-serif, Arial, Tahoma, Verdana;
+	font-size: 1em;
+	height: 50px;
+	margin: 0 0 0.2em 15px;
+	overflow: auto;
+	padding: 4px;
+	width: 260px;
+}

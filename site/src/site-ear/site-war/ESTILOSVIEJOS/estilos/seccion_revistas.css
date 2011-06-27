@@ -1,0 +1,156 @@
+
+table.tablaPrincipal
+{
+	background-color: #b5e7b5;
+}
+
+input.botonClasico
+{
+	background-color: #316b31;
+	font-weight: bold;
+	color: #b5e7b5;
+	border-width: 1px;
+}
+
+td.celdaEncabezado
+{
+	background-color: #b5e7b5;
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: #005a00;
+	text-align: center;
+}
+
+td.celdaEncabezadoInv
+{
+	background-color: #005a00;
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: #b5e7b5;
+	text-align: center;
+}
+
+.fondoRevista
+{
+	background-color: #E9FFE9;
+}
+
+.bordeRevista
+{
+	border-top: 5px solid #B3E5B3;
+}
+
+.bordeRevistaAlto
+{
+	border-top: 12px solid #B3E5B3;
+}
+
+.borde
+{
+	border-top: 5px solid #B3E5B3;
+}
+
+.bordeAlto
+{
+	border-top: 12px solid #B3E5B3;
+}
+
+
+
+.titulo
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #006600;
+	font-weight: bold;
+	background-color: #B5E7B5;
+	text-align: left;
+}
+
+
+.tituloResultado
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 23px;
+	color: #006600;
+	font-weight: bold;
+	text-align: left;
+}
+
+.fondoClaro
+{
+	background-color: #E9FFE9;
+}
+
+.fondoOscuro
+{
+	background-color: #B3E5B3;
+}
+.fondoOscuroConLinea
+{
+	background: #B3E5B3 url('/imagenes/sombracostado.gif') repeat-y right;
+}
+.fondoOscuroConEsquina
+{
+	background: #B3E5B3  url('/imagenes/sombraesquina.gif')  no-repeat right bottom;
+}
+
+
+
+.titulocatalogo {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #005900;
+	text-decoration: none;
+	font-weight: bolder;
+}
+
+.titulo26 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 26px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: 600;
+	color: #007700;
+	background-position: center center;
+	letter-spacing: 2px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+.titulocatalogo{
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #005900;
+	text-decoration: none;
+	font-weight: bolder;
+}
+.tituloFamilia
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	text-decoration: none;
+	font-weight: bold;
+	color: #005900;
+}
+
+.headerFamilia
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	font-style: normal;
+	text-decoration: none;
+	font-weight: bold;
+	color: #007700;
+}
+
+.colorBarra {
+    color: #B3E5B3;
+}
+.linkBusc:hover {text-decoration: underline;}

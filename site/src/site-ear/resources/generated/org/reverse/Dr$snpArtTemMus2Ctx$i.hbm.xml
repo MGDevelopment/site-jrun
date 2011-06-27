@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.Dr$snpArtTemMus2Ctx$i"
+    table="DR$SNP_ART_TEM_MUS_2_CTX$I"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.Dr$snpArtTemMus2Ctx$iId"
+    >		
+	        <key-property name="dr$token" type="string">
+<column name="DR$TOKEN" length="64" />
+	        </key-property>
+	        <key-property name="dr$tokenType" type="short">
+<column name="DR$TOKEN_TYPE" precision="3" scale="0" />
+	        </key-property>
+	        <key-property name="dr$rowid" type="serializable">
+<column name="DR$ROWID" />
+	        </key-property>
+	        <key-property name="dr$tokenInfo" type="binary">
+<column name="DR$TOKEN_INFO" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

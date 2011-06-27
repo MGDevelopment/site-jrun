@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.BufferSociosDomiciliosB"
+    table="BUFFER_SOCIOS_DOMICILIOS_B"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.BufferSociosDomiciliosBId"
+    >		
+	        <key-property name="idSucursal" type="short">
+<column name="ID_SUCURSAL" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="idSocio" type="long">
+<column name="ID_SOCIO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="tipoDomicilio" type="string">
+<column name="TIPO_DOMICILIO" length="4" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <many-to-one
+	    name="bufferSocios"
+	    class="org.reverse.BufferSocios"
+	    
+        update="false"
+        insert="false"
+        fetch="select"
+    >
+<column name="ID_SUCURSAL" precision="4" scale="0" not-null="true" />
+<column name="ID_SOCIO" precision="10" scale="0" not-null="true" />
+   </many-to-one>
+    <property
+        name="calle"
+	    type="string"
+    >
+<column name="CALLE" length="100" not-null="true" />
+  </property>
+
+    <property
+        name="numero"
+	    type="java.lang.Long"
+    >
+<column name="NUMERO" precision="10" scale="0" />
+  </property>
+
+    <property
+        name="edificio"
+	    type="string"
+    >
+<column name="EDIFICIO" length="40" />
+  </property>
+
+    <property
+        name="piso"
+	    type="java.lang.Short"
+    >
+<column name="PISO" precision="4" scale="0" />
+  </property>
+
+    <property
+        name="depto"
+	    type="string"
+    >
+<column name="DEPTO" length="4" />
+  </property>
+
+    <property
+        name="cp"
+	    type="string"
+    >
+<column name="CP" length="20" />
+  </property>
+
+    <property
+        name="idLocalidad"
+	    type="int"
+    >
+<column name="ID_LOCALIDAD" precision="5" scale="0" not-null="true" />
+  </property>
+
+    <property
+        name="idProvincia"
+	    type="int"
+    >
+<column name="ID_PROVINCIA" precision="5" scale="0" not-null="true" />
+  </property>
+
+    <property
+        name="idPais"
+	    type="int"
+    >
+<column name="ID_PAIS" precision="5" scale="0" not-null="true" />
+  </property>
+
+    <property
+        name="comentarios"
+	    type="string"
+    >
+<column name="COMENTARIOS" length="100" />
+  </property>
+
+    <property
+        name="operacion"
+	    type="string"
+    >
+<column name="OPERACION" length="1" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="30" not-null="true" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="30" />
+  </property>
+
+    <property
+        name="procesado"
+	    type="string"
+    >
+<column name="PROCESADO" length="1" not-null="true" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

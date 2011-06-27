@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.EstadoItemOrden"
+    table="ESTADO_ITEM_ORDEN"
+>
+
+ <comment>ESTADOS VALIDOS DE LAS ORDENES</comment>
+	<id 
+        name="estado"
+        type="string"
+    >
+    
+<column name="ESTADO" length="2" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="descripcion"
+	    type="string"
+    >
+<column name="DESCRIPCION" length="50" not-null="true" />
+  </property>
+
+
+	<set name="itemOrdens"
+table="ITEM_ORDEN"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ESTADO" length="2" />
+		</key>
+<one-to-many class="org.reverse.ItemOrden"
+/>
+	</set>
+
+</class>
+
+</hibernate-mapping>

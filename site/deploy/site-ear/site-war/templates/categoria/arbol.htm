@@ -1,0 +1,22 @@
+<h2 class="FTtit01">SUBCATEGORIAS<br/>DE <tmpl_var desSeccion></h2>
+<table width="130" border="0" cellpadding="0" cellspacing="0" class="intbarraizq">
+	<tr>
+		<td>
+			<tmpl_loop grupo>
+				<div id="GdivSubcatSub">
+					<a href="<tmpl_var hrefGrupo>" class="FSubCategoriasIzq"><tmpl_var desGrupo> (<tmpl_var cantGrupo>)</a>
+				</div>
+				<tmpl_loop familia>
+					<div id="GdivSubcatSub2">
+						<a href="<tmpl_var hrefFamilia>" class="FSubCategorias2"><tmpl_var desFamilia> (<tmpl_var cantFamilia>)</a>
+					</div>
+					<tmpl_loop subFamilia>
+						<div id="GdivSubcatSub3"><a href="<tmpl_var hrefSubFamilia>" class="FSubCategorias2">
+							<tmpl_var desSubFamilia> (<tmpl_var cantSubFamilia>)</a>
+						</div>
+					</tmpl_loop>
+				</tmpl_loop>
+			</tmpl_loop>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SociosNuevo"
+    table="SOCIOS_NUEVO"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.SociosNuevoId"
+    >		
+	        <key-property name="idSucursal" type="short">
+<column name="ID_SUCURSAL" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="idSocio" type="long">
+<column name="ID_SOCIO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idCaal" type="long">
+<column name="ID_CAAL" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idTipoContribuyente" type="long">
+<column name="ID_TIPO_CONTRIBUYENTE" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="nroIngBrutos" type="string">
+<column name="NRO_ING_BRUTOS" length="20" />
+	        </key-property>
+	        <key-property name="nroInscIva" type="big_decimal">
+<column name="NRO_INSC_IVA" precision="20" scale="0" />
+	        </key-property>
+	        <key-property name="inscGan" type="string">
+<column name="INSC_GAN" length="1" />
+	        </key-property>
+	        <key-property name="tipoPersona" type="string">
+<column name="TIPO_PERSONA" length="1" />
+	        </key-property>
+	        <key-property name="razonSocial" type="string">
+<column name="RAZON_SOCIAL" length="50" />
+	        </key-property>
+	        <key-property name="sexo" type="string">
+<column name="SEXO" length="1" />
+	        </key-property>
+	        <key-property name="nombres" type="string">
+<column name="NOMBRES" length="50" />
+	        </key-property>
+	        <key-property name="apellidos" type="string">
+<column name="APELLIDOS" length="50" />
+	        </key-property>
+	        <key-property name="tipoDoc" type="string">
+<column name="TIPO_DOC" length="4" />
+	        </key-property>
+	        <key-property name="nroDoc" type="java.lang.Long">
+<column name="NRO_DOC" precision="15" scale="0" />
+	        </key-property>
+	        <key-property name="cuit" type="string">
+<column name="CUIT" length="20" />
+	        </key-property>
+	        <key-property name="nacionalidad" type="java.lang.Integer">
+<column name="NACIONALIDAD" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="fechaNacimiento" type="date">
+<column name="FECHA_NACIMIENTO" length="7" />
+	        </key-property>
+	        <key-property name="idCategoria" type="string">
+<column name="ID_CATEGORIA" length="5" />
+	        </key-property>
+	        <key-property name="estadoCivil" type="string">
+<column name="ESTADO_CIVIL" length="2" />
+	        </key-property>
+	        <key-property name="hijos" type="java.lang.Byte">
+<column name="HIJOS" precision="2" scale="0" />
+	        </key-property>
+	        <key-property name="EMail1" type="string">
+<column name="E_MAIL1" length="100" />
+	        </key-property>
+	        <key-property name="EMail2" type="string">
+<column name="E_MAIL2" length="100" />
+	        </key-property>
+	        <key-property name="usaTc" type="string">
+<column name="USA_TC" length="1" />
+	        </key-property>
+	        <key-property name="habeasData" type="string">
+<column name="HABEAS_DATA" length="1" />
+	        </key-property>
+	        <key-property name="compraTel" type="string">
+<column name="COMPRA_TEL" length="1" />
+	        </key-property>
+	        <key-property name="compraInternet" type="string">
+<column name="COMPRA_INTERNET" length="1" />
+	        </key-property>
+	        <key-property name="comentarios" type="string">
+<column name="COMENTARIOS" length="2000" />
+	        </key-property>
+	        <key-property name="idProfesion" type="java.lang.Integer">
+<column name="ID_PROFESION" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="password" type="string">
+<column name="PASSWORD" length="20" />
+	        </key-property>
+	        <key-property name="login" type="string">
+<column name="LOGIN" length="100" />
+	        </key-property>
+	        <key-property name="idioma1" type="string">
+<column name="IDIOMA1" length="3" />
+	        </key-property>
+	        <key-property name="idioma2" type="string">
+<column name="IDIOMA2" length="3" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="30" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+	        <key-property name="usrModi" type="string">
+<column name="USR_MODI" length="30" />
+	        </key-property>
+	        <key-property name="clienteCodigo" type="java.lang.Long">
+<column name="CLIENTE_CODIGO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="fechaInhab" type="date">
+<column name="FECHA_INHAB" length="7" />
+	        </key-property>
+	        <key-property name="motivoInhab" type="string">
+<column name="MOTIVO_INHAB" length="200" />
+	        </key-property>
+	        <key-property name="nombreFantasía" type="string">
+<column name="NOMBRE_FANTASÍA" length="40" />
+	        </key-property>
+	        <key-property name="ibCodigo" type="java.lang.Short">
+<column name="IB_CODIGO" precision="3" scale="0" />
+	        </key-property>
+	        <key-property name="inicioRelComercial" type="date">
+<column name="INICIO_REL_COMERCIAL" length="7" />
+	        </key-property>
+	        <key-property name="retieneGan" type="string">
+<column name="RETIENE_GAN" length="1" />
+	        </key-property>
+	        <key-property name="retieneIva" type="string">
+<column name="RETIENE_IVA" length="1" />
+	        </key-property>
+	        <key-property name="retieneIb" type="string">
+<column name="RETIENE_IB" length="1" />
+	        </key-property>
+	        <key-property name="ordenCh" type="string">
+<column name="ORDEN_CH" length="40" />
+	        </key-property>
+	        <key-property name="resExGan" type="string">
+<column name="RES_EX_GAN" length="20" />
+	        </key-property>
+	        <key-property name="resExIva" type="string">
+<column name="RES_EX_IVA" length="20" />
+	        </key-property>
+	        <key-property name="idVendedor" type="java.lang.Long">
+<column name="ID_VENDEDOR" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="tipoContIb" type="string">
+<column name="TIPO_CONT_IB" length="1" />
+	        </key-property>
+	        <key-property name="categoriaValor" type="string">
+<column name="CATEGORIA_VALOR" length="3" />
+	        </key-property>
+	        <key-property name="idProvinciaIibb" type="java.lang.Integer">
+<column name="ID_PROVINCIA_IIBB" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="idPaisIibb" type="java.lang.Integer">
+<column name="ID_PAIS_IIBB" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="infoExtra" type="string">
+<column name="INFO_EXTRA" length="1" />
+	        </key-property>
+	        <key-property name="infoTerceros" type="string">
+<column name="INFO_TERCEROS" length="1" />
+	        </key-property>
+	        <key-property name="pcCasa" type="string">
+<column name="PC_CASA" length="1" />
+	        </key-property>
+	        <key-property name="internetCasa" type="string">
+<column name="INTERNET_CASA" length="1" />
+	        </key-property>
+	        <key-property name="dperCodigo" type="java.lang.Integer">
+<column name="DPER_CODIGO" precision="8" scale="0" />
+	        </key-property>
+	        <key-property name="idFormaPago" type="java.lang.Byte">
+<column name="ID_FORMA_PAGO" precision="2" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

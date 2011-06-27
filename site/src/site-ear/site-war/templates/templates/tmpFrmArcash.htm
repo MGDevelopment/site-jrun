@@ -1,0 +1,299 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="http://www.tematika.com/imagenes/tematika.ico" rel="shortcut icon"
+	type="image/x-icon">
+<title>Proceso de Compras</title>
+
+<link href="http://www.tematika.com/estilos/comun.css" rel="stylesheet" type="text/css" />
+<link href="http://www.tematika.com/estilos/carrito.css" rel="stylesheet" type="text/css" />
+<link href="http://www.tematika.com/estilos/seccion_tematika.css" rel="stylesheet"	type="text/css" />
+<link href="http://www.tematika.com/estilos/old/seccion_tematikaGeneral.css" rel="stylesheet" type="text/css" />
+<link href="http://www.tematika.com/estilos/old/seccion_inicio.css" rel="stylesheet" type="text/css" />
+<link href="http://www.tematika.com/estilos/old/seccion_tematika.css" rel="stylesheet" 	type="text/css" />
+<link href="http://www.tematika.com/estilos/old/comun.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">var ieversion=/*@cc_on function(){ switch(@_jscript_version){ case 1.0:return 3; case 3.0:return 4; case 5.0:return 5; case 5.1:return 5; case 5.5:return 5.5; case 5.6:return 6; case 5.7:return 7; }}()||@*/0;
+if (ieversion == 6 || ieversion == 5.5) {document.write('<link href="http://www.tematika.com/estilos/ie6.css" rel="stylesheet" type="text/css" />');}
+</script>
+<script type="text/javascript" src="http://www.tematika.com/js/prototype-1.6.0.3.js"></script>
+<script type="text/javascript" src="http://www.tematika.com/js/dropDownMenu.js"></script>
+<script type="text/javascript" src="http://www.tematika.com/js/equalcolumns.js"></script>
+<script type="text/javascript" src="http://www.tematika.com/js/menuarbol.js"></script>
+<script type="text/javascript" src="http://www.tematika.com/js/buscador.js"></script>
+<script type="text/javascript" src="http://www.tematika.com/js/jsutil.js"></script>
+<script type="text/javascript" src="http://www.tematika.com/js/carritoNew.js"></script>
+<script type="text/javascript" src="http://www.tematika.com/js/popups.js"></script>
+<script type="text/javascript" src="http://www.tematika.com/js/mensaje.js"></script>
+<script src="http://www.tematika.com/js/imagen.js" type="text/javascript"></script>
+<script src="http://www.tematika.com/js/Combo.js" type="text/javascript"></script>
+<script src="http://www.tematika.com/js/validationForm.js" type="text/javascript"></script>
+<script src="http://www.tematika.com/js/Validation.js" type="text/javascript"></script>
+<script src="http://www.tematika.com/js/ajax.js" type="text/javascript"></script>
+
+</head>
+<body>
+<center><!-- **** INICIO DEL CONTENIDO DEL SITIO **** -->
+<div class="lienzo"><!-- **** HEADER **** -->
+
+<div class="header"><a href="#" class="hLogo" title="Tematika.com"></a>
+
+
+<div class="hBuscador">
+<ul class="dropdown">
+	<li class="dir"
+		onclick="javascript:desplegarOpciones('listaBuscador');"><span
+		id="optBusqueda">Todo el Sitio</span>
+	<ul style="display: none;" id="listaBuscador"
+		onmouseover="clearTimeout(tempo);"
+		onmouseout="ocultarOpcionesT('listaBuscador');">
+
+		<li><a id="optBus1" href="#">Todo el Sitio</a></li>
+
+		<li><a id="optBus2" href="#">En Libros</a></li>
+
+		<li><a id="optBus3" href="#">En Musica</a></li>
+
+		<li><a id="optBus4" href="#">En Peliculas</a></li>
+
+		<li><a id="optBus5" href="#">En Pasatiempos</a></li>
+	</ul>
+	</li>
+</ul>
+<input id="txtBuscar" name="buscadorTxtField" type="text" value=""
+	class="hBuscTxtF"/>
+<input type="hidden" id="seccionBusqueda" value="En Tematika.com"><input
+	type="hidden" id="idSeccionPropia" value="0"><input
+	type="hidden" id="idSeccion" value="0"><a id="btnBuscar"
+	class="hBuscButton" title="Buscar"
+	href="#">&nbsp;</a>
+</div>
+<a href="#" class="hServClientes" title="Servicio al cliente"></a>
+
+
+
+
+<div class="hModUsuarioBack"></div>
+<div class="hModUsuario">
+<div class="hModUsrNombre" style="cursor: pointer"
+	onclick="window.location.href='#'"><tmpl_var nombre></div>
+
+
+<a style="visibility: visible;" class="hModUsrCerrar" href="#"
+	title="Salir"></a>
+<div class="hModUsrExtra"><br />
+<a id="lnkCantPuntExtra" href="#"></a></div>
+<a href="#" id="textoCarrito" class="hModUsrCarrito"
+	title="Finalizar la compra"></a> <a href="#" id="textoCarritoLnk"
+	class="hModUsrCarritoLnk" title="Carrito de compra"></a> <a href="#"
+	class="hModUsrButton" title="Panel de Usuario"></a></div>
+</div>
+<div id="msjMax" class="panelMensajes" style="display: none">
+<div class="panelMsjTit">Tenés&nbsp;<span id="totalMsg"></span>
+mensajes por leer &gt;</div>
+<div class="panelMsjTxt"><a href="#" class="panelMsjCerrar">cerrar</a>
+<span id="pagMsg"></span> <span id="textoMsgActual"></span>
+<div><a href="#" class="pnlMsgComandos" id="msgAnterior">&lt;Anterior</a>
+| <a href="#" class="pnlMsgComandos" id="msgSiguiente">Siguiente&gt;</a>
+| <a href="#" class="pnlMsgComandos" id="msgLeido">No volver a
+mostrar este mensaje</a></div>
+</div>
+</div>
+<div id="msjMin" class="panelMensajes" style="display: none">
+<div class="panelMsjTxt"><a
+	href="#"
+	class="panelMsjAbrir">abrir panel y ver mensajes</a></div>
+</div>
+<!-- **** BODY --> <!-- **** BARRA CENTRAL **** -->
+<div class="barraCentral" id="barraCentral">
+
+<div class="panelSeccionesLeft"><a href="#" id="panelSeccLibros"
+	title="Libros"><span></span></a> <a href="#" id="panelSeccMusica"
+	title="Música"><span></span></a> <a href="#" id="panelSeccPeliculas"
+	title="Películas"><span></span></a> <a href="#"
+	id="panelSeccPasatiempos" title="Pasatiempos"><span></span></a> <a
+	href="#" id="panelSeccSucursales" title="Sucursales"><span></span></a>
+
+
+<a href="#" id="panelSeccQuid" title="Quid"><span></span></a> <a
+	href="#" id="panelSeccExtra" title="eXtra!"><span></span></a></div>
+
+<!-- **** SECCION TEMATIKA **** --> <script language="Javascript">if(window.history.forward(1) != null) window.history.forward(1);</script>
+<div id="seccionTematika">
+<div style="width: 800px; margin: auto; margin-top: 0px;"
+	id="DivContenedor">
+
+<table width="760" border="0" align="center" cellpadding="0"
+	cellspacing="0" class="Gtablaprincipal" align="center">
+	<tr>
+		<td>
+		<table width="740" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td colspan="2">
+				<table width="740" border="0" cellpadding="0" cellspacing="0"
+					class="Gtablacontenido">
+					<tr>
+						<td class="Gbarraizquierda" width="139">
+						<table width="140" border="0" align="left" cellpadding="0"
+							cellspacing="0">
+							<tr>
+								<td align="left" valign="top"><img
+									src="http://www.tematika.com/imagenes/compra/micompra-05.gif" width="140" height="139" /></td>
+							</tr>
+						</table>
+						</td>
+						<td height="300" class="Gcentro">
+						<%
+							
+						%>
+						<table width="95%" border="0" align="center" cellpadding="0"
+							cellspacing="0" class="modulocompratop">
+							<tr>
+								<td class="moduloayuda">
+								<div align="center">
+								<table width="100%" border="0" align="center" cellpadding="0"
+									cellspacing="0">
+
+									<tr>
+										<td valign="bottom" class="Ftexto02"><span
+											class="FTtit01">Gracias por habernos elegido.</span><br />
+										<span class="Ftextorojo">Su n&uacute;mero de Orden es <tmpl_var ExternalReference> <br />
+										<br /></span></td>
+									</tr>
+									<!-- ARCASH -->
+									<tr>
+										<td>
+										<div
+											style="background-color: #FDFFCA; border-bottom: dashed 1px #666; border-top: dashed 1px #666; padding: 5px; margin-top: 15px;"
+											class="Ftexto02"><strong>IMPORTANTE:</strong> Para
+										recibir los productos necesitar&aacute; realizar el pago a
+										través de Arcash.</div>
+
+										<!-- FRM ARCASH -->
+
+										<div style="margin-top: 15px; text-align: center;">
+										<table border="0" width="100%" cellpadding="0" cellspacing="0">
+											<tr>
+												<td class="Ftexto02">Ingrese a <b>Arcash</b> haciendo
+												click en la <b>imagen</b> para poder realizar su pago.<br>&nbsp;
+												
+												</td>
+											</tr>
+
+											<tr>
+												<td align="center">
+												<form action="<tmpl_var action>" method="post" target="_blank" onsubmit="">
+													<input type="hidden" name="IDCurrency" value="<tmpl_var IDCurrency>">
+													<input type="hidden" name="Amount" value="<tmpl_var Amount>">
+													<input type="hidden" name="IDMerchant" value="<tmpl_var IDMerchant>">
+													<input type="hidden" name="Token"	value="<tmpl_var Token>">
+													<input type="hidden" name="ExternalReference" value="<tmpl_var ExternalReference>">
+													<input type="hidden" name="Password" value="test1234">
+													<input type="hidden" name="Txt1" value="">
+													<input type="hidden" name="Txt2" value="">
+													<input	type="hidden" name="Txt3" value="">
+													<input type="image" src="<tmpl_var logo>" name="submit" alt="Pagá con Arcash!">
+													</form>
+												</td>
+											</tr>
+										</table>
+<!-- PROMOCIONES HORIZONTALES -->
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+  			   
+				
+  			    <tr>
+       				<td  valign="bottom" class="Ftexto02"><table class="moduloayuda" width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+					
+					</table></td>
+			   </tr>			
+		
+<!-- FIN PROMOCIONES HORIZONTALES -->
+                    <tr>
+                      <td>&nbsp;</td>
+                    </tr>
+                  </table>
+                </div></td>
+              </tr>
+            </table></td>
+            <td class="Gbarraderecha" width="155"><table width="155" border="0" cellspacing="0" cellpadding="0">
+			 <tr>
+                
+	<table width="155" border="0" cellpadding="0" cellspacing="0" class="modulosderecha">
+		<tr>
+        	<td class="titulosceldas"><img src="http://www.tematika.com/imagenes/inicio/t-sobretmtk.gif" alt="Sobre Tematika.com" width="116" height="12" /></td>
+        </tr>
+        <tr>
+        	<td><div align="left"><a href="#"><img src="http://www.tematika.com/imagenes/inicio/b-tematika.gif" alt="Tematika.com" width="58" height="10" border="0" class="accesostop" /></a></div></td>
+        </tr>
+        <tr>
+        	<td><div align="left"><a href="#"><img src="http://www.tematika.com/imagenes/inicio/b-marcas.gif" alt="Marcas Grupo ILHSA" width="78" height="10" border="0" class="accesos02" /></a></div></td>
+        </tr>
+        <tr>
+        	<td><div align="left"><a href="#"><img src="http://www.tematika.com/imagenes/inicio/b-sucursales.gif" alt="Sucursales" width="67" height="10" border="0" class="accesos02" /></a></div></td>
+        </tr>
+		<tr>
+           	<td><div align="left"><a href="#"><img src="http://www.tematika.com/imagenes/inicio/b-eventos.gif" alt="Eventos" height="10" border="0" class="accesos02" /></a></div></td>
+        </tr>
+        <tr>
+        	 <td><div align="left"><a href="#"><img src="http://www.tematika.com/imagenes/inicio/b-prensa.gif" alt="Prensa" width="40" height="10" border="0" class="accesos02" /></a></div></td>
+        </tr>
+        <tr>
+        	<td><div align="left"><a href="#"><img src="http://www.tematika.com/imagenes/inicio/b-empleo.gif" alt="Empleo" width="42" height="10" border="0" class="accesosbottom" /></a></div></td>
+        </tr>
+    </table>
+              </tr>
+            </table></td>
+          </tr>
+
+        </table></td>
+      </tr>
+    </table>
+	<tr>	
+	</tr>
+		
+	</div>
+</div>
+<div class="panelSecciones">
+</div>
+		</div>
+		<!-- **** FIN BARRA CENTRAL **** -->
+		<!-- **** FOOTER **** -->
+		<div class="footer">			
+<div class="footerShadow"></div>
+    <div class="footerLogos"></div>
+    <div class="footerText"><a href="#">TEMATIKA</a> |
+    <a href="#">LIBROS</a> |
+    <a href="#">MUSICA</a> |
+    <a href="#">PELICULAS</a>|
+    <a href="#">PASATIEMPOS</a></div>
+    <div class="footerText2"><a href="#">
+    <img src="http://www.tematika.com/imagenes/rediseno/imagenes/comun/rssLogo.gif" />
+    <span>Descargue las Novedades y Lanzamientos de Tematika en su sitio</span></a></div>
+    <div class="footerText">
+    <a href="#">MARCAS</a> |
+    <a href="#">SUCURSALES</a> |
+    <a href="#">PRENSA</a> |
+    <a href="#">EVENTOS</a> |
+    <a href="#">RANKING</a> |
+    <a href="#">MAPA DE PRODUCTOS</a> |
+    <a href="#">PREGUNTAS FRECUENTES</a> |
+    <a href="#">EMPLEOS</a> |
+    <a href="#">CONTACTO</a> <br />
+	<a href="#">PROGRAMA DE REFERIDOS</a> |
+    <a href="#">PROGRAMA DE ASOCIADOS</a> |
+    <a href="#">VENTAS CORPORATIVAS</a> |
+	<a href="#">SERVICIO AL CLIENTE</a> |
+    <a href="#">PLAZOS Y COSTOS DE ENV&Iacute;O</a></div>
+		</div>
+	</div>
+	<!-- **** FIN DEL CONTENIDO DEL SITIO **** -->
+	</center>	
+</body>
+<div id="divCarrito" class="efectoCarritoMod" style="display:none"><div class="efectoCarritoTxt"><span class="txtMsgCarritoOK" id="msgCarritoOK"></span><span  id="msgCarritoERROR" style="font-size:12;color:red"></span><br /><span id="spnPrecioCarrito" class="txtPrecioCarrito">PRECIO: $ <span  class="txtPrecioCarrito" id="precioCarrito"></span>.-</span></div><div class="efectoCarritoImages"><img id="carritoImagen"  class="efectoCarritoImag"></div>
+<div id="efectoCarritoB"><a href="#"><img src="http://www.tematika.com/imagenes/b-carrContinuar.gif" alt="Continuar" border="0"></a></div></div>
+<div id="modalBack" style="display:none"></div>
+</html>

@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SociosDomicilios"
+    table="SOCIOS_DOMICILIOS"
+>
+
+ <comment>Domicilios del Cliente</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.SociosDomiciliosId"
+    >		
+	        <key-property name="idSucursal" type="short">
+<column name="ID_SUCURSAL" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="idSocio" type="long">
+<column name="ID_SOCIO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="tipoDomicilio" type="string">
+<column name="TIPO_DOMICILIO" length="4" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <many-to-one
+	    name="socios2"
+	    class="org.reverse.Socios2"
+	    
+        update="false"
+        insert="false"
+        fetch="select"
+    >
+<column name="ID_SUCURSAL" precision="4" scale="0" not-null="true" >
+<comment>ID de Sucursal</comment>
+</column><column name="ID_SOCIO" precision="10" scale="0" not-null="true" >
+<comment>ID del Socio</comment>
+</column>   </many-to-one>
+    <property
+        name="calle"
+	    type="string"
+    >
+<column name="CALLE" length="100" not-null="true" >
+<comment>Calle</comment>
+</column>  </property>
+
+    <property
+        name="numero"
+	    type="java.lang.Long"
+    >
+<column name="NUMERO" precision="10" scale="0" >
+<comment>Número</comment>
+</column>  </property>
+
+    <property
+        name="edificio"
+	    type="string"
+    >
+<column name="EDIFICIO" length="40" >
+<comment>Nº de Edificio</comment>
+</column>  </property>
+
+    <property
+        name="piso"
+	    type="java.lang.Short"
+    >
+<column name="PISO" precision="4" scale="0" >
+<comment>Piso</comment>
+</column>  </property>
+
+    <property
+        name="depto"
+	    type="string"
+    >
+<column name="DEPTO" length="4" >
+<comment>Departamento</comment>
+</column>  </property>
+
+    <property
+        name="cp"
+	    type="string"
+    >
+<column name="CP" length="20" >
+<comment>Código Postal</comment>
+</column>  </property>
+
+    <property
+        name="idLocalidad"
+	    type="int"
+    >
+<column name="ID_LOCALIDAD" precision="5" scale="0" not-null="true" >
+<comment>Localidad</comment>
+</column>  </property>
+
+    <property
+        name="idProvincia"
+	    type="int"
+    >
+<column name="ID_PROVINCIA" precision="5" scale="0" not-null="true" >
+<comment>Provincia</comment>
+</column>  </property>
+
+    <property
+        name="idPais"
+	    type="int"
+    >
+<column name="ID_PAIS" precision="5" scale="0" not-null="true" >
+<comment>País</comment>
+</column>  </property>
+
+    <property
+        name="comentarios"
+	    type="string"
+    >
+<column name="COMENTARIOS" length="100" >
+<comment>Comentarios</comment>
+</column>  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" >
+<comment>Fecha de Alta</comment>
+</column>  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="30" not-null="true" >
+<comment>Usuario de Alta</comment>
+</column>  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" >
+<comment>Fecha de Modificación</comment>
+</column>  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="30" >
+<comment>Usuario de Modificación</comment>
+</column>  </property>
+
+    <property
+        name="descripcionProvinciaInex"
+	    type="string"
+    >
+<column name="DESCRIPCION_PROVINCIA_INEX" length="50" >
+<comment>Se usa en el sitio para el caso en que la provincia del cliente no existe en el comercial y tiene que ingresarla por la pagina</comment>
+</column>  </property>
+
+    <property
+        name="descripcionLocalidadInex"
+	    type="string"
+    >
+<column name="DESCRIPCION_LOCALIDAD_INEX" length="50" >
+<comment>Se usa en el sitio para el caso en que la localidad del cliente no existe en el comercial y tiene que ingresarla por la pagina</comment>
+</column>  </property>
+
+
+	<set name="direccionOrdens"
+table="DIRECCION_ORDEN"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" not-null="true" />
+<column name="ID_SOCIO" precision="10" scale="0" not-null="true" />
+<column name="TIPO_DOMICILIO" length="4" not-null="true" >
+<comment>Validar contra CG_REF_CODES para RV_DOMAIN = TIPO_DOMICILIO</comment>
+</column>		</key>
+<one-to-many class="org.reverse.DireccionOrden"
+/>
+	</set>
+
+	<set name="listaDeseoses"
+table="LISTA_DESEOS"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" not-null="true" >
+<comment>ID SUCURSAL en SOCIOS2 / SOCIOS_DOMICILIOS del que arma la lista de deseos</comment>
+</column><column name="ID_SOCIO" precision="10" scale="0" not-null="true" >
+<comment>ID SOCIO en SOCIOS2 / SOCIOS_DOMICILIOS del que arma la lista de deseos</comment>
+</column><column name="TIPO_DOMICILIO" length="4" >
+<comment>TIPO DOMICILIO EN SOCIOS_DOMICILIOS</comment>
+</column>		</key>
+<one-to-many class="org.reverse.ListaDeseos"
+/>
+	</set>
+
+</class>
+
+</hibernate-mapping>

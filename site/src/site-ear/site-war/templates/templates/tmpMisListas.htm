@@ -1,0 +1,16 @@
+<div style="float:none;border: medium none; margin: -10px 1px 1px 1px;" id="<tmpl_var nombreDeForm>">
+	<tmpl_if listas>	
+		<tmpl_loop listas>
+			<p style="margin: 1px;padding:0px;float:inherit;">
+				<input style="margin:5px 5px -30px" name="<tmpl_var nombreDeCheckBok>" type="checkbox" value="<tmpl_var valorDeCheckBox>"/>
+				<span style="float:right;"><tmpl_var nombreLista> <tmpl_if estaEnLista>(en lista)</tmpl_if></span>
+			</p>
+		</tmpl_loop>
+		<p>
+			<span style="cursor:pointer;" onclick="setArticuloEnLista(<tmpl_var idArticulo>,'#<tmpl_var nombreDeForm>');"><b>Agregar a la lista</b></span>
+		</p>
+	</tmpl_if>
+	<p>
+		<span style="cursor:pointer;" onclick="mostrarLista('frmContact');"><b>Crear Lista</b></span>
+	</p>	
+</div>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jrun-resources PUBLIC "-//Macromedia Inc.//DTD jrun-resources 4.0//EN" "http://jrun.macromedia.com/dtds/jrun-resources.dtd">
+<jrun-resources>
+  <data-source>
+    <dbname>site</dbname>
+    <driver>oracle.jdbc.driver.OracleDriver</driver>
+    <url>jdbc:oracle:thin:@bd-tmk2:1521:TMK2</url>
+    <username>site</username>
+    <password>93B79FEA360A97474B3D85CD38D0FF1A</password>
+    <encrypted>true</encrypted>
+    <encryption-class>jrun.security.JRunCrypterForTwofish</encryption-class>
+    <native-results>true</native-results>
+    <remove-on-exceptions>true</remove-on-exceptions>
+    <pool-statements>false</pool-statements>
+    <initial-connections>1</initial-connections>   <!-- estaba en 1 -->
+    <connection-timeout>1200</connection-timeout>
+    <transaction-timeout>20</transaction-timeout>
+    <cache-enabled>false</cache-enabled>
+    <cache-size>5</cache-size>
+    <cache-refresh-interval>30</cache-refresh-interval>
+    <jndi-name>jdbc/site</jndi-name>
+    <poolname>Pool</poolname>
+    <minimum-size>1</minimum-size>
+    <maximum-size>5</maximum-size>
+    <user-timeout>20</user-timeout>
+    <skimmer-frequency>420</skimmer-frequency>
+    <shrink-by>5</shrink-by>
+    <maximum-soft>true</maximum-soft>
+    <debugging>false</debugging>
+    <disable-pooling>false</disable-pooling>
+    <description />
+    <isolation-level>READ_COMMITTED</isolation-level></data-source>
+  <data-source>
+    <dbname>admin</dbname>
+    <driver>oracle.jdbc.driver.OracleDriver</driver>
+    <url>jdbc:oracle:thin:@bd-tmk2:1521:TMK2</url>
+    <username>admin_aplic</username>
+    <password>93B79FEA360A97474B3D85CD38D0FF1A</password>
+    <encrypted>true</encrypted>
+    <encryption-class>jrun.security.JRunCrypterForTwofish</encryption-class>
+    <native-results>true</native-results>
+    <remove-on-exceptions>true</remove-on-exceptions>
+    <pool-statements>false</pool-statements>
+    <initial-connections>0</initial-connections>  <!-- estaba en 1 -->
+    <connection-timeout>1200</connection-timeout>
+    <transaction-timeout>20</transaction-timeout>
+    <cache-enabled>false</cache-enabled>
+    <cache-size>5</cache-size>
+    <cache-refresh-interval>30</cache-refresh-interval>
+    <jndi-name>jdbc/admin</jndi-name>
+    <poolname>Pool</poolname>
+    <minimum-size>0</minimum-size>
+    <maximum-size>10</maximum-size>
+    <user-timeout>20</user-timeout>
+    <skimmer-frequency>420</skimmer-frequency>
+    <shrink-by>5</shrink-by>
+    <maximum-soft>true</maximum-soft>
+    <debugging>false</debugging>
+    <disable-pooling>false</disable-pooling>
+    <description />
+    <isolation-level>READ_COMMITTED</isolation-level>
+  </data-source>
+  <!--data-source>
+    <dbname>extranet</dbname>
+    <driver>oracle.jdbc.driver.OracleDriver</driver>
+    <url>jdbc:oracle:thin:@bd-tmk2:1521:TMK2</url>
+    <username>extranet</username>
+    <password>93B79FEA360A97474B3D85CD38D0FF1A</password>
+    <encrypted>true</encrypted>
+    <encryption-class>jrun.security.JRunCrypterForTwofish</encryption-class>
+    <native-results>true</native-results>
+    <remove-on-exceptions>true</remove-on-exceptions>
+    <pool-statements>false</pool-statements>
+    <initial-connections>5</initial-connections>
+    <connection-timeout>1200</connection-timeout>
+    <transaction-timeout>20</transaction-timeout>
+    <cache-enabled>true</cache-enabled>
+    <cache-size>10</cache-size>
+    <cache-refresh-interval>30</cache-refresh-interval>
+    <jndi-name>jdbc/extranet</jndi-name>
+    <poolname>Pool</poolname>
+    <minimum-size>0</minimum-size>
+    <maximum-size>10</maximum-size>
+    <user-timeout>20</user-timeout>
+    <skimmer-frequency>420</skimmer-frequency>
+    <shrink-by>5</shrink-by>
+    <maximum-soft>true</maximum-soft>
+    <debugging>false</debugging>
+    <disable-pooling>false</disable-pooling>
+    <description />
+    <isolation-level>READ_COMMITTED</isolation-level>
+  </data-source-->
+</jrun-resources>

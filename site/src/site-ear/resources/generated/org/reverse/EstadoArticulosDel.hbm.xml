@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.EstadoArticulosDel"
+    table="ESTADO_ARTICULOS_DEL"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.EstadoArticulosDelId"
+    >		
+	        <key-property name="secuencia" type="java.lang.Long">
+<column name="SECUENCIA" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="fechaBorrado" type="date">
+<column name="FECHA_BORRADO" length="7" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

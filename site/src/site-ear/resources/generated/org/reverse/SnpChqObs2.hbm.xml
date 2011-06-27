@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SnpChqObs2"
+    table="SNP_CHQ_OBS2"
+>
+
+ <comment>snapshot table for snapshot TEMATIKA.SNP_CHQ_OBS2</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.SnpChqObs2Id"
+    >		
+	        <key-property name="nro" type="string">
+<column name="NRO" length="20" />
+	        </key-property>
+	        <key-property name="estado" type="string">
+<column name="ESTADO" length="10" />
+	        </key-property>
+	        <key-property name="fecha" type="date">
+<column name="FECHA" length="7" />
+	        </key-property>
+	        <key-property name="importe" type="big_decimal">
+<column name="IMPORTE" precision="15" />
+	        </key-property>
+	        <key-property name="fechaTransmision" type="date">
+<column name="FECHA_TRANSMISION" length="7" />
+	        </key-property>
+	        <key-property name="recSiteNroOrden" type="java.lang.Long">
+<column name="REC_SITE_NRO_ORDEN" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="observaciones" type="string">
+<column name="OBSERVACIONES" length="200" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="35" />
+	        </key-property>
+	        <key-property name="usrModi" type="string">
+<column name="USR_MODI" length="35" />
+	        </key-property>
+	        <key-property name="idSucursal" type="short">
+<column name="ID_SUCURSAL" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="inegIdIngresoEgreso" type="java.lang.Long">
+<column name="INEG_ID_INGRESO_EGRESO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="itmoIdMovimiento" type="java.lang.Long">
+<column name="ITMO_ID_MOVIMIENTO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="itmoItem" type="java.lang.Integer">
+<column name="ITMO_ITEM" precision="6" scale="0" />
+	        </key-property>
+	        <key-property name="canjeFidelizacion" type="string">
+<column name="CANJE_FIDELIZACION" length="2" />
+	        </key-property>
+	        <key-property name="idMedioCobro" type="string">
+<column name="ID_MEDIO_COBRO" length="5" />
+	        </key-property>
+	        <key-property name="valorAux1" type="string">
+<column name="VALOR_AUX_1" length="50" />
+	        </key-property>
+	        <key-property name="valorAux2" type="string">
+<column name="VALOR_AUX_2" length="50" />
+	        </key-property>
+	        <key-property name="valorAux3" type="string">
+<column name="VALOR_AUX_3" length="50" />
+	        </key-property>
+	        <key-property name="valorAux4" type="string">
+<column name="VALOR_AUX_4" length="50" />
+	        </key-property>
+	        <key-property name="valorAux5" type="string">
+<column name="VALOR_AUX_5" length="50" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

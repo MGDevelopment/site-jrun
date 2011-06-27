@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.ItemsLiquidaciones"
+    table="ITEMS_LIQUIDACIONES"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.ItemsLiquidacionesId"
+    >		
+	        <key-property name="idSucursal" type="short">
+<column name="ID_SUCURSAL" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="idMovimiento" type="long">
+<column name="ID_MOVIMIENTO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="item" type="int">
+<column name="ITEM" precision="6" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <one-to-one
+	    name="itemsMovimientos"
+	    class="org.reverse.ItemsMovimientos"
+        constrained="true"
+
+    >
+   </one-to-one>
+    <property
+        name="idArticulo"
+	    type="long"
+    >
+<column name="ID_ARTICULO" precision="10" scale="0" not-null="true" />
+  </property>
+
+    <property
+        name="idLiquidacionAlianza"
+	    type="big_decimal"
+    >
+<column name="ID_LIQUIDACION_ALIANZA" precision="22" scale="0" />
+  </property>
+
+    <property
+        name="porcComisionAlianza"
+	    type="big_decimal"
+    >
+<column name="PORC_COMISION_ALIANZA" precision="5" />
+  </property>
+
+    <property
+        name="tipoComisionAlianza"
+	    type="string"
+    >
+<column name="TIPO_COMISION_ALIANZA" length="4" />
+  </property>
+
+    <property
+        name="estado"
+	    type="string"
+    >
+<column name="ESTADO" length="4" >
+<comment>estado en el que se encuentra la comision</comment>
+</column>  </property>
+
+
+</class>
+
+</hibernate-mapping>

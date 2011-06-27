@@ -1,0 +1,24 @@
+<div class="dInfoCalif">
+<div class="dInfoCalifStarMod">
+<span>Calificaci&oacute;n delectores:</span> <tmpl_if esCalificado> 
+<tmpl_loop calificaciones>
+<div class="<tmpl_var estrellaClass>"></div>
+</tmpl_loop> 
+</tmpl_else> 
+<label> 
+	<a href="/Comentario?ID_ARTICULO=<tmpl_var idArticulo>&idSeccion=<tmpl_var idSeccion>">S&eacute; el primero en comentarlo!</a>
+</label> 
+</tmpl_if>
+</div>
+<div class="dInfoCalifBoton">
+<tmpl_if tieneEvaluacion> 
+	<span>
+		<a onclick="verTodosComentarios(<tmpl_var idArticulo>);" href="#coment">
+			<tmpl_var comentarioEvaluacion> <tmpl_var textoComentario>
+		</a> 
+	</span>
+</tmpl_if>
+<a href="/Comentario?ID_ARTICULO=<tmpl_var idArticulo>&idSeccion=<tmpl_var idSeccion>">
+<div>AGREGAR COMENTARIO</div>
+</a></div>
+</div>

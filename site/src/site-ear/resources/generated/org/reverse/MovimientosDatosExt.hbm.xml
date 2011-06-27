@@ -1,0 +1,339 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.MovimientosDatosExt"
+    table="MOVIMIENTOS_DATOS_EXT"
+>
+
+ <comment>Extensión de la tabla de movimientos</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.MovimientosDatosExtId"
+    >		
+	        <key-property name="idSucursal" type="short">
+<column name="ID_SUCURSAL" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="idMovimiento" type="long">
+<column name="ID_MOVIMIENTO" precision="10" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <one-to-one
+	    name="movimientos"
+	    class="org.reverse.Movimientos"
+        constrained="true"
+
+    >
+   </one-to-one>
+    <property
+        name="idSucursalSocio"
+	    type="java.lang.Short"
+    >
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" >
+<comment>Código de sucursal del socio que posee la cuenta fidelizada</comment>
+</column>  </property>
+
+    <property
+        name="idSocio"
+	    type="java.lang.Long"
+    >
+<column name="ID_SOCIO" precision="10" scale="0" >
+<comment>Código del socio que posee la cuenta fidelizada</comment>
+</column>  </property>
+
+    <property
+        name="idSucursalCuenta"
+	    type="java.lang.Short"
+    >
+<column name="ID_SUCURSAL_CUENTA" precision="4" scale="0" >
+<comment>Código de la sucursal de la cuenta de fidelización.</comment>
+</column>  </property>
+
+    <property
+        name="idCuenta"
+	    type="java.lang.Long"
+    >
+<column name="ID_CUENTA" precision="10" scale="0" >
+<comment>Código de la cuenta de fidelización</comment>
+</column>  </property>
+
+    <property
+        name="nroTarjeta"
+	    type="string"
+    >
+<column name="NRO_TARJETA" length="20" >
+<comment>Número de tarjeta eXtra</comment>
+</column>  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="35" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="35" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+    <property
+        name="codigoExterior"
+	    type="string"
+    >
+<column name="CODIGO_EXTERIOR" length="30" >
+<comment>Código de cliente para envíos al exterior</comment>
+</column>  </property>
+
+    <property
+        name="auxnumber1"
+	    type="big_decimal"
+    >
+<column name="AUXNUMBER1" precision="22" scale="0" >
+<comment>Número de documento del destinatario de la compra</comment>
+</column>  </property>
+
+    <property
+        name="auxnumber2"
+	    type="big_decimal"
+    >
+<column name="AUXNUMBER2" precision="22" scale="0" >
+<comment>[FEL] CAE</comment>
+</column>  </property>
+
+    <property
+        name="auxnumber3"
+	    type="big_decimal"
+    >
+<column name="AUXNUMBER3" precision="22" scale="0" />
+  </property>
+
+    <property
+        name="auxvarchar1"
+	    type="string"
+    >
+<column name="AUXVARCHAR1" length="200" >
+<comment>Tipo de documento del destinatario de la compra</comment>
+</column>  </property>
+
+    <property
+        name="auxvarchar2"
+	    type="string"
+    >
+<column name="AUXVARCHAR2" length="200" >
+<comment>Horario de entrega en que se recibirá la compra</comment>
+</column>  </property>
+
+    <property
+        name="auxvarchar3"
+	    type="string"
+    >
+<column name="AUXVARCHAR3" length="200" >
+<comment>[FEL] Motivo autorizacion</comment>
+</column>  </property>
+
+    <property
+        name="auxflag1"
+	    type="string"
+    >
+<column name="AUXFLAG1" length="2" />
+  </property>
+
+    <property
+        name="auxflag2"
+	    type="string"
+    >
+<column name="AUXFLAG2" length="2" />
+  </property>
+
+    <property
+        name="auxflag3"
+	    type="string"
+    >
+<column name="AUXFLAG3" length="2" />
+  </property>
+
+    <property
+        name="auxnumber4"
+	    type="big_decimal"
+    >
+<column name="AUXNUMBER4" precision="22" scale="0" />
+  </property>
+
+    <property
+        name="auxnumber5"
+	    type="big_decimal"
+    >
+<column name="AUXNUMBER5" precision="22" scale="0" />
+  </property>
+
+    <property
+        name="auxnumber6"
+	    type="big_decimal"
+    >
+<column name="AUXNUMBER6" precision="22" scale="0" />
+  </property>
+
+    <property
+        name="auxvarchar4"
+	    type="string"
+    >
+<column name="AUXVARCHAR4" length="200" />
+  </property>
+
+    <property
+        name="auxvarchar5"
+	    type="string"
+    >
+<column name="AUXVARCHAR5" length="200" />
+  </property>
+
+    <property
+        name="auxvarchar6"
+	    type="string"
+    >
+<column name="AUXVARCHAR6" length="200" />
+  </property>
+
+    <property
+        name="auxflag4"
+	    type="string"
+    >
+<column name="AUXFLAG4" length="2" />
+  </property>
+
+    <property
+        name="auxflag5"
+	    type="string"
+    >
+<column name="AUXFLAG5" length="2" />
+  </property>
+
+    <property
+        name="auxflag6"
+	    type="string"
+    >
+<column name="AUXFLAG6" length="2" />
+  </property>
+
+    <property
+        name="auxnumber7"
+	    type="big_decimal"
+    >
+<column name="AUXNUMBER7" precision="22" scale="0" />
+  </property>
+
+    <property
+        name="auxnumber8"
+	    type="big_decimal"
+    >
+<column name="AUXNUMBER8" precision="22" scale="0" />
+  </property>
+
+    <property
+        name="auxvarchar7"
+	    type="string"
+    >
+<column name="AUXVARCHAR7" length="200" />
+  </property>
+
+    <property
+        name="auxvarchar8"
+	    type="string"
+    >
+<column name="AUXVARCHAR8" length="200" />
+  </property>
+
+    <property
+        name="auxflag7"
+	    type="string"
+    >
+<column name="AUXFLAG7" length="2" />
+  </property>
+
+    <property
+        name="auxflag8"
+	    type="string"
+    >
+<column name="AUXFLAG8" length="2" />
+  </property>
+
+    <property
+        name="auxdate1"
+	    type="date"
+    >
+<column name="AUXDATE1" length="7" >
+<comment>[FEL] Fecha de Vencimiento de CAE</comment>
+</column>  </property>
+
+    <property
+        name="auxdate2"
+	    type="date"
+    >
+<column name="AUXDATE2" length="7" />
+  </property>
+
+    <property
+        name="auxdate3"
+	    type="date"
+    >
+<column name="AUXDATE3" length="7" />
+  </property>
+
+    <property
+        name="auxdate4"
+	    type="date"
+    >
+<column name="AUXDATE4" length="7" />
+  </property>
+
+    <property
+        name="auxdate5"
+	    type="date"
+    >
+<column name="AUXDATE5" length="7" />
+  </property>
+
+    <property
+        name="auxdate6"
+	    type="date"
+    >
+<column name="AUXDATE6" length="7" />
+  </property>
+
+    <property
+        name="auxdate7"
+	    type="date"
+    >
+<column name="AUXDATE7" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

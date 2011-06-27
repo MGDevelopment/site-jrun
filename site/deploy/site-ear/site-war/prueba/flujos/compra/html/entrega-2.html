@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>	Tematika.com | Seccion </title>
+
+<link href="/estilos/comun.css" rel="stylesheet" type="text/css" />
+<link href="/estilos/mesa.css" rel="stylesheet" type="text/css" />
+<link href="/estilos/carrito.css" rel="stylesheet" type="text/css" />
+
+<link href="/rediseno/estilos/old/seccion_tematikaInicio.css" rel="stylesheet" type="text/css" />
+<link href="/estilos/seccion_tematika.css" rel="stylesheet" type="text/css" />
+<link href="/estilos/seccion_tematikaInicio.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/js/prototype-1.6.0.3.js"></script>
+<script type="text/javascript" src="/js/dropDownMenu.js"></script>
+<script type="text/javascript" src="/js/equalcolumns.js"></script>
+<script type="text/javascript" src="/js/menuarbol.js"></script>
+<script type="text/javascript" src="/js/buscador.js"></script>
+<script type="text/javascript" src="/js/jsutil.js"></script>
+<script type="text/javascript" src="/js/carritoNew.js"></script>
+<script type="text/javascript" src="/js/popups.js"></script>
+<script>
+	addEvent(window, 'load', carrito_ActualizarCarrito);
+</script>
+
+<script type="text/javascript" src="/js/imagePreloader.js"></script>
+<script type="text/javascript" src="/js/hashtable.js"></script>
+<script type="text/javascript" src="/js/mesa.js"></script>
+<script>
+	addEvent(window, 'load', cargarCbos);
+	addEvent(window, 'load', getTotal);
+</script>
+
+<!--[if lt IE 7]>
+    <script src="/rediseno/scripts/iepngfix/iepngfix_tilebg.js" type="text/javascript"></script>
+<![endif]-->
+</head>
+
+<body onload="">
+
+<!-- **** VENTANAS MODALES **** -->
+
+<div class="ventModal-wrapper" id="modalDom">
+	
+    <div class="vModTop">
+    	<div class="hModUsrNombre">Agregar nuevo domicilio</div>
+        <a class="hModUsrCerrar" href="javascript:mostrarDiv('modalDom'); javascript:mostrarDiv('modalBack');" title="Cerrar">cerrar</a>
+    </div>
+    
+    <div class="vModContent">
+    	<div class="cProcFor-wrapper cProcForms">
+            <b><p>*</p> Calle:</b><div><input name="" type="text" style="width:250px;" /></div>
+            <b><p>*</p> Número:</b><div><input name="" type="text" style="width:100px;" /></div>
+            <b>Piso:</b><div><input name="" type="text" style="width:100px;" /></div>
+            <b>Departamento:</b><div><input name="" type="text" style="width:100px;" /></div>
+            <b>Edificio:</b><div><input name="" type="text" style="width:150px;" /></div>
+            <b><p>*</p> Provincia:</b><div><select name="" style="width:200px;"><option>Seleccione una provincia</option></select></div>
+            <b>Otra:</b><div><input name="" type="text" style="width:150px;" /></div>
+            <b><p>*</p> Localidad:</b><div><select name="" style="width:200px;"><option>Seleccione una localidad</option></select></div>
+            <b>Otra:</b><div><input name="" type="text" style="width:150px;" /></div>
+            <b><p>*</p> Código postal:</b><div><input name="" type="text" style="width:100px;" /></div>
+            <b style="margin-bottom:0;"><p>*</p> País:</b><div style="margin-bottom:0;"><select name="" style="width:200px;"><option>Seleccione un país</option></select></div>
+        </div>
+        <a href="#" class="vModButton">AGREGAR DOMICILIO</a>
+    </div>
+    
+</div>
+
+<div id="modalBack"></div>
+
+<!-- **** FIN VENTANA MODAL **** -->
+	
+<center>
+<!-- **** INICIO DEL CONTENIDO DEL SITIO **** -->
+<div class="lienzo">
+
+<!-- **** HEADER **** -->
+			
+<div class="header">
+	
+	<a href="/rediseno/" class="hLogo" title="Tematika.com"></a>
+
+	<div class="hBuscador">
+
+        <ul class="dropdown">
+            <li class="dir"><span onclick="javascript:desplegarOpciones('listaBuscador');" id="optBusqueda">En Tematika.com</span>
+                <ul style="display:none;" id="listaBuscador">
+	                    <li><a id="optBus1" onmouseover="javascript:desplegarOpciones('listaBuscador');" onmouseout="javascript:ocultarOpciones('listaBuscador');" href="javascript:mostrarBuscarPor('optBus1','optBusqueda','listaBuscador');">En Tematika.com</a></li>
+                    
+	                    <li><a id="optBus2" onmouseover="javascript:desplegarOpciones('listaBuscador');" onmouseout="javascript:ocultarOpciones('listaBuscador');" href="javascript:mostrarBuscarPor('optBus2','optBusqueda','listaBuscador');">En Libros</a></li>
+                    
+	                    <li><a id="optBus3" onmouseover="javascript:desplegarOpciones('listaBuscador');" onmouseout="javascript:ocultarOpciones('listaBuscador');" href="javascript:mostrarBuscarPor('optBus3','optBusqueda','listaBuscador');">En Musica</a></li>
+                    
+	                    <li><a id="optBus4" onmouseover="javascript:desplegarOpciones('listaBuscador');" onmouseout="javascript:ocultarOpciones('listaBuscador');" href="javascript:mostrarBuscarPor('optBus4','optBusqueda','listaBuscador');">En Peliculas</a></li>
+                    
+	                    <li><a id="optBus5" onmouseover="javascript:desplegarOpciones('listaBuscador');" onmouseout="javascript:ocultarOpciones('listaBuscador');" href="javascript:mostrarBuscarPor('optBus5','optBusqueda','listaBuscador');">En Pasatiempos</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <input id="txtBuscar" name="buscadorTxtField" type="text" value="" class="hBuscTxtF" onkeypress="javascript: if (pressEnter(event)) buscador_setBusqueda($('optBusqueda').innerHTML, $('txtBuscar').value, 0);" />
+        <a id="btnBuscar" href="javascript:buscador_setBusqueda($('optBusqueda').innerHTML, $('txtBuscar').value, 0)"><div class="hBuscButton" title="Buscar"></div></a>
+
+    </div>
+
+	<a href="#" class="hServClientes" title="Servicio al cliente" ></a>
+	
+	<div id="divCarrito" class="efectoCarritoMod" style="display:none">
+        <div class="efectoCarritoTxt"><span class="txtMsgCarritoOK" id="msgCarritoOK"></span><br />
+        <div id="msgCarritoERROR" style="font-size:12;color:red"></div>
+        <span id="spnPrecioCarrito" class="txtPrecioCarrito">PRECIO: $ <span  class="txtPrecioCarrito" id="precioCarrito"></span>.-</span></div>
+        <div class="efectoCarritoImages"><img id="carritoImagen" src="" class="efectoCarritoImag"></div>
+        <div id="efectoCarritoB"><a href="javascript:carrito_CloseCarrito()"><img src="/imagenes/b-carrContinuar.gif" alt="Continuar" border="0"></a></div>
+	</div>
+	<div id="modalBack" style="display:none"></div>
+    <div class="hModUsuario">
+        <div class="hModUsrNombre">Carlos Lopez</div>
+           <a class="hModUsrCerrar" href="#" title="Salir">
+            salir
+           </a>
+           <div class="hModUsrExtra">
+            Tens acumulados<br />
+            <a href="#">150 puntos </a>
+                eXtra!
+        </div>
+           <a href="#" id="textoCarrito" class="hModUsrCarrito" title="Finalizar la compra"></a>
+        <a href="#" class="hModUsrButton" title="Desplegar mi panel de usuario"></a>
+    </div>
+    <div class="hModUsuarioBack"></div>
+</div>
+
+<div class="barraCentral"><!-- **** BARRA CENTRAL **** -->
+
+    <div id="seccionTematika"><!-- **** SECCION TEMATIKA (CONTENIDO CENTRAL) **** -->
+    
+        <div class="tmtkMesaNovedades"><!-- mesa y ttulos de secciones -->
+    
+                <a href="/rediseno/libros" class="tmtkMesaSeccionesTit" title="Libros"></a>
+                <a href="/rediseno/musica" class="tmtkMesaSeccionesTit" title="Msica"></a>
+                <a href="/rediseno/peliculas" class="tmtkMesaSeccionesTit" title="Pelculas"></a>
+                <a href="/rediseno/juguetes" class="tmtkMesaSeccionesTit" title="Pasatiempos"></a>
+    
+        </div><!-- FIN mesa y ttulos de secciones -->
+        
+	<div class="arbolShadow compraProc-wrapper">
+        <div class="compraProc">
+        	<div class="compraProcL-ok"><a href="#" class="cProcTxt-ok">¿Regalo?</a></div>
+            <div class="compraProc-act"><span class="cProcTxt-act">Entrega</span></div>
+            <div class="compraProc-des"><span class="cProcTxt-des">Pago</span></div>
+            <div class="compraProc-des"><span class="cProcTxt-des">Vista Previa</span></div>
+            <div class="compraProcR-des"></div>
+        </div>
+    </div>
+    
+    <div class="compraWrapper">
+    
+    	<div class="cProcTit" style="margin-top:5px;"><span>Seleccioná un domicilio de entrega:</span></div>
+        
+        <div class="cProcFor-wrapper cProcForDom">
+        	<input name="domic" type="radio" value="" checked />
+            <p>Av. Santa Fe 1480 9ºC, C1060ABN, Capital Federal.<br />Buenos Aires, Argentina.</p>
+            <a href="#" class="cProcForButton">ELIMINAR</a>
+        </div>
+        
+        <div class="cProcFor-wrapper cProcForDom">
+        	<input name="domic" type="radio" value="" />
+            <p>Leibnizstrasse 60, 10629.<br />Berlin, Germany.</p>
+            <a href="#" class="cProcForButton">ELIMINAR</a>
+        </div>
+        
+        <div class="cProcFor-wrapper cProcForDom">
+        	<input name="domic" type="radio" value="" />
+            <a href="#" class="detalleBoton"><span>NUEVO DOMICILIO</span></a>
+        </div>
+        
+        <div class="cProcTit"><span>Seleccioná un domicilio de facturación:</span></div>
+        
+        <div class="cProcFor-wrapper cProcForDom">
+        	<input name="domicF" type="radio" value="" checked />
+            <p>El domicilio de facturación coincide con el de entrega.</p>
+        </div>
+        
+        <div class="cProcFor-wrapper cProcForDom">
+        	<input name="domicF" type="radio" value="" />
+            <p>El domicilio de facturación es...</p>
+        </div>
+        
+        <div class="cProcTit"><span>Persona para entregar:</span></div>
+        
+        <div class="cProcFor-wrapper cProcForms">
+            <b>Referente Principal:</b><div><span>Nombre:</span><input name="" type="text" style="width:150px;" /><span>Apellido:</span><input name="" type="text" style="width:150px;" /></div>
+            <b>Otra persona o aclaraciones:</b><div style="margin-bottom:0px;"><textarea name="" type="text" style="width:490px; height:80px;" /></textarea></div>
+        </div>
+        
+        <div class="cProcTit"><span>Horario/s para entregar:</span></div>
+        
+        <div class="cProcFor-wrapper cProcForDom">
+        	<input name="domic" type="checkbox" value="" /><p>Por la mañana (08:00 a 12:00).</p><br /><br />
+            <input name="domic" type="checkbox" value="" /><p>Por la tarde (12:00 a 18:00).</p><br /><br />
+            <input name="domic" type="checkbox" value="" /><p>Por la noche (18:00 a 21:00).</p>
+        </div>
+    
+    </div>
+    
+    <a href="papelDeRegalo.html" class="b-prev">PAPEL DE REGALO</a>
+    <a href="pago.html" class="b-next">MEDIO DE PAGO</a>
+    
+    </div><!-- **** FIN SECCION TEMATIKA **** -->
+
+
+    <div class="panelSecciones">	
+        
+        <a href="/rediseno/sucursales" id="panelSeccSucursales" title="Sucursales"><span></span></a>	
+        <a href="/rediseno/quid" id="panelSeccQuid" title="Quid"><span></span></a>
+        <a href="/rediseno/extra" id="panelSeccExtra" title="eXtra!"><span></span></a>
+        
+    </div>    
+
+</div><!-- **** FIN BARRA CENTRAL **** -->
+
+<div class="footer"><!-- **** FOOTER **** -->
+    
+    <div class="footerShadow"></div>
+    <div class="footerLogos"></div>
+    <div class="footerText">
+        <a href="#">TEMATIKA</a> |
+        <a href="#">LIBROS</a> |
+        <a href="#">MUSICA</a> |
+        <a href="#">PASATIEMPOS</a> |
+        <a href="#">PELICULAS</a></div>
+        <div class="footerText2"><a href="#">
+        <img src="/imagenes/rediseno/imagenes/comun/rssLogo.gif" />
+        <span>Descargue las Novedades y Lanzamientos de Tematika.com en su sitio</span></a></div>
+        <div class="footerText">
+        <a href="#">MARCAS ILHSA</a> |
+        <a href="#">SUCURSALES</a> |
+        <a href="#">PRENSA</a> |
+        <a href="#">PREGUNTAS FRECUENTES</a> |
+        <a href="#">ASOCIADOS Y REFERIDOS</a> |
+        <a href="#">VENTAS CORPORATIVAS</a><br />
+        <a href="#">MAPA DE PRODUCTOS</a> |
+        <a href="#">EMPLEO</a> |
+        <a href="#">CONTACTO</a> |
+        <a href="#">SERVICIO AL CLIENTE</a>
+     </div>
+     
+</div><!-- **** FIN FOOTER **** -->
+
+
+</div>
+<!-- **** FIN DEL CONTENIDO DEL SITIO **** -->
+</center>
+</body>
+</html>
+

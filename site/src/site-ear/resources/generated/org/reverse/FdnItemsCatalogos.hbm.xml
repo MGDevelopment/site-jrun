@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.FdnItemsCatalogos"
+    table="FDN_ITEMS_CATALOGOS"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.FdnItemsCatalogosId"
+    >		
+	        <key-property name="idArticulo" type="long">
+<column name="ID_ARTICULO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idCatalogo" type="int">
+<column name="ID_CATALOGO" precision="5" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <many-to-one
+	    name="fdnCatalogos"
+	    class="org.reverse.FdnCatalogos"
+	    
+        update="false"
+        insert="false"
+        fetch="select"
+    >
+<column name="ID_CATALOGO" precision="5" scale="0" not-null="true" />
+   </many-to-one>
+    <property
+        name="puntos"
+	    type="int"
+    >
+<column name="PUNTOS" precision="6" scale="0" not-null="true" >
+<comment>Puntos necesarios para realizar el canje por este artículo</comment>
+</column>  </property>
+
+    <property
+        name="importeAdicional"
+	    type="big_decimal"
+    >
+<column name="IMPORTE_ADICIONAL" precision="15" not-null="true" >
+<comment>Es el importe adicional a los puntos necesarios para realizar un canje</comment>
+</column>  </property>
+
+    <property
+        name="fechaVigencia"
+	    type="date"
+    >
+<column name="FECHA_VIGENCIA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="habilitado"
+	    type="string"
+    >
+<column name="HABILITADO" length="2" not-null="true" />
+  </property>
+
+    <property
+        name="habilitadoFecha"
+	    type="date"
+    >
+<column name="HABILITADO_FECHA" length="7" >
+<comment>Es la fecha en que cambio el estado</comment>
+</column>  </property>
+
+    <property
+        name="habilitadoUsr"
+	    type="string"
+    >
+<column name="HABILITADO_USR" length="35" >
+<comment>Es el usuario que realizó el cambio de estado</comment>
+</column>  </property>
+
+    <property
+        name="hastaStkCero"
+	    type="string"
+    >
+<column name="HASTA_STK_CERO" length="2" not-null="true" >
+<comment>Indica que el canje por este priducto del catálogo es hasta agotar stock</comment>
+</column>  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="35" not-null="true" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="35" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+    <property
+        name="muestraTmk"
+	    type="string"
+    >
+<column name="MUESTRA_TMK" length="2" not-null="true" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 2.6//EN"
+        "http://tuckey.org/res/dtds/urlrewrite2.6.dtd">
+<!--
+    Configuration file for UrlRewriteFilter
+    http://tuckey.org/urlrewrite/
+-->
+
+<urlrewrite>
+	<!--INICIO REDISEÑO CATALOGO -->
+	<!-- GRUPOS -->
+	<rule>
+        <from>^/catalogo/libros/([a-z_]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=1&amp;idGrupo=$2</to>
+    </rule>
+	<rule>
+        <from>^/catalogo/libros/([a-z_]+)--([0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=1&amp;idGrupo=$2&amp;registroInicial=$3&amp;registroFinal=$4&amp;criterioDeOrden=$5</to>
+    </rule>
+   	<!-- alianza -->
+    <rule>
+        <from>^/catalogo/libros/([a-z_]+)--([0-9]+)--idAlianza=([0-9]+)-([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=1&amp;idGrupo=$2&amp;ID_ALIANZA=$3&amp;ID_SECCION=$4</to>
+    </rule>
+
+    <!-- alianza -->
+
+	<rule>
+        <from>^/catalogo/cds/([a-z_]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=4&amp;idGrupo=$2</to>
+    </rule>
+	<!-- alianza -->
+	<rule>
+        <from>^/catalogo/cds/([a-z_]+)--([0-9]+)--idAlianza=([0-9]+)-([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=4&amp;idGrupo=$2&amp;ID_ALIANZA=$3&amp;ID_SECCION=$4</to>
+    </rule>
+	<rule>
+        <from>^/catalogo/cds/([a-z_]+)--([0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=4&amp;idGrupo=$2&amp;registroInicial=$3&amp;registroFinal=$4&amp;criterioDeOrden=$5</to>
+    </rule>
+
+
+	<rule>
+        <from>^/catalogo/pasatiempos/([a-z_]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=3&amp;idGrupo=$2</to>
+    </rule>
+	<!-- alianza -->
+	<rule>
+        <from>^/catalogo/pasatiempos/([a-z_]+)--([0-9]+)--idAlianza=([0-9]+)-([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=3&amp;idGrupo=$2&amp;ID_ALIANZA=$3&amp;ID_SECCION=$4</to>
+    </rule>
+	<rule>
+        <from>^/catalogo/pasatiempos/([a-z_]+)--([0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=3&amp;idGrupo=$2&amp;registroInicial=$3&amp;registroFinal=$4&amp;criterioDeOrden=$5</to>
+    </rule>
+
+
+	<rule>
+        <from>^/catalogo/dvds/([a-z_]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=5&amp;idGrupo=$2</to>
+    </rule>
+
+	<!-- alianza -->
+	<rule>
+        <from>^/catalogo/dvds/([a-z_]+)--([0-9]+)--idAlianza=([0-9]+)-([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=5&amp;idGrupo=$2&amp;ID_ALIANZA=$3&amp;ID_SECCION=$4</to>
+    </rule>
+
+	<rule>
+        <from>^/catalogo/dvds/([a-z_]+)--([0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=5&amp;idGrupo=$2&amp;registroInicial=$3&amp;registroFinal=$4&amp;criterioDeOrden=$5</to>
+    </rule>
+	<!-- alianza -->
+
+	<!--GRUPOS  -->
+	<!--FAMILIAS  -->
+	<rule>
+        <from>^/catalogo/libros/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=1&amp;idGrupo=$2&amp;idFamilia=$4</to>
+    </rule>
+	<!-- alianza -->
+	<rule>
+        <from>^/catalogo/libros/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)--idAlianza=([0-9]+)-([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=1&amp;idGrupo=$2&amp;idFamilia=$4&amp;ID_ALIANZA=$5&amp;ID_SECCION=$6</to>
+    </rule>
+	<!-- alianza -->
+	<rule>
+        <from>^/catalogo/libros/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=1&amp;idGrupo=$2&amp;idFamilia=$4&amp;registroInicial=$5&amp;registroFinal=$6&amp;criterioDeOrden=$7</to>
+    </rule>
+
+
+	<rule>
+        <from>^/catalogo/cds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=4&amp;idGrupo=$2&amp;idFamilia=$4</to>
+    </rule>
+	<!-- alianza -->
+	<rule>
+        <from>^/catalogo/cds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)--idAlianza=([0-9]+)-([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=4&amp;idGrupo=$2&amp;idFamilia=$4&amp;ID_ALIANZA=$5&amp;ID_SECCION=$6</to>
+    </rule>
+    <!-- alianza -->
+    <rule>
+        <from>^/catalogo/cds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=4&amp;idGrupo=$2&amp;idFamilia=$4&amp;registroInicial=$5&amp;registroFinal=$6&amp;criterioDeOrden=$7</to>
+    </rule>
+
+	<rule>
+        <from>^/catalogo/pasatiempos/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=3&amp;idGrupo=$2&amp;idFamilia=$4</to>
+    </rule>
+
+   	<!-- alianza -->
+    <rule>
+        <from>^/catalogo/pasatiempos/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)--idAlianza=([0-9]+)-([0-9]+).htm$</from>
+	    <to>/catalogo/?idSeccion=3&amp;idGrupo=$2&amp;idFamilia=$4&amp;ID_ALIANZA=$5&amp;ID_SECCION=$6</to>
+    </rule>
+    <!-- alianza -->
+     <rule>
+        <from>^/catalogo/pasatiempos/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=3&amp;idGrupo=$2&amp;idFamilia=$4&amp;registroInicial=$5&amp;registroFinal=$6&amp;criterioDeOrden=$7</to>
+    </rule>
+
+	<rule>
+        <from>^/catalogo/dvds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=5&amp;idGrupo=$2&amp;idFamilia=$4</to>
+    </rule>
+
+	<!-- alianza -->
+	<rule>
+        <from>^/catalogo/dvds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)--idAlianza=([0-9]+)-([0-9]+).htm$</from>
+	    <to>/catalogo/?idSeccion=5&amp;idGrupo=$2&amp;idFamilia=$4&amp;ID_ALIANZA=$5&amp;ID_SECCION=$6</to>
+    </rule>
+	<!-- alianza -->
+	<rule>
+        <from>^/catalogo/dvds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=5&amp;idGrupo=$2&amp;idFamilia=$4&amp;registroInicial=$5&amp;registroFinal=$6&amp;criterioDeOrden=$7</to>
+    </rule>
+	<!--FAMILIA  -->
+
+	<!--SUB FAMILIA -->
+	<rule>
+        <from>^/catalogo/libros/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=1&amp;idGrupo=$2&amp;idFamilia=$4&amp;idSubFamilia=$6</to>
+    </rule>
+
+	<!-- alianza -->
+	<rule>
+        <from>^/catalogo/libros/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)--idAlianza=([0-9]+)-([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=1&amp;idGrupo=$2&amp;idFamilia=$4&amp;idSubFamilia=$6&amp;ID_ALIANZA=$7&amp;ID_SECCION=$8</to>
+    </rule>
+	<!-- alianza -->
+	<rule>
+        <from>^/catalogo/libros/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=1&amp;idGrupo=$2&amp;idFamilia=$4&amp;idSubFamilia=$6&amp;registroInicial=$7&amp;registroFinal=$8&amp;criterioDeOrden=$9</to>
+    </rule>
+
+	<rule>
+        <from>^/catalogo/cds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=4&amp;idGrupo=$2&amp;idFamilia=$4&amp;idSubFamilia=$6</to>
+    </rule>
+
+	<!-- alianza -->
+	<rule>
+        <from>^/catalogo/cds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)--idAlianza=([0-9]+)-([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=4&amp;idGrupo=$2&amp;idFamilia=$4&amp;idSubFamilia=$6&amp;ID_ALIANZA=$7&amp;ID_SECCION=$8</to>
+    </rule>
+	<!-- alianza -->
+	<rule>
+        <from>^/catalogo/cds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=4&amp;idGrupo=$2&amp;idFamilia=$4&amp;idSubFamilia=$6&amp;registroInicial=$7&amp;registroFinal=$8&amp;criterioDeOrden=$9</to>
+    </rule>
+
+	<rule>
+        <from>^/catalogo/pasatiempos/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=3&amp;idGrupo=$2&amp;idFamilia=$4&amp;idSubFamilia=$6</to>
+    </rule>
+
+	<!-- alianza -->
+	<rule>
+        <from>^/catalogo/pasatiempos/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)--idAlianza=([0-9]+)-([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=3&amp;idGrupo=$2&amp;idFamilia=$4&amp;idSubFamilia=$6&amp;ID_ALIANZA=$7&amp;ID_SECCION=$8</to>
+    </rule>
+   	<!-- alianza -->
+   	<rule>
+        <from>^/catalogo/pasatiempos/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=3&amp;idGrupo=$2&amp;idFamilia=$4&amp;idSubFamilia=$6&amp;registroInicial=$7&amp;registroFinal=$8&amp;criterioDeOrden=$9</to>
+    </rule>
+
+	<rule>
+        <from>^/catalogo/dvds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=5&amp;idGrupo=$2&amp;idFamilia=$4&amp;idSubFamilia=$6</to>
+    </rule>
+
+	<!-- alianza -->
+	<rule>
+        <from>^/catalogo/dvds/([a-z_]+)--([0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=5&amp;idGrupo=$2&amp;registroInicial=$3&amp;registroFinal=$4&amp;criterioDeOrden=$5</to>
+    </rule>
+    <rule>
+        <from>^/catalogo/dvds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/catalogo/?idSeccion=5&amp;idGrupo=$2&amp;idFamilia=$4&amp;idSubFamilia=$6&amp;registroInicial=$7&amp;registroFinal=$8&amp;criterioDeOrden=$9</to>
+    </rule>
+	<!-- FIN REDISEÑO CATALOGO -->
+
+
+	<!--  REDISENO DETALLE  -->
+	<rule>
+        <from>^/libros/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$4&amp;idSeccion=1</to>
+    </rule>
+
+    <rule>
+        <from>^/libros/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$6&amp;idSeccion=1</to>
+    </rule>
+
+	<rule>
+        <from>^/libros/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$4&amp;ID_ALIANZA=$5&amp;ID_SECCION=$6&amp;idSeccion=1</to>
+    </rule>
+
+	<rule>
+        <from>^/libros/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$8&amp;idSeccion=1</to>
+    </rule>
+
+	<rule>
+        <from>^/libros/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$8&amp;ID_ALIANZA=$9&amp;ID_SECCION=$10&amp;idSeccion=1</to>
+    </rule>
+
+	<rule>
+        <from>^/libros/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$6&amp;ID_ALIANZA=$7&amp;ID_SECCION=$8&amp;idSeccion=1</to>
+    </rule>
+	<rule>
+        <from>^/pasatiempos/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$8&amp;idSeccion=3</to>
+    </rule>
+	<rule>
+        <from>^/pasatiempos/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$8&amp;ID_ALIANZA=$9&amp;ID_SECCION=$10&amp;idSeccion=3</to>
+    </rule>
+    <rule>
+        <from>^/pasatiempos/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$6&amp;idSeccion=3</to>
+    </rule>
+    <rule>
+        <from>^/pasatiempos/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$6&amp;ID_ALIANZA=$7&amp;ID_SECCION=$8&amp;idSeccion=3</to>
+    </rule>
+    <rule>
+        <from>^/pasatiempos/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$4&amp;idSeccion=3</to>
+    </rule>
+    <rule>
+        <from>^/pasatiempos/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jspidArticulo=$4&amp;ID_ALIANZA=$5&amp;ID_SECCION=$6&amp;idSeccion=3</to>
+    </rule>
+    <rule>
+        <from>^/cds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$8&amp;idSeccion=4</to>
+    </rule>
+    <rule>
+        <from>^/cds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$8&amp;ID_ALIANZA=$9&amp;ID_SECCION=$10&amp;idSeccion=4</to>
+    </rule>
+
+    <rule>
+        <from>^/cds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$6&amp;idSeccion=4</to>
+    </rule>
+
+    <rule>
+        <from>^/cds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$6&amp;ID_ALIANZA=$7&amp;ID_SECCION=$8&amp;idSeccion=4</to>
+    </rule>
+
+    <rule>
+        <from>^/cds/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$4&amp;idSeccion=4</to>
+    </rule>
+
+    <rule>
+        <from>^/cds/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$4&amp;ID_ALIANZA=$5&amp;ID_SECCION=$6&amp;idSeccion=4</to>
+    </rule>
+
+    <rule>
+        <from>^/dvds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$8&amp;idSeccion=5</to>
+    </rule>
+
+    <rule>
+        <from>^/dvds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$8&amp;ID_ALIANZA=$9&amp;ID_SECCION=$10&amp;idSeccion=5</to>
+    </rule>
+
+    <rule>
+        <from>^/dvds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$6&amp;idSeccion=5</to>
+    </rule>
+
+    <rule>
+        <from>^/dvds/([a-z_]+)--([0-9]+)/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$6&amp;ID_ALIANZA=$7&amp;ID_SECCION=$8&amp;idSeccion=5</to>
+    </rule>
+
+    <rule>
+        <from>^/dvds/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$4&amp;idSeccion=5</to>
+    </rule>
+
+    <rule>
+        <from>^/dvds/([a-z_]+)--([0-9]+)/([a-z_0-9]+)--([0-9]+)--([0-9]+)--([0-9]+).htm$</from>
+        <to>/articulo/componentes/detalleNuevo.jsp?idArticulo=$4&amp;ID_ALIANZA=$5&amp;ID_SECCION=$6&amp;idSeccion=5</to>
+    </rule>
+	<!-- REDISENO DETALLE -->
+
+	<rule>
+		<from>^/feed/userid/([a-z_@.0-9]+)/([0-9]+)/comments.htm$</from>
+        <to>/CommentFeedDispatcher?mail=$1&amp;page=$2</to>
+	</rule>
+	<rule>
+		<from>^/feed/userid/([a-z_@.0-9]+)/([0-9]+)/wishlists.htm$</from>
+        <to>/WishListsFeedDispatcher?mail=$1&amp;page=$2</to>
+	</rule>
+	<rule>
+		<from>^/feed/userid/([a-z_@.0-9]+)/([0-9]+)/wishlist_([0-9]+).htm$</from>
+        <to>/WishListFeedDispatcher?mail=$1&amp;page=$2&amp;idWishList=$3</to>
+    </rule>
+
+
+
+    <!--
+
+    INSTALLATION
+
+        in your web.xml add...
+
+        <filter>
+            <filter-name>UrlRewriteFilter</filter-name>
+            <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+            <init-param>
+                <param-name>logLevel</param-name>
+                <param-value>WARN</param-value>
+            </init-param>
+        </filter>
+        <filter-mapping>
+            <filter-name>UrlRewriteFilter</filter-name>
+            <url-pattern>/*</url-pattern>
+        </filter-mapping>
+
+     EXAMPLES
+
+     Redirect one url
+        <rule>
+            <from>/some/old/page.html</from>
+            <to type="redirect">/very/new/page.html</to>
+        </rule>
+
+    Redirect a directory
+        <rule>
+            <from>/some/olddir/(.*)</from>
+            <to type="redirect">/very/newdir/$1</to>
+        </rule>
+
+    Clean a url
+        <rule>
+            <from>/products/([0-9]+)</from>
+            <to>/products/index.jsp?product_id=$1</to>
+        </rule>
+    eg, /products/1234 will be passed on to /products/index.jsp?product_id=1234 without the user noticing.
+
+    Browser detection
+        <rule>
+            <condition name="user-agent">Mozilla/[1-4]</condition>
+            <from>/some/page.html</from>
+            <to>/some/page-for-old-browsers.html</to>
+        </rule>
+    eg, will pass the request for /some/page.html on to /some/page-for-old-browsers.html only for older
+    browsers whose user agent srtings match Mozilla/1, Mozilla/2, Mozilla/3 or Mozilla/4.
+
+    -->
+
+</urlrewrite>
+

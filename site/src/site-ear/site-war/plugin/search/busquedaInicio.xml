@@ -1,0 +1,11 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+<ShortName>Tematika</ShortName>
+<Description>Tematika</Description>
+<InputEncoding>ISO-8859-1</InputEncoding>
+<Image width="16" height="16">data:image/x-icon;base64,R0lGODlhEAAQAPcAAAAAAIAAAACAAICAAAAAgIAAgACAgICAgMDAwP8AAAD/AP//AAAA//8A/wD//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAZgAAmQAAzAAA/wAzAAAzMwAzZgAzmQAzzAAz/wBmAABmMwBmZgBmmQBmzABm/wCZAACZMwCZZgCZmQCZzACZ/wDMAADMMwDMZgDMmQDMzADM/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMzADMzMzMzZjMzmTMzzDMz/zNmADNmMzNmZjNmmTNmzDNm/zOZADOZMzOZZjOZmTOZzDOZ/zPMADPMMzPMZjPMmTPMzDPM/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YzAGYzM2YzZmYzmWYzzGYz/2ZmAGZmM2ZmZmZmmWZmzGZm/2aZAGaZM2aZZmaZmWaZzGaZ/2bMAGbMM2bMZmbMmWbMzGbM/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5kzAJkzM5kzZpkzmZkzzJkz/5lmAJlmM5lmZplmmZlmzJlm/5mZAJmZM5mZZpmZmZmZzJmZ/5nMAJnMM5nMZpnMmZnMzJnM/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wzAMwzM8wzZswzmcwzzMwz/8xmAMxmM8xmZsxmmcxmzMxm/8yZAMyZM8yZZsyZmcyZzMyZ/8zMAMzMM8zMZszMmczMzMzM/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8AM/8AZv8Amf8AzP8A//8zAP8zM/8zZv8zmf8zzP8z//9mAP9mM/9mZv9mmf9mzP9m//+ZAP+ZM/+ZZv+Zmf+ZzP+Z///MAP/MM//MZv/Mmf/MzP/M////AP//M///Zv//mf//zP///ywAAAAAEAAQAAAI4AAfCNz2YNq9VM3u3RPI8IE/h9P8wIhxA0ahaQ0fbPPHDMaNKh9vxNCykKG/bDBwbAmzRcyfLTHCLPSXz9+fGy//GCJl6GaVVP4I3rvhx1AhQ6oa/Sm0BYdOag9gxeCyNBUqZrBUwYI3rVlUVFfhvWMmqtBVdO/8QFV1NdWxVKKYpUOHrtmoGyWn4TTEDF46sc22bNHy8EG2KoaocBlFKFUhQGGohCnsj5ChnkaNitlyA5XAfA/uwQC5hWoYkHmyZWR2g0oPLYMrTius0WGzijEm+nn1EHTGe9NQpZr9sHhAADs=</Image>
+<Url type="text/html" method="GET" template="http://www.tematika.com/buscador/productos.jsp?seccion=0&amp;texto={searchTerms}">
+</Url>
+<Url type="application/x-suggestions+json" template="suggestionURL"/>
+<moz:SearchForm>http://www.tematika.com</moz:SearchForm>
+</OpenSearchDescription>

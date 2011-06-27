@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.ItemsPromociones"
+    table="ITEMS_PROMOCIONES"
+>
+
+ <comment>Artículos Promocionados</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.ItemsPromocionesId"
+    >		
+	        <key-property name="idSucursal" type="short">
+<column name="ID_SUCURSAL" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="idMovimiento" type="long">
+<column name="ID_MOVIMIENTO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="item" type="int">
+<column name="ITEM" precision="6" scale="0" />
+	        </key-property>
+	        <key-property name="idPromocion" type="long">
+<column name="ID_PROMOCION" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idPromocion2" type="java.lang.Long">
+<column name="ID_PROMOCION2" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idPromocion3" type="java.lang.Long">
+<column name="ID_PROMOCION3" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idPromocion4" type="java.lang.Long">
+<column name="ID_PROMOCION4" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idPromocion5" type="java.lang.Long">
+<column name="ID_PROMOCION5" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="importe" type="big_decimal">
+<column name="IMPORTE" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="importe2" type="big_decimal">
+<column name="IMPORTE2" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="importe3" type="big_decimal">
+<column name="IMPORTE3" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="importe4" type="big_decimal">
+<column name="IMPORTE4" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="importe5" type="big_decimal">
+<column name="IMPORTE5" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="idCampaign" type="java.lang.Long">
+<column name="ID_CAMPAIGN" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idArticulo" type="long">
+<column name="ID_ARTICULO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="35" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="usrModi" type="string">
+<column name="USR_MODI" length="35" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <many-to-one
+	    name="itemsMovimientos"
+	    class="org.reverse.ItemsMovimientos"
+	    
+        update="false"
+        insert="false"
+        fetch="select"
+    >
+<column name="ID_SUCURSAL" precision="4" scale="0" not-null="true" >
+<comment>Sucursal</comment>
+</column><column name="ID_MOVIMIENTO" precision="10" scale="0" not-null="true" >
+<comment>Código del movimiento</comment>
+</column><column name="ITEM" precision="6" scale="0" not-null="true" >
+<comment>Código del ítem del movimiento</comment>
+</column>   </many-to-one>
+
+</class>
+
+</hibernate-mapping>

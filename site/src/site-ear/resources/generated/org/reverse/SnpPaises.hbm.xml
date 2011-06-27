@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SnpPaises"
+    table="SNP_PAISES"
+>
+
+ <comment>snapshot table for snapshot TEMATIKA.SNP_PAISES</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.SnpPaisesId"
+    >		
+	        <key-property name="idPais" type="int">
+<column name="ID_PAIS" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="descripcion" type="string">
+<column name="DESCRIPCION" length="50" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="35" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="usrModi" type="string">
+<column name="USR_MODI" length="35" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+	        <key-property name="idUsrAlta" type="java.lang.Long">
+<column name="ID_USR_ALTA" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idUsrModi" type="java.lang.Long">
+<column name="ID_USR_MODI" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="iso31633A2" type="string">
+<column name="ISO31633_A2" length="2" />
+	        </key-property>
+	        <key-property name="iso31633A3" type="string">
+<column name="ISO31633_A3" length="3" />
+	        </key-property>
+	        <key-property name="codAduana" type="java.lang.Short">
+<column name="COD_ADUANA" precision="3" scale="0" />
+	        </key-property>
+	        <key-property name="cuitPaisPf" type="string">
+<column name="CUIT_PAIS_PF" length="20" />
+	        </key-property>
+	        <key-property name="cuitPaisPj" type="string">
+<column name="CUIT_PAIS_PJ" length="20" />
+	        </key-property>
+	        <key-property name="gemPaisCodigo" type="string">
+<column name="GEM_PAIS_CODIGO" length="3" />
+	        </key-property>
+	        <key-property name="gemMaxProvCodigo" type="string">
+<column name="GEM_MAX_PROV_CODIGO" length="2" />
+	        </key-property>
+	        <key-property name="habilitadoTematika" type="string">
+<column name="HABILITADO_TEMATIKA" length="1" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

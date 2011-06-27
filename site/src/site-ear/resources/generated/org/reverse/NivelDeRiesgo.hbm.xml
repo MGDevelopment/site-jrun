@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.NivelDeRiesgo"
+    table="NIVEL_DE_RIESGO"
+>
+
+	<id 
+        name="nivelRiesgo"
+        type="boolean"
+    >
+    
+<column name="NIVEL_RIESGO" precision="1" scale="0" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="descripcion"
+	    type="string"
+    >
+<column name="DESCRIPCION" length="50" not-null="true" />
+  </property>
+
+
+	<set name="tarjetaVerificadas"
+table="TARJETA_VERIFICADA"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="NIVEL_RIESGO" precision="1" scale="0" not-null="true" >
+<comment>NULL: SIN EVALUAR 0: SIN RIESGO 1: RIESGO MEDIO 2: RIESGO MAXIMO</comment>
+</column>		</key>
+<one-to-many class="org.reverse.TarjetaVerificada"
+/>
+	</set>
+
+	<set name="ordens"
+table="ORDEN"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="NIVEL_RIESGO" precision="1" scale="0" >
+<comment>NIVEL DE RIESGO ASOCIADO A LA TARJETA DE CREDITO: 0 SIN RIESGO (VERDE) 1: RIESGO MEDIO (AMARILLO) 2: RIESGO MAXIMO (ROJO)</comment>
+</column>		</key>
+<one-to-many class="org.reverse.Orden"
+/>
+	</set>
+
+</class>
+
+</hibernate-mapping>

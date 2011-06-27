@@ -1,0 +1,24 @@
+<div style="margin-top: 10px;">	
+	<div class="compraWrapper2" style="width:610px"><!-- background-color: #FBF5EF">-->
+		<div class="cProcTit" style="margin-top: 0pt;"><span>Eventos Tematika:</span></div>
+        <div class="cProcFor-wrapper2 cProcForms2">
+            <p style="margin-bottom: 0pt;font-weight:bold;"><tmpl_var mesDeEvento></p>
+            <div style="margin-bottom: 0pt;">
+            	<span style="margin-right: 10px;">
+            		&nbsp;
+            	</span>
+            </div>
+        </div>
+        <tmpl_loop eventos>
+        <div class="cProcFor-wrapper2 cProcForms2">
+            <p style="margin-bottom: 0pt;font-weight:bold;"><tmpl_var dia> a las <tmpl_var hora> horas </p>
+            <div style="margin-bottom: 0pt;">
+            	<span style="margin-right: 10px;">
+      				<tmpl_var descripcionDeEvento><br>
+      				<p style="color:red"><tmpl_var lugarDeEvento><br></p>
+      			</span>
+            </div>
+        </div>
+        </tmpl_loop> 
+	</div>
+</div>

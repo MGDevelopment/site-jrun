@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jrun-ejb-jar PUBLIC "-//Macromedia, Inc.//DTD jrun-ejb-jar 4.0//EN"
+  "http://jrun.macromedia.com/dtds/jrun-ejb-jar.dtd">
+
+
+<jrun-ejb-jar>
+   <source>jdbc/site</source>
+   <enterprise-beans>
+      <entity>
+         <ejb-name>Referido</ejb-name>
+         <jndi-name>Referido</jndi-name>
+         <commit-option>B</commit-option>
+         <jdbc-mappings>
+	         <create-table>false</create-table>
+	         <jdbc-mapping>
+				 <name>findBySocioReferido</name>
+				 <statement>
+					 <action>SELECT "CODIGO_REFERIDO"
+	                        FROM REFERIDO R
+	                        WHERE
+	                        R.ID_SOCIO_REFERIDO = ?1
+						    AND R.ID_SUCURSAL_REFERIDO = ?2
+					 </action>
+					 <params>
+						 <param>
+							 <name>ID_SOCIO_REFERIDO</name>
+							 <type>INTEGER</type>
+						 </param>
+						 <param>
+							 <name>ID_SUCURSAL_REFERIDO</name>
+							 <type>INTEGER</type>
+						 </param>
+					</params>
+					 <fields>
+						 <field>CODIGO_REFERIDO</field>
+					 </fields>
+				 </statement>
+			 </jdbc-mapping>
+
+	         <jdbc-mapping>
+				 <name>findBySocioReferenteEstado</name>
+				 <statement>
+					 <action>SELECT "CODIGO_REFERIDO"
+	                        FROM REFERIDO R
+	                        WHERE
+	                        R.ID_SOCIO_REFERENTE = ?1
+						    AND R.ID_SUCURSAL_REFERENTE = ?2
+						    AND R.ESTADO = ?3
+						    ORDER BY R.FECHA_VENC_REFERENTE DESC
+					 </action>
+					 <params>
+						 <param>
+							 <name>ID_SOCIO_REFERENTE</name>
+							 <type>INTEGER</type>
+						 </param>
+						 <param>
+							 <name>ID_SUCURSAL_REFERENTE</name>
+							 <type>INTEGER</type>
+						 </param>
+						 <param>
+							 <name>ESTADO</name>
+							 <type>VARCHAR</type>
+						 </param>
+					</params>
+					 <fields>
+						 <field>CODIGO_REFERIDO</field>
+					 </fields>
+				 </statement>
+			 </jdbc-mapping>
+
+	         <jdbc-mapping>
+				 <name>findByOrdenReferido</name>
+				 <statement>
+					 <action>SELECT "CODIGO_REFERIDO"
+	                        FROM REFERIDO R
+	                        WHERE
+	                        R.ID_ORDEN_REFERIDO = ?1
+					 </action>
+					 <params>
+						 <param>
+							 <name>ID_ORDEN_REFERIDO</name>
+							 <type>INTEGER</type>
+						 </param>
+					</params>
+					 <fields>
+						 <field>CODIGO_REFERIDO</field>
+					 </fields>
+				 </statement>
+			 </jdbc-mapping>
+
+	         <jdbc-mapping>
+				 <name>findBySocioReferenteDisponibles</name>
+				 <statement>
+					 <action>SELECT "CODIGO_REFERIDO"
+	                        FROM REFERIDO R
+	                        WHERE
+	                        R.ID_SOCIO_REFERENTE = ?1
+						    AND R.ID_SUCURSAL_REFERENTE = ?2
+						    AND R.ESTADO = '4' AND R.FECHA_VENC_REFERENTE &gt;= SYSDATE
+						    ORDER BY ESTADO DESC, FECHA_VENC_REFERENTE DESC
+					 </action>
+					 <params>
+						 <param>
+							 <name>ID_SOCIO_REFERENTE</name>
+							 <type>INTEGER</type>
+						 </param>
+						 <param>
+							 <name>ID_SUCURSAL_REFERENTE</name>
+							 <type>INTEGER</type>
+						 </param>
+					</params>
+					 <fields>
+						 <field>CODIGO_REFERIDO</field>
+					 </fields>
+				 </statement>
+			 </jdbc-mapping>
+
+	         <jdbc-mapping>
+				 <name>findBySocioReferenteEnProceso</name>
+				 <statement>
+					 <action>SELECT "CODIGO_REFERIDO"
+	                        FROM REFERIDO R
+	                        WHERE
+	                        R.ID_SOCIO_REFERENTE = ?1
+						    AND R.ID_SUCURSAL_REFERENTE = ?2
+						    AND R.ESTADO in ('1', '2', '3') AND R.FECHA_VENC_REFERIDO &gt;= SYSDATE
+						    ORDER BY ESTADO DESC, FECHA_VENC_REFERIDO DESC
+					 </action>
+					 <params>
+						 <param>
+							 <name>ID_SOCIO_REFERENTE</name>
+							 <type>INTEGER</type>
+						 </param>
+						 <param>
+							 <name>ID_SUCURSAL_REFERENTE</name>
+							 <type>INTEGER</type>
+						 </param>
+					</params>
+					 <fields>
+						 <field>CODIGO_REFERIDO</field>
+					 </fields>
+				 </statement>
+			 </jdbc-mapping>
+
+	         <jdbc-mapping>
+			    <name>findBySocioReferenteVencidos</name>
+			    <statement>
+				  <action>SELECT "CODIGO_REFERIDO"
+						 FROM REFERIDO R
+						 WHERE
+						 R.ID_SOCIO_REFERENTE = ?1
+						 AND R.ID_SUCURSAL_REFERENTE = ?2
+						 AND ( (R.FECHA_VENC_REFERIDO &lt;= SYSDATE AND R.ESTADO in ('1', '2', '3'))
+					        OR (R.FECHA_VENC_REFERENTE &lt;= SYSDATE AND R.ESTADO = '4') )
+						 ORDER BY ESTADO DESC, R.FECHA_VENC_REFERIDO DESC
+				  </action>
+				  <params>
+					  <param>
+						  <name>ID_SOCIO_REFERENTE</name>
+						  <type>INTEGER</type>
+					  </param>
+					  <param>
+						  <name>ID_SUCURSAL_REFERENTE</name>
+						  <type>INTEGER</type>
+					  </param>
+				 </params>
+				  <fields>
+					  <field>CODIGO_REFERIDO</field>
+				  </fields>
+			  </statement>
+		  </jdbc-mapping>
+
+        </jdbc-mappings>
+      </entity>
+
+	  <entity>
+         <ejb-name>ReferenteOrden</ejb-name>
+         <jndi-name>ReferenteOrden</jndi-name>
+         <commit-option>B</commit-option>
+         <jdbc-mappings>
+	        <create-table>false</create-table>
+	         <jdbc-mapping>
+				 <name>findByReferido</name>
+				 <statement>
+					 <action>SELECT "CODIGO", "ID_ORDEN_REFERENTE"
+	                        FROM REFERENTE_ORDEN R
+	                        WHERE
+	                         R.CODIGO = ?1
+					 </action>
+					 <params>
+						 <param>
+							 <name>CODIGO</name>
+							 <type>BIGINT</type>
+						 </param>
+					</params>
+					 <fields>
+						 <field>CODIGO</field>
+						 <field>ID_ORDEN_REFERENTE</field>
+					 </fields>
+				 </statement>
+			 </jdbc-mapping>
+
+	         <jdbc-mapping>
+				 <name>findByOrdenReferente</name>
+				 <statement>
+					 <action>SELECT "CODIGO", "ID_ORDEN_REFERENTE"
+	                        FROM REFERENTE_ORDEN R
+	                        WHERE
+	                         R.ID_ORDEN_REFERENTE = ?1
+					 </action>
+					 <params>
+						 <param>
+							 <name>ID_ORDEN_REFERENTE</name>
+							 <type>INTEGER</type>
+						 </param>
+					</params>
+					 <fields>
+						 <field>CODIGO</field>
+						 <field>ID_ORDEN_REFERENTE</field>
+					 </fields>
+				 </statement>
+			 </jdbc-mapping>
+	       </jdbc-mappings>
+      </entity>
+
+   </enterprise-beans>
+</jrun-ejb-jar>
+

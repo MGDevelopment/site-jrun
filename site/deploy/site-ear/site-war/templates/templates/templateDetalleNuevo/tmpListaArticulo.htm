@@ -1,0 +1,79 @@
+<div id="resBusqueda">
+	<tmpl_loop detalles>
+		<div class="listadoMod"><!-- 01 -->        
+            <div class="detalleImagen">
+				<a href="<tmpl_var urlDetalle>"><img src="<tmpl_var urlImagen>"></a>            
+            </div>
+           	<div>
+               <div class="listadoModInfo" id="resultado<tmpl_var indice>">
+                   <a href="<tmpl_var urlDetalle>" class="dInfoTit"><tmpl_var titulo></a>
+                   <div class="dInfoAutor">de                     
+                   	<tmpl_loop autores>                    		
+                   		<a href="<tmpl_var urlAutor>"><tmpl_var autor></a>
+                   	</tmpl_loop>                    	
+                   </a></div>
+                   
+				<tmpl_if esCalificado>
+                   	<div class="calificacionMod">
+                      	 	<span>Calificación:</span>
+                      	 		<tmpl_loop calificaciones>
+                      	 			<div class="<tmpl_var estrellaClass>"></div><!--calificacionStar,calificacionStarDes-->                       	 			
+                       		</tmpl_loop>
+                       		<tmpl_if tieneEvaluacion>
+                   				<div>&nbsp; <tmpl_var comentarioEvaluacion> <tmpl_var textoComentario></div>
+                   			</tmpl_if>    	
+                   	</div>                                  	
+				</tmpl_else>
+					<div class="calificacionMod">
+						<tmpl_if tieneEvaluacion>
+							<span> <tmpl_var comentarioEvaluacion> <tmpl_var textoComentario></span>
+						</tmpl_if>
+					</div>
+				</tmpl_if>
+                                   
+                   <span>Clasificaci&oacute;n: <a href="<tmpl_var urlGenero>"><tmpl_var genero></a></span>
+
+                   <tmpl_if tieneSinopsis>
+                    <span>Sinopsis:                    
+                    		<tmpl_var sinopsis>
+                    </span>
+                   </tmpl_if>
+                   <!-- <p>
+                       <div class="dInfoLinks">Listas: <a href="#">apelación</a>, <a href="#">autor</a>, <a href="#">john grisham</a>, <a href="#">abogados</a>, <a href="#">política</a>, <a href="#listas">(15+)</a></div>
+                       <div class="dInfoLinks">Etiquetas: <a href="#">leyes</a>, <a href="#">autor</a>, <a href="#">john grisham</a>, <a href="#">abogados</a>, <a href="#tags">(15+)</a></div>
+                   </p>-->
+                   
+               </div>
+           	</div>
+               <div class="listadoModAcciones">
+                   <div>
+                      <span>Precio: <p><tmpl_var precio></p></span>
+                      <tmpl_if estaDisponible>
+                      		<a href="javascript:carrito_AgregarArticulo(<tmpl_var idArticulo>);window.scrollTo(0,0);"></a>
+                      <tmpl_else>
+                       	<!-- <a href="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO=<tmpl_var idArticulo>';" rel="nofollow">-->
+	                   	<img onclick="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO=<tmpl_var idArticulo>';" src="/imagenes/rediseno/imagenes/seccion<tmpl_var enSeccion>/b-pedir.png" alt="Pedir" style="cursor: pointer;" />
+	                   		
+	                  	</a>
+	                  </tmpl_if>	
+                   </div>	                   
+                   <!-- se comenta por no estar desarrollado aun -->
+                   <h4 class="detalleModMenu">
+                       <a class="detalleBotonMenu" onclick="javascript:desplegarOpciones('detalleList01');">
+                       <span>AGREGAR A UNA LISTA</span></a>                       
+                       <h5 class="detalleListaMenu" id="detalleList01" onMouseOver="clearTimeout(tempo);" onmouseout="ocultarOpcionesT('detalleList01');" style="display:none;">
+                       	<p><input name="" type="checkbox" value="" /><span>Mi lista de deseos</span></p>
+                           <p class="dListaMenuCheck">
+                           		<input name="" type="checkbox" value="" checked="checked" /><span>Música</span>
+                           	</p>
+                           <p><input name="" type="checkbox" value="" /><span>Diseño</span></p>
+                           <p class="dListaMenuDes">
+                           		<input name="" type="checkbox" value="" /><span>+ Nueva lista</span>
+                           </p>
+                           <input name="" type="button" value="Aplicar" class="dListaMenuDesBut" />
+                       </h5>
+                   </h4>
+               </div>
+           </div><!-- FIN 01 --> 
+	</tmpl_loop>
+</div>            

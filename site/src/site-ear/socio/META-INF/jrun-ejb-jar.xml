@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jrun-ejb-jar PUBLIC "-//Macromedia, Inc.//DTD jrun-ejb 4.0//EN" "http://jrun.macromedia.com/dtds/jrun-ejb-jar.dtd">
+<jrun-ejb-jar>
+	<source>jdbc/site</source>
+	<enterprise-beans>
+		<!-- 
+		<entity>
+			<ejb-name>Socio</ejb-name>
+			<jndi-name>Socio</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findRepetidosAUnificar</name>
+					<statement>
+						<action>
+							SELECT   "ID_SUCURSAL", "ID_SOCIO"
+								FROM SOCIOS2
+							   WHERE SEXO = ?1
+								 AND TIPO_DOC = ?2
+								 AND NRO_DOC = ?3
+								 AND NVL(NACIONALIDAD, ?4) = ?4
+							ORDER BY F_ALTA, ROWID
+						</action>
+						<params>
+							<param>
+								<name>SEXO</name>
+								<type>VARCHAR</type>
+							</param>
+							<param>
+								<name>TIPO_DOC</name>
+								<type>VARCHAR</type>
+							</param>
+							<param>
+								<name>NRO_DOC</name>
+								<type>BIGINT</type>
+							</param>
+							<param>
+								<name>NACIONALIDAD</name>
+								<type>VARCHAR</type>
+							</param>
+						</params>
+						<fields>
+							<field>ID_SUCURSAL</field>
+							<field>ID_SOCIO</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+				<jdbc-mapping>
+					<name>findRepetidosDelSitio</name>
+					<statement>
+						<action>
+							SELECT   "ID_SUCURSAL", "ID_SOCIO"
+								FROM SOCIOS2
+							   WHERE SEXO = ?1
+								 AND TIPO_DOC = ?2
+								 AND NRO_DOC = ?3
+								 AND NVL(NACIONALIDAD, ?4) = ?4
+								 AND LOGIN is not null
+								 AND PASSWORD is not null
+							ORDER BY F_ALTA, ROWID
+						</action>
+						<params>
+							<param>
+								<name>SEXO</name>
+								<type>VARCHAR</type>
+							</param>
+							<param>
+								<name>TIPO_DOC</name>
+								<type>VARCHAR</type>
+							</param>
+							<param>
+								<name>NRO_DOC</name>
+								<type>BIGINT</type>
+							</param>
+							<param>
+								<name>NACIONALIDAD</name>
+								<type>VARCHAR</type>
+							</param>
+						</params>
+						<fields>
+							<field>ID_SUCURSAL</field>
+							<field>ID_SOCIO</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+
+			</jdbc-mappings>
+		</entity>
+		-->
+		<entity>
+			<ejb-name>TarjetaSocio</ejb-name>
+			<jndi-name>TarjetaSocio</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity>
+		<entity>
+			<ejb-name>SocioTelefono</ejb-name>
+			<jndi-name>SocioTelefono</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity>
+		<entity>
+			<ejb-name>SocioDomicilio</ejb-name>
+			<jndi-name>SocioDomicilio</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+                <jdbc-mapping>
+                    <name>findByTipoFacturacion</name>
+                        <statement>
+                            <action>
+                                SELECT "ID_SOCIO", "ID_SUCURSAL", "TIPO_DOMICILIO"
+                                FROM SOCIOS_DOMICILIOS sd
+                                WHERE sd.ID_SUCURSAL = ?1 AND sd.ID_SOCIO = ?2 AND sd.TIPO_DOMICILIO LIKE 'TF%'
+                                ORDER BY sd.TIPO_DOMICILIO
+                            </action>
+                            <params>
+                                <param>
+                                    <name>ID_SOCIO</name>
+                                    <type>INTEGER</type>
+                                </param>
+                                <param>
+                                    <name>ID_SUCURSAL</name>
+                                    <type>INTEGER</type>
+                                </param>
+                            </params>
+                            <fields>
+                                <field>ID_SOCIO</field>
+                                <field>ID_SUCURSAL</field>
+                                <field>TIPO_DOMICILIO</field>
+                            </fields>
+                        </statement>
+                    </jdbc-mapping>
+            </jdbc-mappings>
+		</entity>
+		<!-- 
+		<entity>
+			<ejb-name>BufferSocio</ejb-name>
+			<jndi-name>BufferSocio</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity>
+		-->
+		<entity>
+			<ejb-name>BufferSocioDomicilio</ejb-name>
+			<jndi-name>BufferSocioDomicilio</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity>
+		<entity>
+			<ejb-name>BufferSocioTelefono</ejb-name>
+			<jndi-name>BufferSocioTelefono</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity>
+	</enterprise-beans>
+</jrun-ejb-jar>

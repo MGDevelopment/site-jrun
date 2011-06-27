@@ -1,0 +1,18 @@
+<table align="center" cellpadding="0" cellspacing="0"><tr><td>
+Ingrese a Dinero Mail haciendo click en el botón  para poder realizar su pago.<br>&nbsp;
+<form action="https://www.dineromail.com/Shop/Shop_Ingreso.asp" method="post" target="_blank">
+<input type="submit" value="Pagar con Dinero Mail">
+<input type="hidden" name="NombreItem" value="Compra en Tematika.com">
+<input type="hidden" name="TipoMoneda" value="1"> 
+<input type="hidden" name="PrecioItem" value="<tmpl_var total>">
+<input type="hidden" name="E_Comercio" value="687588">
+<input type="hidden" name="NroItem" value="<tmpl_var idOrden>"> 
+<input type="hidden" name="image_url" value="https://www.tematika.com/imagenes/Logo-Tematika.gif">
+<input type="hidden" name="DireccionExito" value="http://www.tematika.com/compra/pagoDMOK.jsp">
+<input type="hidden" name="DireccionFracaso" value="http://www.tematika.com/compra/pagoDMFail.jsp">
+<input type="hidden" name="DireccionEnvio" value="">
+<input type="hidden" name="Mensaje" value="">
+<input type='hidden' name="MediosPago" value="7">
+<input type='hidden' name="TRX_ID" value="<tmpl_var idOrden>">	
+</form>
+</td></tr></table>

@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.Evento"
+    table="EVENTO"
+>
+
+	<id 
+        name="idEvento"
+        type="big_decimal"
+    >
+    
+<column name="ID_EVENTO" precision="22" scale="0" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="fechaInicio"
+	    type="date"
+    >
+<column name="FECHA_INICIO" length="7" not-null="true" >
+<comment>FECHA DE INICIO DEL EVENTO</comment>
+</column>  </property>
+
+    <property
+        name="descripcion"
+	    type="string"
+    >
+<column name="DESCRIPCION" not-null="true" />
+  </property>
+
+    <property
+        name="idSucursal"
+	    type="big_decimal"
+    >
+<column name="ID_SUCURSAL" precision="22" scale="0" not-null="true" >
+<comment>ID DE LA SUCURSAL DONDE EL EVENTO SERA REALIZADO</comment>
+</column>  </property>
+
+    <property
+        name="activo"
+	    type="boolean"
+    >
+<column name="ACTIVO" precision="1" scale="0" not-null="true" >
+<comment>FLAG Q INDICA SI EL EVENTO ESTARA VISIBLE O NO</comment>
+</column>  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

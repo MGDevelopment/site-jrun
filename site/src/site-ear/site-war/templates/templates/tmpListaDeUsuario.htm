@@ -1,0 +1,146 @@
+<div class="compraWrapper2">
+		<!-- <div style="margin-top: 0pt;" class="cProcTit"><span><tmpl_var listaTitulo>:</span></div>-->
+		<div class="cProcFor-wrapper2 cProcForms2">
+	            <b style="margin-bottom: 0pt;"><tmpl_var listaTitulo>:</b>
+	            <div style="margin-bottom: 0pt;">
+	            	<span style="margin-right: 10px;">	            			
+            			<tmpl_loop listaCalificacion>
+							<div class="<tmpl_var estrellaClass>"></div>
+						</tmpl_loop>
+	            	</span>
+	        	</div>
+	        </div>
+		<tmpl_if hayListas>   
+			<form id="frmLista" name="frmLista" metho="POST" action="/ModificarListaDeUsuario">
+			<input type="hidden" name="id_lista" value="<tmpl_var idLista>"/>
+	        <div class="cProcFor-wrapper2 cProcForms2">
+	            <b style="margin-bottom: 0pt;">Nombre de la lista</b>
+	            <div style="margin-bottom: 0pt;">
+	            	<span style="margin-right: 10px;">
+	            		<!--<tmpl_var listaTitulo>-->
+	            		<input type="text" value="<tmpl_var listaTitulo>" name="titulo" style="width: 260px;"/>
+	            	</span>
+	            </div>
+	        </div>
+	        <div class="cProcFor-wrapper2 cProcForms2">
+		            <b style="margin-bottom: 0pt;">¿Querés comparirla con la comunidad?</b>
+		            <div style="margin-bottom: 0pt;width:50px;">
+		            	<input type="radio" name="publica" <tmpl_var checkedListaPublicaS> value="S">Si
+		        	</div>
+		        	<div style="margin-bottom: 0pt;width:55px;">
+		            	<input type="radio" name="publica" value="N" <tmpl_var checkedListaPublicaN>>No
+		        	</div>
+		        </div>
+	        <div class="cProcFor-wrapper2 cProcForms2">
+		            <b style="margin-bottom: 0pt;">Unas palabras sobre tu lista (ayudarán a los demás usuarios a encontrarla)</b>
+		            <div style="margin-bottom: 0pt;width:260px;">
+		            	<textarea style="width: 260px;" name="descripcion" cols="5" rows="3" class="area" id="lblDescripcion" onkeypress="validarTextAreaLength(this, 'digitado', 'restante', 150)" onkeyup="validarTextAreaLength(this, 'digitado', 'restante', 150);" onblur="validarForm($('#frmLista').get(0));"><tmpl_var listaDescripcion></textarea>
+						<span id="digitado" style="color:red">0</span> Caracteres digitados / Restan <label id="restante"  style="color:red">150</label>
+		        	</div>		        	
+		        </div>
+		     <!-- 
+	        <div class="cProcFor-wrapper2 cProcForms2">
+	            <b style="margin-bottom: 0pt;">Calififacion de los usuarios:</b>
+	            <div style="margin-bottom: 0pt;">
+	            	<span style="margin-right: 10px;">	            			
+            			<tmpl_loop listaCalificacion>
+							<div class="<tmpl_var estrellaClass>"></div>
+						</tmpl_loop>
+	            	</span>
+	        	</div>
+	        </div>
+	        -->
+	        <div class="cProcFor-wrapper2 cProcForms2">
+	            <b style="margin-bottom: 0pt;">Seccion principal:</b>
+	            <div style="margin-bottom: 0pt;width:80px;">
+	            	<input type="radio" checked="" name="categoria_seccion" value="1" <tmpl_var checked1>/>Libros
+	        	</div>
+	            <div style="margin-bottom: 0pt;width:80px;">
+	            	<input type="radio" name="categoria_seccion" value="4" <tmpl_var checked4>/>Musica
+	        	</div>		        	
+	        	<div style="margin-bottom: 0pt; width:80px;">
+	            	<input type="radio" name="categoria_seccion" value="5" <tmpl_var checked5>/>Peliculas
+	        	</div>
+	        	<div style="margin-bottom: 0pt;width:105px;">
+	            	<input type="radio" name="categoria_seccion" value="3" <tmpl_var checked3>/>Pasatiempos
+	        	</div>	            
+	        </div> 
+	         <div class="cProcFor-wrapper2 cProcForms2">
+	            <div style="margin-bottom: 0pt;">
+	            	<a href="/EliminarListaDeUsuario?idLista=<tmpl_var idLista>" class="cProcForButton2">Eliminar</a>
+	            	<a href="javascript:document.frmLista.submit();" class="cProcForButton2">Modificar</a>
+	            	<a href="/miCuenta/listasDeUsuarios/crearMiLista.jsp" class="cProcForButton2">Nueva lista</a>
+	            </div>
+	        </div>
+	       </form>
+	        <!-- <a class="cProcForButton vPrevButt" style="text-align:center;" href="/compra/domicilio.do">MODIFICAR</a> -->
+       	</tmpl_else>
+	         <div class="cProcFor-wrapper2 cProcForms2">	         
+		        <b style="margin-bottom: 0pt;">No tenes listas creadas!</b>
+	            <div style="margin-bottom: 0pt;">
+	            	<span style="margin-right: 10px;">
+	            		<a href="/miCuenta/listasDeUsuarios/crearMiLista.jsp" class="cProcForButton2">Nueva lista</a>
+	            	</span>
+	        	</div>
+	    </tmpl_if>       		
+</div>
+<tmpl_if hayListas>
+	<div class="compraWrapper2">
+    	<tmpl_if hayArticulos>
+			<div style="margin-top: 0pt;" class="cProcTit"><span>Articulos de mis Lista:</span></div>
+				<tmpl_loop articulosDeLaLista>   			        
+			        <div class="cProcFor-wrapper2 cProcForms2" style="border-bottom:none;">
+			            <h5 style="margin-bottom: 0pt;width:190px"><a href="/articulo/detalleArticulo.jsp?idArticulo=<tmpl_var articuloIdArticulo>"><tmpl_var articuloTitulo></a></h5>		            
+			            <div style="margin-bottom: 0pt;margin-top: -2px;">
+			            	<span style="margin-right: 10px;" >
+			            		&nbsp;<a href="/EliminarArticuloDeLista?idLista=<tmpl_var idLista>&idArticulo=<tmpl_var articuloIdArticulo>" class="cProcForButton2">Eliminar</a>
+			            	</span>
+			            </div>
+			            <div style="margin-bottom: 0pt;margin-top: -2px;">
+			            	<span style="margin-right: 10px;" >
+			            		&nbsp;<a href="javascript:carrito_AgregarArticulo(<tmpl_var articuloIdArticulo>)" class="cProcForButton3">Agregar al carrito</a>
+			            	</span>
+			            </div>					            
+			        </div>
+			        <div class="cProcFor-wrapper2 cProcForms2">
+		            <b style="margin-bottom: 0pt;">Agregar comentario</b>
+		            <div style="margin-bottom: 0pt;width:260px;">
+		            	<textarea style="width: 260px;" name="descripcion" cols="5" rows="3" class="area" id="lblDescripcion" onkeypress="validarTextAreaLength(this, 'digitadoComentario<tmpl_var articuloIdArticulo>', 'restanteComentario<tmpl_var articuloIdArticulo>', 300)" onkeyup="validarTextAreaLength(this, 'digitadoComentario<tmpl_var articuloIdArticulo>', 'restanteComentario<tmpl_var articuloIdArticulo>', 300);" onblur="actualizarComentario(this,<tmpl_var articuloIdArticulo>,<tmpl_var idLista>);"><tmpl_var articuloComentario></textarea>
+						<span id="digitadoComentario<tmpl_var articuloIdArticulo>" style="color:red">0</span> Caracteres digitados / Restan <label id="restanteComentario<tmpl_var articuloIdArticulo>"  style="color:red">300</label>
+		        	</div>		        	
+		        </div>
+				</tmpl_loop>
+	 	<tmpl_else>
+    		<div class="cProcFor-wrapper2 cProcForms2">	         
+	            <div style="margin-bottom: 0pt;">
+	            	<span style="margin-right: 10px;">
+	            		No tenes articulos en esta lista!
+	            	</span>
+	        	</div>
+	        </div>
+		</tmpl_if>
+	</div>
+</tmpl_if>
+<!-- MODAL EN CASO DE NECESITAR
+<div style="display: none; position: fixed; visibility: hidden;" id="modalPago" class="ventModal-wrapper">	
+    <div class="vModTop">
+    	<div class="hModUsrNombre">Medios de pago</div>
+        <a title="Cerrar" href="javascript:mostrarDiv('modalPago'); javascript:mostrarDiv('modalBack');" class="hModUsrCerrar">cerrar</a>
+    </div>    
+    <div class="vModContent vModTxto">
+    	<div>TARJETA DE CREDITO</div>
+        <span>Deberá elegir el tipo de tarjeta que posee de la lista. <br>
+		A continuación debe completar los datos de la tarjeta tal cual como figuran en el plástico. <br>
+		Por último, ingrese su tipo y número de documento, y el domicilio donde llega su resúmen.</span>
+
+    	<div>SANTANDER RIO ONLINE BANKING</div>
+        <span>Seleccione esta opción si prefiere abonar la compra a través del sistema de Online Banking del banco Santander Río.  <br>
+		El pago se debitará de su cuenta bancaria.</span>
+    
+    	<div>PAGO FACIL</div>
+        <span>Al finalizar la compra deberás imprimir un cupón con el cual podrás realizar el pago en cualquier oficina de Pago Fácil.
+		Los tiempos de salida de despacho comenzarán a correr una vez que efectivices el pago de la compra.</span>
+
+    </div>    
+</div>
+-->

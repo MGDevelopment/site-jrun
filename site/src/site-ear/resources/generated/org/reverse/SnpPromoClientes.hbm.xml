@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SnpPromoClientes"
+    table="SNP_PROMO_CLIENTES"
+>
+
+ <comment>snapshot table for snapshot TEMATIKA.SNP_PROMO_CLIENTES</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.SnpPromoClientesId"
+    >		
+	        <key-property name="idPromocion" type="long">
+<column name="ID_PROMOCION" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idSucursal" type="java.lang.Long">
+<column name="ID_SUCURSAL" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="sexo" type="string">
+<column name="SEXO" length="1" />
+	        </key-property>
+	        <key-property name="nacionalidad" type="java.lang.Long">
+<column name="NACIONALIDAD" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idCaal" type="java.lang.Long">
+<column name="ID_CAAL" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="categoriaAlta" type="string">
+<column name="CATEGORIA_ALTA" length="5" />
+	        </key-property>
+	        <key-property name="categoriaValor" type="string">
+<column name="CATEGORIA_VALOR" length="3" />
+	        </key-property>
+	        <key-property name="cantHijos" type="java.lang.Byte">
+<column name="CANT_HIJOS" precision="2" scale="0" />
+	        </key-property>
+	        <key-property name="item" type="short">
+<column name="ITEM" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="edadDesde" type="java.lang.Short">
+<column name="EDAD_DESDE" precision="3" scale="0" />
+	        </key-property>
+	        <key-property name="edadHasta" type="java.lang.Short">
+<column name="EDAD_HASTA" precision="3" scale="0" />
+	        </key-property>
+	        <key-property name="cumpleAnios" type="string">
+<column name="CUMPLE_ANIOS" length="1" />
+	        </key-property>
+	        <key-property name="idPais" type="java.lang.Integer">
+<column name="ID_PAIS" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="idProvincia" type="java.lang.Integer">
+<column name="ID_PROVINCIA" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="idLocalidad" type="java.lang.Integer">
+<column name="ID_LOCALIDAD" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="categoriaValorDesde" type="string">
+<column name="CATEGORIA_VALOR_DESDE" length="3" />
+	        </key-property>
+	        <key-property name="categoriaValorHasta" type="string">
+<column name="CATEGORIA_VALOR_HASTA" length="3" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="30" />
+	        </key-property>
+	        <key-property name="usrModi" type="string">
+<column name="USR_MODI" length="30" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

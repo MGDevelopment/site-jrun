@@ -1,0 +1,165 @@
+.enc {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	color: #000000;
+}
+.columnaizq {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-style: normal;
+	line-height: 14px;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #000000;
+	background-position: left;
+}
+.solapa {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	text-decoration: none;
+	text-transform: none;
+	color: #000000;
+	letter-spacing: 0px;
+}
+.solapablanco {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.botones {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-style: normal;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+	line-height: 12px;
+}
+.Precios {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	line-height: 15px;
+	color: #000000;
+	font-weight: bold;
+}
+.ranking {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	line-height: 16px;
+	color: #003366;
+	font-weight: normal;
+	font-variant: normal;
+}
+.rankingdos {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 16px;
+	font-weight: bold;
+	text-transform: none;
+	text-align: right;
+}
+.tituloranking {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #005900;
+	text-decoration: none;
+	font-weight: bolder;
+}
+.carrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	line-height: 10px;
+	color: #000000;
+	text-decoration: none;
+}
+.preciochico {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+}
+.preciocatel {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+}
+.titulocarrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: normal;
+	font-variant: normal;
+	color: #000000;
+}
+.titulomusica {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 26px;
+	font-style: normal;
+	font-weight: 600;
+	color: E79C01;
+	background-position: center center;
+	letter-spacing: 2px;
+	
+	text-align: center;
+
+}
+.titulolibros {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 26px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: 600;
+	color: #007700;
+	background-position: center center;
+	letter-spacing: 2px;
+	text-align: center;
+	vertical-align: middle;
+}
+.titulopelicula {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 26px;
+	font-style: normal;
+	font-weight: 600;
+	color: d94000;
+	background-position: center center;
+	letter-spacing: 2px;
+	text-align: center;
+	vertical-align: middle;
+}
+.titulocatalogolibro {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #005900;
+	text-decoration: none;
+	font-weight: bolder;
+}
+.titulocatalogomusica {
+
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #e79c01;
+	text-decoration: none;
+	font-weight: bolder;
+}
+.titulocatalogopelicula {
+
+
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: d94000;
+	text-decoration: none;
+	font-weight: bolder;
+}

@@ -1,0 +1,186 @@
+<table width="600" cellspacing="0" cellpadding="0" border="0" align="center" class="Gtablacontenido">
+<tr>
+<td width="422" class="Gcentro">
+<tmpl_loop detalles>
+	<table width="390" cellspacing="0" cellpadding="0" border="0" class="moduleproductob">
+		<tr>
+			<td>
+				<table width="390" cellspacing="0" cellpadding="0" border="0">
+					<tbody>
+						<tr>
+							<td width="82" class="celdafoto" rowspan="5">
+								<a href="<tmpl_var urlDetalle>">
+									<img height="68" 
+										width="45" 
+										border="0" 
+										alt="<tmpl_var titulo>" 
+										class="Gimagesproductos" 
+										src="<tmpl_var urlImagen>"/> 
+								</a>
+							</td>
+							<td valign="top" class="celdacontenido" colspan="3">
+								<a class="FProductos" 
+									href="<tmpl_var urlDetalle>">
+									<tmpl_var titulo>
+								</a>
+								<br/>
+								<a class="Fautores" href="<tmpl_var urlAutor>">
+									Subcategoria
+								</a>
+								<span class="Fprecio"><tmpl_var urlGenero</span>
+							</td>
+						</tr>
+						<tr>
+							<td width="201" valign="bottom" class="celdapreciocomprar">
+								<div align="left">
+									<span class="Fprecio">PRECIO: <tmpl_var precio></span>
+								</div>
+							</td>
+							<td valign="bottom">
+								<div align="right">
+									<table width="2" cellspacing="0" cellpadding="0" border="0">
+										<tbody>
+											<tr>
+												<td height="19" class="divInfo">
+													<a class="FProductos"
+														href="<tmpl_var urlDetalle>"><img
+														border="0" title="Las mejores Letras de Tango"
+														alt="<tmpl_var titulo>"
+														src="</imagenes/libros/b-info.gif" />
+													</a>
+												</td>
+												<td class="divComprarPedir">
+													<a rel="nofollow"
+														href="javascript:carrito_AgregarArticulo(<tmpl_var idArticulo>);window.scrollTo(0,0);"><img
+														border="0" alt="Comprar" 
+														src="/imagenes/libros/b-comprar.gif" />
+													</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</table>
+</tmpl_loop>
+</td>
+<td class="Gbarraderecha">
+							<table width="155" cellspacing="0" cellpadding="0" border="0">
+								<tbody><tr>
+									<td>
+										<table width="180" cellspacing="0" cellpadding="0" border="0" class="moduloorden">
+											<tbody><tr>
+												<td>
+													 <table cellspacing="0" cellpadding="0" border="0">
+														<tbody><tr>
+															<td><span class="Ftexto02">ORDENAR RESULTADOS POR:</span></td>
+														</tr>
+														
+														<tr>
+															<td class="moduloordencelda">
+															
+																<br/><b>- Los más vendidos</b>
+															
+															</td>
+														</tr>
+													<!-- FERCHA DE APARICION -->
+														<tr>
+															<td class="moduloordencelda">
+																<span class="Ftexto02">- Fecha de aparición
+																	<span style="padding: 10px;">
+																		
+																				<a rel="nofollow" class="Flink02" href="/buscador/productos.jsp?seccion=1&amp;idSeccion=1&amp;criterioDeOrden=2&amp;claveDeBusqueda=porCategorias&amp;texto=Arte%2C+Arquitectura+Dise%F1o&amp;grupo=9"><br/>
+																					<span class="Ftexto02"> -más recientes primeros</span>
+																				</a>
+																		 									
+																	</span>
+																	<span style="padding: 10px;">		
+																		 
+																				<a rel="nofollow" class="Flink02" href="/buscador/productos.jsp?seccion=1&amp;idSeccion=1&amp;criterioDeOrden=3&amp;claveDeBusqueda=porCategorias&amp;texto=Arte%2C+Arquitectura+Dise%F1o&amp;grupo=9"><br/>
+																					<span class="Ftexto02">-más antiguos primeros</span>
+																				</a>
+																		 
+																	 </span>
+																</span>
+															 </td>
+														</tr>
+													<!-- PRECIO DE VENTA -->
+														<tr>
+															<td class="moduloordencelda">
+																<span class="Ftexto02">- Precio de venta
+																	<span style="padding: 10px;">
+																		
+																				<a rel="nofollow" class="Flink02" href="/buscador/productos.jsp?seccion=1&amp;idSeccion=1&amp;criterioDeOrden=4&amp;claveDeBusqueda=porCategorias&amp;texto=Arte%2C+Arquitectura+Dise%F1o&amp;grupo=9"><br/>
+																					 <span class="Ftexto02">-más económicos primeros</span>
+																				</a>
+																										
+																	</span>
+																	<span style="padding: 10px;">		
+																		
+																				<a rel="nofollow" class="Flink02" href="/buscador/productos.jsp?seccion=1&amp;idSeccion=1&amp;criterioDeOrden=5&amp;claveDeBusqueda=porCategorias&amp;texto=Arte%2C+Arquitectura+Dise%F1o&amp;grupo=9" style=""><br/>
+																					<span class="Ftexto02">-más costosos primeros</span>
+																				</a>
+																	
+																	 </span>
+																</span>
+															 </td>
+														</tr><tr>
+														
+														<!-- ALFABETICO -->
+														</tr><tr>
+															<td class="moduloordencelda">
+																<span>- Alfabéticamente
+																	<span style="padding: 10px;">
+																		
+																				<a rel="nofollow" class="Flink02" href="/buscador/productos.jsp?seccion=1&amp;idSeccion=1&amp;criterioDeOrden=0&amp;claveDeBusqueda=porCategorias&amp;texto=Arte%2C+Arquitectura+Dise%F1o&amp;grupo=9"><br/>
+																					<span class="Ftexto02">-(A-Z)</span>
+																				</a>
+																		 							
+																	</span>
+																	<span style="padding: 10px;">		
+																	
+																			<a rel="nofollow" class="Flink02" href="/buscador/productos.jsp?seccion=1&amp;idSeccion=1&amp;criterioDeOrden=1&amp;claveDeBusqueda=porCategorias&amp;texto=Arte%2C+Arquitectura+Dise%F1o&amp;grupo=9"><br/>
+																				<span class="Ftexto02">-(Z-A)</span>
+																			</a>
+																	 
+																	 </span>
+																</span>
+															 </td>
+														</tr><tr>
+												</tr></tbody></table></td>
+											</tr>
+									</tbody></table></td>
+								</tr>
+								<tr>
+									<td class="Ftexto02"><table width="155" cellspacing="0" cellpadding="0" border="0" class="tablaaccesos">
+											<tbody><tr>
+												<td><table width="155" cellspacing="0" cellpadding="0" border="0">
+														<tbody><tr>
+															<td class="Ftexto02">Si no tuvo un resultado<br/>
+																satisfactorio, pruebe con:</td>
+														</tr>
+														
+														<tr>
+															<td><div align="left"><a rel="nofollow" href="/articulo/buscadorAvanzado.jsp?idSeccion=1&amp;seccion=1"><img border="0" class="accesos02" alt="Búsqueda avanzada" src="/imagenes/libros/b-bavanzada.gif" style="padding-top: 7px;"/></a></div></td>
+														</tr>
+														
+
+
+														
+														<tr class='dwcopytype="CopyTableRow"'>
+															<td><div align="left"><a href="/buscador/productos.jsp?seccion=1&amp;idSeccion=1&amp;pedidoEspecial=true&amp;criterioDeOrden=6&amp;claveDeBusqueda=porCategorias&amp;texto=Arte%2C+Arquitectura+Dise%F1o&amp;grupo=9"><img border="0" class="accesos02" alt="Productos sin stock" src="/imagenes/libros/b-productossinstock.gif"/></a></div></td>
+														</tr>
+														
+														<tr class='dwcopytype="CopyTableRow"'>
+															<td><div align="left"><a href="/indice"><img border="0" class="accesos02" alt="Mapa de productos" src="/imagenes/libros/b-mapadeproductos.gif"/></a></div></td>
+														</tr>
+												</tbody></table></td>
+											</tr>
+									</tbody></table></td>
+								</tr>
+						</tbody></table></td>

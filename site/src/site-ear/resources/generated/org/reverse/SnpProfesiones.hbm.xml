@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SnpProfesiones"
+    table="SNP_PROFESIONES"
+>
+
+ <comment>snapshot table for snapshot TEMATIKA.SNP_PROFESIONES</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.SnpProfesionesId"
+    >		
+	        <key-property name="idProfesion" type="int">
+<column name="ID_PROFESION" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="descripcion" type="string">
+<column name="DESCRIPCION" length="50" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="35" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="usrModi" type="string">
+<column name="USR_MODI" length="35" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+	        <key-property name="idUsrAlta" type="string">
+<column name="ID_USR_ALTA" length="35" />
+	        </key-property>
+	        <key-property name="idUsrModi" type="string">
+<column name="ID_USR_MODI" length="35" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

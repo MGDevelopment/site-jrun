@@ -1,0 +1,42 @@
+<form ACTION="/EliminarListaDeArticuloDeLaMesa.do" method="get" name="frmEliminarRecomendados" >
+	<table border="1" align="center" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>ID articulos</td
+			<td>Titulo</td>
+			<td>posicion</td>
+			<td>Eliminar</td>
+		</tr>
+	<tmpl_loop articulos>
+		<tr>
+			<td>
+				<tmpl_var idArticulo>
+			</td>
+			<td>
+				<tmpl_var titulo>
+			</td>
+			<td>
+				<tmpl_var posicion>
+			</td>
+			<td>
+				<input type="radio" name="eliminar<tmpl_var posicionIndice>" value="false" onclick="javascript:this.value=true;">
+				<input type="hidden" name="idArticulo<tmpl_var posicionIndice>" value="<tmpl_var idArticulo>">
+				<input type="hidden" name="posicion<tmpl_var posicionIndice>" value="<tmpl_var posicion>">
+				<input type="hidden" name="agrupacion<tmpl_var posicionIndice>" value="<tmpl_var agrupacion>">
+				<input type="hidden" name="filtro<tmpl_var posicionIndice>" value="<tmpl_var filtro>">
+			</td>
+		</tr>
+	</tmpl_loop>
+		<tr>
+			<td>
+				<input type="hidden" name="cantidad" value="<tmpl_var cantidad>">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" align="center">
+				<tmpl_if mostrarEliminar> 
+					<input type="submit"  value="Eliminar!">
+				</tmpl_if>
+			</td>
+		</tr>
+	</table>
+</form>

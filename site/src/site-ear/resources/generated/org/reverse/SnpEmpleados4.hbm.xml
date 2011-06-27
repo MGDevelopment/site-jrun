@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SnpEmpleados4"
+    table="SNP_EMPLEADOS4"
+>
+
+ <comment>snapshot table for snapshot TEMATIKA.SNP_EMPLEADOS4</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.SnpEmpleados4Id"
+    >		
+	        <key-property name="dperCodigo" type="int">
+<column name="DPER_CODIGO" precision="8" scale="0" />
+	        </key-property>
+	        <key-property name="nombre" type="string">
+<column name="NOMBRE" length="200" />
+	        </key-property>
+	        <key-property name="fechaEgreso" type="date">
+<column name="FECHA_EGRESO" length="7" />
+	        </key-property>
+	        <key-property name="cecoCodigo" type="string">
+<column name="CECO_CODIGO" length="10" />
+	        </key-property>
+	        <key-property name="centroDeCosto" type="string">
+<column name="CENTRO_DE_COSTO" length="30" />
+	        </key-property>
+	        <key-property name="cuil" type="string">
+<column name="CUIL" length="20" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="35" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="fechaNacimiento" type="date">
+<column name="FECHA_NACIMIENTO" length="7" />
+	        </key-property>
+	        <key-property name="idEmpresa" type="string">
+<column name="ID_EMPRESA" length="5" />
+	        </key-property>
+	        <key-property name="mtcaCodigo" type="string">
+<column name="MTCA_CODIGO" length="3" />
+	        </key-property>
+	        <key-property name="redoMail" type="string">
+<column name="REDO_MAIL" length="300" />
+	        </key-property>
+	        <key-property name="mtcaNombre" type="string">
+<column name="MTCA_NOMBRE" length="30" />
+	        </key-property>
+	        <key-property name="codigoContable" type="string">
+<column name="CODIGO_CONTABLE" length="5" />
+	        </key-property>
+	        <key-property name="idUsuario" type="java.lang.Long">
+<column name="ID_USUARIO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="nivel" type="java.lang.Boolean">
+<column name="NIVEL" precision="1" scale="0" />
+	        </key-property>
+	        <key-property name="idSucursal" type="java.lang.Short">
+<column name="ID_SUCURSAL" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="usrModi" type="string">
+<column name="USR_MODI" length="35" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+	        <key-property name="sexo" type="string">
+<column name="SEXO" length="1" />
+	        </key-property>
+	        <key-property name="tipoDoc" type="string">
+<column name="TIPO_DOC" length="4" />
+	        </key-property>
+	        <key-property name="nroDoc" type="string">
+<column name="NRO_DOC" length="15" />
+	        </key-property>
+	        <key-property name="nacionalidad" type="java.lang.Integer">
+<column name="NACIONALIDAD" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="esInterno" type="string">
+<column name="ES_INTERNO" length="2" />
+	        </key-property>
+	        <key-property name="internoTelefonico" type="string">
+<column name="INTERNO_TELEFONICO" length="10" />
+	        </key-property>
+	        <key-property name="radio" type="string">
+<column name="RADIO" length="20" />
+	        </key-property>
+	        <key-property name="telefono" type="string">
+<column name="TELEFONO" length="30" />
+	        </key-property>
+	        <key-property name="telefonoCelular" type="string">
+<column name="TELEFONO_CELULAR" length="30" />
+	        </key-property>
+	        <key-property name="dperCodigoSuperior" type="java.lang.Integer">
+<column name="DPER_CODIGO_SUPERIOR" precision="8" scale="0" />
+	        </key-property>
+	        <key-property name="dperCodigoAutoriza" type="java.lang.Integer">
+<column name="DPER_CODIGO_AUTORIZA" precision="8" scale="0" />
+	        </key-property>
+	        <key-property name="generaClaveTelef" type="string">
+<column name="GENERA_CLAVE_TELEF" length="2" />
+	        </key-property>
+	        <key-property name="usuarioRed" type="string">
+<column name="USUARIO_RED" length="30" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

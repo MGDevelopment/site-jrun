@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.Referido"
+    table="REFERIDO"
+>
+
+	<id 
+        name="codigoReferido"
+        type="long"
+    >
+    
+<column name="CODIGO_REFERIDO" precision="12" scale="0" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <many-to-one
+	    name="socios2ByReSocReferidoFk"
+	    class="org.reverse.Socios2"
+	    
+        fetch="select"
+    >
+<column name="ID_SUCURSAL_REFERIDO" precision="4" scale="0" >
+<comment>id referido</comment>
+</column><column name="ID_SOCIO_REFERIDO" precision="10" scale="0" >
+<comment>id referido</comment>
+</column>   </many-to-one>
+    <many-to-one
+	    name="orden"
+	    class="org.reverse.Orden"
+	    
+        fetch="select"
+    >
+<column name="ID_ORDEN_REFERIDO" precision="10" scale="0" unique="true" />
+   </many-to-one>
+    <many-to-one
+	    name="socios2ByReSocReferenteFk"
+	    class="org.reverse.Socios2"
+	    
+        fetch="select"
+    >
+<column name="ID_SUCURSAL_REFERENTE" precision="4" scale="0" not-null="true" >
+<comment>id referente</comment>
+</column><column name="ID_SOCIO_REFERENTE" precision="10" scale="0" not-null="true" >
+<comment>id referente</comment>
+</column>   </many-to-one>
+    <property
+        name="estado"
+	    type="string"
+    >
+<column name="ESTADO" length="1" not-null="true" >
+<comment>1- Inicial, cuando se realiza la recomendacion, 2- tmk reconoce al referido (registro o login), 3- Referido Compra, 4- Referente Compra</comment>
+</column>  </property>
+
+    <property
+        name="nombreReferido"
+	    type="string"
+    >
+<column name="NOMBRE_REFERIDO" length="50" />
+  </property>
+
+    <property
+        name="apellidoReferido"
+	    type="string"
+    >
+<column name="APELLIDO_REFERIDO" length="50" />
+  </property>
+
+    <property
+        name="emailReferido"
+	    type="string"
+    >
+<column name="EMAIL_REFERIDO" length="100" />
+  </property>
+
+    <property
+        name="fecha"
+	    type="date"
+    >
+<column name="FECHA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="fechaVencReferido"
+	    type="date"
+    >
+<column name="FECHA_VENC_REFERIDO" length="7" />
+  </property>
+
+    <property
+        name="fechaVencReferente"
+	    type="date"
+    >
+<column name="FECHA_VENC_REFERENTE" length="7" />
+  </property>
+
+    <property
+        name="cuponReferido"
+	    type="string"
+    >
+<column name="CUPON_REFERIDO" length="30" />
+  </property>
+
+    <property
+        name="cuponReferente"
+	    type="string"
+    >
+<column name="CUPON_REFERENTE" length="30" />
+  </property>
+
+    <property
+        name="benefReferido"
+	    type="string"
+    >
+<column name="BENEF_REFERIDO" length="256" />
+  </property>
+
+    <property
+        name="benefReferente"
+	    type="string"
+    >
+<column name="BENEF_REFERENTE" length="256" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

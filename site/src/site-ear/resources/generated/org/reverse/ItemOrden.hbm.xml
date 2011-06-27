@@ -1,0 +1,244 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.ItemOrden"
+    table="ITEM_ORDEN"
+>
+
+ <comment>La definicion de los precios es propia de Tematika y difiere de la del Y2K</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.ItemOrdenId"
+    >		
+	        <key-property name="idArticulo" type="long">
+<column name="ID_ARTICULO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idOrden" type="long">
+<column name="ID_ORDEN" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="item" type="long">
+<column name="ITEM" precision="10" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <many-to-one
+	    name="estadoItemOrden"
+	    class="org.reverse.EstadoItemOrden"
+	    
+        fetch="select"
+    >
+<column name="ESTADO" length="2" />
+   </many-to-one>
+    <many-to-one
+	    name="orden"
+	    class="org.reverse.Orden"
+	    
+        update="false"
+        insert="false"
+        fetch="select"
+    >
+<column name="ID_ORDEN" precision="10" scale="0" not-null="true" >
+<comment>Id Orden</comment>
+</column>   </many-to-one>
+    <many-to-one
+	    name="articulosMol"
+	    class="org.reverse.ArticulosMol"
+	    
+        fetch="select"
+    >
+<column name="ID_ARTICULO_MOL" precision="10" scale="0" />
+   </many-to-one>
+    <many-to-one
+	    name="articulos"
+	    class="org.reverse.Articulos"
+	    
+        update="false"
+        insert="false"
+        fetch="select"
+    >
+<column name="ID_ARTICULO" precision="10" scale="0" not-null="true" >
+<comment>Id. de Artículo</comment>
+</column>   </many-to-one>
+    <property
+        name="cantidad"
+	    type="long"
+    >
+<column name="CANTIDAD" precision="10" scale="0" not-null="true" >
+<comment>Cantidad del ítem</comment>
+</column>  </property>
+
+    <property
+        name="precioOriginal"
+	    type="big_decimal"
+    >
+<column name="PRECIO_ORIGINAL" precision="15" >
+<comment>Precio Original del ítem (PVP)</comment>
+</column>  </property>
+
+    <property
+        name="idPapelRegalo"
+	    type="java.lang.Integer"
+    >
+<column name="ID_PAPEL_REGALO" precision="6" scale="0" />
+  </property>
+
+    <property
+        name="precioUnitario"
+	    type="big_decimal"
+    >
+<column name="PRECIO_UNITARIO" precision="15" />
+  </property>
+
+    <property
+        name="precioDescuento"
+	    type="big_decimal"
+    >
+<column name="PRECIO_DESCUENTO" precision="15" />
+  </property>
+
+    <property
+        name="precioPromocion"
+	    type="big_decimal"
+    >
+<column name="PRECIO_PROMOCION" precision="15" />
+  </property>
+
+    <property
+        name="idListaPvp"
+	    type="java.lang.Integer"
+    >
+<column name="ID_LISTA_PVP" precision="5" scale="0" />
+  </property>
+
+    <property
+        name="idPromocion"
+	    type="java.lang.Long"
+    >
+<column name="ID_PROMOCION" precision="10" scale="0" />
+  </property>
+
+    <property
+        name="idLiquidacionAlianza"
+	    type="big_decimal"
+    >
+<column name="ID_LIQUIDACION_ALIANZA" precision="22" scale="0" >
+<comment>NRO DE LIQUIDACION PARA LOS ITEMS DE UNA ORDEN RELACIONADA A UNA ALIANZA</comment>
+</column>  </property>
+
+    <property
+        name="porcComisionAlianza"
+	    type="big_decimal"
+    >
+<column name="PORC_COMISION_ALIANZA" precision="5" />
+  </property>
+
+    <property
+        name="tipoComisionAlianza"
+	    type="string"
+    >
+<column name="TIPO_COMISION_ALIANZA" length="4" >
+<comment>TIPO DE COMISION USADA EN EL CALCULO DE LA LIQUIDACION DE LA COMISION</comment>
+</column>  </property>
+
+    <property
+        name="idMetodoEnvio"
+	    type="java.lang.Short"
+    >
+<column name="ID_METODO_ENVIO" precision="3" scale="0" />
+  </property>
+
+    <property
+        name="fechaEnvio"
+	    type="date"
+    >
+<column name="FECHA_ENVIO" length="7" />
+  </property>
+
+    <property
+        name="precioPromocionSinImpuestos"
+	    type="big_decimal"
+    >
+<column name="PRECIO_PROMOCION_SIN_IMPUESTOS" precision="15" />
+  </property>
+
+    <property
+        name="desdeLdd"
+	    type="string"
+    >
+<column name="DESDE_LDD" length="2" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+    <property
+        name="idPromocion2"
+	    type="java.lang.Long"
+    >
+<column name="ID_PROMOCION2" precision="10" scale="0" />
+  </property>
+
+    <property
+        name="idPromocion3"
+	    type="java.lang.Long"
+    >
+<column name="ID_PROMOCION3" precision="10" scale="0" />
+  </property>
+
+    <property
+        name="idPromocion4"
+	    type="java.lang.Long"
+    >
+<column name="ID_PROMOCION4" precision="10" scale="0" />
+  </property>
+
+    <property
+        name="idPromocion5"
+	    type="java.lang.Long"
+    >
+<column name="ID_PROMOCION5" precision="10" scale="0" />
+  </property>
+
+    <property
+        name="idCampaign"
+	    type="java.lang.Long"
+    >
+<column name="ID_CAMPAIGN" precision="10" scale="0" />
+  </property>
+
+    <one-to-one
+	    name="itemOrdenImpuesto"
+	    class="org.reverse.ItemOrdenImpuesto"
+
+    >
+   </one-to-one>
+    <one-to-one
+	    name="notaRegalo"
+	    class="org.reverse.NotaRegalo"
+
+    >
+   </one-to-one>
+
+</class>
+
+</hibernate-mapping>

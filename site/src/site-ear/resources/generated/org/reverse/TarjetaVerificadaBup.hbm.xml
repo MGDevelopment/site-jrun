@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.TarjetaVerificadaBup"
+    table="TARJETA_VERIFICADA_BUP"
+>
+
+ <comment>TARJETAS QUE FUERON VERIFICADAS POR EL USUARIO Y MARCADAS COMO BUENAS (VERDE), DUDOSAS (AMARILLO), FRAUDULENTAS (ROJO)</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.TarjetaVerificadaBupId"
+    >		
+	        <key-property name="nroTarjeta" type="binary">
+<column name="NRO_TARJETA" />
+	        </key-property>
+	        <key-property name="nombresSocio" type="string">
+<column name="NOMBRES_SOCIO" length="50" />
+	        </key-property>
+	        <key-property name="apellidosSocio" type="string">
+<column name="APELLIDOS_SOCIO" length="50" />
+	        </key-property>
+	        <key-property name="EMail" type="string">
+<column name="E_MAIL" length="100" />
+	        </key-property>
+	        <key-property name="calleEnvio" type="string">
+<column name="CALLE_ENVIO" length="100" />
+	        </key-property>
+	        <key-property name="numeroEnvio" type="java.lang.Long">
+<column name="NUMERO_ENVIO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="edificioEnvio" type="string">
+<column name="EDIFICIO_ENVIO" length="4" />
+	        </key-property>
+	        <key-property name="pisoEnvio" type="java.lang.Short">
+<column name="PISO_ENVIO" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="deptoEnvio" type="string">
+<column name="DEPTO_ENVIO" length="4" />
+	        </key-property>
+	        <key-property name="cpEnvio" type="string">
+<column name="CP_ENVIO" length="20" />
+	        </key-property>
+	        <key-property name="idPaisEnvio" type="java.lang.Integer">
+<column name="ID_PAIS_ENVIO" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="idProvinciaEnvio" type="java.lang.Integer">
+<column name="ID_PROVINCIA_ENVIO" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="idLocalidadEnvio" type="java.lang.Integer">
+<column name="ID_LOCALIDAD_ENVIO" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="calleFact" type="string">
+<column name="CALLE_FACT" length="100" />
+	        </key-property>
+	        <key-property name="numeroFact" type="java.lang.Long">
+<column name="NUMERO_FACT" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="edificioFact" type="string">
+<column name="EDIFICIO_FACT" length="4" />
+	        </key-property>
+	        <key-property name="pisoFact" type="java.lang.Short">
+<column name="PISO_FACT" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="deptoFact" type="string">
+<column name="DEPTO_FACT" length="4" />
+	        </key-property>
+	        <key-property name="cpFact" type="string">
+<column name="CP_FACT" length="20" />
+	        </key-property>
+	        <key-property name="idPaisFact" type="java.lang.Integer">
+<column name="ID_PAIS_FACT" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="idProvinciaFact" type="java.lang.Integer">
+<column name="ID_PROVINCIA_FACT" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="idLocalidadFact" type="java.lang.Integer">
+<column name="ID_LOCALIDAD_FACT" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="nivelRiesgo" type="boolean">
+<column name="NIVEL_RIESGO" precision="1" scale="0" />
+	        </key-property>
+	        <key-property name="comentarios" type="string">
+<column name="COMENTARIOS" length="100" />
+	        </key-property>
+	        <key-property name="fechaAlta" type="date">
+<column name="FECHA_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="35" />
+	        </key-property>
+	        <key-property name="auxDireccionEnvio" type="string">
+<column name="AUX_DIRECCION_ENVIO" length="300" />
+	        </key-property>
+	        <key-property name="auxDireccionFact" type="string">
+<column name="AUX_DIRECCION_FACT" length="300" />
+	        </key-property>
+	        <key-property name="auxNombresApellidos" type="string">
+<column name="AUX_NOMBRES_APELLIDOS" length="150" />
+	        </key-property>
+	        <key-property name="id" type="java.lang.Long">
+<column name="ID" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

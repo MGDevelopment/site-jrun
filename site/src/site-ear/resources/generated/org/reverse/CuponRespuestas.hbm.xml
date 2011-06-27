@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.CuponRespuestas"
+    table="CUPON_RESPUESTAS"
+>
+
+	<id 
+        name="idOrden"
+        type="long"
+    >
+    
+<column name="ID_ORDEN" precision="10" scale="0" />
+	    <generator class="foreign">
+            <param name="property">orden</param>
+		</generator>
+    </id>
+
+
+
+
+    <one-to-one
+	    name="orden"
+	    class="org.reverse.Orden"
+        constrained="true"
+
+    >
+   </one-to-one>
+    <property
+        name="cantidadCupones"
+	    type="short"
+    >
+<column name="CANTIDAD_CUPONES" precision="3" scale="0" not-null="true" >
+<comment>cupones asignados</comment>
+</column>  </property>
+
+    <property
+        name="respuesta1"
+	    type="string"
+    >
+<column name="RESPUESTA1" length="155" not-null="true" >
+<comment>Respuesta a primer pregunta</comment>
+</column>  </property>
+
+    <property
+        name="respuesta2"
+	    type="string"
+    >
+<column name="RESPUESTA2" length="155" not-null="true" >
+<comment>Respuesta a segunda pregunta</comment>
+</column>  </property>
+
+    <property
+        name="respuesta3"
+	    type="string"
+    >
+<column name="RESPUESTA3" length="155" not-null="true" >
+<comment>Respuesta a 3er pregunta</comment>
+</column>  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

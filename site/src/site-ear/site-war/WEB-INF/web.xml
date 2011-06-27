@@ -1,0 +1,1326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+	<display-name>TEMATIKA</display-name>
+	<session-config>
+		<session-timeout>20</session-timeout>
+	</session-config>
+	<description>Tematika, Grupo ILHSA</description>
+
+	<!-- Manejo de EXCEPCIONES -->
+	<error-page>
+		<exception-type>java.io.FileNotFoundException</exception-type>
+		<location>/errorPage/errorPage404FW.jsp</location>
+	</error-page>
+	<!-- Manejo de EXCEPCIONES -->
+
+	<filter>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+		<init-param>
+			<param-name>logLevel</param-name>
+			<!--  <param-value>DEBUG</param-value>-->
+			<param-value>ERROR</param-value>
+		</init-param>
+		<!--
+			init-param> <param-name>confReloadCheckInterval</param-name>
+
+			<param-value>15</param-value> </init-param
+		-->
+
+	</filter>
+	<filter-mapping>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<url-pattern>*.htm</url-pattern>
+	</filter-mapping>
+
+	<!-- BEGIN Eventos -->
+	<servlet>
+		<servlet-name>AgregarEvento</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.evento.AgregarEvento</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgregarEvento</servlet-name>
+		<url-pattern> /AgregarEvento</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ModificarEvento</servlet-name>
+		<servlet-class> com.tmk.controllers.intranet.evento.ModificarEvento</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ModificarEvento</servlet-name>
+		<url-pattern>/ModificarEvento</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>EliminarEvento</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.evento.EliminarEvento</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminarEvento</servlet-name>
+		<url-pattern>/EliminarEvento</url-pattern>
+	</servlet-mapping>
+	<!-- END Eventos -->
+
+	<!-- BEGIN Empleos -->
+	<servlet>
+		<servlet-name>EnviarCV</servlet-name>
+		<servlet-class>com.tmk.controllers.empleos.EnviarCV</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EnviarCV</servlet-name>
+		<url-pattern>/EnviarCV</url-pattern>
+	</servlet-mapping>
+	<!-- END Empleos -->
+
+	<!-- BEGIN Compra -->
+	<servlet>
+		<servlet-name>IniciarCompra</servlet-name>
+		<servlet-class>com.tmk.controllers.compra.IniciarCompra</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IniciarCompra</servlet-name>
+		<url-pattern>/IniciarCompra</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>SeleccionarDomicilio</servlet-name>
+		<servlet-class>com.tmk.controllers.compra.SeleccionarDomicilio</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SeleccionarDomicilio</servlet-name>
+		<url-pattern>/SeleccionarDomicilio</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>SeleccionarPapelDeRegalo</servlet-name>
+		<servlet-class>com.tmk.controllers.compra.SeleccionarPapelDeRegalo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SeleccionarPapelDeRegalo</servlet-name>
+		<url-pattern>/SeleccionarPapelDeRegalo</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>SeleccionarMedioDeCobro</servlet-name>
+		<servlet-class>com.tmk.controllers.compra.SeleccionarMedioDeCobro</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SeleccionarMedioDeCobro</servlet-name>
+		<url-pattern>/SeleccionarMedioDeCobro</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ConfirmarCompra</servlet-name>
+		<servlet-class>com.tmk.controllers.compra.ConfirmarCompra</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConfirmarCompra</servlet-name>
+		<url-pattern>/ConfirmarCompra</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AgregarProducto</servlet-name>
+		<servlet-class>com.tmk.controllers.carrito.AgregarProducto</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgregarProducto</servlet-name>
+		<url-pattern>/AgregarProducto</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>GetInfoCarrito</servlet-name>
+		<servlet-class>com.tmk.controllers.carrito.GetInfoCarrito</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetInfoCarrito</servlet-name>
+		<url-pattern>/GetInfoCarrito</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ActualizarProductos</servlet-name>
+		<servlet-class>com.tmk.controllers.carrito.ActualizarProductos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ActualizarProductos</servlet-name>
+		<url-pattern>/ActualizarProductos</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>EliminarProducto</servlet-name>
+		<servlet-class>com.tmk.controllers.carrito.EliminarProducto</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminarProducto</servlet-name>
+		<url-pattern>/EliminarProducto</url-pattern>
+	</servlet-mapping>
+	<!-- END Compra -->
+
+	<!-- BEGIN Extranet -->
+	<servlet>
+		<servlet-name>IngresarExtranet</servlet-name>
+		<servlet-class>com.tmk.controllers.extranet.IngresarExtranet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IngresarExtranet</servlet-name>
+		<url-pattern>/IngresarExtranet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>SalirExtranet</servlet-name>
+		<servlet-class>com.tmk.controllers.extranet.SalirExtranet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SalirExtranet</servlet-name>
+		<url-pattern>/SalirExtranet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AgregarAfiliado</servlet-name>
+		<servlet-class>com.tmk.controllers.alianza.AgregarAfiliado</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgregarAfiliado</servlet-name>
+		<url-pattern>/AgregarAfiliado</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AgregarAlianza</servlet-name>
+		<servlet-class>com.tmk.controllers.extranet.alianza.AgregarAlianza</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgregarAlianza</servlet-name>
+		<url-pattern>/AgregarAlianza</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ActualizarAlianza</servlet-name>
+		<servlet-class>com.tmk.controllers.extranet.alianza.ActualizarAlianza</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ActualizarAlianza</servlet-name>
+		<url-pattern>/ActualizarAlianza</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>EliminarAlianza</servlet-name>
+		<servlet-class>com.tmk.controllers.extranet.alianza.EliminarAlianza</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminarAlianza</servlet-name>
+		<url-pattern>/EliminarAlianza</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AgregarSeccion</servlet-name>
+		<servlet-class>com.tmk.controllers.extranet.alianza.AgregarSeccion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgregarSeccion</servlet-name>
+		<url-pattern>/AgregarSeccion</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ActualizarSeccion</servlet-name>
+		<servlet-class>com.tmk.controllers.extranet.alianza.ActualizarSeccion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ActualizarSeccion</servlet-name>
+		<url-pattern>/ActualizarSeccion</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>EliminarSeccion</servlet-name>
+		<servlet-class>com.tmk.controllers.extranet.alianza.EliminarSeccion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminarSeccion</servlet-name>
+		<url-pattern>/EliminarSeccion</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>EjecutarReporte</servlet-name>
+		<servlet-class>com.tmk.controllers.extranet.reporte.EjecutarReporte</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EjecutarReporte</servlet-name>
+		<url-pattern>/EjecutarReporte</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>GestionarComision</servlet-name>
+		<servlet-class>com.tmk.controllers.extranet.alianza.GestionarComision</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GestionarComision</servlet-name>
+		<url-pattern>/GestionarComision</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GenerarRSSParaAlianza</servlet-name>
+		<servlet-class>com.tmk.controllers.alianza.GenerarRSSParaAlianza</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GenerarRSSParaAlianza</servlet-name>
+		<url-pattern>/GenerarRSSParaAlianza</url-pattern>
+	</servlet-mapping>
+
+	<!-- END Extranet -->
+
+	<!-- BEGIN ListaDeseos -->
+	<servlet>
+		<servlet-name>DireccionLista</servlet-name>
+		<servlet-class>com.tmk.controllers.listaDeseos.DireccionLista</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DireccionLista</servlet-name>
+		<url-pattern>/DireccionLista</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ActualizarLista</servlet-name>
+		<servlet-class>com.tmk.controllers.listaDeseos.ActualizarLista</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ActualizarLista</servlet-name>
+		<url-pattern>/ActualizarLista</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>BuscarListas</servlet-name>
+		<servlet-class>com.tmk.controllers.listaDeseos.BuscarListas</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BuscarListas</servlet-name>
+		<url-pattern>/BuscarListas</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>MoverHaciaLista</servlet-name>
+		<servlet-class>com.tmk.controllers.listaDeseos.MoverHaciaLista</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MoverHaciaLista</servlet-name>
+		<url-pattern>/MoverHaciaLista</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AgregarEnLista</servlet-name>
+		<servlet-class>com.tmk.controllers.listaDeseos.AgregarEnLista</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgregarEnLista</servlet-name>
+		<url-pattern>/AgregarEnLista</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>BorrarDeLista</servlet-name>
+		<servlet-class>com.tmk.controllers.listaDeseos.BorrarDeLista</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BorrarDeLista</servlet-name>
+		<url-pattern>/BorrarDeLista</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>EnviarCorreo</servlet-name>
+		<servlet-class>com.tmk.controllers.listaDeseos.EnviarCorreo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EnviarCorreo</servlet-name>
+		<url-pattern>/EnviarCorreo</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>DireccionLista</servlet-name>
+		<servlet-class>com.tmk.controllers.listaDeseos.DireccionLista</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DireccionLista</servlet-name>
+		<url-pattern>/DireccionLista</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>WishListFeedDispatcher</servlet-name>
+		<servlet-class>com.tmk.controllers.listaDeseos.WishListFeedDispatcher</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WishListFeedDispatcher</servlet-name>
+		<url-pattern>/WishListFeedDispatcher</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>WishListsFeedDispatcher</servlet-name>
+		<servlet-class>com.tmk.controllers.listaDeseos.WishListsFeedDispatcher</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WishListsFeedDispatcher</servlet-name>
+		<url-pattern>/WishListsFeedDispatcher</url-pattern>
+	</servlet-mapping>
+	<!-- END ListaDeseos -->
+
+	<!-- BEGIN Socio -->
+	<servlet>
+		<servlet-name>AgregarTarjeta</servlet-name>
+		<servlet-class>com.tmk.controllers.registracion.AgregarTarjeta</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgregarTarjeta</servlet-name>
+		<url-pattern>/AgregarTarjeta</url-pattern>
+	</servlet-mapping>
+	<!-- 
+	<servlet>
+		<servlet-name>IniciarSesion</servlet-name>
+		<servlet-class>com.tmk.controllers.registracion.IniciarSesion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IniciarSesion</servlet-name>
+		<url-pattern>/IniciarSesion</url-pattern>
+	</servlet-mapping>
+	-->
+	<servlet>
+		<servlet-name>EliminarTarjeta</servlet-name>
+		<servlet-class>com.tmk.controllers.registracion.EliminarTarjeta</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminarTarjeta</servlet-name>
+		<url-pattern>/EliminarTarjeta</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>PedidoEspecial</servlet-name>
+		<servlet-class>com.tmk.controllers.pedidoEspecial.PedidoEspecial</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PedidoEspecial</servlet-name>
+		<url-pattern>/PedidoEspecial</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>TerminarSesion</servlet-name>
+		<servlet-class>com.tmk.controllers.registracion.TerminarSesion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TerminarSesion</servlet-name>
+		<url-pattern>/TerminarSesion</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AgregarDomicilio</servlet-name>
+		<servlet-class>com.tmk.controllers.registracion.AgregarDomicilio</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgregarDomicilio</servlet-name>
+		<url-pattern>/AgregarDomicilio</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ActualizarDomicilio</servlet-name>
+		<servlet-class>com.tmk.controllers.registracion.ActualizarDomicilio</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ActualizarDomicilio</servlet-name>
+		<url-pattern>/ActualizarDomicilio</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>RecuperarClave</servlet-name>
+		<servlet-class>com.tmk.controllers.registracion.RecuperarClave</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RecuperarClave</servlet-name>
+		<url-pattern>/RecuperarClave</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RegistrarSocioTMK</servlet-name>
+		<servlet-class>com.tmk.controllers.registracion.RegistrarSocioTMK</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegistrarSocioTMK</servlet-name>
+		<url-pattern>/RegistrarSocioTMK</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>RegistrarSocioCadena</servlet-name>
+		<servlet-class>com.tmk.controllers.registracion.RegistrarSocioCadena</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegistrarSocioCadena</servlet-name>
+		<url-pattern>/RegistrarSocioCadena</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ModificarSocio</servlet-name>
+		<servlet-class>com.tmk.controllers.registracion.ModificarSocio</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ModificarSocio</servlet-name>
+		<url-pattern>/ModificarSocio</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RegistrarSocioEXtra</servlet-name>
+		<servlet-class>com.tmk.controllers.registracion.RegistrarSocioEXtra</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegistrarSocioEXtra</servlet-name>
+		<url-pattern>/RegistrarSocioEXtra</url-pattern>
+	</servlet-mapping>
+
+	<!-- END Socio -->
+	<servlet>
+		<servlet-name>RegistrarIntegracion</servlet-name>
+		<servlet-class>com.tmk.controllers.registracion.RegistrarIntegracion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegistrarIntegracion</servlet-name>
+		<url-pattern>/RegistrarIntegracion</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EliminarSessionIntegracion</servlet-name>
+		<servlet-class>com.tmk.controllers.registracion.EliminarSessionIntegracion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminarSessionIntegracion</servlet-name>
+		<url-pattern>/EliminarSessionIntegracion</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>IniciarActDeEmail</servlet-name>
+		<servlet-class>com.tmk.controllers.fidelizacion.IniciarActDeEmail</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IniciarActDeEmail</servlet-name>
+		<url-pattern>/IniciarActDeEmail</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>FinalizarActDeEmail</servlet-name>
+		<servlet-class>com.tmk.controllers.fidelizacion.FinalizarActDeEmail</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FinalizarActDeEmail</servlet-name>
+		<url-pattern>/FinalizarActDeEmail</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GetModelosVehiculos</servlet-name>
+		<servlet-class>com.tmk.controllers.fidelizacion.GetModelosVehiculos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetModelosVehiculos</servlet-name>
+		<url-pattern>/GetModelosVehiculos</url-pattern>
+	</servlet-mapping>
+
+	<!-- BEGIN ORDENES -->
+	<servlet>
+		<servlet-name>OrdenesPendientes</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.ordenes.OrdenesPendientes</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>OrdenesPendientes</servlet-name>
+		<url-pattern>/OrdenesPendientes</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>OrdenFax</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.ordenes.OrdenFax</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>OrdenFax</servlet-name>
+		<url-pattern>/OrdenFax</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>OrdenEFCO</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.ordenes.OrdenEFCO</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>OrdenEFCO</servlet-name>
+		<url-pattern>/OrdenEFCO</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AgregarTarjetaVerificada</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.ordenes.AgregarTarjetaVerificada</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgregarTarjetaVerificada</servlet-name>
+		<url-pattern>/AgregarTarjetaVerificada</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GetOrdenByEstadoMedio</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.ordenes.GetOrdenByEstadoMedio</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetOrdenByEstadoMedio</servlet-name>
+		<url-pattern>/GetOrdenByEstadoMedio</url-pattern>
+	</servlet-mapping>
+	<!-- servlet paraconsulta de estado de arcash -->
+	<servlet>
+		<servlet-name>GetOrdenByEstadoMedioARCASH</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.ordenes.GetOrdenByEstadoMedioARCASH</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetOrdenByEstadoMedioARCASH</servlet-name>
+		<url-pattern>/GetOrdenByEstadoMedioARCASH</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ConsultarOrdenCuponADM</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.ordenes.ConsultarOrdenCuponADM</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConsultarOrdenCuponADM</servlet-name>
+		<url-pattern>/ConsultarOrdenCuponADM</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ConsultarOrdenDMADM</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.ordenes.ConsultarOrdenDMADM</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConsultarOrdenDMADM</servlet-name>
+		<url-pattern>/ConsultarOrdenDMADM</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ModificarEstadoDeOrden</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.ordenes.ModificarEstadoDeOrden</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ModificarEstadoDeOrden</servlet-name>
+		<url-pattern>/ModificarEstadoDeOrden</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GetAlertaCompraSocios</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.ordenes.GetAlertaCompraSocios</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>GetAlertaCompraSocios</servlet-name>
+		<url-pattern>/GetAlertaCompraSocios</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DelAlertaCompraSocios</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.ordenes.DelAlertaCompraSocios</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DelAlertaCompraSocios</servlet-name>
+		<url-pattern>/DelAlertaCompraSocios</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AltaAlertaCompraSocios</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.ordenes.AltaAlertaCompraSocios</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AltaAlertaCompraSocios</servlet-name>
+		<url-pattern>/AltaAlertaCompraSocios</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GetSocios2</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.ordenes.GetSocios2</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>GetSocios2</servlet-name>
+		<url-pattern>/GetSocios2</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GetListadoCatalogo</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.contenido.GetListadoCatalogo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetListadoCatalogo</servlet-name>
+		<url-pattern>/GetListadoCatalogo</url-pattern>
+	</servlet-mapping>
+
+	<!-- END ORDENES -->
+
+	<!-- BEGIN Intranet -->
+	<servlet>
+		<servlet-name>LoginIntranet</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.admin.LoginIntranet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginIntranet</servlet-name>
+		<url-pattern>/LoginIntranet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AgregarUsuario</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.usuario.AgregarUsuario</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgregarUsuario</servlet-name>
+		<url-pattern>/AgregarUsuario</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>CambiarPassword</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.usuario.CambiarPassword</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CambiarPassword</servlet-name>
+		<url-pattern>/CambiarPassword</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>EliminarUsuario</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.usuario.EliminarUsuario</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminarUsuario</servlet-name>
+		<url-pattern>/EliminarUsuario</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>UsuarioHelper</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.usuario.UsuarioHelper</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UsuarioHelper</servlet-name>
+		<url-pattern>/UsuarioHelper</url-pattern>
+	</servlet-mapping>
+	<!-- END Intranet -->
+	<!--detalle articulo-->
+	<servlet>
+		<servlet-name>GenerarDetallesDeArticulosEstaticos</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.generacion.GenerarDetallesDeArticulosEstaticos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GenerarDetallesDeArticulosEstaticos</servlet-name>
+		<url-pattern>/GenerarDetallesDeArticulosEstaticos</url-pattern>
+	</servlet-mapping>
+	<!--detalle articulo-->
+
+	<!--recorrido familias-->
+	<servlet>
+		<servlet-name>GenerarFamiliasEstaticas</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.generacion.GenerarFamiliasEstaticas</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GenerarFamiliasEstaticas</servlet-name>
+		<url-pattern>/GenerarFamiliasEstaticas</url-pattern>
+	</servlet-mapping>
+	<!--recorrido familias-->
+	<!--ranking estatico-->
+	<servlet>
+		<servlet-name>GenerarRankingEstatico</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.generacion.GenerarRankingEstatico</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GenerarRankingEstatico</servlet-name>
+		<url-pattern>/GenerarRankingEstatico</url-pattern>
+	</servlet-mapping>
+	<!--ranking estatico -->
+
+	<!--ranking template-->
+	<servlet>
+		<servlet-name>GenerarTemplate</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.generacion.GenerarTemplate</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GenerarTemplate</servlet-name>
+		<url-pattern>/GenerarTemplate</url-pattern>
+	</servlet-mapping>
+	<!--ranking estatico -->
+
+	<!-- BEGIN Contenido -->
+	<servlet>
+		<servlet-name>ActualizarItemListaMultiple</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.contenido.ActualizarItemListaMultiple</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ActualizarItemListaMultiple</servlet-name>
+		<url-pattern>/ActualizarItemListaMultiple</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>GrabarCambiosContenido</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.contenido.GrabarCambiosContenido</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GrabarCambiosContenido</servlet-name>
+		<url-pattern>/GrabarCambiosContenido</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>EliminarItemListaMultiple</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.contenido.EliminarItemListaMultiple</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminarItemListaMultiple</servlet-name>
+		<url-pattern>/EliminarItemListaMultiple</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>DuplicarItemListaMultiple</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.contenido.DuplicarItemListaMultiple</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DuplicarItemListaMultiple</servlet-name>
+		<url-pattern>/DuplicarItemListaMultiple</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ActualizarItemListaProductos</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.contenido.ActualizarItemListaProductos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ActualizarItemListaProductos</servlet-name>
+		<url-pattern>/ActualizarItemListaProductos</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>DuplicarItemListaProductos</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.contenido.DuplicarItemListaProductos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DuplicarItemListaProductos</servlet-name>
+		<url-pattern>/DuplicarItemListaProductos</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>EliminarItemListaProductos</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.contenido.EliminarItemListaProductos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminarItemListaProductos</servlet-name>
+		<url-pattern>/EliminarItemListaProductos</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ModificarEditor</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.contenido.ModificarEditor</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ModificarEditor</servlet-name>
+		<url-pattern>/ModificarEditor</url-pattern>
+	</servlet-mapping>
+	<!-- END Contenido -->
+
+	<!-- Fidelizacion -->
+	<servlet>
+		<servlet-name>ConsultaDePuntos</servlet-name>
+		<servlet-class>com.tmk.controllers.fidelizacion.ConsultaDePuntos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConsultaDePuntos</servlet-name>
+		<url-pattern>/ConsultaDePuntos</url-pattern>
+	</servlet-mapping>
+	<!-- End Fidelizacion  -->
+
+	<!-- BEGIN Comentario -->
+	<servlet>
+		<servlet-name>Comentario</servlet-name>
+		<servlet-class>com.tmk.controllers.comentario.Comentario</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Comentario</servlet-name>
+		<url-pattern>/Comentario</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ComentarioPendiente</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.comentario.ComentarioPendiente</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ComentarioPendiente</servlet-name>
+		<url-pattern>/ComentarioPendiente</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>CommentFeedDispatcher</servlet-name>
+		<servlet-class>com.tmk.controllers.comentario.CommentFeedDispatcher</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CommentFeedDispatcher</servlet-name>
+		<url-pattern>/CommentFeedDispatcher</url-pattern>
+	</servlet-mapping>
+	<!-- End Comentario  -->
+
+	<!-- BEGIN Referido -->
+	<servlet>
+		<servlet-name>AgregarReferido</servlet-name>
+		<servlet-class>com.tmk.controllers.referido.AgregarReferido</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgregarReferido</servlet-name>
+		<url-pattern>/AgregarReferido</url-pattern>
+	</servlet-mapping>
+	<!-- End Referido  -->
+
+	<!-- BEGIN Clientes Institucionales-->
+	<servlet>
+		<servlet-name>ClientesInstitucionales</servlet-name>
+		<servlet-class>com.tmk.controllers.institucional.ClientesInstitucionales</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ClientesInstitucionales</servlet-name>
+		<url-pattern>/ClientesInstitucionales</url-pattern>
+	</servlet-mapping>
+	<!-- End Clientes Institucionales -->
+
+	<!--BEGIN Buscador -->
+	<servlet>
+		<servlet-name>BusquedaAvanzadaAtributosDinamicos</servlet-name>
+		<servlet-class>com.tmk.controllers.buscador.BusquedaAvanzadaAtributosDinamicos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BusquedaAvanzadaAtributosDinamicos</servlet-name>
+		<url-pattern>/BusquedaAvanzadaAtributosDinamicos</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SetearBusqueda</servlet-name>
+		<servlet-class>com.tmk.controllers.buscador.SetearBusqueda</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SetearBusqueda</servlet-name>
+		<url-pattern>/SetearBusqueda</url-pattern>
+	</servlet-mapping>
+	<!--End Buscador -->
+
+	<!-- buscador nuevo -->
+	<servlet>
+		<servlet-name>SetearBusqueda2</servlet-name>
+		<servlet-class>com.tmk.service.buscador.SetearBusqueda</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SetearBusqueda2</servlet-name>
+		<url-pattern>/SetearBusqueda2</url-pattern>
+	</servlet-mapping>
+	<!--End Buscador -->
+
+	<!--BEGIN Articulo XML -->
+	<servlet>
+		<servlet-name>GetXMLArticuloBy</servlet-name>
+		<servlet-class>com.tmk.controllers.articulo.GetXMLArticuloBy</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetXMLArticuloBy</servlet-name>
+		<url-pattern>/GetXMLArticuloBy</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GetArticuloBy</servlet-name>
+		<servlet-class>com.tmk.controllers.articulo.GetArticuloBy</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetArticuloBy</servlet-name>
+		<url-pattern>/GetArticuloBy</url-pattern>
+	</servlet-mapping>
+
+	<!--End Articulo XML -->
+
+	<!--BEGIN Generar Articulo -->
+	<servlet>
+		<servlet-name>GenerarArticulo</servlet-name>
+		<servlet-class>com.tmk.controllers.articulo.GenerarArticulo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GenerarArticulo</servlet-name>
+		<url-pattern>/GenerarArticulo</url-pattern>
+	</servlet-mapping>
+	<!--END Generar Articulo -->
+
+	<!--BEGIN Regla XML -->
+	<servlet>
+		<servlet-name>GetXMLReglaBy</servlet-name>
+		<servlet-class>com.tmk.controllers.regla.GetXMLReglaBy</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetXMLReglaBy</servlet-name>
+		<url-pattern>/GetXMLReglaBy</url-pattern>
+	</servlet-mapping>
+	<!--End Articulo XML -->
+
+	<!--BEGIN Crear Regla -->
+	<servlet>
+		<servlet-name>CrearRegla</servlet-name>
+		<servlet-class>com.tmk.controllers.regla.CrearRegla</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CrearRegla</servlet-name>
+		<url-pattern>/CrearRegla</url-pattern>
+	</servlet-mapping>
+	<!--End Crear Regla -->
+
+	<!--BEGIN Eliminar Regla -->
+	<servlet>
+		<servlet-name>EliminarRegla</servlet-name>
+		<servlet-class>com.tmk.controllers.regla.EliminarRegla</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminarRegla</servlet-name>
+		<url-pattern>/EliminarRegla</url-pattern>
+	</servlet-mapping>
+	<!--End Eliminar Regla -->
+
+	<!--BEGIN Eliminar Articulo generado -->
+	<servlet>
+		<servlet-name>EliminarArticuloGenerado</servlet-name>
+		<servlet-class>com.tmk.controllers.articulo.EliminarArticuloGenerado</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminarArticuloGenerado</servlet-name>
+		<url-pattern>/EliminarArticuloGenerado</url-pattern>
+	</servlet-mapping>
+	<!--END Eliminar Articulo generado -->
+
+	<!--BEGIN AplicarPromoVC -->
+	<servlet>
+		<servlet-name>AplicarPromoVC</servlet-name>
+		<servlet-class>com.tmk.controllers.promo.AplicarPromoVC</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AplicarPromoVC</servlet-name>
+		<url-pattern>/AplicarPromoVC</url-pattern>
+	</servlet-mapping>
+	<!--END AplicarPromoVC -->
+
+	<!--BEGIN GetXMLCategoriaBy -->
+	<servlet>
+		<servlet-name>GetXMLCategoriaBy</servlet-name>
+		<servlet-class>com.tmk.controllers.categorias.GetXMLCategoriaBy</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetXMLCategoriaBy</servlet-name>
+		<url-pattern>/GetXMLCategoriaBy</url-pattern>
+	</servlet-mapping>
+	<!--END GetXMLCategoriaBy -->
+
+	<!--BEGIN EliminarArticuloDeCatalogo -->
+	<servlet>
+		<servlet-name>EliminarArticuloDeCatalogo</servlet-name>
+		<servlet-class>com.tmk.controllers.articulo.EliminarArticuloDeCatalogo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminarArticuloDeCatalogo</servlet-name>
+		<url-pattern>/EliminarArticuloDeCatalogo</url-pattern>
+	</servlet-mapping>
+	<!--END EliminarArticuloDeCatalogo -->
+
+	<!--BEGIN AgregarArticuloDeCatalogo -->
+	<servlet>
+		<servlet-name>AgregarArticuloDeCatalogo</servlet-name>
+		<servlet-class>com.tmk.controllers.articulo.AgregarArticuloDeCatalogo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgregarArticuloDeCatalogo</servlet-name>
+		<url-pattern>/AgregarArticuloDeCatalogo</url-pattern>
+	</servlet-mapping>
+	<!--END AgregarArticuloDeCatalogo -->
+
+	<!-- BEGIN MESA -->
+	<servlet>
+		<servlet-name>GetArticulosByCatOrdenFiltro</servlet-name>
+		<servlet-class>com.tmk.controllers.articulo.GetArticulosByCatOrdenFiltro</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetArticulosByCatOrdenFiltro</servlet-name>
+		<url-pattern>/GetArticulosByCatOrdenFiltro</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GetTotalArticulosGroupByCat</servlet-name>
+		<servlet-class>com.tmk.controllers.articulo.GetTotalArticulosGroupByCat</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetTotalArticulosGroupByCat</servlet-name>
+		<url-pattern>/GetTotalArticulosGroupByCat</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GetArticuloByIDnvl1</servlet-name>
+		<servlet-class>com.tmk.controllers.articulo.GetArticuloByIDnvl1</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetArticuloByIDnvl1</servlet-name>
+		<url-pattern>/GetArticuloByIDnvl1</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AgregarArticulo</servlet-name>
+		<servlet-class>com.tmk.controllers.carrito.AgregarArticulo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgregarArticulo</servlet-name>
+		<url-pattern>/AgregarArticulo</url-pattern>
+	</servlet-mapping>
+	<!-- END MESA  -->
+
+	<!--IPN-->
+	<servlet>
+		<servlet-name>NotificacionIPN</servlet-name>
+		<servlet-class>com.tmk.controllers.ipn.NotificacionIPN</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NotificacionIPN</servlet-name>
+		<url-pattern>/NotificacionIPN</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GetMensaje</servlet-name>
+		<servlet-class>com.tmk.controllers.mensaje.GetMensaje</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetMensaje</servlet-name>
+		<url-pattern>/GetMensaje</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetUrlArticulo</servlet-name>
+		<servlet-class>com.tmk.controllers.articulo.GetUrlArticulo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetUrlArticulo</servlet-name>
+		<url-pattern>/GetUrlArticulo</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SetVisualizaMensaje</servlet-name>
+		<servlet-class>com.tmk.controllers.mensaje.SetVisualizaMensaje</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SetVisualizaMensaje</servlet-name>
+		<url-pattern>/SetVisualizaMensaje</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>GetVisualizaMensaje</servlet-name>
+		<servlet-class>com.tmk.controllers.mensaje.GetVisualizaMensaje</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetVisualizaMensaje</servlet-name>
+		<url-pattern>/GetVisualizaMensaje</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SetMensajeLeido</servlet-name>
+		<servlet-class>com.tmk.controllers.mensaje.SetMensajeLeido</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SetMensajeLeido</servlet-name>
+		<url-pattern>/SetMensajeLeido</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SetMensajeActual</servlet-name>
+		<servlet-class>com.tmk.controllers.mensaje.SetMensajeActual</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SetMensajeActual</servlet-name>
+		<url-pattern>/SetMensajeActual</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GetMensajeActual</servlet-name>
+		<servlet-class>com.tmk.controllers.mensaje.GetMensajeActual</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetMensajeActual</servlet-name>
+		<url-pattern>/GetMensajeActual</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FileServlet</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FileServlet</servlet-name>
+		<url-pattern>*.htm/*</url-pattern>
+	</servlet-mapping>
+	<!-- END IPN-->
+
+	<!-- GET COMENTARIOS PENDIENTES -->
+	<servlet>
+		<servlet-name>GetComentariosPendientes</servlet-name>
+		<servlet-class>com.tmk.controllers.intranet.comentario.GetComentariosPendientes</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>GetComentariosPendientes</servlet-name>
+		<url-pattern>/GetComentariosPendientes</url-pattern>
+	</servlet-mapping>
+
+	<!-- ADMINSITRA LA INTEGRACION DE UN SOCIO -->
+	<servlet>
+		<servlet-name>AdministrarIntegracion</servlet-name>
+		<servlet-class>com.tmk.controllers.registracion.AdministrarIntegracion</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AdministrarIntegracion</servlet-name>
+		<url-pattern>/AdministrarIntegracion</url-pattern>
+	</servlet-mapping>
+
+	<distributable>false</distributable>
+	<!-- BEGIN Load on Startup -->
+	<servlet>
+		<servlet-name>LogInit</servlet-name>
+		<servlet-class>com.tmk.setup.LogInit</servlet-class>
+		<init-param>
+			<param-name>log4j-init-file</param-name>
+			<param-value>WEB-INF/log4j.conf</param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>TematikaInit</servlet-name>
+		<servlet-class>com.tmk.setup.TematikaInit</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- struts definition -->
+	<display-name>struts</display-name>
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>1</param-value>
+		</init-param>
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>2</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<!-- Standard Action Servlet Mapping -->
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<!-- END Load on Startup  -->
+	<!--
+		servlet que controla el tiempo de estado de la pantalla de envio de
+		datos a arahs
+	-->
+	<servlet>
+		<servlet-name>ActualizarPaginacion</servlet-name>
+		<servlet-class>com.tmk.soa.controller.ActualizarPaginacion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ActualizarPaginacion</servlet-name>
+		<url-pattern>/ActualizarPaginacion</url-pattern>
+	</servlet-mapping>
+	<!-- ACTUALIZA LOS CAMBIOS DE FILTROS EN LAS MESAS -->
+	<servlet>
+		<servlet-name>ActualizarCambioFiltro</servlet-name>
+		<servlet-class>com.tmk.soa.controller.ActualizarCambioFiltro</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ActualizarCambioFiltro</servlet-name>
+		<url-pattern>/ActualizarCambioFiltro</url-pattern>
+	</servlet-mapping>
+	<!-- NUEVO GENERADOR DE DETALLEDE ARTICULO -->
+	<servlet>
+		<servlet-name>GenerardorArticulo</servlet-name>
+		<servlet-class>com.tmk.soa.controller.GenerardorArticulo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GenerardorArticulo</servlet-name>
+		<url-pattern>/GenerardorArticulo</url-pattern>
+	</servlet-mapping>
+	<!-- GET COMENTARIOS, DE SECCION -->
+	<servlet>
+		<servlet-name>GetComentarioSeccion</servlet-name>
+		<servlet-class>com.tmk.controllers.comentario.GetComentarioSeccion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetComentarioSeccion</servlet-name>
+		<url-pattern>/GetComentarioSeccion</url-pattern>
+	</servlet-mapping>
+	<!-- GET COMENTARIOS, DE LA HOME -->
+	<servlet>
+		<servlet-name>GetComentarioHome</servlet-name>
+		<servlet-class>com.tmk.controllers.comentario.GetComentarioHome</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetComentarioHome</servlet-name>
+		<url-pattern>/GetComentarioHome</url-pattern>
+	</servlet-mapping>
+
+	<!-- LISTAS EN TMK-->
+	<servlet>
+		<servlet-name>CrearListas</servlet-name>
+		<servlet-class>com.tmk.controllers.listas.CrearListas</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CrearListas</servlet-name>
+		<url-pattern>/CrearListas</url-pattern>
+	</servlet-mapping>
+	<!-- ELIMINA LISTA DE UN USUARIO-->
+	<servlet>
+		<servlet-name>EliminarListaDeUsuario</servlet-name>
+		<servlet-class>com.tmk.controllers.listas.EliminarListaDeUsuario</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminarListaDeUsuario</servlet-name>
+		<url-pattern>/EliminarListaDeUsuario</url-pattern>
+	</servlet-mapping>
+	<!-- GET LISTAS (obtiene las listas de un socio) -->
+	<servlet>
+		<servlet-name>GetListasTmk</servlet-name>
+		<servlet-class>com.tmk.controllers.listas.GetListasTmk</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetListasTmk</servlet-name>
+		<url-pattern>/GetListasTmk</url-pattern>
+	</servlet-mapping>
+	<!-- GUARDA UN ARTICULO EN LA LISTA -->
+	<servlet>
+		<servlet-name>SetArticuloEnLista</servlet-name>
+		<servlet-class>com.tmk.controllers.listas.SetArticuloEnLista</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SetArticuloEnLista</servlet-name>
+		<url-pattern>/SetArticuloEnLista</url-pattern>
+	</servlet-mapping>
+	<!-- ACTUALIZAR COMENTARI DE UN ARTICULO EN LA LISTA -->
+	<servlet>
+		<servlet-name>ActualizarComentarioArticuloEnLista</servlet-name>
+		<servlet-class>com.tmk.controllers.listas.ActualizarComentarioArticuloEnLista</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ActualizarComentarioArticuloEnLista</servlet-name>
+		<url-pattern>/ActualizarComentarioArticuloEnLista</url-pattern>
+	</servlet-mapping>
+	<!-- ELIMINA UN ARTICULO DE UNA LISTA -->
+	<servlet>
+		<servlet-name>EliminarArticuloDeLista</servlet-name>
+		<servlet-class>com.tmk.controllers.listas.EliminarArticuloDeLista</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminarArticuloDeLista</servlet-name>
+		<url-pattern>/EliminarArticuloDeLista</url-pattern>
+	</servlet-mapping>
+	<!-- MODIFICAR UNA LISTA -->
+	<servlet>
+		<servlet-name>ModificarListaDeUsuario</servlet-name>
+		<servlet-class>com.tmk.controllers.listas.ModificarListaDeUsuario</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ModificarListaDeUsuario</servlet-name>
+		<url-pattern>/ModificarListaDeUsuario</url-pattern>
+	</servlet-mapping>
+	<!-- INICAR SESION2-->
+	<servlet>
+		<servlet-name>IniciarSesion</servlet-name>
+		<servlet-class>com.tmk.controllers.registracion.IniciarSesion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IniciarSesion</servlet-name>
+		<url-pattern>/IniciarSesion</url-pattern>
+	</servlet-mapping>
+	<!-- Comentario2 -->
+	<servlet>
+		<servlet-name>Comentario2</servlet-name>
+		<servlet-class>com.tmk.controllers.comentario.Comentario2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Comentario2</servlet-name>
+		<url-pattern>/Comentario2</url-pattern>
+	</servlet-mapping>
+		
+	<!-- WORKFLOW 707 -->
+	<servlet>
+		<servlet-name>GetBinesValidos</servlet-name>
+		<servlet-class>com.tmk.controllers.micuenta.GetBinesValidos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetBinesValidos</servlet-name>
+		<url-pattern>/GetBinesValidos</url-pattern>
+	</servlet-mapping>
+	
+	<!-- VERIFICADOR DE SESION, CORRE CADA UN MINUTO -->
+	<servlet>
+		<servlet-name>VerificadorDeSesion</servlet-name>
+		<servlet-class>com.tmk.controllers.micuenta.VerificadorDeSesion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>VerificadorDeSesion</servlet-name>
+		<url-pattern>/VerificadorDeSesion</url-pattern>
+	</servlet-mapping>
+	<mime-mapping>
+		<extension>htc</extension>
+		<mime-type>text/x-component</mime-type>
+	</mime-mapping>
+	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/errorPage/errorPage.jsp</location>
+	</error-page>
+
+</web-app>

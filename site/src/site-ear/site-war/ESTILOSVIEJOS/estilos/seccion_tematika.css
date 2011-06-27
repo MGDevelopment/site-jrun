@@ -1,0 +1,64 @@
+/* Módulos */
+
+
+/* Fuentes Principales (F) */
+a.Flogin { font-size:1; color:#FFF; text-decoration:none; }
+.FTtit01 { font-size:11px; text-align:left; font-weight:bold; color:#666; text-decoration:none; }
+.FTtit01ch { font-size:10px; text-align:left; font-weight:bold; color:#666; text-decoration:none; }
+.FProductosDetalle2 { font-size:11px; color:#666; text-decoration:none; }
+.FProductos { font-size:11px; color:#333; text-decoration:none; }
+a.FProductos:hover { color:#000; text-decoration:underline; }
+.FCategorias { font-size:11px; text-align:left; color:#666; text-decoration:underline; line-height: 16px; }
+a.FCategorias:hover { color:#000; }
+.FCategorias2 { font-size:11px; text-align:left; color:#666; text-decoration:none;}
+
+
+.Fautores { font-size:10px; text-align:center; color:#777; text-decoration:underline; }
+a.Fautores:hover { color:#000; }
+
+.Fautores0 { font-size:10px; text-align:center; color:#777; text-decoration:underline; }
+a.Fautores0:hover { color:#000; }
+
+/*
+.Fautores_principal { font-size:10px; text-align:center; color:#777; text-decoration:underline; }
+a.Fautores_principal:hover { color:#000; }
+*/
+.Fprecio { font-size:10px; text-align:left; color:#777; text-decoration:none; }
+.FprecioRojo { font-size:10px; text-align:left; color:#FF0000; text-decoration:none; }
+.FAyuda { font-size:11px; text-align:left; color:#666; text-decoration:underline; }
+a.FAyuda:hover { color:#000; }
+
+.Flink01 { font-size:10px; color:#777; text-decoration:underline; }
+a.Flink01:hover { color:#000; }
+.Flink02 { font-size:11px; color:#000; text-decoration:underline; }
+a.Flink02:hover { color:#777; text-decoration:none; } 
+
+.Ftexto01 { font-size:10px; color:#777; text-decoration:none; }
+.Ftexto02 { font-size:11px; color:#333; text-decoration:none; text-align:left; }
+.Ftexto03 { font-size:10px; color:#333; text-decoration:none; }
+.Ftexto04 { font-size:11px; color:#999; text-decoration:none; text-align:left; }
+.Ftexto05  { font-size:11px; text-align:left; color:#666; text-decoration:none; }
+.Ftexto06 { font-size:11px; color:#000; text-decoration:none; text-align:left; }
+.Ftextorojo { font-size:11px; color:#FF0000; text-decoration:none; text-align:left; }
+
+.Ftextdestacados { font-family:Tahoma; font-size:10px; font-weight:normal; text-decoration:none; color:#333; }
+
+h1 {
+	font-weight: normal;
+	margin: 0px;
+}
+h2 {
+	font-weight: normal;
+	margin: 0px;
+}
+.Ftextopie {
+font-size:10px; color:#777; text-decoration:none;
+}
+h3 {
+
+	font-weight: normal;
+	margin: 0px;
+}
+.moduloorden { border-top:solid 1px #666; border-bottom:solid 1px #666; padding:10px 7px 12px 7px ; background-color:#EFF0F2; text-align:left; }
+.moduloordencelda { padding-top:7px; }
+

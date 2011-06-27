@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jrun-ejb-jar PUBLIC "-//Macromedia, Inc.//DTD jrun-ejb 4.0//EN" "http://jrun.macromedia.com/dtds/jrun-ejb-jar.dtd">
+<jrun-ejb-jar>
+	<source>jdbc/site</source>
+	<enterprise-beans>
+		<!--entity>
+			<ejb-name>Pais</ejb-name>
+			<jndi-name>Pais</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findAll</name>
+					<statement>
+						<action>SELECT "ID_PAIS" FROM PAISES ORDER BY DESCRIPCION</action>
+						<fields>
+							<field>ID_PAIS</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+		</entity-->
+		<!--entity>
+			<ejb-name>Provincia</ejb-name>
+			<jndi-name>Provincia</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findByPais</name>
+					<statement>
+						<action>SELECT "ID_PAIS", "ID_PROVINCIA" FROM PROVINCIAS WHERE ID_PAIS=?1 ORDER BY DESCRIPCION</action>
+						<params>
+							<param>
+								<name>ID_PAIS</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>ID_PAIS</field>
+							<field>ID_PROVINCIA</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+				<jdbc-mapping>
+					<name>findAll</name>
+					<statement>
+						<action>SELECT "ID_PAIS", "ID_PROVINCIA" FROM PROVINCIAS ORDER BY DESCRIPCION, ID_PAIS</action>
+						<fields>
+							<field>ID_PAIS</field>
+							<field>ID_PROVINCIA</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+		</entity-->
+		<!--entity>
+			<ejb-name>Localidad</ejb-name>
+			<jndi-name>Localidad</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findByPais</name>
+					<statement>
+						<action>SELECT "ID_PAIS", "ID_PROVINCIA", "ID_LOCALIDAD" FROM LOCALIDADES WHERE ID_PAIS=?1 ORDER BY DESCRIPCION</action>
+						<params>
+							<param>
+								<name>ID_PAIS</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>ID_PAIS</field>
+							<field>ID_PROVINCIA</field>
+							<field>ID_LOCALIDAD</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+			<jdbc-mapping>
+				<name>findAll</name>
+				<statement>
+					<action>SELECT "ID_PAIS", "ID_PROVINCIA", "ID_LOCALIDAD" FROM LOCALIDADES ORDER BY DESCRIPCION, ID_PAIS, ID_PROVINCIA</action>
+					<fields>
+						<field>ID_PAIS</field>
+						<field>ID_PROVINCIA</field>
+						<field>ID_LOCALIDAD</field>
+					</fields>
+				</statement>
+			</jdbc-mapping>
+		</entity-->
+		<!--entity>
+			<ejb-name>Moneda</ejb-name>
+			<jndi-name>Moneda</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity-->
+		<entity>
+			<ejb-name>Sucursal</ejb-name>
+			<jndi-name>Sucursal</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findAll</name>
+					<statement>
+						<action>SELECT "ID_SUCURSAL" FROM SUCURSALES ORDER BY DESCRIPCION</action>
+						<fields>
+							<field>ID_SUCURSAL</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+		</entity>
+		<!--entity>
+			<ejb-name>MetodoDeEnvio</ejb-name>
+			<jndi-name>MetodoDeEnvio</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity-->
+		<!--entity>
+			<ejb-name>MedioDeCobro</ejb-name>
+			<jndi-name>MedioDeCobro</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity-->
+        <entity>
+            <ejb-name>PedidoEspecial</ejb-name>
+            <jndi-name>PedidoEspecial</jndi-name>
+            <commit-option>B</commit-option>
+            <jdbc-mappings>
+                <create-table>false</create-table>
+                <jdbc-mapping>
+                    <name>findUltimosPedidos</name>
+                    <statement>
+                        <action>select "ID_PEDIDO" from PEDIDO_ESPECIAL p where fecha >= trunc(sysdate - 20) order by p.ID_PEDIDO desc</action>
+                        <fields>
+                            <field>ID_PEDIDO</field>
+                        </fields>
+                    </statement>
+                </jdbc-mapping>
+            </jdbc-mappings>
+        </entity>
+        <!-- COMENTARIO-->
+        <!-- entity>
+            <ejb-name>Comentario</ejb-name>
+            <jndi-name>Comentario</jndi-name>
+            <commit-option>B</commit-option>
+            <jdbc-mappings>
+                <create-table>false</create-table>
+                <jdbc-mapping>
+                    <name>findComentarios</name>
+                    <statement>
+                        <action>SELECT "ID_COMENTARIO", "ID_ARTICULO"
+                                FROM COMENTARIO_ARTICULOS ca
+                                WHERE
+                                 ca.ID_ARTICULO=?1 AND
+                                 (ca.ESTADO = 'A' OR (ca.ESTADO = 'N' AND
+                                 ca.FECHA > SYSDATE - (1 / 24 * 1)))
+                                ORDER BY ca.FECHA desc
+                        </action>
+                        <params>
+                            <param>
+                                <name>ID_ARTICULO</name>
+                                <type>INTEGER</type>
+                            </param>
+                       </params>
+
+                        <fields>
+                            <field>ID_COMENTARIO</field>
+                            <field>ID_ARTICULO</field>
+                        </fields>
+                    </statement>
+                </jdbc-mapping>
+
+                <jdbc-mapping>
+                    <name>findComentariosNuevos</name>
+                    <statement>
+                        <action>SELECT "ID_COMENTARIO", "ID_ARTICULO"
+                                FROM COMENTARIO_ARTICULOS ca
+                                WHERE
+                                 ca.ESTADO = 'N'
+                                 ORDER BY ca.FECHA
+                        </action>
+
+                        <fields>
+                            <field>ID_COMENTARIO</field>
+                            <field>ID_ARTICULO</field>
+                        </fields>
+                    </statement>
+                </jdbc-mapping>
+            </jdbc-mappings>
+        </entity>
+
+		<entity>
+         <ejb-name>Referido</ejb-name>
+         <jndi-name>Referido</jndi-name>
+         <commit-option>B</commit-option>
+         <jdbc-mappings>
+			<create-table>false</create-table>
+	         <jdbc-mapping>
+	             <name>findByOrdenReferido</name>
+	             <statement>
+	                 <action>SELECT CODIGO_REFERIDO
+	                         FROM REFERIDO R
+	                         WHERE
+	                          r.ID_ORDEN_REFERIDO=?1
+	                 </action>
+	                 <params>
+	                     <param>
+	                         <name>ID_ORDEN_REFERIDO</name>
+	                         <type>INTEGER</type>
+	                     </param>
+	                </params>
+	                 <fields>
+	                     <field>CODIGO_REFERIDO</field>
+	                 </fields>
+	             </statement>
+	         </jdbc-mapping>
+
+	         <jdbc-mapping>
+	             <name>findByReferido</name>
+	             <statement>
+	                 <action>SELECT CODIGO_REFERIDO
+	                         FROM REFERIDO R
+	                         WHERE
+		                      r.ID_SOCIO_REFERIDO=?1
+	                          AND r.ID_SUCURSAL_REFERIDO=?2
+	                 </action>
+	                 <params>
+	                     <param>
+	                         <name>ID_SOCIO_REFERIDO</name>
+	                         <type>INTEGER</type>
+	                     </param>
+		                 <param>
+	                         <name>ID_SUCURSAL_REFERIDO</name>
+	                         <type>INTEGER</type>
+	                     </param>
+	                </params>
+	                 <fields>
+	                     <field>CODIGO_REFERIDO</field>
+	                 </fields>
+	             </statement>
+	         </jdbc-mapping>
+
+	         <jdbc-mapping>
+				  <name>findByReferenteEstado</name>
+				  <statement>
+					  <action>SELECT CODIGO_REFERIDO
+							  FROM REFERIDO R
+							  WHERE
+							   r.ID_SOCIO_REFERENTE=?1
+							   AND r.ID_SUCURSAL_REFERENTE=?2
+						       AND r.ESTADO=?3
+						       AND r.ID_ORDEN_REFERENTE is null
+						  ORDER BY FECHA_COMPRA_REFERIDO
+					  </action>
+					  <params>
+						  <param>
+							  <name>ID_SOCIO_REFERENTE</name>
+							  <type>INTEGER</type>
+						  </param>
+						  <param>
+							  <name>ID_SUCURSAL_REFERENTE</name>
+							  <type>INTEGER</type>
+						  </param>
+						  <param>
+							  <name>ESTADO</name>
+							  <type>VARCHAR</type>
+						  </param>
+					 </params>
+					  <fields>
+						  <field>CODIGO_REFERIDO</field>
+					  </fields>
+				  </statement>
+			  </jdbc-mapping>
+
+ 	         <jdbc-mapping>
+				  <name>findByOrdenReferente</name>
+				  <statement>
+					  <action>SELECT CODIGO_REFERIDO
+	                         FROM REFERIDO R
+	                         WHERE
+	                          r.ID_ORDEN_REFERENTE=?1
+					  </action>
+					  <params>
+						  <param>
+							  <name>ID_ORDEN_REFERENTE</name>
+							  <type>INTEGER</type>
+						  </param>
+					 </params>
+					  <fields>
+						  <field>CODIGO_REFERIDO</field>
+					  </fields>
+				  </statement>
+			  </jdbc-mapping>
+
+	         <jdbc-mapping>
+				 <name>findByReferente</name>
+				 <statement>
+					 <action>SELECT CODIGO_REFERIDO
+	                        FROM REFERIDO R
+	                        WHERE
+	                         r.ID_SOCIO_REFERENTE=?1
+						    AND
+						     r.ID_SUCURSAL_REFERENTE=?2
+						    ORDER BY FECHA_RECOMENDACION DESC
+					 </action>
+					 <params>
+						 <param>
+							 <name>ID_SOCIO_REFERENTE</name>
+							 <type>INTEGER</type>
+						 </param>
+						 <param>
+							 <name>ID_SUCURSAL_REFERENTE</name>
+							 <type>INTEGER</type>
+						 </param>
+					</params>
+					 <fields>
+						 <field>CODIGO_REFERIDO</field>
+					 </fields>
+				 </statement>
+			 </jdbc-mapping>
+
+	     </jdbc-mappings>
+      </entity-->
+
+	</enterprise-beans>
+</jrun-ejb-jar>
+

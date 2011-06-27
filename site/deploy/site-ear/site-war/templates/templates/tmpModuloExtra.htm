@@ -1,0 +1,43 @@
+<div id="dTopRight">
+<div class="dCompra">
+<ul>
+<span>
+<tmpl_var precioFinal><br>
+<tmpl_var precioFinalDolar><br>
+<tmpl_var precioFinalEuro>
+<!-- <p>tu precio</p>-->
+</span>
+<span><p>+ <tmpl_var puntosExtra> puntos
+<img src="/imagenes/rediseno/imagenes/comun/detalleExtraLogo.gif" />
+<a href="/fidelizacion/panel/index.jsp">ingresar a extra</a></p>
+</span>
+</ul>
+<tmpl_if estaDisponible>
+	<a href="javascript:agregarProducto(<tmpl_var idArticulo>)">
+		<div class="dComprarButton" title="Agregar al carrito"></div>
+	</a>
+<tmpl_else>
+	<img style="padding-left: 20px;cursor: pointer;" onclick="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO=<tmpl_var idArticulo>';" src="/imagenes/rediseno/imagenes/seccion<tmpl_var enSeccion>/b-pedir.png" alt="Pedir"/>
+</tmpl_if>
+<a href="/ayuda/ayudaEstandar.jsp?url=/ayuda/enviosPlazos.jsp" target="_blank" class="dComprarEnvio">Ver costos de envío y Tiempos de Entrega</a>
+<!-- seccion de mensajes, como pormociones -->
+<tmpl_var mensajesModuloExtra>
+ 
+<div class="detalleAcciones">
+	<!-- <a href="javascript:mostrarDiv('compartir');" class="detalleBotonMenu"><span>COMPARTIR</span></a>-->
+	<!--<div id="compartir" style="display:none;z-index=10000"></div>-->
+    <!-- <a href="#" class="detalleBotonMenu"><span>AGREGAR A UNA LISTA</span></a> -->
+    <!-- 
+    <h4 class="detalleModMenu">
+        <a class="detalleBotonMenu" onclick="javascript:desplegarOpciones('detalleList0');javascript:getMisListas(0,372739);">
+        <span>AGREGAR  UNA LISTA</span></a>                       
+        el contenido del div de abajo se llena dinamicamente con ajax, lenvatado con el js jsListasTmk.js
+        <h5 class="detalleListaMenu" id="detalleList0" onMouseOver="clearTimeout(tempo);" onmouseout="ocultarOpcionesT('detalleList0');" style="display:none;">
+        </h5>
+    </h4>
+    -->        
+    <!--<a href="#" class="detalleBoton"><span>YA LO TENGO</span></a>-->  
+</div> 
+<br>
+</div>
+</div>

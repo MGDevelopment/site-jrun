@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.ListasTmkCalificacion"
+    table="LISTAS_TMK_CALIFICACION"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.ListasTmkCalificacionId"
+    >		
+	        <key-property name="idLista" type="long">
+<column name="ID_LISTA" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idCalificacion" type="long">
+<column name="ID_CALIFICACION" precision="10" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <many-to-one
+	    name="listasTmk"
+	    class="org.reverse.ListasTmk"
+	    
+        update="false"
+        insert="false"
+        fetch="select"
+    >
+<column name="ID_LISTA" precision="10" scale="0" not-null="true" />
+   </many-to-one>
+    <property
+        name="calificacion"
+	    type="boolean"
+    >
+<column name="CALIFICACION" precision="1" scale="0" not-null="true" />
+  </property>
+
+    <property
+        name="idSucursalSocioCalif"
+	    type="short"
+    >
+<column name="ID_SUCURSAL_SOCIO_CALIF" precision="4" scale="0" not-null="true" />
+  </property>
+
+    <property
+        name="idSocioCalif"
+	    type="long"
+    >
+<column name="ID_SOCIO_CALIF" precision="10" scale="0" not-null="true" />
+  </property>
+
+    <property
+        name="FCalificacion"
+	    type="date"
+    >
+<column name="F_CALIFICACION" length="7" not-null="true" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

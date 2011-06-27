@@ -1,0 +1,127 @@
+
+.titulo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #333333;
+	text-decoration: none;
+}
+.titulo2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding: 12px;
+	padding-left: 40px;
+	height:352px;
+	
+}
+.titulo3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #333333;
+	text-decoration: none;
+}
+.titulo4 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding-left: 20px;
+	text-decoration: none;
+}
+.titulo5 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #000000;
+	padding: 8px;
+	padding-left: 10px;
+	text-decoration: none;
+}
+.titulo6 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding: 8px;
+	padding-left: 10px;
+	text-decoration: none;
+}
+.titulo7 {	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FF6600;
+	padding-left: 30px;
+	text-decoration: none;
+}
+
+.encabezado {
+	font-size: 12px;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+.blanco {
+	background-color: #FFFFFF;
+}
+.fondo 	{
+	background-image:url(/grupos/fidelizacion/newsletter/images/menu-nuevo.jpg); background-repeat:no-repeat;
+	height: 310px;
+	width: 180px;
+}
+.fondo2 	{
+	background: url(/grupos/fidelizacion/newsletter/images/web-extra-2_01.jpg);
+	height: 30px;
+	width: 740px;
+}
+.fondo2a 	{
+	background: url(/grupos/fidelizacion/newsletter/octubre/images/web-extra-2_01.jpg);
+	height: 30px;
+	width: 740px;
+}
+.fondo3 	{
+	background: url(grupos/fidelizacion/newsletter/octubre/images/encabezado-quid.jpg);
+	height: 30px;
+	width: 740px;
+}
+.style6 {
+    font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 13px; 
+}
+.style3 {	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FF6600;
+	font-weight: bold;
+	border-bottom: 0;
+}
+.style4 {
+	font-size: 10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #666666;
+	background-color: #FFFFFF;	
+}
+.style7 {
+	color: #000000;
+	font-weight: bold;
+}
+.style21 {
+    color: #FFFFFF;
+}
+
+	a:link {
+		text-decoration: none;
+		
+	}
+	a:visited {
+		text-decoration: none;
+		
+	}
+	a:hover {
+		text-decoration: none;
+		
+	}
+	a:active {
+		text-decoration: none;
+		
+	}

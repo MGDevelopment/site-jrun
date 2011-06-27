@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+	<class name="org.reverse.ComentarioArticulos" table="COMENTARIO_ARTICULOS">
+
+		<composite-id name="id" class="org.reverse.ComentarioArticulosId">
+			<key-property name="idArticulo" type="long">
+				<column name="ID_ARTICULO" precision="10" scale="0" />
+			</key-property>
+			<key-property name="idComentario" type="long">
+				<column name="ID_COMENTARIO" precision="10" scale="0" />
+			</key-property>
+		</composite-id>
+
+		<property name="comentario" type="string">
+			<column name="COMENTARIO" length="4000" not-null="true">
+				<comment>Texto escrito por el usuario final</comment>
+			</column>
+		</property>
+
+		<property name="evaluacion" type="byte">
+			<column name="EVALUACION" precision="2" scale="0" not-null="true">
+				<comment>Puntaje ortorgado del producto (de 1 a 10)</comment>
+			</column>
+		</property>
+
+		<property name="fecha" type="date">
+			<column name="FECHA" length="7" not-null="true">
+				<comment>Fecha de alta del comentario</comment>
+			</column>
+		</property>
+
+		<property name="estado" type="string">
+			<column name="ESTADO" length="2" not-null="true">
+				<comment>Si el comentario debe mostrarse o no, o si es nuevo (N, A,
+					R)</comment>
+			</column>
+		</property>
+
+		<property name="idSucursalSocio" type="java.lang.Short">
+			<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0">
+				<comment>ID de sucursal del socio que comenta el producto</comment>
+			</column>
+		</property>
+
+		<property name="idSocio" type="java.lang.Long">
+			<column name="ID_SOCIO" precision="10" scale="0">
+				<comment>ID del socio que comenta el producto</comment>
+			</column>
+		</property>
+
+		<property name="nickname" type="string">
+			<column name="NICKNAME" length="50" />
+		</property>
+
+		<property name="FAlta" type="date">
+			<column name="F_ALTA" length="7" />
+		</property>
+
+		<property name="FModi" type="date">
+			<column name="F_MODI" length="7" />
+		</property>
+
+
+	</class>
+
+</hibernate-mapping>

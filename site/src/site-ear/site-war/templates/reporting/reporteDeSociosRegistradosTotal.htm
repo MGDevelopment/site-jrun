@@ -1,0 +1,36 @@
+<html>
+	<body>
+		<table align="center" width="420" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">
+			<tr>
+				<td width="70">
+					<B>Fecha</B>
+				</td>
+				<td width="100">
+					<B>Registrados</B>
+				</td>
+				<td width="100">
+					<B>Sin Compras</B>
+				</td>
+				<td width="150">
+					<B>Registracion corta</B>
+				</td>
+			</tr>
+			<tmpl_loop repRow>
+			<tr>
+				<td>
+					<tmpl_var fecha>
+				</td>
+				<td align="right">
+					<tmpl_var registrados>
+				</td>
+				<td  align="right">
+					<tmpl_var sinCompras>
+				</td>
+				<td  align="right">
+					<tmpl_var registracionCorta>
+				</td>
+			</tr>
+			</tmpl_loop>
+		</table>
+	</body>
+</html>

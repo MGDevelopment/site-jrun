@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.LogCambioArticulos"
+    table="LOG_CAMBIO_ARTICULOS"
+>
+
+	<id 
+        name="idArticulo"
+        type="long"
+    >
+    
+<column name="ID_ARTICULO" precision="10" scale="0" />
+	    <generator class="foreign">
+            <param name="property">articulos</param>
+		</generator>
+    </id>
+
+
+
+
+    <one-to-one
+	    name="articulos"
+	    class="org.reverse.Articulos"
+        constrained="true"
+
+    >
+   </one-to-one>
+    <property
+        name="fecha"
+	    type="date"
+    >
+<column name="FECHA" length="7" not-null="true" >
+<comment>FECHA de cambio</comment>
+</column>  </property>
+
+    <property
+        name="usuario"
+	    type="string"
+    >
+<column name="USUARIO" length="35" not-null="true" >
+<comment>Usuario que modifico el articulo</comment>
+</column>  </property>
+
+    <property
+        name="procesado"
+	    type="string"
+    >
+<column name="PROCESADO" length="1" not-null="true" >
+<comment>S/N</comment>
+</column>  </property>
+
+    <property
+        name="accion"
+	    type="string"
+    >
+<column name="ACCION" length="1" not-null="true" >
+<comment>I/U insert o update</comment>
+</column>  </property>
+
+
+</class>
+
+</hibernate-mapping>

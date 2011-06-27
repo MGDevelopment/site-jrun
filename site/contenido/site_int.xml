@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Site xsi:noNamespaceSchemaLocation="site.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Configuracion logo="Logo-Tematika.gif"
+        mensajeLogo="Tematika.com - La selección más grande de libros, discos, películas, pasatiempos"
+        vigenciaDelCarritoEnDias="180" generarTapasProtegidas="true"
+        vigenciaTapasProtegidas="30" diasConsideradosNovedad="30"
+        diasIgnoradosNovedad="2" solapasEnMultilinea="false">
+        <Flash file="/imagenes/avion.gif" ancho="24" alto="53"/>
+        <Formatos fechaCorto="dd&apos;/&apos;MM&apos;/&apos;yyyy"
+            fechaLargo="dd&apos;/&apos;MM&apos;/&apos;yyyy - HH:mm:ss"
+            fechaPublicacion="MMMM yyyy" porcentaje="##0.0&apos;%&apos;"
+            monedaPeso="&apos;$&amp;nbsp;&apos;#,##0.00&apos;.-&apos;"
+            monedaDollar="&apos;U$S&amp;nbsp;&apos;#,##0.00&apos;.-&apos;" monedaEuro="&apos;&amp;euro;&amp;nbsp;&apos;#,##0.00&apos;.-&apos;"/>
+        <Administrador>
+            <Email>dwinnik@ilhsa.com</Email>
+        </Administrador>
+        <CallCenter>
+            <Email>librerias@tematika.com</Email>
+            <Horario>Lunes a Viernes de 9:30 a 16:30 horas (hora Argentina)</Horario>
+            <Telefono>0810-33-EXTRA (39872)</Telefono>
+            <TelefonoExterior>(54-11) 4943-8292</TelefonoExterior>
+            <FAX>(Fax) (54-11) 4943-8284</FAX>
+        </CallCenter>
+        <Alianzas>
+            <Email>afiliados@tematika.com</Email>
+        </Alianzas>
+        <OfertaDeTrabajo>
+            <Email>empleos@ilhsa.com</Email>
+        </OfertaDeTrabajo>
+        <ReporteDeContenido>
+            <Email>clopez@ilhsa.com</Email>
+            <Email>ppirillo@ilhsa.com</Email>
+            <Email>laguirre@ilhsa.com</Email>
+            <Email>lcejas@ilhsa.com</Email>
+        </ReporteDeContenido>
+        <ReporteDePedidosEspeciales>
+            <Email>rmiranda@ilhsa.com</Email>
+            <Email>laguirre@ilhsa.com</Email>
+            <Email>lcejas@ilhsa.com</Email>
+            <Email>clopez@ilhsa.com</Email>
+            <Email>dwainer@ilhsa.com</Email>
+            <Email>ppirillo@ilhsa.com</Email>
+        </ReporteDePedidosEspeciales>
+        <ReporteDeOrdenes>
+            <Email>rmiranda@ilhsa.com</Email>
+            <Email>clopez@ilhsa.com</Email>
+            <Email>dwainer@ilhsa.com</Email>
+            <Email>laguirre@ilhsa.com</Email>
+            <Email>lcejas@ilhsa.com</Email>
+            <Email>ppirillo@ilhsa.com</Email>
+        </ReporteDeOrdenes>
+        <ReporteDeEstadoDeOrden>
+            <Email>dwinnik@ilhsa.com</Email>
+        </ReporteDeEstadoDeOrden>
+        <ReporteDeVisitas>
+            <Email>rmiranda@ilhsa.com</Email>
+            <Email>dwinnik@ilhsa.com</Email>
+            <Email>logistica_rapida@ilhsa.com</Email>
+            <Email>dwainer@ilhsa.com</Email>
+            <Email>clopez@ilhsa.com</Email>
+            <Email>laguirre@ilhsa.com</Email>
+            <Email>lcejas@ilhsa.com</Email>
+        </ReporteDeVisitas>
+        <ReporteDeClientesInstitucionales>
+            <Email>dwainer@ilhsa.com</Email>
+            <Email>clopez@ilhsa.com</Email>
+        </ReporteDeClientesInstitucionales>
+        <ReporteDeSocios>
+            <Email>dwinnik@ilhsa.com</Email>
+            <Email>dwainer@ilhsa.com</Email>
+            <Email>laguirre@ilhsa.com</Email>
+            <Email>lcejas@ilhsa.com</Email>
+        </ReporteDeSocios>
+        <TarjetasVerificadas>
+            <Email>dwinnik@ilhsa.com</Email>
+            <Email>rmiranda@ilhsa.com</Email>
+        </TarjetasVerificadas>
+        <AlertaRegistracionConDocDuplicado>
+            <Email>dwainer@ilhsa.com</Email>
+            <Email>rmiranda@ilhsa.com</Email>
+        </AlertaRegistracionConDocDuplicado>
+        <Correcciones mejorarTextos="true">
+            <Minusculizar>
+                <Texto> A </Texto>
+                <Texto> B </Texto>
+                <Texto> C </Texto>
+                <Texto> E </Texto>
+                <Texto> O </Texto>
+                <Texto> Y </Texto>
+                <Texto> Al </Texto>
+                <Texto> Ante </Texto>
+                <Texto> Aquel</Texto>
+                <Texto> Como </Texto>
+                <Texto> Con </Texto>
+                <Texto> Contra </Texto>
+                <Texto> Cualquier</Texto>
+                <Texto> De </Texto>
+                <Texto> Del </Texto>
+                <Texto> Desde </Texto>
+                <Texto> Dos </Texto>
+                <Texto> El </Texto>
+                <Texto> En </Texto>
+                <Texto> Entre </Texto>
+                <Texto> Es </Texto>
+                <Texto> Esa </Texto>
+                <Texto> Ese </Texto>
+                <Texto> Esta </Texto>
+                <Texto> Fue </Texto>
+                <Texto> Hacia </Texto>
+                <Texto> La </Texto>
+                <Texto> Las </Texto>
+                <Texto> Lo </Texto>
+                <Texto> Los </Texto>
+                <Texto> Me </Texto>
+                <Texto> Mejor</Texto>
+                <Texto> Menos </Texto>
+                <Texto> Mi </Texto>
+                <Texto> Ni </Texto>
+                <Texto> No </Texto>
+                <Texto> Para </Texto>
+                <Texto> Por </Texto>
+                <Texto> Que </Texto>
+                <Texto> Se </Texto>
+                <Texto> Ser </Texto>
+                <Texto> Sin </Texto>
+                <Texto> Sobre </Texto>
+                <Texto> Sola </Texto>
+                <Texto> Solo </Texto>
+                <Texto> Son </Texto>
+                <Texto> Soy </Texto>
+                <Texto> Su </Texto>
+                <Texto> Sus </Texto>
+                <Texto> Te </Texto>
+                <Texto> Tema</Texto>
+                <Texto> Tiene</Texto>
+                <Texto> Toda </Texto>
+                <Texto> Todas </Texto>
+                <Texto> Tres </Texto>
+                <Texto> Tu </Texto>
+                <Texto> Un </Texto>
+                <Texto> Una </Texto>
+                <Texto> Unas </Texto>
+                <Texto> Uno </Texto>
+                <Texto> Unos </Texto>
+                <Texto> Va </Texto>
+            </Minusculizar>
+            <Mayusculizar>
+                <Texto> Cd </Texto>
+                <Texto> Dvd </Texto>
+                <Texto> Egb </Texto>
+                <Texto> Mtv </Texto>
+                <Texto> Ntsc </Texto>
+                <Texto> Pal </Texto>
+                <Texto> Palm </Texto>
+                <Texto> Vhs </Texto>
+            </Mayusculizar>
+            <Puntuacion>
+                <Reemplazo>
+                    <Origen> a A </Origen>
+                    <Destino> A a </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen> Ademas </Origen>
+                    <Destino> además </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen> Demas </Origen>
+                    <Destino> demás </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen> Detras </Origen>
+                    <Destino> detrás </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen> Mas </Origen>
+                    <Destino> más </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen> Musica </Origen>
+                    <Destino> Música </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen> Pelicula</Origen>
+                    <Destino> Película</Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>Pinguin</Origen>
+                    <Destino>Pingüin</Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen> Razon </Origen>
+                    <Destino> razón </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen> Segun </Origen>
+                    <Destino> según </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen> Sera </Origen>
+                    <Destino> será </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen> Tambien </Origen>
+                    <Destino> también </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen> Todavia </Origen>
+                    <Destino> todavía </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen> Traves </Origen>
+                    <Destino> través </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>&apos;S </Origen>
+                    <Destino>&apos;s </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>cion </Origen>
+                    <Destino>ción </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>grafia </Origen>
+                    <Destino>grafía </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>grafias </Origen>
+                    <Destino>grafías </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>isima </Origen>
+                    <Destino>ísima </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>isimo </Origen>
+                    <Destino>ísimo </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>leria </Origen>
+                    <Destino>lería </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>logia </Origen>
+                    <Destino>logía </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>nomia </Origen>
+                    <Destino>nomía </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>nomica</Origen>
+                    <Destino>nómica</Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>logias </Origen>
+                    <Destino>logías </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>oranea </Origen>
+                    <Destino>oránea </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>oraneo </Origen>
+                    <Destino>oráneo </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>Xx</Origen>
+                    <Destino>XX</Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>Iii</Origen>
+                    <Destino>III</Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>iii</Origen>
+                    <Destino>III</Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>Ii</Origen>
+                    <Destino>II</Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>ii</Origen>
+                    <Destino>II</Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen> Iv </Origen>
+                    <Destino> IV </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen> Vi </Origen>
+                    <Destino> VI </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen> Ix </Origen>
+                    <Destino> IX </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>Xi </Origen>
+                    <Destino>XI </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>Xiv</Origen>
+                    <Destino>XIV</Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>Xv</Origen>
+                    <Destino>XV</Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>Xix</Origen>
+                    <Destino>XIX</Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>XVi</Origen>
+                    <Destino>XVI</Destino>
+                </Reemplazo>
+            </Puntuacion>
+            <Articulacion>
+                <Reemplazo>
+                    <Origen>, EL </Origen>
+                    <Destino>EL </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>, LA </Origen>
+                    <Destino>LA </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>, LO </Origen>
+                    <Destino>LO </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>, LOS </Origen>
+                    <Destino>LOS </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>, LAS </Origen>
+                    <Destino>LAS </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>, THE </Origen>
+                    <Destino>THE </Destino>
+                </Reemplazo>
+                <Reemplazo>
+                    <Origen>, LES </Origen>
+                    <Destino>LES </Destino>
+                </Reemplazo>
+            </Articulacion>
+        </Correcciones>
+        <Encuestas habilitarEncuestas="false" paginaFuente="http://200.32.3.17/irol/Tematika/encuesta.asp?codenc=113&amp;Usr=AO17RJQ"/>
+    </Configuracion>
+    <Paginas textoParaBuscadores="LIBRERIA, OFERTAS, PROMOCIONES, REGALOS, COMPRAS, ONLINE, ENVIOS, E-COMMERCE, BOOKS, IMPORTADOS, YENNY, EL ATENEO, GRUPO ILHSA, BIOGRAFIAS, SINOPSIS, CAPITULO, INDICE, BEST SELLER, BANDA DE SONIDO, NOVEDADES, RECOMENDADOS, RANKING, MAS VENDIDOS, TEXTOS ESCOLARES">
+        <Pagina id="0">
+            <Home>
+                <Producto id="88570" texto="" hint=""/>
+            </Home>
+            <PrimerLista>
+                <Producto id="8856"/>
+                <Producto id="199127"/>
+                <Producto id="372739"/>
+            </PrimerLista>
+            <SegundaLista>
+                <Producto id="374943"/>
+                <Producto id="377598"/>
+                <Producto id="376339"/>
+            </SegundaLista>
+            <TercerLista>
+                <Producto id="376292"/>
+                <Producto id="376553"/>
+                <Producto id="375805"/>
+            </TercerLista>
+            <PromocionesVert>
+                <Link
+                    pagina="javascript:abrirPopup(&apos;http://www.lanacion.com.ar&apos;, 500, 300)" icono="/grupos/LibrosVueltaalCole.gif"/>
+            </PromocionesVert>
+            <BannerSuperior paginaFuente="/leyendas/bannerenviogratis.html"/>
+            <BannersTop>
+                <Banner tipoUrl="HTML" url="/grupos/banner/home/2009/tmk_danbrown_quid21.html"/>
+            </BannersTop>
+            <Principal>
+                <Articulos>
+                    <Articulo id="491468" idSeccion="1"/>
+                    <Articulo id="489744" idSeccion="4" texto="El último trabajo discográfico de Mercedes Sosa en dueto junto a reconocidos artistas."/>
+                    <Articulo id="491235" idSeccion="5"/>
+                </Articulos>
+            </Principal>
+            <Destacados>
+                <Articulo id="489627" idSeccion="1"/>
+                <Articulo id="490827" idSeccion="4"/>
+                <Articulo id="488526" idSeccion="5"/>
+                <Articulo id="489611" idSeccion="1"/>
+                <Articulo id="491341" idSeccion="4"/>
+                <Articulo id="488410" idSeccion="5"/>
+            </Destacados>
+        </Pagina>
+        <Pagina id="1" posicionMarcaChica="ArribaDerecha"
+            posicionMarcaGrande="ArribaDerecha"
+            porcentajeAlphaMarca="60"
+            posicionDescuentoChico="ArribaDerecha"
+            posicionDescuentoGrande="ArribaDerecha" porcentajeAlphaDescuento="90">
+            <Home>
+                <Producto id="199734" texto="" hint=""/>
+            </Home>
+            <PrimerLista>
+                <Producto id="199734" texto="dddddddd"/>
+                <Producto id="100051"/>
+                <Producto id="100052"/>
+            </PrimerLista>
+            <SegundaLista>
+                <Producto id="198334"/>
+                <Producto id="194941"/>
+                <Producto id="194941"/>
+            </SegundaLista>
+            <PromocionesVert>
+                <Link
+                    pagina="/libros/index.jsp?URL_GRUPO=/grupos/HomeVUeltaalCole.htm" icono="/grupos/LibrosVueltaalCole.gif"/>
+                <Link
+                    pagina="/articulo/detalleArticulo.jsp?idArticulo=379579" icono="/grupos/LibroFreePlay.jpg"/>
+            </PromocionesVert>
+            <BannerSuperior paginaFuente="/leyendas/bannerenviogratis.html"/>
+            <BannersTop>
+                <Banner tipoUrl="HTML" url="/grupos/banner/home/bannerlibros.html"/>
+            </BannersTop>
+            <Principal>
+                <Articulos>
+                    <Articulo id="491693" idSeccion="1"/>
+                    <Articulo id="491470" idSeccion="1"/>
+                    <Articulo id="490455" idSeccion="1"/>
+                </Articulos>
+            </Principal>
+            <Destacados>
+                <Articulo id="488618" idSeccion="1"/>
+                <Articulo id="491688" idSeccion="1"/>
+                <Articulo id="489012" idSeccion="1"/>
+                <Articulo id="491160" idSeccion="1"/>
+                <Articulo id="491371" idSeccion="1"/>
+                <Articulo id="490873" idSeccion="1"/>
+            </Destacados>
+            <LinkBusqueda>
+                <Categoria idGrupo="1" idFamilia="1" descripcion="NOVELAS"/>
+                <Categoria idGrupo="10" idFamilia="3" descripcion="ECONOMIA"/>
+                <Categoria idGrupo="5" idFamilia="5" descripcion="SUPERACION PERSONAL"/>
+            </LinkBusqueda>
+            <Mapas>
+                <Mapa tipo="BIOGRAFIA"/>
+                <Mapa tipo="COMENTARIO"/>
+                <Mapa tipo="ENTREVISTA"/>
+                <Mapa tipo="PRIMERCAPITULO"/>
+                <Mapa tipo="INDICEDECONTENIDO"/>
+            </Mapas>
+            <BannerCatalogo>
+                <BannerGrupo id="16" url="/grupos/familias/utilisima.html"/>
+                <BannerGrupo id="16" url="">
+                    <BannerFamilia id="3" url="/grupos/familias/utilisima.html"/>
+                </BannerGrupo>
+                <BannerGrupo id="17" url="/grupos/familias/utilisima.html"/>
+            </BannerCatalogo>
+        </Pagina>
+        <Pagina id="3" posicionMarcaChica="ArribaDerecha"
+            posicionMarcaGrande="AbajoCentrado"
+            porcentajeAlphaMarca="70"
+            posicionDescuentoChico="ArribaCentrado"
+            posicionDescuentoGrande="ArribaCentrado" porcentajeAlphaDescuento="90">
+            <Home>
+                <Producto id="373678" texto="" hint=""/>
+            </Home>
+            <PrimerLista>
+                <Producto id="371945"/>
+                <Producto id="370069"/>
+                <Producto id="102158"/>
+            </PrimerLista>
+            <SegundaLista>
+                <Producto id="104149"/>
+                <Producto id="190633"/>
+                <Producto id="181521"/>
+            </SegundaLista>
+            <PromocionesVert>
+                <Link
+                    pagina="/libros/index.jsp?URL_GRUPO=/grupos/HomeVUeltaalCole.htm" icono="/grupos/LibrosVueltaalCole.gif"/>
+                <Link
+                    pagina="/articulo/detalleArticulo.jsp?idArticulo=379579" icono="/grupos/LibroFreePlay.jpg"/>
+            </PromocionesVert>
+            <BannerSuperior paginaFuente="/leyendas/bannerenviogratis.html"/>
+            <BannersTop>
+                <Banner tipoUrl="HTML" url="/grupos/banner/home/bannerpasatiempos.html"/>
+            </BannersTop>
+            <Principal>
+                <Articulos>
+                    <Articulo id="488704" idSeccion="3"/>
+                    <Articulo id="478060" idSeccion="3"/>
+                    <Articulo id="478166" idSeccion="3"/>
+                </Articulos>
+            </Principal>
+            <Destacados>
+                <Articulo id="484175" idSeccion="3"/>
+                <Articulo id="488700" idSeccion="3"/>
+                <Articulo id="484179" idSeccion="3"/>
+                <Articulo id="484596" idSeccion="3"/>
+                <Articulo id="484178" idSeccion="3"/>
+                <Articulo id="475640" idSeccion="3"/>
+            </Destacados>
+            <LinkBusqueda>
+                <Categoria idGrupo="4" idFamilia="1" descripcion="AGENDAS"/>
+                <Categoria idGrupo="1" descripcion="JUGUETES"/>
+                <Categoria idGrupo="4" idFamilia="2" descripcion="ALMANAQUES"/>
+            </LinkBusqueda>
+        </Pagina>
+        <Pagina id="4" posicionMarcaChica="ArribaDerecha"
+            posicionMarcaGrande="AbajoIzquierda"
+            porcentajeAlphaMarca="80"
+            posicionDescuentoChico="ArribaDerecha"
+            posicionDescuentoGrande="ArribaDerecha" porcentajeAlphaDescuento="90">
+            <Home>
+                <Producto id="371173"/>
+            </Home>
+            <PrimerLista>
+                <Producto id="198581"/>
+                <Producto id="199497"/>
+                <Producto id="199925"/>
+            </PrimerLista>
+            <SegundaLista>
+                <Producto id="196164" texto="CD + DVD"/>
+                <Producto id="199925"/>
+                <Producto id="199925"/>
+            </SegundaLista>
+            <PromocionesVert>
+                <Link
+                    pagina="/buscador/productos.jsp?seccion=4&amp;claveDeBusqueda=porAutor&amp;texto=Joan%20Manuel%20Serrat" icono="/grupos/MusicaSerrat.gif"/>
+                <Link
+                    pagina="/buscador/productos.jsp?seccion=4&amp;claveDeBusqueda=porAutor&amp;texto=Norah%20Jones" icono="/grupos/MusicaNorahJones.gif"/>
+            </PromocionesVert>
+            <BannerSuperior paginaFuente="/leyendas/bannerenviogratis.html"/>
+            <BannersTop>
+                <Banner tipoUrl="HTML" url="/grupos/banner/home/bannermusica.html"/>
+            </BannersTop>
+            <Principal>
+                <Articulos>
+                    <Articulo id="491351" idSeccion="4"/>
+                    <Articulo id="490780" idSeccion="4"/>
+                    <Articulo id="491356" idSeccion="4"/>
+                </Articulos>
+            </Principal>
+            <Favoritos>
+                <Autor id="5002435"/>
+                <Autor id="5001820"/>
+                <Autor id="5009226"/>
+                <Autor id="5000919"/>
+            </Favoritos>
+            <Recorridos>
+                <Recorrido idGrupo="8" descripcion="Musica Clasica"/>
+                <Recorrido idGrupo="12" descripcion="Banda de Sonido"/>
+                <Recorrido idGrupo="9" descripcion="Música de Países"/>
+                <Recorrido idGrupo="6" descripcion="Folklore"/>
+                <Recorrido idGrupo="4" descripcion="Jazz"/>
+            </Recorridos>
+            <LinkBusqueda>
+                <Categoria idGrupo="5" descripcion="TANGO"/>
+                <Categoria idGrupo="2" descripcion="R&amp;P CASTELLANO"/>
+                <Categoria idGrupo="1" descripcion="R&amp;P INTERNACIONAL"/>
+            </LinkBusqueda>
+        </Pagina>
+        <Pagina id="5" posicionMarcaChica="ArribaDerecha"
+            posicionMarcaGrande="ArribaDerecha"
+            porcentajeAlphaMarca="100"
+            posicionDescuentoChico="ArribaIzquierda"
+            posicionDescuentoGrande="ArribaIzquierda" porcentajeAlphaDescuento="90">
+            <Home>
+                <Producto id="372739"/>
+            </Home>
+            <PrimerLista>
+                <Producto id="199299"/>
+                <Producto id="370689"/>
+                <Producto id="372622"/>
+            </PrimerLista>
+            <SegundaLista>
+                <Producto id="198864"/>
+                <Producto id="196026"/>
+                <Producto id="195417"/>
+            </SegundaLista>
+            <PromocionesVert>
+                <Link
+                    pagina="/peliculas/index.jsp?URL_GRUPO=/grupos/PeliculasOscar.htm" icono="/grupos/PeliculasOscar.gif"/>
+                <Link
+                    pagina="/articulo/detalleArticulo.jsp?idArticulo=372739" icono="/grupos/PeliMatrix2Cuad.gif"/>
+                <Link
+                    pagina="/articulo/detalleArticulo.jsp?idArticulo=374233" icono="/grupos/PeliculaNemo.gif"/>
+            </PromocionesVert>
+            <BannerSuperior paginaFuente="/leyendas/bannerenviogratis.html"/>
+            <BannersTop>
+                <Banner tipoUrl="HTML" url="/grupos/banner/home/bannerpeliculas.html"/>
+            </BannersTop>
+            <Principal>
+                <Articulos>
+                    <Articulo id="488353" idSeccion="5"/>
+                    <Articulo id="487626" idSeccion="5"/>
+                    <Articulo id="487520" idSeccion="5"/>
+                </Articulos>
+            </Principal>
+            <Destacados>
+                <Articulo id="486528" idSeccion="5"/>
+                <Articulo id="486524" idSeccion="5"/>
+                <Articulo id="486522" idSeccion="5"/>
+                <Articulo id="486284" idSeccion="5"/>
+                <Articulo id="485840" idSeccion="5"/>
+                <Articulo id="483885" idSeccion="5"/>
+            </Destacados>
+            <Favoritos>
+                <Autor id="110546"/>
+                <Autor id="35818"/>
+                <Autor id="29281"/>
+                <Autor id="91391"/>
+            </Favoritos>
+            <Recorridos>
+                <Recorrido idGrupo="6" descripcion="Infantil"/>
+                <Recorrido idGrupo="7" descripcion="Musical/Recitales"/>
+                <Recorrido idGrupo="10" descripcion="Clásicos"/>
+                <Recorrido idGrupo="4" descripcion="Comedia"/>
+                <Recorrido idGrupo="2" descripcion="Ciencia Ficción"/>
+            </Recorridos>
+            <LinkBusqueda>
+                <Categoria idGrupo="5" descripcion="DRAMA"/>
+                <Categoria idGrupo="15" descripcion="SERIE TV"/>
+                <Categoria idGrupo="1" descripcion="ACCION"/>
+            </LinkBusqueda>
+        </Pagina>
+    </Paginas>
+    <PapelesDeRegalo>
+        <Producto id="125929"/>
+        <Producto id="125930"/>
+        <Producto id="374086"/>
+    </PapelesDeRegalo>
+    <ListaDeDeseos>
+        <Producto id="117041"/>
+        <Producto id="101622"/>
+        <Producto id="104310"/>
+        <Producto id="107435"/>
+        <Producto id="112822"/>
+        <Producto id="107510"/>
+        <Producto id="119823"/>
+        <Producto id="376495"/>
+        <Producto id="190633"/>
+    </ListaDeDeseos>
+    <Ranking>
+        <RankingSeccion id="1">
+            <RankingGrupo nombre="Ficcion">
+                <Producto id="514413"/>
+                <Producto id="514759"/>
+                <Producto id="481546"/>
+                <Producto id="487902"/>
+                <Producto id="516878"/>
+                <Producto id="515170"/>
+                <Producto id="496931"/>
+                <Producto id="515256"/>
+                <Producto id="516898"/>
+                <Producto id="465771"/>
+            </RankingGrupo>
+            <RankingGrupo nombre="No Ficcion">
+                <Producto id="516241"/>
+                <Producto id="512832"/>
+                <Producto id="516617"/>
+                <Producto id="473405"/>
+                <Producto id="424127"/>
+                <Producto id="513979"/>
+                <Producto id="513287"/>
+                <Producto id="516659"/>
+                <Producto id="516295"/>
+                <Producto id="513284"/>
+            </RankingGrupo>
+            <RankingGrupo nombre="Infantiles">
+                <Producto id="402434"/>
+                <Producto id="499666"/>
+                <Producto id="458243"/>
+                <Producto id="487669"/>
+                <Producto id="471739"/>
+                <Producto id="502577"/>
+                <Producto id="516658"/>
+                <Producto id="505104"/>
+                <Producto id="517241"/>
+                <Producto id="516543"/>
+            </RankingGrupo>
+            <RankingGrupo nombre="Juveniles">
+                <Producto id="513286"/>
+                <Producto id="479787"/>
+                <Producto id="516739"/>
+                <Producto id="515309"/>
+                <Producto id="511724"/>
+                <Producto id="506216"/>
+                <Producto id="516884"/>
+                <Producto id="511991"/>
+                <Producto id="464872"/>
+                <Producto id="515167"/>
+            </RankingGrupo>
+        </RankingSeccion>
+        <RankingSeccion id="4">
+            <RankingGrupo nombre="Musica">
+                <Producto id="517613"/>
+                <Producto id="516372"/>
+                <Producto id="514287"/>
+                <Producto id="515587"/>
+                <Producto id="517609"/>
+                <Producto id="517611"/>
+                <Producto id="513820"/>
+                <Producto id="517591"/>
+                <Producto id="514744"/>
+                <Producto id="514743"/>
+                <Producto id="510908"/>
+                <Producto id="516493"/>
+                <Producto id="516964"/>
+                <Producto id="509298"/>
+                <Producto id="515523"/>
+                <Producto id="515524"/>
+                <Producto id="512445"/>
+                <Producto id="509326"/>
+                <Producto id="507537"/>
+                <Producto id="458478"/>
+            </RankingGrupo>
+        </RankingSeccion>
+        <RankingSeccion id="5">
+            <RankingGrupo nombre="Peliculas">
+                <Producto id="517246"/>
+                <Producto id="515937"/>
+                <Producto id="503951"/>
+                <Producto id="515975"/>
+                <Producto id="511660"/>
+                <Producto id="513698"/>
+                <Producto id="513881"/>
+                <Producto id="417249"/>
+                <Producto id="515972"/>
+                <Producto id="508448"/>
+            </RankingGrupo>
+        </RankingSeccion>
+    </Ranking>
+    <RecorridoPorTemas>
+        <RecorridoSecciones>
+            <Claves/>
+            <RecorridoSeccion id="1">
+                <RecorridoGrupos>
+                    <RecorridoGrupo id="15">
+                        <Claves>
+                            <Producto id="451048" vencimiento="2008-11-30T01:00:00.000-02:00"/>
+                        </Claves>
+                        <RecorridoFamilias>
+                            <RecorridoFamilia id="2">
+                                <Claves>
+                                    <Producto id="451048" vencimiento="2008-11-30T01:00:00.000-02:00"/>
+                                </Claves>
+                            </RecorridoFamilia>
+                        </RecorridoFamilias>
+                    </RecorridoGrupo>
+                </RecorridoGrupos>
+            </RecorridoSeccion>
+        </RecorridoSecciones>
+    </RecorridoPorTemas>
+    <NuestrasCategorias>
+        <NuestraCategoriasSeccion id="1">
+            <NuestraCategoriasGrupo id="1"/>
+            <NuestraCategoriasGrupo id="7"/>
+            <NuestraCategoriasGrupo id="4"/>
+            <NuestraCategoriasGrupo id="5"/>
+            <NuestraCategoriasGrupo id="6"/>
+            <NuestraCategoriasGrupo id="10"/>
+            <NuestraCategoriasGrupo id="18"/>
+            <NuestraCategoriasGrupo id="3"/>
+        </NuestraCategoriasSeccion>
+        <NuestraCategoriasSeccion id="4">
+            <NuestraCategoriasGrupo id="3"/>
+            <NuestraCategoriasGrupo id="1"/>
+            <NuestraCategoriasGrupo id="4"/>
+            <NuestraCategoriasGrupo id="12"/>
+            <NuestraCategoriasGrupo id="5"/>
+            <NuestraCategoriasGrupo id="11"/>
+        </NuestraCategoriasSeccion>
+        <NuestraCategoriasSeccion id="5">
+            <NuestraCategoriasGrupo id="1"/>
+            <NuestraCategoriasGrupo id="5"/>
+            <NuestraCategoriasGrupo id="15"/>
+            <NuestraCategoriasGrupo id="6"/>
+            <NuestraCategoriasGrupo id="13"/>
+        </NuestraCategoriasSeccion>
+        <NuestraCategoriasSeccion id="3">
+            <NuestraCategoriasGrupo id="1"/>
+            <NuestraCategoriasGrupo id="2"/>
+            <NuestraCategoriasGrupo id="4"/>
+            <NuestraCategoriasGrupo id="5"/>
+            <NuestraCategoriasGrupo id="6"/>
+            <NuestraCategoriasGrupo id="7"/>
+            <NuestraCategoriasGrupo id="9"/>
+        </NuestraCategoriasSeccion>
+    </NuestrasCategorias>
+    <Eventos>
+        <Evento activo="true"
+            descripcion="Ciclo infantil &quot;Atrapacuentos&quot;. Editorial Guadal y El gato de hojalata te invitan a disfrutar de las más increíbles narraciones de cuentos. ¡No te pierdas esta divertida actividad que hará volar tu imaginación! Te esperamos el martes 21 de septiembre, a las 17.30 hs., en El Ateneo Grand Splendid, Av. Santa Fe 1860. Entrada libre y gratuita, sujeta a capacidad de sala. "
+            sucursal="205" fecha="2010-09-21T17:30:00.000-03:00"/>
+        <Evento activo="true"
+            descripcion="Martes 21/9, 17.45 hs., Yenny Abasto: Bubba firmará ejemplares de sus libros y DVDs (Primeros Pasos/ Sudamericana. "
+            sucursal="30" fecha="2010-09-21T17:30:00.000-03:00"/>
+        <Evento activo="true"
+            descripcion="Jueves 23/9, 18.30 hs, El Ateneo Florida 340, Auditorio: Presentación del libro &quot;El Poder de la Pasión&quot;, de Enrique Mariscal (Serendipidad). Entrada libre y gratuita, sujeta a capacidad de sala."
+            sucursal="120" fecha="2010-09-23T18:30:00.000-03:00"/>
+        <Evento activo="true"
+            descripcion="UWC: 75 años celebrando la educación y la cultura Muestra de Arte del Club Universitario de Mujeres Obras de Pachi Almeyda, Claudia Bergquist, Daniela Boo, María Rosa Braile, Patricia Caviezel, Graciela Dumont, Alicia Magide, Diana Pierrepont, Taty Rybak, Edda Valeska, Elgen van den Elsakker y Phoebe Webb. Fecha: Desde el 24/9 hasta el 22/10. Lugar: El Ateneo Grand Splendid, Av. Santa Fe 1860, 2º piso. Entrada: Libre y gratuita. "
+            sucursal="205" fecha="2010-09-24T19:00:00.000-03:00"/>
+        <Evento activo="true"
+            descripcion="Ciclo infantil &quot;Atrapacuentos&quot;. Editorial Guadal y El gato de hojalata te invitan a disfrutar de las más increíbles narraciones de cuentos. ¡No te pierdas esta divertida actividad que hará volar tu imaginación! Te esperamos el martes 28 de septiembre, a las 17.30 hs., en Yenny Plaza Oeste, Juan Manuel de Rosas 658 (Morón). Entrada libre y gratuita, sujeta a capacidad de sala. "
+            sucursal="162" fecha="2010-09-28T17:30:00.000-03:00"/>
+    </Eventos>
+    <Cupones>
+        <Registro id=""/>
+        <Referido id="REFERIDO2015" beneficio="20% de descuento en libros, 15% en música y películas"/>
+        <Referente id="REFNIVEL1" beneficio="21% de descuento en libros, música y películas"/>
+        <Referente id="REFNIVEL2" beneficio="22% de descuento en libros, música y películas"/>
+        <Referente id="REFNIVEL3" beneficio="23% de descuento en libros, música y películas"/>
+    </Cupones>
+</Site>

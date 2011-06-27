@@ -1,0 +1,25 @@
+<html><head><style>body {font-family: Verdana, Arial, Sans-Serif;font-size: 10px;}td{font-family: Verdana, Arial, Sans-Serif;font-size: 11px;}select{font-family: Verdana, Arial, Sans-Serif;font-size: 11px;}input{font-family: Verdana, Arial, Sans-Serif;font-size: 11px;}a{color: #000000;font-family: Verdana, Arial, Sans-Serif;font-size: 10px;}.textoSolapa{font-weight: bold;font-size: 11px;text-decoration: none;}.textoTitulo{color: #990000;font-family: Verdana, Arial, Sans-Serif;font-size: 12px;}</style></head><body>
+<table width="600" style="border: 1px solid #59B3D9; border-top: 20px solid #59B3D9; border-bottom: 5px solid #59B3D9;"><tr><td colspan="2" class="textoTitulo"><br><b>&nbsp;&nbsp;&nbsp;Datos personales</b><br><br></td></tr>
+<tr><td><b>&nbsp;&nbsp;&nbsp;Nombre</b></td><td><tmpl_var nombre></td></tr>
+<tr><td><b>&nbsp;&nbsp;&nbsp;Apellido</b></td><td><tmpl_var apellido></td></tr>
+<tr><td><b>&nbsp;&nbsp;&nbsp;Fecha de Nacimiento</b></td><td><tmpl_var fechaNacimiento>&nbsp;<tmpl_var edad> </td></tr>
+<tr><td><b>&nbsp;&nbsp;&nbsp;Tipo y Número de documento</b></td><td><tmpl_var tipoDocumento>&nbsp;<tmpl_var nroDocumento></td></tr>
+<tr><td><b>&nbsp;&nbsp;&nbsp;Sexo</b></td><td><tmpl_var sexo></td></tr>
+<tr><td><b>&nbsp;&nbsp;&nbsp;Direccion</b></td><td><tmpl_var direccion>&nbsp;<tmpl_var localidad>&nbsp;(<tmpl_var codigoPostal>),&nbsp;<tmpl_var provincia>,&nbsp;<tmpl_var pais></td></tr>
+<tr><td colspan="2" class="textoTitulo"><hr color="#59B3D9" size="1"><br><b>&nbsp;&nbsp;&nbsp;Datos Contacto<b><br><br></td></tr>
+<tr><td><b>&nbsp;&nbsp;&nbsp;Teléfonos</b></td><td><tmpl_var telefono1>&nbsp;-&nbsp;<tmpl_var telefono2><br></td></tr>
+<tr><td><b>&nbsp;&nbsp;&nbsp;e-Mail</b></td><td><tmpl_var email></td></tr>
+<tr><td colspan="2"  class="textoTitulo"><hr color="#59B3D9" size="1" ><BR><b>&nbsp;&nbsp;&nbsp;Estudios</b><br><br></td></tr>
+<tr><td><b>&nbsp;&nbsp;&nbsp;Maximo nivel alcanzado</b></td><td><tmpl_var nivelEstudio>&nbsp;<tmpl_var estadoEstudio></td></tr>
+<tr><td colspan=2></td></tr>
+<tr><td colspan="2"  class="textoTitulo"><hr color="#59B3D9" size="1" ><BR><b>&nbsp;&nbsp;&nbsp;Laboral</b><br><br></td></tr>
+<tr><td><b>Puesto que le gustaria ocupar</td><td><tmpl_var puestoDeseado></td></tr>
+<tr><td><b>Turno que le gustaria ocupar</td><td><tmpl_var turno></td></tr>
+<tr><td><b>¿Trabaja Actualmente?</b></td><td><tmpl_var trabaja></td></tr>
+<tmpl_if  tieneTrabajo>
+	<tr><td><b>Empesa</b></td><td><tmpl_var empresa></td></tr>
+	<tr><td><b>Puesto</b></td><td><tmpl_var puesto></td></tr>
+	<tr><td><b>Desde</b></td><td><tmpl_var desde></td></tr>
+	<tr><td><b>Hasta</b></td><td><tmpl_var hasta></td></tr>
+</tmpl_if>
+</table></body></html>

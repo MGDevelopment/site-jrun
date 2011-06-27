@@ -1,0 +1,187 @@
+<form name="frm" action="/ConfirmarCompra" method="post">
+<div class="compraWrapper vistaPrev">
+    	<div class="vPrevModif">
+            <div class="vistaPrevTit1"><span>Productos:</span></div>
+            <div class="vistaPrevTit2"><span>¿Regalo?</span></div>
+            <div class="vistaPrevTit3"><span>Dedicatoria:</span></div>
+            <div class="vistaPrevTit4"><span>Descuento:</span></div>
+            <tmpl_loop articulos>
+            	<table border="0" cellspacing="0" cellpadding="0">
+              	<tr>
+                	<td class="vPrevTD1">
+                		<a href="<tmpl_var urlDetalle>" class="dInfoTit"><tmpl_var titulo> (x<tmpl_var cantidadArticulo>) </a>
+                	</td>
+                	<td class="vPrevTD2"><span><tmpl_var textoSobre></span></td>
+                	<td class="vPrevTD3"><span><tmpl_var tieneMensaje></span></td>
+                	<td class="vPrevTD4"><span><tmpl_var descuento></span></td>
+              	</tr>
+            	</table>
+            	<div class="vPrevSep1"></div><div class="vPrevSep2"></div><div class="vPrevSep3"></div><div class="vPrevSep4"></div><!-- separadores entre productos -->
+            </tmpl_loop>            
+            <div class="vistaPrevTit1"><a href="/compra/carrito.do" class="cProcForButton">MODIFICAR</a></div>
+            <div class="vistaPrevTit2"><a href="/compra/papelDeRegalo.do" class="cProcForButton">MODIFICAR</a></div>
+            <div class="vistaPrevTit3"><a href="/compra/papelDeRegalo.do" class="cProcForButton">MODIFICAR</a></div>
+            <!-- <div class="vistaPrevTit4"><a href="#" class="cProcForButton">MODIFICAR</a></div>-->
+        </div>
+        
+        <div class="vPreviResumen">
+        	<b>Productos:</b><span><tmpl_var subTotal></span><br />
+            <b>Envío:</b><span><tmpl_var totalGastoEnvio></span><br />
+            <b>Sobres:</b><span><tmpl_var totalPapelRegalo></span><br />
+            <tmpl_if esTarjeta>
+            	<tmpl_if interes>
+            		<b>Inter&eacute;s:</b><span><tmpl_var interes></span><br />
+            	</tmpl_if>
+            </tmpl_if>
+            <b>Beneficios:</b><span><p> <tmpl_var totalBeneficio></p></span><br />            
+            <div>Total: </div>
+            <div style="text-align:right;"><tmpl_var total></div>            
+            <div style="text-align:right;"><tmpl_var totalDolar></div>
+            <div style="text-align:right;"><tmpl_var totalEuro></div>             
+        </div>
+    </div>
+    <!-- area promociones -->
+    <div class="compraWrapper vistaPrev" >
+    	<p align="right">Promocion aplicada: <b><tmpl_var promocionAplicada></b></p>
+    </div>
+    <!-- fin promociones -->
+    <!-- area de mensajes sobre promociones -->
+    <tmpl_if tieneMensajeEnPromocion>
+    	<div class="compraWrapper vistaPrev" >
+    		<p align="left"><b><tmpl_var nombre></b><br>
+    		<tmpl_var texto><br>
+    		Nota: <tmpl_var nota></p>
+    	</div>    	
+    	<!-- fin -->
+    </tmpl_if>
+    <div class="compraWrapper">   
+    	<div class="cProcTit" style="margin-top:0;"><span>Datos de Entrega:</span></div>        
+        <div class="cProcFor-wrapper cProcForms">
+            <b style="margin-bottom:0;">Dirección de entrega:</b>
+            <div style="margin-bottom:0;">
+            	<span style="margin-right:10px;">
+            		<tmpl_var direccionE> <tmpl_var edificioE> <tmpl_var pisoE>, <tmpl_var deptoE>, <tmpl_var codigoPostalE>, <tmpl_var localidadE>.<br /><tmpl_var provinciaE>, <tmpl_var paisE>            		
+            	</span>
+            </div>
+        </div>
+        <div class="cProcFor-wrapper cProcForms">
+            <b style="margin-bottom:0;">Dirección de facturación:</b>
+            <div style="margin-bottom:0;">
+            	<span style="margin-right:10px;">
+            		<tmpl_var direccionF> <tmpl_var edificioF> <tmpl_var pisoF>, <tmpl_var deptoF>, <tmpl_var codigoPostalF>, <tmpl_var localidadF>.<br /><tmpl_var provinciaF>, <tmpl_var paisF>
+            	</span>
+            </div>
+        </div>
+        <div class="cProcFor-wrapper cProcForms">
+            <b style="margin-bottom:0;">Destinatario del pedido:</b><div style="margin-bottom:0;">
+            <span style="margin-right:10px;">
+            	<tmpl_var receptor> <tmpl_var comentario>
+            </span>
+        </div>
+        </div>
+        <tmpl_if esBrasil>
+	        <div class="cProcFor-wrapper cProcForms">
+	            <b style="margin-bottom:0;"><tmpl_var descripcion>:</b>
+	            <div style="margin-bottom:0;">
+	            	<span style="margin-right:10px;">
+	            		<tmpl_var valorCPF_CNPJ>
+	            	</span>
+	        	</div>
+	        </div>
+	    </tmpl_if>
+        <div class="cProcFor-wrapper cProcForms">
+            <b style="margin-bottom:0;">Horario de contacto:</b><div style="margin-bottom:0;"><span style="margin-right:10px;"><tmpl_var horarioContacto>.</span></div>
+        </div>
+        
+        
+        <div class="cProcFor-wrapper cProcForms">
+            <b style="margin-bottom:0;">Método de envío:</b><div style="margin-bottom:0;"><span style="margin-right:10px;"><tmpl_var metodoEnvio> (No puede ser modificado).</span></div>
+        </div>
+        <a href="/compra/domicilio.do" class="cProcForButton vPrevButt">MODIFICAR</a>
+    </div>
+    
+    <div class="compraWrapper">   
+    	<div class="cProcTit" style="margin-top:0;"><span>Medio de Pago:</span></div>        
+        <div class="cProcFor-wrapper cProcForms">
+            <b style="margin-bottom:0;">Medio:</b><div style="margin-bottom:0;"><span style="margin-right:10px;"><tmpl_var medioDePago>.</span></div>
+        </div>
+        <tmpl_if esTarjeta>
+	        <div class="cProcFor-wrapper cProcForms">
+	            <b style="margin-bottom:0;">Detalles:</b><div style="margin-bottom:0;"><span style="margin-right:10px;"><tmpl_var titularTarjeta><br />Número <tmpl_var nroTarjeta></span></div>
+	        </div>
+	        <div class="cProcFor-wrapper cProcForms">
+	            <b style="margin-bottom:0;">Cuotas:</b><div style="margin-bottom:0;"><span style="margin-right:10px;"><tmpl_var cantidadCuotas></span></div>
+	        </div>
+	    </tmpl_if>
+	    <tmpl_if esTarjetaPrepaga>
+	        <tmpl_loop tarjetasCargadas>
+				<div class="cProcFor-wrapper cProcForms">
+					<b style="margin-bottom: 0pt;">Codigo:</b>
+					<div style="margin-bottom: 0pt;">
+						<tmpl_var numeroDeTarjetaPrepaga> <tmpl_var importeDeTarjetaPrepaga> <tmpl_var detalle>
+					</div>
+				</div>							
+			</tmpl_loop>			
+			<div class="cProcFor-wrapper cProcForms">
+				<b style="margin-bottom: 0pt;">Total:</b>
+				<div style="margin-bottom: 0pt;">
+					<tmpl_var totalTarjetasPrepagas>
+				</div>
+			</div>
+			<div class="cProcFor-wrapper cProcForms">
+				<b style="margin-bottom: 0pt;color:red;">Imporatante</b>
+				<div style="margin-bottom: 0pt;color:red;">
+					<tmpl_var mensajeError>
+				</div>
+			</div>			
+	    </tmpl_if>
+        <div class="cProcFor-wrapper cProcForms">
+            <b style="margin-bottom:0;">Tarjeta eXtra:</b><div style="margin-bottom:0;"><span style="margin-right:10px;"><tmpl_var nroTarjetaExtra> <tmpl_var titularTarjetaExtra></span></div>
+        </div>
+        <a href="/compra/medioDeCobro.do" class="cProcForButton vPrevButt">MODIFICAR</a>
+    </div>
+    
+    <div class="compraWrapper">   
+    	<div class="cProcTit" style="margin-top:0;"><span>Confirmaciones por e-mail:</span></div>        
+        <div class="cProcFor-wrapper cProcForms">
+            <div style="margin-bottom:0; width:690px;"><span style="margin-right:10px;">Recibirás nuestras comunicaciones referidas a tu compra en la siguiente dirección de e-mail: <strong><tmpl_var mailConfirmacion></strong>.</span></div>
+        </div>
+        <div class="cProcFor-wrapper cProcForms">
+            <b style="margin-bottom:0;">Enviar una copia a este e-mail:</b>
+           	<div>
+            	<input name="emailAlternativo" type="text" style="width:250px;" />
+            </div>
+        </div>
+    </div>
+    
+    <div class="vPrevMsj">
+		Tenga en cuenta que los pedidos realizados a partir de las 17 hs
+  		(hora de Argentina) tendrán un día hábil adicional de demora respecto
+  		de lo que figura en el status de disponibilidad del producto en la
+  		salida desde el depósito. Para mayor información sobre los tiempos de
+  		despacho y entrega, puede ingresar a: 
+		<a href="/ayuda/ayudaEstandar.jsp?url=/ayuda/enviosPlazos.jsp" target="blank" class="FAyuda">Información sobre Gastos de Envío y Tiempos de Entrega</a><p>
+		<!-- <b>Aviso importante:</b> Le informamos que debido a los tiempos de disponibilidad y despacho de los productos no se garantiza la entrega antes de Navidad para los pedidos realizados a partir del día 15 de diciembre.-->
+    </div>
+    
+    <a href="/compra/medioDeCobro.do" class="b-prev">MEDIOS DE PAGO</a>
+    <a href="javascript:document.frm.submit();" class="b-nextConf">FINALIZAR LA COMPRA</a>
+</form>    
+<tmpl_if esRelease>
+<!-- Tag for Activity Group: Tematika website, Activity: Tematika Confirmacion del Envio -->
+
+<!-- Start of DoubleClick Spotlight Tag: Please do not remove-->
+<!-- Activity Name for this tag is:Tematika Confirmacion del Envio -->
+<!-- Web site URL where tag should be placed: https://www.tematika.com/compra/confirmacion.jsp -->
+<!-- Creation Date:12/29/2006 -->
+<SCRIPT language="JavaScript">
+var axel = Math.random()+"";
+var a = axel * 10000000000000;
+document.write('<IMG SRC="https://ad.doubleclick.net/activity;src=1364770;type=tematsit;cat=tematc06;ord='+ a + '?" WIDTH=1 HEIGHT=1 BORDER=0>');
+</SCRIPT>
+<NOSCRIPT>
+<IMG SRC="https://ad.doubleclick.net/activity;src=1364770;type=tematsit;cat=tematc06;ord=1?" WIDTH="1" HEIGHT="1" BORDER="0">
+</NOSCRIPT>
+<!-- End of DoubleClick Spotlight Tag: Please do not remove-->
+</tmpl_if>
+<tmpl_var googleAnalyticsSSL>

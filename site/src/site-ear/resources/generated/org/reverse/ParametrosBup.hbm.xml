@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.ParametrosBup"
+    table="PARAMETROS_BUP"
+>
+
+	<id 
+        name="idParametro"
+        type="string"
+    >
+    
+<column name="ID_PARAMETRO" length="50" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="descripcion"
+	    type="string"
+    >
+<column name="DESCRIPCION" length="100" not-null="true" />
+  </property>
+
+    <property
+        name="caracter"
+	    type="string"
+    >
+<column name="CARACTER" length="2000" />
+  </property>
+
+    <property
+        name="numero"
+	    type="big_decimal"
+    >
+<column name="NUMERO" precision="15" scale="5" />
+  </property>
+
+    <property
+        name="fecha"
+	    type="date"
+    >
+<column name="FECHA" length="7" />
+  </property>
+
+    <property
+        name="observaciones"
+	    type="string"
+    >
+<column name="OBSERVACIONES" length="2000" />
+  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="35" not-null="true" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="35" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

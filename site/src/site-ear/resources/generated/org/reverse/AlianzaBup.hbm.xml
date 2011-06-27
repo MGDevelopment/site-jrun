@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.AlianzaBup"
+    table="ALIANZA_BUP"
+>
+
+ <comment>ALIANZA_BUPs o Afiliados</comment>
+	<id 
+        name="idAlianza"
+        type="long"
+    >
+    
+<column name="ID_ALIANZA" precision="10" scale="0" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="razonSocial"
+	    type="string"
+    >
+<column name="RAZON_SOCIAL" length="50" not-null="true" />
+  </property>
+
+    <property
+        name="url"
+	    type="string"
+    >
+<column name="URL" length="100" not-null="true" />
+  </property>
+
+    <property
+        name="tipoNegocio"
+	    type="string"
+    >
+<column name="TIPO_NEGOCIO" length="1" not-null="true" />
+  </property>
+
+    <property
+        name="cuit"
+	    type="string"
+    >
+<column name="CUIT" length="20" not-null="true" />
+  </property>
+
+    <property
+        name="usuario"
+	    type="string"
+    >
+<column name="USUARIO" length="100" not-null="true" />
+  </property>
+
+    <property
+        name="clave"
+	    type="string"
+    >
+<column name="CLAVE" length="100" not-null="true" />
+  </property>
+
+    <property
+        name="idTipoContribuyente"
+	    type="long"
+    >
+<column name="ID_TIPO_CONTRIBUYENTE" precision="10" scale="0" not-null="true" >
+<comment>Referencia a tipos de contribuyente como en y2k</comment>
+</column>  </property>
+
+    <property
+        name="nombreContacto"
+	    type="string"
+    >
+<column name="NOMBRE_CONTACTO" length="100" not-null="true" />
+  </property>
+
+    <property
+        name="apellidoContacto"
+	    type="string"
+    >
+<column name="APELLIDO_CONTACTO" length="100" not-null="true" />
+  </property>
+
+    <property
+        name="cargoContacto"
+	    type="string"
+    >
+<column name="CARGO_CONTACTO" length="100" />
+  </property>
+
+    <property
+        name="nombrePagoComision"
+	    type="string"
+    >
+<column name="NOMBRE_PAGO_COMISION" length="100" >
+<comment>nombre de la persona a quien va dirigido el pago de comisiones</comment>
+</column>  </property>
+
+    <property
+        name="apellidoPagoComision"
+	    type="string"
+    >
+<column name="APELLIDO_PAGO_COMISION" length="100" >
+<comment>Apellido de la persona a quien va dirigido el pago de comisiones</comment>
+</column>  </property>
+
+    <property
+        name="EMail1"
+	    type="string"
+    >
+<column name="E_MAIL_1" length="100" />
+  </property>
+
+    <property
+        name="EMail2"
+	    type="string"
+    >
+<column name="E_MAIL_2" length="100" />
+  </property>
+
+    <property
+        name="tipoComision"
+	    type="string"
+    >
+<column name="TIPO_COMISION" length="4" not-null="true" />
+  </property>
+
+    <property
+        name="fechaBaja"
+	    type="date"
+    >
+<column name="FECHA_BAJA" length="7" />
+  </property>
+
+    <property
+        name="porcComisionParticular"
+	    type="big_decimal"
+    >
+<column name="PORC_COMISION_PARTICULAR" precision="5" >
+<comment>porc. comision para los casos particulares (TIPO_COMISION = PORC)</comment>
+</column>  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="palabraClave"
+	    type="string"
+    >
+<column name="PALABRA_CLAVE" length="256" />
+  </property>
+
+    <property
+        name="idSocio"
+	    type="java.lang.Long"
+    >
+<column name="ID_SOCIO" precision="10" scale="0" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

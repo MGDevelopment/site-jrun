@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.VisitasArticulosDetalle"
+    table="VISITAS_ARTICULOS_DETALLE"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.VisitasArticulosDetalleId"
+    >		
+	        <key-property name="idArticulo" type="long">
+<column name="ID_ARTICULO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="fecha" type="date">
+<column name="FECHA" length="7" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <many-to-one
+	    name="articulos"
+	    class="org.reverse.Articulos"
+	    
+        update="false"
+        insert="false"
+        fetch="select"
+    >
+<column name="ID_ARTICULO" precision="10" scale="0" not-null="true" >
+<comment>id de articulo</comment>
+</column>   </many-to-one>
+    <property
+        name="idAlianza"
+	    type="big_decimal"
+    >
+<column name="ID_ALIANZA" precision="22" scale="0" >
+<comment>id de alianza</comment>
+</column>  </property>
+
+    <property
+        name="idSeccion"
+	    type="big_decimal"
+    >
+<column name="ID_SECCION" precision="22" scale="0" >
+<comment>id de seccion</comment>
+</column>  </property>
+
+    <property
+        name="idSocio"
+	    type="java.lang.Long"
+    >
+<column name="ID_SOCIO" precision="10" scale="0" >
+<comment>id de socio</comment>
+</column>  </property>
+
+    <property
+        name="idSucursal"
+	    type="java.lang.Short"
+    >
+<column name="ID_SUCURSAL" precision="4" scale="0" >
+<comment>id de sucursal</comment>
+</column>  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

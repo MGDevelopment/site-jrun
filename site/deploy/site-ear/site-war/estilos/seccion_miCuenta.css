@@ -1,0 +1,326 @@
+@CHARSET "ISO-8859-1";
+
+.tmtkMarcoMiCuenta {
+	float: left;
+	width: 660px;
+}
+
+.tmkMarcoMiCuentaVentanaTitulo {
+	display: block;
+	margin: 0 5px;
+	height: 20px;
+	/*background-color: #004B85;*/
+	background-image: url('/imagenes/rediseno/imagenes/gradient_37.gif');
+}
+
+.cProcForButton2 {
+	bottom: 0;
+	position: inherit;
+}
+
+.cProcForButton2 {
+	background-image:
+		url("/imagenes/rediseno/imagenes/comun/detalleBoton3-back.png");
+	float: left;
+	font-size: 9px;
+	font-weight: bold;
+	height: 16px;
+	padding-top: 5px;
+	text-align: center;
+	width: 75px;
+}
+
+.cProcForButton3 {
+	background-image:url("/imagenes/rediseno/imagenes/comun/detalleBotonL-back.png");
+	float: left;
+	font-size: 9px;
+	font-weight: bold;
+	height: 16px;
+	padding-top: 5px;
+	text-align: center;
+	width: 120px;
+}
+
+.qmmc .qmdivider {
+	display: block;
+	font-size: 1px;
+	border-width: 0px;
+	border-style: solid;
+	position: relative;
+	z-index: 1;
+}
+
+.qmmc .qmdividery {
+	float: left;
+	width: 0px;
+}
+
+.qmmc .qmtitle {
+	display: block;
+	cursor: default;
+	white-space: nowrap;
+	position: relative;
+	z-index: 1;
+}
+
+.qmclear {
+	font-size: 1px;
+	height: 0px;
+	width: 0px;
+	clear: left;
+	line-height: 0px;
+	display: block;
+	float: none !important;
+}
+
+.qmmc {
+	position: relative;
+	zoom: 1;
+	z-index: 10;
+}
+
+.qmmc a,.qmmc li {
+	float: left;
+	display: block;
+	white-space: nowrap;
+	position: relative;
+	z-index: 1;
+}
+
+.qmmc div a,.qmmc ul a,.qmmc ul li {
+	float: none;
+}
+
+.qmsh div a {
+	float: left;
+}
+
+.qmmc div {
+	visibility: hidden;
+	position: absolute;
+}
+
+.qmmc .qmcbox {
+	cursor: default;
+	display: block;
+	position: relative;
+	z-index: 1;
+}
+
+.qmmc .qmcbox a {
+	display: inline;
+}
+
+.qmmc .qmcbox div {
+	float: none;
+	position: static;
+	visibility: inherit;
+	left: auto;
+}
+
+.qmmc li {
+	z-index: auto;
+}
+
+.qmmc ul {
+	left: -10000px;
+	position: absolute;
+	z-index: 10;
+}
+
+.qmmc,.qmmc ul {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.qmmc li a {
+	float: none
+}
+
+.qmmc li:hover>ul {
+	left: auto;
+}
+
+#qm0 li {
+	float: none;
+}
+
+#qm0 li:hover>ul {
+	top: 0px;
+	left: 100%;
+}
+
+/*"""""""" (MAIN) Container""""""""*/
+#qm0 {
+	width: 200px;
+	background-color: transparent;
+	border-width: 1px 2px;
+	border-style: solid;
+	border-color: #666666;
+}
+
+/*"""""""" (MAIN) Items""""""""*/
+#qm0 a {
+	padding: 5px 5px 5px 8px;
+	background-image: url("/imagenes/rediseno/imagenes/gradient_37.gif");
+	color: #000000;
+	font-family: Arial;
+	font-size: 12px;
+	text-decoration: none;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #666666;
+}
+
+/*"""""""" (MAIN) Active State""""""""*/
+body #qm0 .qmactive,body #qm0 .qmactive:hover {
+	text-decoration: underline;
+}
+
+/*"""""""" (SUB) Container""""""""*/
+#qm0 div,#qm0 ul {
+	padding: 10px 0px;
+	background-color: #F1F1F1;
+	border-width: 1px;
+	border-style: none;
+	border-color: #CCCCCC;
+}
+
+/*"""""""" (SUB) Items""""""""*/
+#qm0 div a,#qm0 ul a {
+	padding: 2px 0px 2px 15px;
+	margin: 0px 5px;
+	background-color: transparent;
+	background-image: none;
+	font-size: 11px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #F1F1F1;
+}
+
+/*"""""""" (SUB) Hover State""""""""*/
+#qm0 div a:hover {
+	text-decoration: underline;
+}
+
+/*"""""""" (SUB) Hover State - (duplicated for pure CSS)""""""""*/
+#qm0 ul li:hover>a {
+	text-decoration: underline;
+}
+
+/*"""""""" (SUB) Active State""""""""*/
+body #qm0 div .qmactive,body #qm0 div .qmactive:hover {
+	background-color: #BFBFBF;
+	border-color: #999999;
+}
+
+/*"""""""" Individual Titles""""""""*/
+#qm0 .qmtitle {
+	font-size: 11px;
+}
+
+/*"""""""" Custom Rule""""""""*/
+ul#qm0 a {
+	background-color: #DDDDDD;
+}
+
+/*"""""""" Custom Rule""""""""*/
+ul#qm0 ul {
+	background-color: #F1F1F1;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #666666;
+}
+
+/*"""""""" Custom Rule""""""""*/
+ul#qm0 ul a {
+	padding: 2px 20px 2px 5px;
+	background-color: #F1F1F1;
+}
+
+/*"""""""" Custom Rule""""""""*/
+ul#qm0 .qmparent {
+	background-image: url("/imagenes/rediseno/imagenes/symbol_0.gif");
+	background-repeat: no-repeat;
+	background-position: 95% 55%;
+}
+
+/*"""""""" Custom Rule""""""""*/
+ul#qm0 li:hover>a.qmparent {
+	background-image: url("/imagenes/rediseno/imagenes/symbol_2.gif");
+}
+
+/*"""""""" Custom Rule""""""""*/
+ul#qm0 ul .qmparent {
+	background-image: url("/imagenes/rediseno/imagenes/symbol_3.gif");
+}
+
+/*"""""""" Custom Rule""""""""*/
+ul#qm0 ul li:hover>a.qmparent {
+	background-image: url("/imagenes/rediseno/imagenes/symbol_5.gif");
+}
+
+/**** ESTILOS MODIFICADOS PARA MI CUENTA USADOS PARA MOSTAR LA DATA EN FORMULARIOS****/
+.compraWrapper2 {
+	width: 650px;
+	float: left;
+	border: solid 1px #F5CFAA;
+	margin: 0px 0 0 10px;
+	padding: 12px;
+	display: inline;
+	position: relative;
+	padding: 12px;
+}
+
+.cProcFor-wrapper2 {
+	margin: 0;
+	width: 650px;
+}
+
+.cProcForms2 b {
+	float: left;
+	width: 190px;
+	margin-bottom: 20px;
+}
+
+.cProcForms2 h5 {
+	float: left;
+	width: 250px;
+	margin-bottom: 20px;
+}
+
+.cProcForms2 div {
+	float: left;
+	/*width: 500px;*/
+	margin-bottom: 20px;
+}
+
+.cProcForms2 div input,.cProcForms2 div textarea,.cProcForms2 div select {
+	float: left;
+	border: solid 1px #CCC;
+	font-size: 12px;
+	padding: 3px;
+	margin: 2px 15px 0 0;
+	display: inline;
+	position: relative;
+}
+
+.cProcFor-wrapper2 {
+	border-bottom: 1px dashed #CCCCCC;
+	display: inline;
+	float: left;
+	font-size: 12px;
+	margin: 0 0 5px 10px;
+	padding-bottom: 10px;
+	position: relative;
+	width: 600px;
+}
+
+.cProcForms2 div span {
+	display: inline;
+	float: left;
+	margin: 0 3px 0 0;
+}
+.lnkHabilitado{ font-size:11px; font-weight:bold; color: #000000;	 text-decoration:underline;}
+.lnkNoHabilitado{ font-style: italic;	 font-size:10px; font-weight:lighter; color: #00000f;}

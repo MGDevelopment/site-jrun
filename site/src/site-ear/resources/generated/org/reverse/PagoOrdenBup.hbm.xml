@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.PagoOrdenBup"
+    table="PAGO_ORDEN_BUP"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.PagoOrdenBupId"
+    >		
+	        <key-property name="idOrden" type="long">
+<column name="ID_ORDEN" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idMedioCobro" type="string">
+<column name="ID_MEDIO_COBRO" length="5" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <property
+        name="importe"
+	    type="big_decimal"
+    >
+<column name="IMPORTE" precision="15" not-null="true" />
+  </property>
+
+    <property
+        name="cuotas"
+	    type="java.lang.Byte"
+    >
+<column name="CUOTAS" precision="2" scale="0" />
+  </property>
+
+    <property
+        name="coeficiente"
+	    type="big_decimal"
+    >
+<column name="COEFICIENTE" precision="22" scale="0" />
+  </property>
+
+    <property
+        name="moneda"
+	    type="java.lang.Short"
+    >
+<column name="MONEDA" precision="3" scale="0" />
+  </property>
+
+    <property
+        name="cambio"
+	    type="big_decimal"
+    >
+<column name="CAMBIO" precision="22" scale="0" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

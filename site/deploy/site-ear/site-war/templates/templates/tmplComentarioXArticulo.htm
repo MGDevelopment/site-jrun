@@ -1,0 +1,71 @@
+<tmpl_loop comentarios>
+	<div class="dComentarios" >                
+              <div class="dComentsInfo" >            
+                  <span>
+                  	<a href="#"><tmpl_var comentador></a> dijo el <tmpl_var fechaComentario>:
+					<tmpl_if tienePopego>
+                  		<a href="#" onmouseover="($('#pe_container_<tmpl_var id>').get(0).style.display =='block')?$('#pe_container_<tmpl_var id>').get(0).style.display='none':$('#pe_container_<tmpl_var id>').get(0).style.display='block';">
+                  			<!-- <img style="" src='/imagenes/popego_favicon.png' width="15px" height="5px" border="0">-->ver popego de este usuario
+                  		</a>
+                  		<div  style="display:none;position:absolute;z-index: 1001;" id="pe_container_<tmpl_var id>"></div>
+                  	</tmpl_if>                  	                  
+                  </span>                    
+                  <div class="calificacionMod">
+                      <span>Calificación del producto:</span>
+                      	<tmpl_loop calificacionXUsuario>
+                   			<div class="<tmpl_var estrellaClass>"></div>                       	 			
+                    	</tmpl_loop>
+                  </div>
+              </div>                
+              <div class="dComentsMod">
+              	<tmpl_if tienePopego>
+              		<img style="" src='/imagenes/popego_favicon.png' width="30px" height="5px" border="0">
+              	</tmpl_if>            
+                  <!-- <a href="#"><img src="<tmpl_var urlImagenUsuario>"/></a>-->               
+                  <div class="dComentsTxt">
+                       <tmpl_var textoDijo>
+                  </div>            
+              </div>                
+              <!-- COMENTADO POR EL MOMENTO POR QUE FALTA DESARROLLA 
+              <div class="dComentsCalif">
+                  <span>Evaluar comentario:</span><a href="#" class="dComentsCalifP" title="Este comentario me fué útil"></a> 
+                  <span>(4)</span> 
+                  <a href="#" class="dComentsCalifN" title="Este comentario no me fué útil"></a> 
+                  <span>(10)</span>
+                  <div class="dComentsCalifResp"><a href="#">RESPONDER</a>
+              </div>
+                  <a href="#" class="dComentsCalifReportar">Reportar contenido inapropiado</a>
+              </div>                
+              -->
+     </div>	        
+</tmpl_loop>
+<div class="dSolapasPie">
+	<tmpl_if mostrarMasComentarios>
+		<a href="javascript:verTodosComentarios(<tmpl_var idArticulo>);" class="dSolapasPieLink">+ comentarios (<tmpl_var comentarioEvaluacionRestantes>)<tmpl_var verMasComentarios></a>
+    </tmpl_if>
+    <a href="/Comentario?ID_ARTICULO=<tmpl_var idArticulo>&idSeccion=<tmpl_var idSeccion>"><div>AGREGAR COMENTARIO</div></a>
+</div>
+<input type="hidden" value="<tmpl_var cantidad>" id="cantidad">        
+<div id="scriptPopego" style="display:none;">
+var callback = function() {
+var widgets = [];     
+<tmpl_loop usuariosPopego>
+<tmpl_if tienePopego> 
+widgets.push(
+	{
+		key: <tmpl_var id>,
+			user: {
+			username: '<tmpl_var userPopego>',
+			displayname: '<tmpl_var nickName>'
+		},
+		id: 1,
+		theme:'t129fc2'
+	}
+);
+</tmpl_if>
+</tmpl_loop>
+Popego.createWidget(widgets);
+};
+Popego.Config.language = "es";
+Popego.use("widgets", callback);
+</div>

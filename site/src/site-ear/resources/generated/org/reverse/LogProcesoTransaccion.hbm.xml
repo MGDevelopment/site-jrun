@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.LogProcesoTransaccion"
+    table="LOG_PROCESO_TRANSACCION"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.LogProcesoTransaccionId"
+    >		
+	        <key-property name="id" type="long">
+<column name="ID" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idSession" type="string">
+<column name="ID_SESSION" length="32" />
+	        </key-property>
+	        <key-property name="fechaCreacion" type="date">
+<column name="FECHA_CREACION" length="7" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <property
+        name="idPagina"
+	    type="short"
+    >
+<column name="ID_PAGINA" precision="4" scale="0" not-null="true" >
+<comment>id de página del proceso de compra</comment>
+</column>  </property>
+
+    <property
+        name="fechaVisualizacion"
+	    type="date"
+    >
+<column name="FECHA_VISUALIZACION" length="7" >
+<comment>fecha de visualizacion de la pagina</comment>
+</column>  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.TarjetaPrepaga"
+    table="TARJETA_PREPAGA"
+>
+
+ <comment>Cabecera de las Tarjetas prepagas</comment>
+	<id 
+        name="nro"
+        type="string"
+    >
+    
+<column name="NRO" length="32" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="estado"
+	    type="string"
+    >
+<column name="ESTADO" length="2" not-null="true" >
+<comment>Estado de la tarjeta para operar</comment>
+</column>  </property>
+
+    <property
+        name="saldo"
+	    type="big_decimal"
+    >
+<column name="SALDO" precision="15" not-null="true" >
+<comment>Saldo final</comment>
+</column>  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="35" not-null="true" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="35" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+	<set name="tarjetaPrepagaTransaccions"
+table="TARJETA_PREPAGA_TRANSACCION"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="NRO" length="32" not-null="true" >
+<comment>Número de la tarjeta</comment>
+</column>		</key>
+<one-to-many class="org.reverse.TarjetaPrepagaTransaccion"
+/>
+	</set>
+
+</class>
+
+</hibernate-mapping>

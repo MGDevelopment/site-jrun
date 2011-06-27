@@ -1,0 +1,160 @@
+<!-- **** VENTANAS MODALES **** -->
+<div class="ventModal-wrapper" id="modalDom" style="display:none;position:fixed">
+    <div class="vModTop">
+    	<div class="hModUsrNombre">Agregar nuevo domicilio</div>
+        <a class="hModUsrCerrar" href="javascript:mostrarDiv('modalDom'); javascript:mostrarDiv('modalBack');" title="Cerrar">cerrar</a>
+    </div>    
+   <div class="vModContent">
+    <div class="cProcFor-wrapper cProcForms">
+    	<form action="/AgregarDomicilio" method="post" name="formDomicilio">
+    		<INPUT TYPE="HIDDEN" NAME="seguir" VALUE="true"/>
+    		<INPUT TYPE="HIDDEN" id="TIPO_DOMICILIO_A_AGREGAR" NAME="TIPO_DOMICILIO_A_AGREGAR" VALUE=""/>
+            <b><p>*</p> Calle:</b><div><input name="CALLE" type="text" style="width:250px;" /></div>
+            <b><p>*</p> N&uacute;mero:</b><div><input name="NUMERO" type="text" style="width:100px;" /></div>
+            <b>Piso:</b><div><input name="PISO" type="text" style="width:100px;" /></div>
+            <b>Departamento:</b><div><input name="DEPTO" type="text" style="width:100px;" /></div>
+            <b>Edificio:</b><div><input name="EDIFICIO" type="text" style="width:150px;" /></div>
+            <b><p>*</p> Pa&iacute;s:</b><div>
+            	<select name="ID_PAIS" onChange="javascript:INDEX_PAIS = actualizarCombo(this, document.formDomicilio.ID_PROVINCIA, paises);INDEX_PROVINCIA = actualizarCombo(formDomicilio.ID_PROVINCIA, document.formDomicilio.ID_LOCALIDAD, paises[INDEX_PAIS].comboDependiente);activarOtraProvincia();" onKeyPress="cambiarFoco(event,'document.formDomicilio.ID_PROVINCIA');" style="width:200px;">
+                    <script type="text/javascript">
+						for(i = 0; i < paises.length; i++) {
+							var selected;	
+							if (paises[i].id == <tmpl_var paisDefaultId>) {
+								selected =  " selected ";
+								INDEX_PAIS = i ;
+							} else {
+								selected = ""
+							}	
+							document.write('<option value="' + paises[i].id + '"' + selected + '>');
+							document.write(paises[i].descripcion);
+							document.write('</option>');
+						}
+					</script>
+               </select>            
+            </div>
+            <b><p>*</p> Provincia:</b><div>
+            <select name="ID_PROVINCIA" onfocus="activarOtraLocalidad()" onChange="javascript:INDEX_PROVINCIA = actualizarCombo(this, document.formDomicilio.ID_LOCALIDAD, paises[INDEX_PAIS].comboDependiente);activarOtraProvincia();" onKeyPress="cambiarFoco(event,'document.formDomicilio.ID_LOCALIDAD');" style="width:200px;">
+                <option value="-1">Elegir de la lista</option>
+				<script type="text/javascript">
+					for(i = 0; i < paises[INDEX_PAIS].comboDependiente.length; i++){
+                        if (paises[INDEX_PAIS].comboDependiente[i].id == <tmpl_var provinciaDefaultId>) {
+                            selected = " selected";
+                            INDEX_PROVINCIA = i;
+                        } else {
+                            selected = "";
+                        }
+                        document.write('<option value="' + paises[INDEX_PAIS].comboDependiente[i].id + '"'  + selected + '>');
+						document.write(paises[INDEX_PAIS].comboDependiente[i].descripcion);
+						document.write('</option>');
+					}
+				</script>
+              </select>
+            </div>
+            <b>Otra:</b><div><input name="PROVINCIA_EXTERNA" disabled="" type="text" style="width:150px;" /></div>
+            <b><p>*</p> C&oacute;digo postal:</b><div><input name="CP" type="text" style="width:100px;" /></div>
+            <b style="margin-bottom:0;"><p>*</p> Localidad:</b><div style="margin-bottom:0;">            
+	            <select name="ID_LOCALIDAD" onchange="activarOtraLocalidad();" onfocus="activarOtraLocalidad();"  style="width:200px;">
+	            	<option value="-1">Elegir de la lista</option>
+					<script type="text/javascript">
+						if(paises[INDEX_PAIS].comboDependiente.length > 0) {
+							for(i = 0; i < paises[INDEX_PAIS].comboDependiente[INDEX_PROVINCIA].comboDependiente.length; i++) {
+								var selected;
+	        					selected = (paises[INDEX_PAIS].comboDependiente[INDEX_PROVINCIA].comboDependiente[i].id == <tmpl_var localidadDefaultId>) ? " selected " : "";
+								document.write('<option value="' + paises[INDEX_PAIS].comboDependiente[INDEX_PROVINCIA].comboDependiente[i].id + '"' + selected + '>');
+								document.write(paises[INDEX_PAIS].comboDependiente[INDEX_PROVINCIA].comboDependiente[i].descripcion);
+								document.write('</option>');
+							}
+						}
+					</script>
+				</select>
+            </div>        
+        </div>     
+        <!-- <p align="center">
+	        <input name="TIPO_DOMICILIO" type="radio" value="EN" checked="checked"/>Envio
+	        <input name="TIPO_DOMICILIO" type="radio" value="TF"/>Facturacion
+        </p> 
+         -->  
+        <a href="javascript:validarForm();" class="vModButton">AGREGAR DOMICILIO</a>
+        </form>
+    </div>    
+</div>
+<div id="modalBack" style="display:none;"></div>
+
+<div class="compraWrapper">    
+    <div class="cProcTit" style="margin-top:5px;"><span>Seleccioná un domicilio de entrega:</span></div>             
+    <!-- ENTREGA-->
+	<form name="frmDireccion" action="/SeleccionarDomicilio" method="GET">
+        <tmpl_loop domiciliosEnvio>
+	        <div class="cProcFor-wrapper cProcForDom">
+	        	<input name="TIPO_DOMICILIO" type="radio" value="<tmpl_var id>" id="<tmpl_var id>" <tmpl_var chequeado> <tmpl_var disabled>/>
+	            	<p><tmpl_var direccion>, <tmpl_var codigoPostal>, <tmpl_var localidad>.<br /><tmpl_var provincia>, <tmpl_var pais></p>
+	            <!-- <a href="#" class="cProcForButton">ELIMINAR</a>-->
+	        </div>
+	    </tmpl_loop>        
+        <!-- fin-->  
+        <div class="cProcFor-wrapper cProcForDom">
+        	<!-- <input name="domic" type="radio" value=""/>-->        	
+            <a href="javascript:borrarCamposAntesDeMostrar('EN');javascript:mostrarDiv('modalDom'); javascript:mostrarDiv('modalBack');" class="detalleBoton">
+            	<span>NUEVO DOMICILIO</span>
+            </a>
+        </div>
+        <tmpl_if mostratMensajeDomicilioFueraArgentina>
+        	<div class="cProcFor-wrapper cProcForDom">
+        		<p style="color:red">Nota: Las direcciones ubicadas en el exterior de Argentina no podrán ser utilizadas debido a que su compra cuenta con artículos de las categorías Pasatiempos, para los cuales no está permitido el envío al exterior de Argentina.</p> 
+        	</div>
+        </tmpl_if>
+        <tmpl_if tieneAlgunDomicilio>        
+        <div class="cProcTit"><span>Seleccioná un domicilio de facturación:</span></div>        
+        <div class="cProcFor-wrapper cProcForDom">
+        	<input name="facturacion"  type="radio" value="true" onClick="controlarDomicilios(false);" <tmpl_var dirIguales> <tmpl_var activarIguales>/>
+            <p>El domicilio de facturación coincide con el de entrega.</p>
+        </div>      
+        <tmpl_if tieneDomiciliosTF>  
+	        <div class="cProcFor-wrapper cProcForDom">
+	        	<input name="facturacion"  type="radio" value="false" onClick="controlarDomicilios('true');" <tmpl_var dirDistintas> <tmpl_var activarDistintos>/>
+	            <p>El domicilio de facturación es...</p>
+	        </div>
+	    </tmpl_if>	   
+    	<!-- DOMICILIO DE FACTURACION-->      
+	        <div id="divFacturacion" style="display:<tmpl_var display>;">
+	        <tmpl_loop domiciliosTFacturacion>
+		        <div class="cProcFor-wrapper cProcForDom">
+		        	<input name="TIPO_DOMICILIO_FAC" type="radio" value="<tmpl_var id>" id="<tmpl_var id>" <tmpl_var chequeado> <tmpl_var disabled>/>
+		            	<p><tmpl_var direccion>, <tmpl_var codigoPostal>, <tmpl_var localidad>.<br /><tmpl_var provincia>, <tmpl_var pais></p>
+		            <!-- <a href="#" class="cProcForButton">ELIMINAR</a>-->
+		        </div>
+		    </tmpl_loop>        	    
+        	<!-- fin--> 
+        	</div>
+        	 <div class="cProcFor-wrapper cProcForDom">
+        	<!-- <input name="domic" type="radio" value=""/>-->        	
+            <a href="javascript:borrarCamposAntesDeMostrar('TF');javascript:mostrarDiv('modalDom'); javascript:mostrarDiv('modalBack');" class="detalleBoton">
+            	<span>NUEVO DOMICILIO</span>
+            </a>
+        </div>
+        </tmpl_if>
+        <div class="cProcTit"><span>Persona autorizada para recibir el pedido:(si queres que otra persona reciba el pedido ingresa su nombre y apellido)</span></div>        
+        <div class="cProcFor-wrapper cProcForms">
+            <b>Referente Principal:</b><div>
+            	<span>Nombre:</span>
+            	<input name="NOMBRES_RECEPTOR" value="<tmpl_var nombreReceptor>" maxlength="50" type="text" style="width:150px;" />
+	           	<span>Apellido:</span>
+	           	<input name="APELLIDOS_RECEPTOR" value="<tmpl_var apellidoReceptor>" maxlength="50" type="text" style="width:150px;" /></div>
+            <b>Otra persona o aclaraciones:</b>
+            <div style="margin-bottom:0px;">            
+            	<textarea name="COMENTARIO" type="text" style="width:490px; height:80px;" onkeypress="validarTextAreaLength(this, 'digitado', 'restante', 190)" onkeyup="validarTextAreaLength(this, 'digitado', 'restante', 190)"><tmpl_var comentario></textarea>
+            	<span id="digitado" style="color:red">0</span> Caracteres digitados / Restan <label id="restante"  style="color:red">190</label>
+           </div>		                     
+        </div>
+        <!--         
+        <div class="cProcTit"><span>Horario/s para entregar:</span></div>        
+        <div class="cProcFor-wrapper cProcForDom">
+        	<input name="HORARIO" type="radio" value="Por la mañana (08:00 a 12:00)" <tmpl_var checkPorLaManana>/><p>Por la mañana (08:00 a 12:00).</p><br /><br />
+            <input name="HORARIO" type="radio" value="Por la tarde (12:00 a 18:00)" <tmpl_var checkPorLaTarde> /><p>Por la tarde (12:00 a 18:00).</p><br /><br />
+            <input name="HORARIO" type="radio" value="Por la noche (18:00 a 21:00)" <tmpl_var checkPorLaNoche> /><p>Por la noche (18:00 a 21:00).</p>
+        </div>
+         -->    
+    </div>
+    <a href="<tmpl_var pantallaAnterior>" class="b-prev">PAPEL DE REGALO</a>
+    <a href="#" onclick="<tmpl_var pantallaSiguiente>" class="b-next">MEDIOS DE PAGO</a>
+</form>    

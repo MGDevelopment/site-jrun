@@ -1,0 +1,36 @@
+<html>
+	<body>
+		<table align="center" width="90%" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">
+			<tr>
+				<td>
+					<B>Login</B>
+				</td>
+				<td>
+					<B>Nombre</B>
+				</td>
+				<td>
+					<B>Apellido</B>
+				</td>
+				<td>
+					<B>Fecha</B>
+				</td>
+			</tr>
+		<tmpl_loop repRow>
+			<tr>
+				<td>
+			<tmpl_var login>
+				</td>
+				<td>
+			<tmpl_var nombre>
+				</td>
+				<td>
+			<tmpl_var apellido>
+				</td>
+				<td>
+			<tmpl_var fecha>
+				</td>
+			</tr>
+		</tmpl_loop>
+		</table>
+	</body>
+</html>

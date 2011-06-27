@@ -1,0 +1,26 @@
+<table  align="left" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">
+	<tr>
+		<td colspan=2>
+			<b>Reporte de Clientes Nuevos y Repetitivos <tmpl_var fecha></b>
+		</td>
+	</tr>
+	<tr>
+		<td width="200" valign="top">
+			<table width="200" align="left" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">
+				<tmpl_loop repRow>
+				<tr>
+					<td width="120">
+						<tmpl_var row1>
+					</td>
+					<td align="right">
+						<tmpl_var row2>
+					</td>
+				</tr>
+				</tmpl_loop>
+			</table>
+		</td>
+		<td Style="font-size:1">
+			<img src="<tmpl_var img>">
+		</td>
+	</tr>
+</table>			

@@ -1,0 +1,105 @@
+<tmpl_if puedeVerCupon>
+<html>
+	<head>
+		<script>
+		function imprimir() {
+			document.getElementById('btnImprimir').style.display='none';
+			window.print();
+			document.getElementById('btnImprimir').style.display='block';
+		}
+		</script>
+	</head>
+	<body>
+		<table border="0" style="border:dashed 1px #555555;" cellpadding="5" width="550px" bgcolor="#ffffff" height="400">
+		<tr>
+		<td>
+		<table border="1" style="font-family:arial;border: solid 1px #dddddd; border-collapse: collapse; font-size: 14px" cellpadding="2" width="600px">
+			<tr>
+				<td>
+					<img src="https://www.tematika.com/imagenes/logo-tematika.gif" alt="Tematika.com">
+				</td>
+				
+			</tr>
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" cellspacing="0"  style="font-family:arial;font-size: 14px" width="600">
+						<tr>
+							<td>
+
+								Vto: <tmpl_var fecha>
+							</td>
+							
+							<td align="right">
+								Importe: <b><tmpl_var total></b>&nbsp;
+							</td>
+					</table>
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					Orden: <tmpl_var idOrden>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Socio: <tmpl_var apynSocio>
+				</td>
+			</tr>
+			
+			
+			<tr>	
+				<td>
+					Código de operación manual: <tmpl_var codigoCuponDePago>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Presente este cupón en cualquier sucursal de <b><tmpl_var nombreMedioCobro></b> indicandolé al cajero el monto a abonar.
+				</td>
+			</tr>	
+			<tr>
+				<td align="center">
+					<img src="/imagenes/DM.png" alt="DineroMail"><img src="/imagenes/<tmpl_var medioDeCobroId>.PNG" alt="<tmpl_var nombreMedioCobro>">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					...............................................................................................................................
+					<br>
+					<img width="300" src="https://argentina.dineromail.com/barras/barcode.asp?image=3&type=23&data=<tmpl_var cuponDePagoCodigo>" alt="<tmpl_var cuponDePagoCodigo>"> 
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="button" id="btnImprimir" value="imprimir" onclick="imprimir()">
+				</td>
+			</tr>
+		</table>
+		</td>
+		</tr>
+		</table>
+	</body>
+</html>
+<tmpl_else>
+			<tmpl_var mensaje>
+</tmpl_if>
+
+<tmpl_if mensajeNoEsNull>
+	<html>
+		<head>
+			
+			<link href="/estilos/seccion_inicio.css" rel="stylesheet" type="text/css" />
+		</head>
+		<body>
+			<table>
+				<tr>
+					<td>
+						<div id="userLoginError">
+							<tmpl_var mensaje>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</body>
+	</html>
+</tmpl_if>

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jrun-ejb-jar PUBLIC "-//Macromedia, Inc.//DTD jrun-ejb 4.0//EN" "http://jrun.macromedia.com/dtds/jrun-ejb-jar.dtd">
+<jrun-ejb-jar>
+	<source>jdbc/site</source>
+	<enterprise-beans>
+		<!--entity>
+			<ejb-name>MasVendidoSeccion</ejb-name>
+			<jndi-name>MasVendidoSeccion</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findByCategoria</name>
+					<statement>
+						<action>
+							SELECT * FROM (
+								SELECT  a.CATEGORIA_SECCION, a.ID_ARTICULO
+								  FROM DISPONIBILIDADES d, ARTICULOS a, MAS_VENDIDOS_SECCION m
+								 WHERE m.CATEGORIA_SECCION = ?1
+								   AND m.CATEGORIA_SECCION = a.CATEGORIA_SECCION
+								   AND m.ID_ARTICULO  = a.ID_ARTICULO
+								   AND a.HABILITADO_TEMATIKA = 'S'
+								   AND a.ID_DISPONIBILIDAD = d.ID_DISPONIBILIDAD
+								   AND d.PEDIDO_ESPECIAL = 'N'
+								   AND a.id_articulo not in (400545, 400546, 400547)
+								ORDER BY m.ORDEN ASC
+							) WHERE ROWNUM &lt;= 5
+						</action>
+						<params>
+							<param>
+								<name>CATEGORIA_SECCION</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>CATEGORIA_SECCION</field>
+							<field>ID_ARTICULO</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+		</entity-->
+		<!-- entity>
+			<ejb-name>MasVendidoGrupo</ejb-name>
+			<jndi-name>MasVendidoGrupo</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findByCategoria</name>
+					<statement>
+						<action>
+							SELECT a.CATEGORIA_SECCION, a.CATEGORIA_GRUPO, a.ID_ARTICULO
+							FROM MAS_VENDIDOS_GRUPO m, DISPONIBILIDADES d, ARTICULOS a
+							WHERE m.CATEGORIA_SECCION = ?1
+							AND m.CATEGORIA_GRUPO = ?2
+							AND m.ID_ARTICULO = a.ID_ARTICULO
+                            AND m.CATEGORIA_SECCION=a.CATEGORIA_SECCION
+                            AND m.CATEGORIA_GRUPO=a.CATEGORIA_GRUPO
+							AND a.HABILITADO_TEMATIKA = 'S'
+							AND a.ID_DISPONIBILIDAD = d.ID_DISPONIBILIDAD
+							AND d.PEDIDO_ESPECIAL = 'N'
+							AND a.id_articulo not in (400545, 400546, 400547)
+							ORDER BY m.ORDEN ASC
+						</action>
+						<params>
+							<param>
+								<name>CATEGORIA_SECCION</name>
+								<type>INTEGER</type>
+							</param>
+							<param>
+								<name>CATEGORIA_GRUPO</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>CATEGORIA_SECCION</field>
+							<field>CATEGORIA_GRUPO</field>
+							<field>ID_ARTICULO</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+		</entity-->
+		<!-- entity>
+			<ejb-name>MasVendidoFamilia</ejb-name>
+			<jndi-name>MasVendidoFamilia</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findByCategoria</name>
+					<statement>
+						<action>
+							SELECT a.CATEGORIA_SECCION, a.CATEGORIA_GRUPO, a.CATEGORIA_FAMILIA, a.ID_ARTICULO
+							FROM MAS_VENDIDOS_FAMILIA m, DISPONIBILIDADES d, ARTICULOS a
+							WHERE m.CATEGORIA_SECCION = ?1
+							AND m.CATEGORIA_GRUPO = ?2
+							AND m.CATEGORIA_FAMILIA = ?3
+							AND m.ID_ARTICULO = a.ID_ARTICULO
+                            AND m.CATEGORIA_SECCION=a.CATEGORIA_SECCION
+                            AND m.CATEGORIA_GRUPO=a.CATEGORIA_GRUPO
+                            AND m.CATEGORIA_FAMILIA=a.CATEGORIA_FAMILIA
+							AND a.HABILITADO_TEMATIKA = 'S'
+							AND a.ID_DISPONIBILIDAD = d.ID_DISPONIBILIDAD
+							AND d.PEDIDO_ESPECIAL = 'N'
+							AND a.id_articulo not in (400545, 400546, 400547)
+							ORDER BY m.ORDEN ASC
+						</action>
+						<params>
+							<param>
+								<name>CATEGORIA_SECCION</name>
+								<type>INTEGER</type>
+							</param>
+							<param>
+								<name>CATEGORIA_GRUPO</name>
+								<type>INTEGER</type>
+							</param>
+							<param>
+								<name>CATEGORIA_FAMILIA</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>CATEGORIA_SECCION</field>
+							<field>CATEGORIA_GRUPO</field>
+							<field>CATEGORIA_FAMILIA</field>
+							<field>ID_ARTICULO</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+		</entity-->
+		<!-- entity>
+			<ejb-name>CategSeccion</ejb-name>
+			<jndi-name>CategSeccion</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity-->
+		<entity>
+			<ejb-name>CategGrupo</ejb-name>
+			<jndi-name>CategGrupo</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findByCategoria</name>
+					<statement>
+						<action>
+							select   c.categoria_seccion , c.categoria_grupo
+							    from categ_grupos c, estado_articulos ea
+							   where c.categoria_seccion = ?1
+							     and c.categoria_seccion = ea.categoria_seccion
+							     and nvl(ea.categoria_grupo, c.categoria_grupo) = c.categoria_grupo
+							     and ea.categoria_familia is null
+							     and ea.categoria_subfamilia is null
+							     and ea.estado = 'S'
+							     and nvl (fecha_desde, sysdate) &lt;= sysdate
+							     and nvl (fecha_hasta, sysdate) &gt;= sysdate
+							     and (c.categoria_seccion, c.categoria_grupo) not in (
+							            select ctemp.categoria_seccion, ctemp.categoria_grupo
+							              from categ_grupos ctemp, estado_articulos ea
+							             where ctemp.categoria_seccion = c.categoria_seccion
+							               and ctemp.categoria_seccion = ea.categoria_seccion
+							               and ctemp.categoria_grupo = ea.categoria_grupo
+							               and ea.categoria_familia is null
+							               and ea.categoria_subfamilia is null
+							               and ea.estado != 'S'
+										   and ea.editorial is null
+										   and ea.proveedor is null
+										   and ea.importe_minimo is null
+										   and ea.importe_maximo is null
+							               and nvl (fecha_desde, sysdate) &lt;= sysdate
+							               and nvl (fecha_hasta, sysdate) &gt;= sysdate)
+							order by c.descripcion
+						</action>
+						<params>
+							<param>
+								<name>CATEGORIA_SECCION</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>CATEGORIA_SECCION</field>
+							<field>CATEGORIA_GRUPO</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+		</entity>
+		<entity>
+			<ejb-name>CategFamilia</ejb-name>
+			<jndi-name>CategFamilia</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findByCategoria</name>
+					<statement>
+						<action>
+							select   c.categoria_seccion , c.categoria_grupo, c.categoria_familia
+							    from categ_familias c, estado_articulos ea
+							   where c.categoria_seccion = ?1
+							 	 and c.categoria_grupo = ?2
+							     and c.categoria_seccion = ea.categoria_seccion
+							     and nvl(ea.categoria_grupo, c.categoria_grupo) = c.categoria_grupo
+							     and nvl(ea.categoria_familia, c.categoria_familia) = c.categoria_familia
+							     and ea.categoria_subfamilia is null
+							     and ea.estado = 'S'
+							     and nvl (fecha_desde, sysdate) &lt;= sysdate
+							     and nvl (fecha_hasta, sysdate) &gt;= sysdate
+							     and (c.categoria_seccion, c.categoria_grupo) not in (
+							            select ctemp.categoria_seccion, ctemp.categoria_grupo
+							              from categ_grupos ctemp, estado_articulos ea
+							             where ctemp.categoria_seccion = c.categoria_seccion
+										   and ctemp.categoria_grupo = c.categoria_grupo
+							               and ctemp.categoria_seccion = ea.categoria_seccion
+							               and ctemp.categoria_grupo = ea.categoria_grupo
+							               and ea.categoria_familia is null
+							               and ea.categoria_subfamilia is null
+							               and ea.estado != 'S'
+										   and ea.editorial is null
+										   and ea.proveedor is null
+										   and ea.importe_minimo is null
+										   and ea.importe_maximo is null
+							               and nvl (fecha_desde, sysdate) &lt;= sysdate
+							               and nvl (fecha_hasta, sysdate) &gt;= sysdate)
+							     and (c.categoria_seccion, c.categoria_grupo, c.categoria_familia) not in (
+							            select ctemp.categoria_seccion, ctemp.categoria_grupo, ctemp.categoria_familia
+							              from categ_familias ctemp, estado_articulos ea
+							             where ctemp.categoria_seccion = c.categoria_seccion
+										   and ctemp.categoria_grupo = c.categoria_grupo
+							               and ctemp.categoria_seccion = ea.categoria_seccion
+							               and ctemp.categoria_grupo = ea.categoria_grupo
+							               and ctemp.categoria_familia = ea.categoria_familia
+							               and ea.categoria_subfamilia is null
+							               and ea.estado != 'S'
+										   and ea.editorial is null
+										   and ea.proveedor is null
+										   and ea.importe_minimo is null
+										   and ea.importe_maximo is null
+							               and nvl (fecha_desde, sysdate) &lt;= sysdate
+							               and nvl (fecha_hasta, sysdate) &gt;= sysdate)
+							order by c.descripcion
+						</action>
+						<params>
+							<param>
+								<name>CATEGORIA_SECCION</name>
+								<type>INTEGER</type>
+							</param>
+							<param>
+								<name>CATEGORIA_GRUPO</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>CATEGORIA_SECCION</field>
+							<field>CATEGORIA_GRUPO</field>
+							<field>CATEGORIA_FAMILIA</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+		</entity>
+		<entity>
+			<ejb-name>CategSubFamilia</ejb-name>
+			<jndi-name>CategSubFamilia</jndi-name>
+			<commit-option>A</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findByCategoria</name>
+					<statement>
+						<action>
+							select   c.categoria_seccion , c.categoria_grupo, c.categoria_familia, c.categoria_subfamilia
+							    from categ_subfamilias c, estado_articulos ea
+							   where c.categoria_seccion = ?1
+								 and c.categoria_grupo = ?2
+								 and c.categoria_familia = ?3
+							     and c.categoria_seccion = ea.categoria_seccion
+								 and nvl(ea.categoria_grupo, c.categoria_grupo) = c.categoria_grupo
+								 and nvl(ea.categoria_familia, c.categoria_familia) = c.categoria_familia
+							     and nvl(ea.categoria_subfamilia, c.categoria_subfamilia) = c.categoria_subfamilia
+							     and ea.estado = 'S'
+							     and nvl (fecha_desde, sysdate) &lt;= sysdate
+							     and nvl (fecha_hasta, sysdate) &gt;= sysdate
+							     and (c.categoria_seccion, c.categoria_grupo) not in (
+							            select ctemp.categoria_seccion, ctemp.categoria_grupo
+							              from categ_grupos ctemp, estado_articulos ea
+							             where ctemp.categoria_seccion = c.categoria_seccion
+										   and ctemp.categoria_grupo = c.categoria_grupo
+							               and ctemp.categoria_seccion = ea.categoria_seccion
+							               and ctemp.categoria_grupo = ea.categoria_grupo
+							               and ea.categoria_familia is null
+							               and ea.categoria_subfamilia is null
+							               and ea.estado != 'S'
+										   and ea.editorial is null
+										   and ea.proveedor is null
+										   and ea.importe_minimo is null
+										   and ea.importe_maximo is null
+							               and nvl (fecha_desde, sysdate) &lt;= sysdate
+							               and nvl (fecha_hasta, sysdate) &gt;= sysdate)
+							     and (c.categoria_seccion, c.categoria_grupo, c.categoria_familia) not in (
+							            select ctemp.categoria_seccion, ctemp.categoria_grupo, ctemp.categoria_familia
+							              from categ_familias ctemp, estado_articulos ea
+							             where ctemp.categoria_seccion = c.categoria_seccion
+										   and ctemp.categoria_grupo = c.categoria_grupo
+										   and ctemp.categoria_familia = c.categoria_familia
+							               and ctemp.categoria_seccion = ea.categoria_seccion
+							               and ctemp.categoria_grupo = ea.categoria_grupo
+							               and ctemp.categoria_familia = ea.categoria_familia
+							               and ea.categoria_subfamilia is null
+							               and ea.estado != 'S'
+										   and ea.editorial is null
+										   and ea.proveedor is null
+										   and ea.importe_minimo is null
+										   and ea.importe_maximo is null
+							               and nvl (fecha_desde, sysdate) &lt;= sysdate
+							               and nvl (fecha_hasta, sysdate) &gt;= sysdate)
+							     and (c.categoria_seccion, c.categoria_grupo, c.categoria_familia, c.categoria_subfamilia) not in (
+							            select ctemp.categoria_seccion, ctemp.categoria_grupo, ctemp.categoria_familia, ctemp.categoria_subfamilia
+							              from categ_subfamilias ctemp, estado_articulos ea
+							             where ctemp.categoria_seccion = c.categoria_seccion
+										   and ctemp.categoria_grupo = c.categoria_grupo
+										   and ctemp.categoria_familia = c.categoria_familia
+							               and ctemp.categoria_seccion = ea.categoria_seccion
+							               and ctemp.categoria_grupo = ea.categoria_grupo
+							               and ctemp.categoria_familia = ea.categoria_familia
+							               and ctemp.categoria_subfamilia = ea.categoria_subfamilia
+							               and ea.estado != 'S'
+										   and ea.editorial is null
+										   and ea.proveedor is null
+										   and ea.importe_minimo is null
+										   and ea.importe_maximo is null
+							               and nvl (fecha_desde, sysdate) &lt;= sysdate
+							               and nvl (fecha_hasta, sysdate) &gt;= sysdate)
+							order by c.descripcion
+						</action>
+						<params>
+							<param>
+								<name>CATEGORIA_SECCION</name>
+								<type>INTEGER</type>
+							</param>
+							<param>
+								<name>CATEGORIA_GRUPO</name>
+								<type>INTEGER</type>
+							</param>
+							<param>
+								<name>CATEGORIA_FAMILIA</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>CATEGORIA_SECCION</field>
+							<field>CATEGORIA_GRUPO</field>
+							<field>CATEGORIA_FAMILIA</field>
+							<field>CATEGORIA_SUBFAMILIA</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+		</entity>
+	</enterprise-beans>
+</jrun-ejb-jar>
+

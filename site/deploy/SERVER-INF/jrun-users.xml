@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jrun-users PUBLIC "-//Macromedia Inc.//DTD jrun-users 4.0//EN" "http://jrun.macromedia.com/dtds/jrun-users.dtd">
+<jrun-users>
+  <encryption>false</encryption>
+  <user>
+    <user-name>jmsuser</user-name>
+    <password>jmsuser</password>
+  </user>
+   <user>
+    <user-name>admin</user-name>
+    <password>admin</password>
+  </user>
+   <user>
+    <user-name>guest</user-name>
+    <password>guest</password>
+  </user>
+  <role>
+       <role-name>admin</role-name>
+       <user-name>admin</user-name>
+  </role>
+</jrun-users>

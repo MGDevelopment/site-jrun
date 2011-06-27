@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.EstadoOrden"
+    table="ESTADO_ORDEN"
+>
+
+	<id 
+        name="estado"
+        type="string"
+    >
+    
+<column name="ESTADO" length="2" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="descripcion"
+	    type="string"
+    >
+<column name="DESCRIPCION" length="50" not-null="true" >
+<comment>DESCRIPCION QUE APARECERá EN LA PANTALLA DEL SOCIO / USUARIO</comment>
+</column>  </property>
+
+    <property
+        name="descripcionExtendida"
+	    type="string"
+    >
+<column name="DESCRIPCION_EXTENDIDA" length="50" not-null="true" >
+<comment>DESCRIPCION DETALLADA QUE EXPLICA CON PRECISION EL ESTADO DE LA ORDEN</comment>
+</column>  </property>
+
+
+	<set name="ordens"
+table="ORDEN"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ESTADO" length="2" not-null="true" >
+<comment>Estado</comment>
+</column>		</key>
+<one-to-many class="org.reverse.Orden"
+/>
+	</set>
+
+	<set name="logEstadoOrdens"
+table="LOG_ESTADO_ORDEN"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ESTADO" length="2" not-null="true" >
+<comment>Estado</comment>
+</column>		</key>
+<one-to-many class="org.reverse.LogEstadoOrden"
+/>
+	</set>
+
+</class>
+
+</hibernate-mapping>

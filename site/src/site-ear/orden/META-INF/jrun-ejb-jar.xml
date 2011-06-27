@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jrun-ejb-jar PUBLIC "-//Macromedia, Inc.//DTD jrun-ejb 4.0//EN" "http://jrun.macromedia.com/dtds/jrun-ejb-jar.dtd">
+<jrun-ejb-jar>
+	<source>jdbc/site</source>
+	<enterprise-beans>
+		<entity>
+			<ejb-name>Orden</ejb-name>
+			<jndi-name>Orden</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findOrdenesEnProceso</name>
+					<statement>
+						<action>SELECT "ID_ORDEN" FROM ORDEN o WHERE o.ID_SUCURSAL_SOCIO = ?1 AND o.ID_SOCIO = ?2 AND o.ESTADO IN ('1', '2', '4', '10', '12', '23', '41', '60') ORDER BY ID_ORDEN DESC</action>
+						<params>
+							<param>
+								<name>ID_SUCURSAL_SOCIO</name>
+								<type>INTEGER</type>
+							</param>
+							<param>
+								<name>ID_SOCIO</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>ID_ORDEN</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+				<jdbc-mapping>
+					<name>findOrdenesProcesadas</name>
+					<statement>
+						<action>SELECT "ID_ORDEN" FROM ORDEN o WHERE o.ID_SUCURSAL_SOCIO = ?1 AND o.ID_SOCIO = ?2 AND o.ESTADO IN ('5', '11', '20', '21', '22', '24', '51', 'M0', 'M1') ORDER BY ID_ORDEN DESC</action>
+						<params>
+							<param>
+								<name>ID_SUCURSAL_SOCIO</name>
+								<type>INTEGER</type>
+							</param>
+							<param>
+								<name>ID_SOCIO</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>ID_ORDEN</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+				<jdbc-mapping>
+					<name>findOrdenesEnEstado</name>
+					<statement>
+						<action>
+							select id_orden from (
+							SELECT /*+ index(orden or_1_pk)*/ distinct o."ID_ORDEN"
+							FROM orden o INNER JOIN pago_orden p on o.id_orden = p.id_orden
+							WHERE o.id_orden &gt;= ?1 AND o.estado = ?2
+							AND p.id_medio_cobro like ?4 ORDER BY id_orden)
+							where rownum &lt;= ?3
+
+						</action>
+						<param>
+							<name>ID_ORDEN</name>
+							<type>INTEGER</type>
+						</param>
+						<param>
+							<name>ESTADO</name>
+							<type>VARCHAR</type>
+						</param>
+						<param>
+							<name>CANTIDAD</name>
+							<type>INTEGER</type>
+						</param>
+						<param>
+							<name>ID_MEDIO_COBRO</name>
+							<type>VARCHAR</type>
+						</param>
+
+						<fields>
+							<field>ID_ORDEN</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+
+				<jdbc-mapping>
+					<name>findOrdenesEnEstadoParaEfectivo</name>
+					<statement>
+						<action>
+							select id_orden from (
+							SELECT /*+ index(orden or_1_pk)*/ distinct o."ID_ORDEN"
+							FROM orden o INNER JOIN pago_orden p on o.id_orden = p.id_orden
+							WHERE o.id_orden &gt;= ?1 AND o.estado = ?2
+							AND p.id_medio_cobro like ?4
+							AND o.nivel_riesgo is not null
+							AND o.id_orden NOT IN (
+								SELECT o.id_orden
+								FROM orden o INNER JOIN pago_orden po
+								ON o.id_orden = po.id_orden
+								INNER JOIN pago_orden po2
+								ON o.id_orden = po2.id_orden
+								WHERE ((po.id_medio_cobro = 'EFCO'
+								AND po2.id_medio_cobro = 'RIOHB')
+								OR (po.id_medio_cobro = 'EFCO'
+								AND po2.id_medio_cobro = 'RIONB')
+								OR (po.id_medio_cobro = 'EFCO'
+								AND po2.id_medio_cobro = 'FAX'))
+								)
+							ORDER BY id_orden)
+							where rownum &lt;= ?3
+						</action>
+						<param>
+							<name>ID_ORDEN</name>
+							<type>INTEGER</type>
+						</param>
+						<param>
+							<name>ESTADO</name>
+							<type>VARCHAR</type>
+						</param>
+						<param>
+							<name>CANTIDAD</name>
+							<type>INTEGER</type>
+						</param>
+						<param>
+							<name>ID_MEDIO_COBRO</name>
+							<type>VARCHAR</type>
+						</param>
+
+						<fields>
+							<field>ID_ORDEN</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+
+				<jdbc-mapping>
+					<name>findOrdenesDelDia</name>
+					<statement>
+						<action>SELECT "ID_ORDEN" FROM ORDEN o WHERE o.ESTADO != '0' AND o.fecha &gt;= TRUNC(SYSDATE) ORDER BY o.ID_ORDEN DESC</action>
+						<param>
+						</param>
+						<fields>
+							<field>ID_ORDEN</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+				<jdbc-mapping>
+					<name>findOrdenesParecidas</name>
+					<statement>
+						<action>
+							select o1.id_orden from orden o1, orden o2
+							where o1.fecha &gt;= trunc(sysdate - 1, 'DD')
+							and o2.fecha &gt;= trunc(sysdate - 1, 'DD')
+							and o1.id_orden != o2.id_orden
+							and o1.id_socio = o2.id_socio
+							and o1.id_sucursal_socio = o2.id_sucursal_socio
+							and o1.estado in ('1', '2', '4', '10', '12', '20', '23', '41')
+							and o2.estado in ('1', '2', '4', '10', '12', '20', '23', '41')
+						</action>
+						<param>
+						</param>
+						<fields>
+							<field>ID_ORDEN</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+				<jdbc-mapping>
+					<name>findOrdenesFraudulentas</name>
+					<statement>
+						<action>
+							select o.id_orden from orden o
+							where fecha &gt;= trunc(sysdate - 7, 'DD')
+							and estado in ('10', '12')
+							and nivel_riesgo = 2
+							order by fecha desc
+						</action>
+						<param>
+						</param>
+						<fields>
+							<field>ID_ORDEN</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+				<jdbc-mapping>
+					<name>findOrdenesRelacionadas</name>
+					<statement>
+						<action>
+							--
+							-- Todas las ordenes relacionadas a una tarjeta de una orden dada
+							--
+							select b.id_orden
+							from tarjeta_orden b,
+							tarjeta_orden a
+							where b.nro_tarjeta = a.nro_tarjeta
+							and a.id_orden    = ?1
+							union
+							--
+							-- Todas las ordenes relacionadas a las direcciones de una orden dada
+							--
+							select d.id_orden
+							from direccion_orden d,
+							socios_domicilios c
+							where d.tipo_domicilio    = c.tipo_domicilio
+							and d.id_socio          = c.id_socio
+							and d.id_sucursal_socio = c.id_sucursal
+							and TRIM(UPPER(c.CALLE))   ||'*'||
+							TRIM(UPPER(c.NUMERO))  ||'*'||
+							TRIM(UPPER(c.EDIFICIO))||'*'||
+							TRIM(UPPER(c.PISO))    ||'*'||
+							TRIM(UPPER(c.DEPTO))   ||'*'||
+							TRIM(UPPER(c.CP))      in ( select TRIM(UPPER(b.CALLE))   ||'*'||
+							TRIM(UPPER(b.NUMERO))  ||'*'||
+							TRIM(UPPER(b.EDIFICIO))||'*'||
+							TRIM(UPPER(b.PISO))    ||'*'||
+							TRIM(UPPER(b.DEPTO))   ||'*'||
+							TRIM(UPPER(b.CP))
+							from socios_domicilios b,
+							direccion_orden   a
+							where b.tipo_domicilio = a.tipo_domicilio
+							and b.id_socio       = a.id_socio
+							and b.id_sucursal    = a.id_sucursal_socio
+							and a.id_orden       = ?1 )
+							union
+							--
+							-- Todas las ordenes relacionadas al nombre de un socio de una orden dada
+							--
+							select d.id_orden
+							from orden   d,
+							socios2 c
+							where d.id_socio          = c.id_socio
+							and d.id_sucursal_socio = c.id_sucursal
+							and (upper(c.apellidos), upper(c.nombres)) in ( select upper(b.apellidos), upper(b.nombres)
+							from socios2 b,
+							orden   a
+							where b.id_socio    = a.id_socio
+							and b.id_sucursal = a.id_sucursal_socio
+							and a.id_orden    = ?1 )
+							--
+							--  Todas las ordenes relacionadas al e-mail de un socio de una orden dada
+							--
+							union
+							select d.id_orden
+							from orden   d,
+							socios2 c,
+							socios2 b,
+							orden   a
+							where d.id_socio           = c.id_socio
+							and d.id_sucursal_socio  = c.id_sucursal
+							and lower(c.e_mail1)     = lower(b.e_mail1)
+							and b.id_socio           = a.id_socio
+							and b.id_sucursal        = a.id_sucursal_socio
+							and a.id_orden           = ?1
+						</action>
+						<param>
+							<params>
+								<param>
+									<name>ID_ORDEN</name>
+									<type>INTEGER</type>
+								</param>
+							</params>
+						</param>
+						<fields>
+							<field>ID_ORDEN</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+				<jdbc-mapping>
+					<name>findOrdenesPorSocio</name>
+					<statement>
+						<action>SELECT "ID_ORDEN" FROM ORDEN o WHERE o.ID_SUCURSAL_SOCIO = ?1 AND ID_SOCIO = ?2 AND o.ESTADO != '0' ORDER BY ID_ORDEN DESC</action>
+						<param>
+							<name>ID_SUCURSAL_SOCIO</name>
+							<type>INTEGER</type>
+						</param>
+						<param>
+							<name>ID_SOCIO</name>
+							<type>INTEGER</type>
+						</param>
+						<fields>
+							<field>ID_ORDEN</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+				<jdbc-mapping>
+					<name>findUltimasOrdenes</name>
+					<statement>
+						<action>SELECT "ID_ORDEN" FROM ORDEN o WHERE o.FECHA &gt;= trunc(sysdate-15) AND o.ESTADO != '0' ORDER BY ID_ORDEN DESC</action>
+						<param>
+						</param>
+						<fields>
+							<field>ID_ORDEN</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+				<jdbc-mapping>
+					<name>findOrdenesRetrasadas</name>
+					<statement>
+						<action>
+							SELECT o."ID_ORDEN"
+							  FROM orden o
+							 WHERE o.estado = '1'
+							   AND o.fecha &lt; SYSDATE - (1 / 24 * 6)
+							   AND o.fecha &gt; SYSDATE - 30
+							UNION
+							SELECT o."ID_ORDEN"
+							  FROM orden o
+							 WHERE o.estado = '12'
+							   AND o.fecha &lt; SYSDATE - 7
+							   AND o.fecha &gt; SYSDATE - 30
+							UNION
+							SELECT o."ID_ORDEN"
+							  FROM orden o
+							 WHERE o.estado IN ('2', '60')
+							   AND o.fecha &lt; SYSDATE - 15
+							   AND o.fecha &gt; SYSDATE - 30
+							UNION
+							SELECT o."ID_ORDEN"
+							  FROM orden o, pago_orden p
+							 WHERE o.estado IN ('4', '10')
+							   AND p.id_orden = o.id_orden
+							   AND (   (    p.id_medio_cobro IN ('EFCO', 'FAX', 'RIOHB')
+										AND o.fecha &lt; SYSDATE - 15
+										AND o.fecha &gt; SYSDATE - 30
+									   )
+									OR (    p.id_medio_cobro NOT IN ('EFCO', 'FAX', 'RIOHB')
+										AND o.fecha &lt; SYSDATE - 3
+										AND o.fecha &gt; SYSDATE - 30
+									   )
+								   )
+						</action>
+						<param>
+						</param>
+						<fields>
+							<field>ID_ORDEN</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+		</entity>
+		<entity>
+			<ejb-name>PagoOrden</ejb-name>
+			<jndi-name>PagoOrden</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<!--jdbc-mapping>
+					<name>findByIdOrden</name>
+					<statement>
+						<action>SELECT "ID_ORDEN", "ID_MEDIO_COBRO" FROM PAGO_ORDEN o WHERE o.ID_ORDEN = ?1</action>
+						<params>
+							<param>
+								<name>ID_ORDEN</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>ID_ORDEN</field>
+							<field>ID_MEDIO_COBRO</field>
+						</fields>
+					</statement>
+				</jdbc-mapping-->
+				<jdbc-mapping>
+					<name>findByIdOrden</name>
+					<statement>
+						<action>SELECT "ID_ORDEN", "ID_MEDIO_COBRO" FROM PAGO_ORDEN o WHERE o.ID_ORDEN = ?1</action>
+						<params>
+							<param>
+								<name>ID_ORDEN</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>ID_ORDEN</field>
+							<field>ID_MEDIO_COBRO</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+
+
+		</entity>
+		<entity>
+			<ejb-name>DireccionOrden</ejb-name>
+			<jndi-name>DireccionOrden</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findByOrden</name>
+					<statement>
+						<action>SELECT "ID_ORDEN", "ID_SUCURSAL_SOCIO", "ID_SOCIO", "TIPO_DOMICILIO" FROM DIRECCION_ORDEN o WHERE o.ID_ORDEN = ?1</action>
+						<params>
+							<param>
+								<name>ID_ORDEN</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>ID_ORDEN</field>
+							<field>ID_SUCURSAL_SOCIO</field>
+							<field>ID_SOCIO</field>
+							<field>TIPO_DOMICILIO</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+		</entity>
+		<entity>
+			<ejb-name>ItemOrden</ejb-name>
+			<jndi-name>ItemOrden</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findArticulos</name>
+					<statement>
+						<action>SELECT "ID_ORDEN", "ID_ARTICULO", "ITEM" FROM ITEM_ORDEN i WHERE i.ID_ORDEN = ?1 ORDER BY ID_PAPEL_REGALO DESC</action>
+						<params>
+							<param>
+								<name>ID_ORDEN</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>ID_ORDEN</field>
+							<field>ID_ARTICULO</field>
+							<field>ITEM</field>
+
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+		</entity>
+		<entity>
+			<ejb-name>ItemOrdenImpuesto</ejb-name>
+			<jndi-name>ItemOrdenImpuesto</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity>
+		<entity>
+			<ejb-name>NotaRegalo</ejb-name>
+			<jndi-name>NotaRegalo</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findAllByOrden</name>
+					<statement>
+						<action>SELECT "ID_ORDEN", "ID_ARTICULO", "ITEM" FROM NOTA_REGALO o WHERE o.ID_ORDEN = ?1</action>
+						<params>
+							<param>
+								<name>ID_ORDEN</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>ID_ORDEN</field>
+							<field>ID_ARTICULO</field>
+							<field>ITEM</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+		</entity>
+		<entity>
+			<ejb-name>TarjetaOrden</ejb-name>
+			<jndi-name>TarjetaOrden</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+			</jdbc-mappings>
+		</entity>
+		<entity>
+			<ejb-name>CarritoCompra</ejb-name>
+			<jndi-name>CarritoCompra</jndi-name>
+			<commit-option>B</commit-option>
+			<jdbc-mappings>
+				<create-table>false</create-table>
+				<jdbc-mapping>
+					<name>findByUser</name>
+					<statement>
+						<action>SELECT "ID_SUCURSAL_SOCIO", "ID_SOCIO", "ID_ARTICULO" FROM CARRITO_COMPRA o WHERE o.ID_SUCURSAL_SOCIO = ?1 AND o.ID_SOCIO = ?2</action>
+						<params>
+							<param>
+								<name>ID_SUCURSAL_SOCIO</name>
+								<type>INTEGER</type>
+							</param>
+							<param>
+								<name>ID_SOCIO</name>
+								<type>INTEGER</type>
+							</param>
+						</params>
+						<fields>
+							<field>ID_SUCURSAL_SOCIO</field>
+							<field>ID_SOCIO</field>
+							<field>ID_ARTICULO</field>
+						</fields>
+					</statement>
+				</jdbc-mapping>
+			</jdbc-mappings>
+		</entity>
+	</enterprise-beans>
+</jrun-ejb-jar>
+

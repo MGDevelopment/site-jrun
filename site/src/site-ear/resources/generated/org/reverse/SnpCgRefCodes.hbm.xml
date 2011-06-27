@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SnpCgRefCodes"
+    table="SNP_CG_REF_CODES"
+>
+
+ <comment>snapshot table for snapshot TEMATIKA.SNP_CG_REF_CODES</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.SnpCgRefCodesId"
+    >		
+	        <key-property name="rvDomain" type="string">
+<column name="RV_DOMAIN" length="100" />
+	        </key-property>
+	        <key-property name="rvLowValue" type="string">
+<column name="RV_LOW_VALUE" length="240" />
+	        </key-property>
+	        <key-property name="rvHighValue" type="string">
+<column name="RV_HIGH_VALUE" length="240" />
+	        </key-property>
+	        <key-property name="rvAbbreviation" type="string">
+<column name="RV_ABBREVIATION" length="240" />
+	        </key-property>
+	        <key-property name="rvMeaning" type="string">
+<column name="RV_MEANING" length="240" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

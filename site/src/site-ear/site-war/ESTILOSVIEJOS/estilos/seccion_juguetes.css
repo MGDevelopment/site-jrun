@@ -1,0 +1,158 @@
+body { margin: 20px; font-family:Tahoma; background-color:#EFF0F0; text-align:center; }
+
+/* Panel de secciones (ANTERIOR) */
+/*
+#Spanel { margin-top:15px; background-color:#CECECE; border-top: solid 1px #AAA; border-right: solid 1px #AAA; border-left: solid 1px #AAA; width:738px; height:39px; }
+#Smiscelanea { float:left; width:147px; }
+#Stematika { float:left; width:129px; }
+#Slibros { float:left; width:60px; }
+#Smusica { float:left; width:94px; }
+#Spasatiempos { float:left; width:117px; }
+#SPeliculas { float:left; width:134px; }
+#Shojal { float:left; width:57px; }*/
+
+.subcategorias { background-color:#BC1A8D; border-bottom: solid 1px #999; border-right: solid 1px #999; border-left: solid 1px #999; padding: 4px; }
+
+/* Panel de secciones */
+.botonera { margin-top:15px; background-color:#CECECE; border-top: solid 1px #AAA; border-right: solid 1px #AAA; border-left: solid 1px #AAA;}
+
+
+/* Buscador / Carrito de compras */
+
+.modulobuscadorcarrito { margin-top:10px; }
+.buscadortabla { background-color:#F4F5F6; border: solid 1px #CCC; padding:11px; text-align:left; height:52px }
+.buscadorbavanzada { padding-left:6px; border-left: solid 1px #BD1A8D; }
+.buscadorbuscar { padding-right:7px; text-align:right; }
+.buscadormenu { background-color:#636466; font-size:11px; text-align:left; color:#FFF; margin-left:8px; width:130px; }
+.buscadortext { background-color:#636466; border:solid 1px #CCC; padding:2px 0px 2px 3px; font-size:11px; text-align:left; color:#FFF; margin-left:8px; width:170px; } 
+.carritotabla { background-color:#EAE9EA; border: solid 3px #CCC; text-align:left; height:52px}
+.carritotablaActivo { background-color:#BD1C8C; border: solid 3px #555; text-align:left; height:52px}
+
+/* Header de sección */
+
+.header { margin-top:10px; background-image:url(/imagenes/juguetes/header.jpg); height:90px; text-align:right; padding: 0px 0px 70px 0px; vertical-align:bottom }
+
+/* Botoneras Secundarias */
+
+.tablaaccesos { border-top: solid 2px #CCC; border-bottom: solid 2px #CCC; margin: 15px 0px 15px 0px; padding: 10px 0px 10px 0px} 
+.accesos02 { padding-top: 5px; }
+
+/* Módulos */
+
+.titulosceldas { background-color:#FFF; padding:0px 0px 4px 0px; text-align:left; border-bottom:solid 2px #CCC; }
+.toptabla { border-bottom: solid 1px #CCC; margin: 6px 0px 0px 0px; }
+.topnumeros { padding-right:5px; vertical-align:top; text-align:left; }
+.topcompracelda { padding:5px 0px 5px 0px; vertical-align:top; text-align:left; font-size:1px }
+.topvermas { padding:10px 0px 10px 0px; border-bottom: solid 2px #CCC; }
+.artistastablaprin { border-left: solid 2px #000; border-bottom:solid 1px #CCC; margin-top:10px; height:46px; }
+.artistastabla2 { margin:0px 0px 5px 10px; }
+.artistascelda { padding-top:0px; text-align:left }
+.modulosmedio { border-bottom:solid 2px #CCC; margin-top:15px; }
+.modulosmedio-top { margin-top:15px; }
+.modulosderecha { border-bottom:solid 2px #CCC; margin-bottom:15px; }
+.paseostabla01 { margin-top:15px; border-bottom: solid 1px #CCC; }
+.espacioderecha { padding-right:3px; }
+.espacioizquierda { padding-left:3px; }
+.Gvermasimage { text-align:left; padding:7px 0px 7px 0px; }
+.modulorecomendadosd { border-bottom:solid 2px #CCC; margin-top:15px; padding-bottom:7px; }
+.modulorecomendados-1 { margin-top:15px; margin-bottom:5px; text-align:left; }
+.modulorecomendados-fin { padding-bottom:5px; border-bottom:solid 1px #CCC; }
+.titulosnovedades { padding-bottom:5px; }
+.subcategoriasceldas { padding-top:7px; }
+
+.divComprar { margin-top:5px; margin-bottom:8px; }/*11/12*/
+.divInfo { border-right: solid 1px #BC1A8D; padding-right:4px; height:10px; text-align:left;  }/*11/12*/
+.divComprarPedir { padding-left:4px; height:10px; text-align:left; }/*11/12*/
+
+
+.GdivSubcatTit { padding-bottom:5px; width:100%; height:auto; text-transform:uppercase; } /*06/12*/
+.GdivSubcatTit2 { padding-top:5px; padding-bottom:5px; width:100%; height:auto; text-transform:uppercase; } /*06/12*/
+#GdivSubcatSub { padding-bottom:4px; width:100%;} /*06/12*/
+#GdivSubcatSub A{ background-color:#FFF; padding-right:3px;} /*06/12*/
+#GdivSubcatSub A:hover{ background-color:#EADFE7; display:block; border-right:solid 3px #B27FA6;  } /*06/12*/
+#GdivSubcatSub2 { margin-left:10px; padding-left:4px; border-left:solid 1px #CCC; padding-bottom:4px; width:100%; voice-family: "\"}\""; width:inherit; } /*06/12*/
+#GdivSubcatSub2 A{ background-color:#FFF; } /*06/12*/
+#GdivSubcatSub2 A:hover{ background-color:#D8BAD1; display:block; } /*06/12*/
+#GdivSubcatSub3 { margin-left:20px; padding-left:4px; border-left:solid 1px #333; padding-bottom:4px; width:100%; voice-family: "\"}\""; width:inherit; } /*06/12*/
+#GdivSubcatSub3 A{ background-color:#FFF; } /*06/12*/
+#GdivSubcatSub3 A:hover{ background-color:#B27FA6; display:block;  } /*06/12*/
+
+/* Detalle de producto */
+.imagenPrincipal { border:solid 1px #CCC; margin-right:10px; text-align:left; }
+.bAmpliarImagen { margin-top: 10px; }
+.celdaDetalle { padding-top:5px; vertical-align:top; }
+.celdaDetalle2 { padding-top:10px; vertical-align:bottom; }
+.areaCompra { background-color:#EFF0F2; border-top: solid 3px #000; border-bottom: solid 3px #000; padding:7px 5px 7px 5px; margin-top: 10px; margin-bottom:10px; }
+/*.areaAcciones { border-top: solid 1px #000; border-bottom: solid 1px #000; padding:9px 5px 7px 5px; margin-top: 10px; margin-bottom:10px; }*/
+.areaExtra { border: solid 1px #999; background-color:#EFF0F2; padding:7px; height:231px; margin-bottom:15px; }
+.areaExtra2 { padding: 8px 0px 8px 0px; border-bottom:solid 1px #999; text-align:left; }
+.areaExtra3 { padding-top: 8px; text-align:left; }
+
+.modulosmedioDetalle { border-bottom:solid 3px #000; margin-bottom:15px; }
+.modulosmedioDetalle2 { margin-bottom:10px; margin-top:10px; }
+.modulosmedioDetalle3 { margin-bottom:7px; margin-top:5px; }
+.modulosmediolista { border-right:solid 1px #CCC; text-align:left; padding-top:2px; }
+.modulosmediolista2 { text-align:left; padding-left:10px; padding-top:2px;  }
+.titulosceldasDetalle { background-color:#FFF; padding:7px 0px 7px 0px; text-align:left; border-bottom:solid 1px #000; border-top:solid 1px #666; }
+.modulovermascategorias { text-align:left; padding:7px 0px 7px 0px; border-top: solid 3px #CCC; border-bottom: solid 3px #CCC; }
+
+.moduloacerca { border: solid 3px #CCC; padding:10px; margin-top:5px; }
+.moduloacerca2 { border-left: solid 2px #000; border-bottom:solid 1px #CCC; padding:5px; }
+.moduloacerca2Des { border-left: solid 2px #CCC; border-bottom:solid 1px #CCC; padding:5px; }
+.modulosinopsis  { padding: 7px 0px 7px 0px; text-align:left; }
+.vermasceldadetalle { padding:5px 0px 5px 0px; text-align:left; }
+.tituloceldasComentario { background-color:#FFF; padding:0px 0px 4px 0px; text-align:left; border-bottom:solid 2px #CCC; }
+
+
+/* Fuentes */
+
+.fontheader { font-size:10px; text-align:right; color:#666; text-decoration:none; letter-spacing:2px; word-spacing:1px; }
+.fontcarrito { font-size:11px; text-align:left; color:#333; text-decoration:underline; }
+.foncarrito02 { font-size:11px; text-align:left; font-weight:bold; color:#333; text-decoration:none; }
+.fontsubcategorias { font-size:11px; text-align:left; color:#FFF; text-decoration:none; }
+.linksubcategorias { font-size:11px; text-align:left; color:#FFF; text-decoration:underline; }
+a.linksubcategorias:hover { font-size:11px; text-align:left; color:#000; text-decoration:underline; }
+
+.Fautores3 { font-size:10px; text-align:center; color:#777; text-decoration:underline; }
+a.Fautores3:hover { color:#000; }
+
+.fontautores { font-size:11px; color:#000; text-decoration:none; letter-spacing:2px; line-height: 11px; }
+a.fontautores:hover { text-decoration:none; color:#E50486; }
+
+/*.fontautoresDetalle { font-size:10px; text-align:left; color:#777; text-decoration:underline; }
+a.fontautoresDetalle:hover { color:#000; }*/
+
+.fontautoresDetalle { font-size:10px; color:#000; text-decoration:underline; letter-spacing:2px; line-height:11px; }
+a.fontautoresDetalle:hover { color:#BC1A8D; }
+.Fdetalledestacado { font-size:11px; color:#BC1A8D; font-weight:normal; text-decoration:none; }
+a.Fdetalledestacado:hover { color:#333; text-decoration:underline; }
+
+
+/* Buscador */
+.resultadonum { text-align:center; border-top: solid 3px #CCC; border-bottom: solid 3px #CCC; margin: 0px 0px 15px 0px; padding: 5px 0px 5px 0px} 
+.modulobuscador { border-bottom:solid 3px #CCC;}
+.moduleproductob { margin-bottom:10px; border-bottom:solid 1px #666; padding-bottom: 10px; }
+.celdafoto { border-right:solid 1px #CCC; vertical-align:top; text-align:center; }
+.celdacontenido { padding-left: 10px; text-align:left; }
+.celdapreciocomprar { padding-left: 10px; text-align:left; height:35px; vertical-align:bottom; }
+.celdapaginas { padding-top:8px; padding-bottom: 18px; text-align:center; }
+.moduloorden { border-top:solid 1px #666; border-bottom:solid 1px #666; padding:10px 7px 12px 7px ; background-color:#EFF0F2; text-align:left; }
+.moduloordencelda { padding-top:7px; }
+
+.tablabavanzada { background-color:#F7F8F9; border:solid 1px #CCC; padding:10px; margin-top:5px; margin-bottom:20px; }
+.tablaaccesoavanzadas { border-top: solid 1px #000; border-bottom: solid 1px #000; margin: 0px 0px 15px 0px; padding: 10px 0px 10px 0px} 
+
+
+.rAtrPri {  color:#000088; text-decoration:underline;}
+.rTxt {color:#000088;}
+
+/* Panel de secciones (NUEVO) */
+
+#Spanel { margin-top:15px; background-color:#CDCDCD; border-top: solid 1px #000; border-right: solid 1px #000; border-left: solid 1px #000; width:738px; height:40px; }
+#Smiscelanea { float:left; width:159px; }
+#Stematika { float:left; width:129px; }
+#Slibros { float:left; width:68px; }
+#Smusica { float:left; width:102px; }
+#Spasatiempos { float:left; width:127px; }
+#SPeliculas { float:left; width:152px; }
+#SExtra { float:left; width:57px; }

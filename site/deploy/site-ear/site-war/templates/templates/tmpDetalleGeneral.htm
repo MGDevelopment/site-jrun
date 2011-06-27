@@ -1,0 +1,236 @@
+<!-- **** SECCION TEMATIKA **** -->
+	<div id="divCarrito" class="efectoCarritoMod" style="display:none">    
+        <div class="efectoCarritoTxt"><span class="txtMsgCarritoOK" id="msgCarritoOK">
+            </span><br />
+            <div id="msgCarritoERROR" style="font-size:12;color:red"></div>
+            <span id="spnPrecioCarrito" class="txtPrecioCarrito">PRECIO: $ <span  class="txtPrecioCarrito" id="precioCarrito"></span>.-</span>
+        </div>        
+        <div class="efectoCarritoImages"><img id="carritoImagen" src="" class="efectoCarritoImag"></div>        
+        <div id="efectoCarritoB"><a href="javascript:carrito_CloseCarrito();">
+        	<img src="/imagenes/b-carrContinuar.gif" alt="Continuar" border="0"></a></div>    
+	</div>    
+	<div id="modalBack" style="display:none"></div>    
+	<div class="globoArticuloLoad" id="loadArticulo" style="display:none;" >cargando</div>    
+	<div class="globoArticulo" style="display:none;" id="globo" onMouseOver="this.style.display=''">
+		<table  bgcolor="dddddd" border="0" cellspacing="0" cellpadding="0" onMouseOver="this.style.display=''" onMouseOut="ocultarGlobo()">
+			<tr>
+				<td>Titulo:</td><td id="artTitulo"></td>
+			</tr>
+			<tr id="trAutor">
+				<td id="autor"></td><td id="artAutor"></td>
+			</tr>
+			<tr id="trEditor">
+				<td id="editor"></td><td id="artEditor"></td>
+			</tr>
+			<tr id="trRanking">
+				<td>Ranking:</td><td id="artRanking"></td>
+			</tr>
+			<tr>
+			</tr>
+			<tr>
+				<td>Fecha de Publicaci&oacute;n:</td><td id="artPublicacion"></td>
+			</tr>
+			<tr>
+				<td>Idioma:</td><td id="artIdioma"></td>
+			</tr>
+			<tr id="trPagina">
+				<td id="pagina"></td><td id="artPagina"></td>
+			</tr>
+			<tr id="trFormato">
+				<td>Formato:</td><td id="artFormato"></td>
+			</tr>
+			<tr id="trDisponibilidad">
+				<td>Disponibilidad:</td><td id="artDisponibilidad"></td>
+			</tr>
+			<tr id="trComprar">
+				<td colspan="2"><input id="btnComprar" onClick="" type="button"  value="Agregar al Carrito"></td>
+			</tr>
+			<tr id="trPedir">
+				<td colspan="2"><input id="btnPedir" type="button"  value="Pedido Especial"></td>
+			</tr>
+		</table>
+	</div>
+<a href="/<tmpl_var linkSeccion>" class="panelSeccAct"></a>
+<div class="detalleInfoPrinc">
+   	<div id="dTopLeft">
+        <div class="dImagenes">
+            <div class="detalleImagen">
+                <!-- <a href="#">-->
+                <img src="<tmpl_var urlImagen>">
+                <!-- 	<img src="<tmpl_var urlImagen>" title="Agrandar imagen">--> 
+                <!-- </a>-->            
+            </div>
+        </div>
+		<div class="dInfoPrincipal">
+           <div class="dInfoTit"><tmpl_var titulo></div>
+            <div class="dInfoAutor"><tmpl_var textoDe> 
+            	<tmpl_loop autores>                    		
+                	<a href="<tmpl_var urlAutor>"><tmpl_var autor></a>
+                </tmpl_loop>       
+            </div>            
+            <span><tmpl_var textoEditorial>: <a href="<tmpl_var urlEditorial>"><tmpl_var editorial></a></span>
+            <span>I.S.B.N : <tmpl_var isbn></span>
+            <span>Clasificaci&oacute;n: 
+            	<tmpl_loop clasificaciones>
+            		<a href="<tmpl_var urlGenero>"><tmpl_var genero></a>
+            	</tmpl_loop>
+            </span>
+            <tmpl_if tieneFormato>
+            	<span>Formato: <tmpl_var formato> <tmpl_var tipoArticulo></span><!-- si es pelicula se muestra el tipo de pelicula -->
+            </tmpl_if>            
+            <span>Disponibilidad: <tmpl_var disponibilidad></span>
+            <tmpl_if tienePagina>
+            	<span><tmpl_var textoPagina>:<tmpl_var paginas> <tmpl_var textoDuracion></span>
+            </tmpl_if>
+            <span>Publicaci&oacute;n: <tmpl_var fechaPublicacion> | Idioma: <tmpl_var idioma></span>
+            <!-- <a href="">+ info</a> -->            
+            <div class="dInfoM">
+            	<tmpl_if tienePrimerCapitulo>              
+                	<a href="#primerCap">[+] Primer capitulo</a><br/>
+                </tmpl_if>
+                <tmpl_if tieneIndiceDeContenido>
+                	<a href="#indCont">[+] Indice de contenidos</a><br/>
+                </tmpl_if>
+                <tmpl_if tieneBiografia>
+                	<a href="#biogra">[+] Biografia</a><br/>
+                </tmpl_if>
+                <tmpl_if tieneEntrevista>              
+                	<a href="#entrevista">[+] Ver Entrevista</a><br/>
+                </tmpl_if>
+            </div>
+            <tmpl_if tieneImagenGrande>		
+            	<br>			            
+	            <a href="javascript:mostrarImagen('<tmpl_var pathImgGde>')">Ampliar imagen</a>
+	        </tmpl_if>
+			<div id="divEvaluacion">
+				<div id="divEvaluacion"><div class="dInfoCalif">
+					<div class="dInfoCalifStarMod">
+						<span>Calificación delectores:</span>  
+						<label>	<a href="#">Cargando...</a></label> 			
+					</div>
+					<div class="dInfoCalifBoton">
+					<span><a href="#">Cargando...</a></span>
+						<a href="#"><div>AGREGAR COMENTARIO</div></a>
+					</div>
+					</div>
+				</div>
+			</div>
+	</div>
+</div>
+    <div id="dInfoCompl">
+    	<tmpl_if tieneSinoContraSola>
+	        <div class="dSolapas" id="datosCompl"> 
+	            <div class="tmtkMesaMenuMod">
+	                <div class="solapasTitDatosPrinc" title="Datos principales"/></div>
+	            </div>            
+	            <div class="dResena">
+	            	<tmpl_if tieneSolapa>
+		                <span><tmpl_var textoSolapa></span>
+		                	<tmpl_var solapa>
+		            </tmpl_if>
+		            <tmpl_if tieneContratapa>
+		                <span><tmpl_var textoContratapa></span>
+		                	<tmpl_var contratapa>
+		            </tmpl_if>
+		            <tmpl_if tieneSinopsis>
+		                <span><tmpl_var textoSinopsis></span>
+		                	<tmpl_var sinopsis>
+		            </tmpl_if>
+	            </div>
+        	</div>
+        </tmpl_if>
+        <tmpl_if tienePrimerOIndice>        	
+		    <tmpl_if tieneIndiceDeContenido>
+		        <div class="dSolapas" id="indCont">
+		            <div class="tmtkMesaMenuMod">            
+		            <div class="solapasTitIndCont" title="Índice de contenidos"/></div>
+		            </div>
+		            <div class="dResena">
+		                <span></span>
+		                <tmpl_var indiceDeContenidos>
+		                <tmpl_if mostrarBotonVerMasIndiceDeContenido>
+		            	<!-- <br><a href="javascript:getPrimerCapitulo();">+ seguir leyendo...</a>-->
+		            	</tmpl_if>
+		            </div>
+		        </div><!-- FIN Indice de contenidos -->
+		   </tmpl_if>
+		   <tmpl_if tienePrimerCapitulo>
+				<div class="dSolapas" id="primerCap">           
+		            <div class="tmtkMesaMenuMod">          
+		            <div class="solapasTitprimerCap" title="Primer capítulo"/></div>
+		        	</div>      
+		            <div class="dResena" id="divPrimerCapitulo" style="border:thin solid;border-color: white;">
+		                <br/>
+		                <tmpl_var primerCapitulo>
+		                <tmpl_if mostrarBotonVerMasPrimerCapitulo> 
+		            		<br/><a href="javascript:getPrimerCapitulo();">+ seguir leyendo...</a>
+		            	</tmpl_if>            
+		            </div>
+		        </div>
+		    </tmpl_if><!-- FIN Primer Capítulo -->
+	 </tmpl_if>  
+	 <tmpl_if tieneBiografia>        	
+	        <div class="dSolapas" id="biogra">
+	            <div class="tmtkMesaMenuMod">            
+	            <div class="solapasTitBio" title="Índice de contenidos"/></div>
+	            </div>
+	            <div class="dResena" id="divBiografia">
+	                <span></span>
+	                <tmpl_var biografia>
+	                <tmpl_if mostrarBotonVerMasBiografia>
+	            		<br><a href="javascript:getBiografia();">+ seguir leyendo...</a>
+	            	</tmpl_if>
+	            </div>
+	        </div><!-- FIN Indice de contenidos -->
+	</tmpl_if>		
+<!-- comentarios -->
+<a name="coment"></a>
+<div class="dSolapas" id="comentarios">
+	<div class="tmtkMesaMenuMod">
+		<div class="solapasTitComent"></div>
+	</div>
+</div>    
+<div id="divComentarios"></div>
+<tmpl_if tieneEntrevista>        	
+	<div class="dSolapas" id="entrevista">
+    	<div class="tmtkMesaMenuMod">            
+        	<div class="solapasTitEntrev" title="Entrevista"/></div>
+		</div>
+        <div class="dResena" id="divEnrevista">
+	    	<span></span>
+	        	<a name="entrevista"></a><tmpl_var entrevista>
+	            <tmpl_if mostrarBotonVerMasEntrevista>
+	          		<br><a href="javascript:getEntrevista();">+ seguir leyendo...</a>
+	          	</tmpl_if>
+          	</div>
+      	</div><!-- FIN entrevistas -->
+	</div>
+</tmpl_if> 
+<div id="googleBook" class="dSolapas1">
+	<div id="viewerCanvas" style="height: 500px;">
+	
+	</div>
+</div>
+<input type="hidden" value="<tmpl_var idArticulo>" id="articulo">
+<div class="dSolapas" id="listas" style="height: 200px;display: none;"></div>
+<div class="dSolapas" id="tags"></div>
+</div>
+</div>
+<div id="divModuloExtra">
+	<div id="dTopRight">
+		<div class="dCompra">
+			<p align="center">Cargando extra...</p>
+		</div>
+	</div>
+</div>	
+<input type="hidden" value="<tmpl_var idSeccion>" id="idSccion">
+<input type="hidden" value="<tmpl_var precio>" id="precio">
+<input type="hidden" value="<tmpl_var idArticulo>" id="idArticulo">
+<input type="hidden" value="<tmpl_var estaDisponible>" id="estaDisponible">
+<input type="hidden" value="<tmpl_var urlPage>" id="urlPage">
+<input type="hidden" value="<tmpl_var titulo>" id="titulParaRedSocial">
+<div id="dRecomendaciones" style="height: 550px;" >
+	<div id="divArticulosRelacionados">
+		<div class="dRecomendTit" >Cargando obras relacionadas...</div>
+	</div>
+</div>

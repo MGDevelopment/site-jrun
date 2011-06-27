@@ -1,0 +1,121 @@
+<div class="busqTit">
+	<tmpl_if tieneResultados>Resutados de búsqueda de
+		<span><tmpl_var textoBuscado></span><br> 
+	<tmpl_else>			
+		No se encontraron resultados de búsqueda de
+		<span><tmpl_var textoBuscado></span><br>
+		<a href="<tmpl_var sinStock>&pedidoEspecial=true">ver resultados de b&uacute;squeda sobre productos sin disponibilidad</a>			
+	</tmpl_if>
+
+</div>
+	<div class="busqMarco">		
+		<tmpl_if tieneResultados>
+		<div class="arbolShadow"><!-- área de filtrado -->
+            <div id="arbol<tmpl_var seccionArbol>">
+            	<tmpl_if noEsInicio>            	
+	                <div class="busqFiltMod">
+	                	Resultados en:                    
+	                    <div class="busqFiltMenu">
+	                        <ul class="dropdown">
+	                            <li class="diri">
+	                            	<span id="mostrarBuscar" onclick="javascript:desplegarOpciones('listaBuscar');"><tmpl_var seccionSeleccionado></span>
+	                                <ul onmouseout="ocultarOpcionesT('listaBuscar');" onmouseover="clearTimeout(tempo);" id="listaBuscar">
+	                                	<tmpl_loop dropSecciones>
+	                                   		<li><a href="javascript:buscador_setBusqueda('<tmpl_var optSeleccionada>','<tmpl_var texto>','<tmpl_var idSeccion>','<tmpl_var idSeccionPropia>','<tmpl_var seccionBusqueda>');" id="<tmpl_var idSeccion>"><tmpl_var resultadosEn></a></li>
+	                                   	</tmpl_loop>	
+	                                </ul>
+	                            </li>
+	                        </ul>
+	                    </div>
+	                    <tmpl_if estaSeleccionado><span>
+	                    	<a class="busqFiltApl" href="<tmpl_var linkFiltroDel>"><tmpl_var textoFiltro></a>
+		              	</tmpl_if>	                    
+	                </div>
+	            </tmpl_if>                
+                
+                <tmpl_loop agrupaciones>
+             		<div class="busqFiltMod">
+	                	<tmpl_var descripcion>:
+	                	<tmpl_loop filtros>
+	                    	<a href="<tmpl_var linkFiltro>"><tmpl_var textoFiltro></a>
+	                    </tmpl_loop>
+               		</div>	                	
+              	</tmpl_loop>
+              	
+              	<tmpl_if pedidoEspecial>
+	                <div class="busqFiltModBottom">
+	                    <a href="<tmpl_var sinStock>&pedidoEspecial=true">Mostrar productos sin stock</a>
+	                </div>
+	            </tmpl_if>
+            </div>
+        </div>
+
+
+		<!-- LISTADO-->
+		<div class="busqContenido">	
+			<div class="arbolShadow"><!-- orden -->
+				<div class="busqOrden">
+			    	
+			    	<h2><tmpl_var cantidadResultados> Resultados |  Ordenar resultados según:</h2>
+			    	<div class="busqFiltMenu" >
+			            <ul class="dropdown">
+			                <li class="diri"><span id="mostrarOrden" onclick="javascript:desplegarOpciones('listaOrden');"><tmpl_var criterioSeleccionadoDescripcion></span>
+			                    <ul onmouseout="ocultarOpcionesT('listaOrden');" onmouseover="clearTimeout(tempo);" id="listaOrden">
+			                    	<tmpl_loop criterio>
+			                    		<li><a href="<tmpl_var criterioFuncion>"><tmpl_var criterioDescripcion></a></li>
+			                        </tmpl_loop>			                        
+			                        <!-- <li><a href="javascript:mostrarBuscarPor('porRelev','mostrarOrden','listaOrden');" id="porRelev">Relevancia</a></li>-->			                        
+			                    </ul>
+			                </li>
+			            </ul>
+			        </div>
+			    </div>
+			</div>
+			
+		<!-- DETALLES DE ARTICULOS ENCONTRADOS -->	
+		<tmpl_include tmpListaArticulo.htm>
+		<tmpl_if tienePaginas>			
+		<!-- PAGINADO -->
+			<div class="arbolShadow listPaginado"><!-- paginado -->
+				<div class="busqOrden">
+					<tmpl_loop paginas>
+						<!-- link anterior -->
+						<tmpl_if esLinkAnterior>
+							<tmpl_if estaActivo>
+					    		<h5><a href="<tmpl_var linkAnterior>"><tmpl_var textoAnterior></a></h5> 
+					    	<tmpl_else>
+				    			<h5>&laquo; Anterior</h5>
+				    		</tmpl_if>
+				    		|<span>Página:</span>
+				    	</tmpl_if>				    	
+			    		<!-- numeracion de paginas -->
+			    		<tmpl_if esPagina>
+			    			<tmpl_if estaSeleccionado>
+			    				<h4><tmpl_var numPagina></a></h4>
+			    			<tmpl_else>
+			    				<a href="<tmpl_var linkPagina>"><tmpl_var numPagina></a>
+			    			</tmpl_if>
+			    		</tmpl_if>					    								    	
+				     	<!-- link siguiente -->
+				     	<tmpl_if esLinkSiguiente>
+				     		<tmpl_if estaActivo>
+								|<a href="<tmpl_var linkSiguiente>"><tmpl_var textoSiguiente></a>
+							<tmpl_else>
+								<h5>Siguiente &raquo;</h5>
+							</tmpl_if>
+				     	</tmpl_if>
+					</tmpl_loop>
+			    </div>
+			</div>
+		</tmpl_if>				
+		</div>
+		<tmpl_else>
+			<div class="busqMarco">
+		        <div class="busqNoResult">
+		            Podés ampliar tu búsqueda a través de la 
+		            <a href="/articulo/buscadorAvanzado.jsp?idSeccion=<tmpl_var idSeccion>&seccion=<tmpl_var idSeccion>&porPalabrasClaves=<tmpl_var clave>">búsqueda avanzada</a>, o comunicarte con nuestro 
+		            <a href="/institucional/servicios.jsp#servicios">centro del servicio al cliente</a>.
+		        </div>
+		    </div>    
+		 </tmpl_if>	
+	</div>						    			

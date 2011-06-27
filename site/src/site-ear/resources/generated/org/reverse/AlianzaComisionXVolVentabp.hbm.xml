@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.AlianzaComisionXVolVentabp"
+    table="ALIANZA_COMISION_X_VOL_VENTABP"
+>
+
+ <comment>PORCENTAJES DE COMISION POR VOLUMEN DE VENTA</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.AlianzaComisionXVolVentabpId"
+    >		
+	        <key-property name="importeDesde" type="big_decimal">
+<column name="IMPORTE_DESDE" precision="15" />
+	        </key-property>
+	        <key-property name="importeHasta" type="big_decimal">
+<column name="IMPORTE_HASTA" precision="15" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <property
+        name="porcComision"
+	    type="big_decimal"
+    >
+<column name="PORC_COMISION" precision="5" not-null="true" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

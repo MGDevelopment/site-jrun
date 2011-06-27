@@ -1,0 +1,176 @@
+/**
+ * $Log: RevitalizerDaemon.java,v $
+ * Revision 1.18  2005/04/26 17:31:53  omsartori
+ * - Arreglado bug buscador rapido comilla simple.
+ * - Arreglado bug buscador avanzado comilla simple.
+ * - Referido circuito completo testeado.
+ * - Posicionamiento: metas home, links producto a detalle y a buscador por categoria.
+ *
+ * Revision 1.17  2005/04/08 12:53:55  omsartori
+ * - Consultas de Referidos
+ * - Banner por seccinon configurable desde xml
+ *
+ * Revision 1.16  2005/03/30 12:52:04  omsartori
+ * - Clientes institucionales: nuevo formato para mail de resguardo, controlador evita mails vacios, cantidad de caracteres restringida en campo comentario
+ * - Medio de cobro Rio Net Banking: Agregado en compra y en listado de la intranet.
+ * - Cupones: anulacion de espacios en blanco y cambio de leyenda.
+ * - Revitalizer: el cambio de modo a mantenimiento se efectua luego del anteultimo intento.
+ *
+ * Revision 1.15  2004/08/03 15:46:53  oGPistoia
+ * - Reporte de ordenes retrasadas
+ * - Reporte de visitas
+ * - Remocion de la columna de estado en la orden
+ * - Mail de alianza fallida al administrador
+ * - Pagina de recomendados de prueba
+ * - Texto de promoción y registración configurables
+ *
+ * Revision 1.14  2004/07/05 15:43:12  oGPistoia
+ * - Release 1.80 (y cambios menores)
+ *
+ * Revision 1.13  2004/06/15 20:56:02  oGPistoia
+ * - Se elimino fidelizacion para poder hacer un release (en realidad configurable)
+ * - Se puede configurar los textos de los titulos a cambiar
+ * - Se termino de agregar titulo y autores en tags para Google
+ * - Mejoras en el generador de imagenes
+ * - Mejoras en las estadisticas
+ *
+ * Revision 1.12  2004/06/09 18:49:01  oGPistoia
+ * - Alta al programa eXtra
+ * - Mejoras en reporte de ordenes y paginas varias
+ *
+ * Revision 1.11  2004/05/04 18:09:28  oGPistoia
+ * Fidelizacion: Consulta de puntos, catalogo y consulta en la registracion.
+ *
+ * Revision 1.10  2004/03/04 18:51:39  oGPistoia
+ * -Disponibilidad Ficticia
+ * -Eliminacion de algunos EJB muertos
+ * -Correccion en el código de autorización de GPAY
+ *
+ * Revision 1.9  2004/02/27 13:44:15  GPistoia
+ * -Reinicio programado
+ * -Correccion de socios
+ * -Mejora de logs
+ * -Borrado de datos confidenciales. Agregado de visitas.
+ * -Mostrar orden similar en intranet
+ *
+ * Revision 1.8  2004/02/16 20:22:50  GPistoia
+ * - Busqueda de recomendados
+ * - Mail por cambio de contenido
+ * - Eliminacion de DAOs permanentes, reemplazo por las claves
+ *
+ * Revision 1.7  2004/02/11 19:32:49  GPistoia
+ * Buscador Nuevos
+ * Mejoras en algunas paginas de reportes, conversion, simbolos, etc.
+ *
+ * Revision 1.6  2004/01/08 20:29:58  GPistoia
+ * - Retoques por release, antes del buscador
+ *
+ * Revision 1.5  2004/01/06 15:28:29  GPistoia
+ * Pre-release
+ * - ID de alianza en el mail
+ * - Notas asociadas al item
+ * - ISBN por cada item de la orden
+ * - Volver a pantalla de confirmacion si no tiene gastos
+ * - Mensajes de GPAY configurables
+ *
+ * Revision 1.4  2003/12/22 22:26:50  GPistoia
+ * -Listado de pedidos especiales
+ * -Mejora en listado de ordenes
+ * -Medio de cobro restringido
+ * -Memoria maxima alocable.
+ *
+ * Revision 1.3  2003/12/12 21:51:14  GPistoia
+ * -Correccion en paginas de extranet
+ * -Liberacion de memoria en el revitalizer e inicializa el contador
+ *
+ * Revision 1.2  2003/12/11 20:52:03  GPistoia
+ * -Busqueda de socio por mail
+ * -Listado de ordenes por socio
+ * -Cambio de tiempos en algunos demonios
+ * -Mas informacion en estadisticas
+ *
+ * Revision 1.1  2003/12/04 17:19:07  GPistoia
+ * -Control del server automatico
+ * -Cardinalidad en el archivo de contenido
+ * -Estadisticas de hits por paginas
+ * -Cache de mas vendidos
+ * -Mensajes para errores de GPAY
+ * -Paginas estaticas que ahora son dinamicas
+ *
+ */
+package com.tmk.common;
+
+import com.tmk.kernel.*;
+
+import java.util.Date;
+
+public class RevitalizerDaemon extends Daemon {
+
+	/** Texto para controlar que el server esta funcionando */
+	private static String control;
+
+	// contador para evitar sacar al server al instante
+	private int contador= 0;
+
+	public RevitalizerDaemon() {
+		// NO PONER MENOS DE UN MINUTO PORQUE NO LE DA TIEMPO AL SERVER
+		//super(Daemon.DIEZ_MINUTOS, Daemon.UN_MINUTO);
+		super(Daemon.UN_MINUTO, Daemon.UN_MINUTO);
+	}
+
+	public static String getControl() {
+		return control;
+	}
+
+	protected void ejecutarTarea() throws Exception {
+
+		// Consulta por la memoria del sistema
+		long freeMemory = Runtime.getRuntime().freeMemory() / 1024;
+		long totalMemory = Runtime.getRuntime().totalMemory() / 1024;
+		boolean lowMemory = (totalMemory >= Globals.MEMORIA_MAXIMA) && (freeMemory <= Globals.MEMORIA_ALERTA);
+		// Cambia el texto para asegurar que no este proxeado o algo asi
+		control = "FECHA DE CONTROL " + new Date() + ". Memoria Total " + totalMemory + " kbs, Memoria Libre " + freeMemory + " kbs, Memoria Limite " + Globals.MEMORIA_MAXIMA + " kbs";
+
+        TmkLogger.info(control);
+		try {
+			// baja la pagina
+			String texto = HTMLUtil.download(Globals.SERVER_MAIL + "/mailing/control.jsp");
+			contador = ((texto.indexOf(getControl()) < 0) || (Globals.esModoReset()) || (lowMemory)) ? contador + 1: 0;
+			if (contador < Globals.CONTROL_SERVER_ITERACIONES - 1) {
+				Globals.MODO_PRE_RESET = false;
+			}
+		} catch (Exception e) {
+			//contador = (contador == Globals.CONTROL_SERVER_ITERACIONES - 1)? contador + 1 :Globals.CONTROL_SERVER_ITERACIONES - 1;
+			contador = contador + 1;
+			// Ya asumio que podia fallar, asi que no necesita hacer mas nada
+			TmkLogger.debug("No se pudo acceder a la pagina de control");
+		}
+
+        Runtime.getRuntime().gc();
+
+		if ((contador == Globals.CONTROL_SERVER_ITERACIONES - 1)) {
+			Globals.MODO_PRE_RESET = true;
+		}
+        //TmkLogger.info("" + contador);
+		// Controla si llego a las iteraciones (solo una vez al menos que se vuelva a normalizar)
+		if ((contador >= Globals.CONTROL_SERVER_ITERACIONES)) {
+			// Manda mail automaticamente
+			MailUtil.sendMail(Globals.MAIL_MAILER, Globals.MAIL_WEBMASTER, Globals.NOMBRE_DEL_SITIO + " - Revitalizer",
+			        "Se va a correr el proceso de consola, hora " + new Date());
+			// Log
+			TmkLogger.info("Se va a ejecutar la consola (reset).");
+			// Ejecuta la consola
+			Runtime.getRuntime().exec(Globals.CONTROL_SERVER_CONSOLA);
+		}
+		//System.out.println ("contador " + contador);
+	}
+
+	protected String getMensaje() {
+		return (contador>0) ? "El servidor va a reiniciarse (" + contador + "/" + Globals.CONTROL_SERVER_ITERACIONES + ")" : null;
+	}
+
+	protected boolean pausada() {
+		return (!Globals.CONTROL_SERVER_HABILITADO);
+	}
+
+}

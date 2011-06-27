@@ -1,0 +1,173 @@
+	<script type="text/javascript" charset="utf-8">
+	$(function(){
+		$('#menu li a').click(function(event){
+			var elem = $(this).next();
+			if(elem.is('ul')){
+				event.preventDefault();
+				$('#menu ul:visible').not(elem).slideUp();
+				elem.slideToggle();
+			}
+		});
+	});
+	</script>
+	<style type="text/css" media="screen">
+		#menu{
+			-moz-border-radius:5px;
+			-webkit-border-radius:5px;
+			border-radius:5px;
+			-webkit-box-shadow:1px 1px 3px #888;
+			-moz-box-shadow:1px 1px 3px #888;
+		}
+		#menu li{border-bottom:1px solid #FFF;}
+		#menu ul li, #menu li:last-child{border:none}	
+		a{
+			display:block;
+			color:#FFF;
+			text-decoration:none;
+			font-family:'Helvetica', Arial, sans-serif;
+			font-size:13px;
+			padding:3px 5px;
+			text-shadow:1px 1px 1px #325179;
+		}
+		#menu a:hover{
+			color:#F9B855;
+			-webkit-transition: color 0.2s linear;
+		}
+		#menu ul a{background-color:#6594D1;}
+		#menu ul a:hover{
+			background-color:#FFF;
+			color:#2961A9;
+			text-shadow:none;
+			-webkit-transition: color, background-color 0.2s linear;
+		}
+		span ul{
+			display:block;
+			background-color:#2961A9;
+			margin:0;
+			padding:0;
+			width:200px;
+			list-style:none;
+		}
+		#menu ul{background-color:#6594D1;}
+		#menu li ul {display:none;}
+	</style>
+
+<span>
+<ul id="menu">			
+	<li>
+		<a  href="javascript:void(0)">DATOS DE SU CUENTA</a>			
+		<ul>
+			<li>
+				<a href="/miCuenta/modificarSocio.jsp">Datos Personales</a>
+			</li>
+			<li>
+				<a href="/miCuenta/domicilios.jsp?TIPO_DOMICILIO=ENVI">Domicilios</a>
+			</li>
+			<!--
+				<li><a  href="javascript:void(0)">Domicilios</a>			
+					<ul>
+						<li><a href="javascript:void(0)">Asia</a></li>
+						<li><a href="javascript:void(0)">South America</a></li>
+						<li><a href="javascript:void(0)">Australia</a></li>
+						<li><a href="javascript:void(0)">North America</a></li>
+						<li><a href="javascript:void(0)">Europe</a></li>
+						<li><a href="javascript:void(0)">Africa</a></li>
+					</ul>
+				</li>
+			-->					
+			<!-- 
+			<li><a  href="javascript:void(0)">Investors</a>			
+			<ul>
+				<li><a href="javascript:void(0)">Worldwide</a></li>
+				<li><a href="javascript:void(0)">Equity Funds</a></li>
+				<li><a href="javascript:void(0)">Multi National</a></li>
+				<li><a href="javascript:void(0)">Canadian</a></li>
+				<li><a href="javascript:void(0)">Specifics</a></li>
+				<li><a href="javascript:void(0)">US Origins</a></li>
+			</ul>
+			</li>
+			 -->								
+		</ul>
+	</li>
+	<li>
+		<a  href="javascript:void(0)">SERVICIOS ADICIONALES</a>			
+		<ul>
+			<li>
+				<a href="/miCuenta/servicios/popego.jsp">Administrar cuenta Popego</a>
+			</li>
+			<li>
+				<a href="/miCuenta/servicios/servicioPopego.jsp" target="<tmpl_var target>">Informacion Sobre Popego</a>
+			</li>
+		</ul>
+	</li>			
+	<li>
+		<a  href="javascript:void(0)">PROGRAMA EXTRA</a>			
+		<ul>
+			<li>
+				<a id="linkExtraConsultar" href="/fidelizacion/panel/puntos.jsp" class="FAyuda">Consultar mis Puntos</a>
+											<!-- /miCuenta/registroSocioEXtra.jsp -->
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a  href="javascript:void(0)">LISTA DE DESEOS</a>			
+		<ul>
+			<li><a href="/listaDeseos/verListaPropia.jsp">Configuraci&oacute;n de B&uacute;squeda</a></li>
+			<li><a href="/listaDeseos/domicilios.jsp">Domicilios</a></li>
+			<li><a href="/listaDeseos/enviarCorreo.jsp">Env&iacute;o de e-Mails</a></li>						
+		</ul>
+	</li>							
+	<li>
+		<a  href="javascript:void(0)">PROGRAMA DE REFERIDOS</a>			
+		<ul>
+			<li><a href="/referido/">Informaci&oacute;n y reglas del programa</a></a></li>
+			<li><a href="/AgregarReferido">Agregar Referidos</a></a></li>
+			<li><a href="/referido/consultarReferido.jsp">Mis Referidos</a></li>						
+		</ul>
+	</li>			
+	<li>
+		<a  href="javascript:void(0)">PROMOCIONES</a>			
+		<ul>
+			<li><a href="/miCuenta/promocionesHistoricas.jsp" class="FAyuda">Promociones Utilizadas</a></li>						
+		</ul>
+	</li>
+	<li>
+		<a  href="javascript:void(0)">HISTORIAL DE COMPRAS</a>			
+		<ul>
+			<li><a href="/compra/misOrdenes.jsp" class="FAyuda">Mis Ordenes</a></li>						
+		</ul>
+	</li>
+	<li>
+		<a  href="javascript:void(0)">MIS LISTAS</a>			
+		<ul>
+			<li><a href="/miCuenta/listasDeUsuarios/crearMiLista.jsp">Crear lista nueva</a></a></li>
+			<!--<li><a href="/miCuenta/listasDeUsuarios/verMisListas.jsp">Mis listas</a></a></li>-->
+			<li><a href="/miCuenta/listasDeUsuarios/verTodasMisListas.jsp">Ver mis listas</a></a></li>
+			<!--<li><a href="javascript:void(0)">Modificar mis listas</a></li>-->
+		</ul>
+	</li>
+	<li>
+		<a  href="javascript:void(0)">SOBRE TEMATIKA</a>			
+		<ul>
+			<li>
+				<a href="/" target="<tmpl_var target>">Tematika</a>
+			</li>
+			<li>
+				<a href="/institucional/conozcanos.jsp" target="<tmpl_var target>">Marcas ILHSA</a>
+			</li>
+			<li>
+				<a href="/sucursales/?sucursal=205&unegocio=ateneo" target="<tmpl_var target>">Sucursales</a>
+			</li>
+			<li>
+				<a href="/institucional/verEventos.jsp" target="<tmpl_var target>">Eventos</a>
+			</li>
+			<li>
+				<a href="/institucional/prensa.jsp?page=/asociadas/prensa/prensa1.htm" target="<tmpl_var target>">Prensa</a>
+			</li>
+			<li>
+				<a href="/empleos">Empleo</a>
+			</li>
+		</ul>
+	</li>	
+</ul>
+</span>

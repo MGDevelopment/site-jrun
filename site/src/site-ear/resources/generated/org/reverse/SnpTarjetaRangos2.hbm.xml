@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SnpTarjetaRangos2"
+    table="SNP_TARJETA_RANGOS2"
+>
+
+ <comment>snapshot table for snapshot TEMATIKA.SNP_TARJETA_RANGOS2</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.SnpTarjetaRangos2Id"
+    >		
+	        <key-property name="idMedioCobro" type="string">
+<column name="ID_MEDIO_COBRO" length="5" />
+	        </key-property>
+	        <key-property name="nroDesde" type="string">
+<column name="NRO_DESDE" length="15" />
+	        </key-property>
+	        <key-property name="nroHasta" type="string">
+<column name="NRO_HASTA" length="15" />
+	        </key-property>
+	        <key-property name="permiteOffline" type="string">
+<column name="PERMITE_OFFLINE" length="2" />
+	        </key-property>
+	        <key-property name="permiteCuotas" type="string">
+<column name="PERMITE_CUOTAS" length="2" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="35" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="usrModi" type="string">
+<column name="USR_MODI" length="35" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+	        <key-property name="longitud" type="big_decimal">
+<column name="LONGITUD" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="validaDigVerific" type="string">
+<column name="VALIDA_DIG_VERIFIC" length="2" />
+	        </key-property>
+	        <key-property name="idBanco" type="java.lang.Long">
+<column name="ID_BANCO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idPais" type="java.lang.Integer">
+<column name="ID_PAIS" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="categTarjeta" type="string">
+<column name="CATEG_TARJETA" length="50" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

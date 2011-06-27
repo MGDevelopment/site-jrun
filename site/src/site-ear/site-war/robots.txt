@@ -1,0 +1,6 @@
+User-Agent: *
+Disallow: /miCuenta/
+Disallow: /compra/
+Disallow: /listaDeseos/
+Disallow: /AgregarProducto
+Disallow: /css

@@ -1,0 +1,609 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.Movimientos"
+    table="MOVIMIENTOS"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.MovimientosId"
+    >		
+	        <key-property name="idSucursal" type="short">
+<column name="ID_SUCURSAL" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="idMovimiento" type="long">
+<column name="ID_MOVIMIENTO" precision="10" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+    <version
+        name="version"
+        type="byte"
+    >
+<column name="VERSION" precision="2" scale="0" not-null="true" />
+	</version>
+
+
+    <property
+        name="fecha"
+	    type="date"
+    >
+<column name="FECHA" length="7" not-null="true" >
+<comment>Fecha del movimiento</comment>
+</column>  </property>
+
+    <property
+        name="fechaVencimiento"
+	    type="date"
+    >
+<column name="FECHA_VENCIMIENTO" length="7" >
+<comment>Fecha de Vencimiento del movimiento / Devolución</comment>
+</column>  </property>
+
+    <property
+        name="idTipoContribuyente"
+	    type="java.lang.Long"
+    >
+<column name="ID_TIPO_CONTRIBUYENTE" precision="10" scale="0" >
+<comment>Código del tipo de contribuyente</comment>
+</column>  </property>
+
+    <property
+        name="idComprobante"
+	    type="string"
+    >
+<column name="ID_COMPROBANTE" length="4" not-null="true" />
+  </property>
+
+    <property
+        name="letra"
+	    type="string"
+    >
+<column name="LETRA" length="1" not-null="true" >
+<comment>Letra del Comprobante</comment>
+</column>  </property>
+
+    <property
+        name="nrodgi"
+	    type="short"
+    >
+<column name="NRODGI" precision="4" scale="0" not-null="true" >
+<comment>Nro de Dgi para el comprobante</comment>
+</column>  </property>
+
+    <property
+        name="nroComprobante"
+	    type="int"
+    >
+<column name="NRO_COMPROBANTE" precision="8" scale="0" not-null="true" >
+<comment>Nro de Comprobante</comment>
+</column>  </property>
+
+    <property
+        name="observaciones"
+	    type="string"
+    >
+<column name="OBSERVACIONES" length="2000" >
+<comment>Observaciones</comment>
+</column>  </property>
+
+    <property
+        name="PDescuento"
+	    type="big_decimal"
+    >
+<column name="P_DESCUENTO" precision="5" >
+<comment>Porcentaje de Descuento</comment>
+</column>  </property>
+
+    <property
+        name="descuento"
+	    type="big_decimal"
+    >
+<column name="DESCUENTO" precision="15" >
+<comment>Descuento</comment>
+</column>  </property>
+
+    <property
+        name="iva"
+	    type="big_decimal"
+    >
+<column name="IVA" precision="15" >
+<comment>Iva</comment>
+</column>  </property>
+
+    <property
+        name="neto"
+	    type="big_decimal"
+    >
+<column name="NETO" precision="15" >
+<comment>Importe neto</comment>
+</column>  </property>
+
+    <property
+        name="total"
+	    type="big_decimal"
+    >
+<column name="TOTAL" precision="15" >
+<comment>Total</comment>
+</column>  </property>
+
+    <property
+        name="idCaja"
+	    type="java.lang.Integer"
+    >
+<column name="ID_CAJA" precision="5" scale="0" >
+<comment>Código de la caja</comment>
+</column>  </property>
+
+    <property
+        name="estado"
+	    type="string"
+    >
+<column name="ESTADO" length="1" not-null="true" >
+<comment>Estado</comment>
+</column>  </property>
+
+    <property
+        name="idSocio"
+	    type="java.lang.Long"
+    >
+<column name="ID_SOCIO" precision="10" scale="0" />
+  </property>
+
+    <property
+        name="idSucursalSocio"
+	    type="java.lang.Short"
+    >
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" >
+<comment>Código de sucursal del socio</comment>
+</column>  </property>
+
+    <property
+        name="idSucursalOrigen"
+	    type="short"
+    >
+<column name="ID_SUCURSAL_ORIGEN" precision="4" scale="0" not-null="true" >
+<comment>Código de la sucursal origen</comment>
+</column>  </property>
+
+    <property
+        name="idSucursalDestino"
+	    type="java.lang.Short"
+    >
+<column name="ID_SUCURSAL_DESTINO" precision="4" scale="0" >
+<comment>Código de la sucursal destino</comment>
+</column>  </property>
+
+    <property
+        name="fechaTransmision"
+	    type="date"
+    >
+<column name="FECHA_TRANSMISION" length="7" >
+<comment>Fecha de transmisión</comment>
+</column>  </property>
+
+    <property
+        name="fechaCierre"
+	    type="date"
+    >
+<column name="FECHA_CIERRE" length="7" >
+<comment>Fecha de cierre</comment>
+</column>  </property>
+
+    <property
+        name="idConsignacion"
+	    type="java.lang.Long"
+    >
+<column name="ID_CONSIGNACION" precision="10" scale="0" >
+<comment>Código de la consignación</comment>
+</column>  </property>
+
+    <property
+        name="idProveedor"
+	    type="java.lang.Long"
+    >
+<column name="ID_PROVEEDOR" precision="10" scale="0" />
+  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="35" not-null="true" >
+<comment>Usuario de Alta</comment>
+</column>  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" >
+<comment>Fecha de Alta</comment>
+</column>  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="35" >
+<comment>Usuario de Modificación</comment>
+</column>  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" >
+<comment>Fecha de Modificación</comment>
+</column>  </property>
+
+    <property
+        name="idUsrAlta"
+	    type="java.lang.Long"
+    >
+<column name="ID_USR_ALTA" precision="10" scale="0" >
+<comment>Usuario de Alta</comment>
+</column>  </property>
+
+    <property
+        name="idUsrModi"
+	    type="java.lang.Long"
+    >
+<column name="ID_USR_MODI" precision="10" scale="0" >
+<comment>Usuario de Modificación</comment>
+</column>  </property>
+
+    <property
+        name="iva2"
+	    type="big_decimal"
+    >
+<column name="IVA2" precision="15" />
+  </property>
+
+    <property
+        name="fechaTravelpass"
+	    type="date"
+    >
+<column name="FECHA_TRAVELPASS" length="7" />
+  </property>
+
+    <property
+        name="nroInfoTravelpass"
+	    type="java.lang.Long"
+    >
+<column name="NRO_INFO_TRAVELPASS" precision="10" scale="0" />
+  </property>
+
+    <property
+        name="nroCajon"
+	    type="java.lang.Integer"
+    >
+<column name="NRO_CAJON" precision="8" scale="0" >
+<comment>Nro. de Cajón de Despacho</comment>
+</column>  </property>
+
+    <property
+        name="nroPrecinto"
+	    type="string"
+    >
+<column name="NRO_PRECINTO" length="20" >
+<comment>Nro. de Precinto de Seguridad del Cajón</comment>
+</column>  </property>
+
+    <property
+        name="esRegalo"
+	    type="string"
+    >
+<column name="ES_REGALO" length="2" />
+  </property>
+
+    <property
+        name="papel"
+	    type="string"
+    >
+<column name="PAPEL" length="30" />
+  </property>
+
+    <property
+        name="envioApellido"
+	    type="string"
+    >
+<column name="ENVIO_APELLIDO" length="50" />
+  </property>
+
+    <property
+        name="envioNombre"
+	    type="string"
+    >
+<column name="ENVIO_NOMBRE" length="50" />
+  </property>
+
+    <property
+        name="envioRazonSocial"
+	    type="string"
+    >
+<column name="ENVIO_RAZON_SOCIAL" length="50" />
+  </property>
+
+    <property
+        name="envioDireccion"
+	    type="string"
+    >
+<column name="ENVIO_DIRECCION" length="100" />
+  </property>
+
+    <property
+        name="envioNro"
+	    type="java.lang.Integer"
+    >
+<column name="ENVIO_NRO" precision="5" scale="0" />
+  </property>
+
+    <property
+        name="envioDepto"
+	    type="string"
+    >
+<column name="ENVIO_DEPTO" length="10" />
+  </property>
+
+    <property
+        name="envioPiso"
+	    type="java.lang.Byte"
+    >
+<column name="ENVIO_PISO" precision="2" scale="0" />
+  </property>
+
+    <property
+        name="envioDepartamento"
+	    type="string"
+    >
+<column name="ENVIO_DEPARTAMENTO" length="40" />
+  </property>
+
+    <property
+        name="envioCodigoPostal"
+	    type="string"
+    >
+<column name="ENVIO_CODIGO_POSTAL" length="40" />
+  </property>
+
+    <property
+        name="envioIdPais"
+	    type="java.lang.Integer"
+    >
+<column name="ENVIO_ID_PAIS" precision="5" scale="0" />
+  </property>
+
+    <property
+        name="envioIdProvincia"
+	    type="java.lang.Integer"
+    >
+<column name="ENVIO_ID_PROVINCIA" precision="5" scale="0" />
+  </property>
+
+    <property
+        name="envioIdLocalidad"
+	    type="java.lang.Integer"
+    >
+<column name="ENVIO_ID_LOCALIDAD" precision="5" scale="0" />
+  </property>
+
+    <property
+        name="envioTelefonos"
+	    type="string"
+    >
+<column name="ENVIO_TELEFONOS" length="100" />
+  </property>
+
+    <property
+        name="envioEmail"
+	    type="string"
+    >
+<column name="ENVIO_EMAIL" length="200" />
+  </property>
+
+    <property
+        name="envioContacto"
+	    type="string"
+    >
+<column name="ENVIO_CONTACTO" length="500" />
+  </property>
+
+    <property
+        name="envioEsCelular"
+	    type="string"
+    >
+<column name="ENVIO_ES_CELULAR" length="2" />
+  </property>
+
+    <property
+        name="envioAreaCode"
+	    type="string"
+    >
+<column name="ENVIO_AREA_CODE" length="7" />
+  </property>
+
+    <property
+        name="percepVideo"
+	    type="big_decimal"
+    >
+<column name="PERCEP_VIDEO" precision="15" />
+  </property>
+
+    <property
+        name="dperCodigo"
+	    type="java.lang.Integer"
+    >
+<column name="DPER_CODIGO" precision="8" scale="0" />
+  </property>
+
+    <property
+        name="idMoneda"
+	    type="string"
+    >
+<column name="ID_MONEDA" length="5" />
+  </property>
+
+    <property
+        name="cotizacion"
+	    type="big_decimal"
+    >
+<column name="COTIZACION" precision="20" scale="8" />
+  </property>
+
+    <property
+        name="totalMonOrig"
+	    type="big_decimal"
+    >
+<column name="TOTAL_MON_ORIG" precision="15" />
+  </property>
+
+    <property
+        name="netoMonOrig"
+	    type="big_decimal"
+    >
+<column name="NETO_MON_ORIG" precision="15" />
+  </property>
+
+    <property
+        name="descuentoMonOrig"
+	    type="big_decimal"
+    >
+<column name="DESCUENTO_MON_ORIG" precision="15" />
+  </property>
+
+    <property
+        name="subCodigo"
+	    type="java.lang.Short"
+    >
+<column name="SUB_CODIGO" precision="3" scale="0" />
+  </property>
+
+    <property
+        name="formaComercial"
+	    type="string"
+    >
+<column name="FORMA_COMERCIAL" length="3" />
+  </property>
+
+    <property
+        name="factNombre"
+	    type="string"
+    >
+<column name="FACT_NOMBRE" length="50" />
+  </property>
+
+    <property
+        name="factApellido"
+	    type="string"
+    >
+<column name="FACT_APELLIDO" length="50" />
+  </property>
+
+    <property
+        name="factRazonSocial"
+	    type="string"
+    >
+<column name="FACT_RAZON_SOCIAL" length="50" />
+  </property>
+
+    <property
+        name="factDireccion"
+	    type="string"
+    >
+<column name="FACT_DIRECCION" length="100" />
+  </property>
+
+    <property
+        name="factNumero"
+	    type="java.lang.Long"
+    >
+<column name="FACT_NUMERO" precision="10" scale="0" />
+  </property>
+
+    <property
+        name="factPiso"
+	    type="java.lang.Short"
+    >
+<column name="FACT_PISO" precision="4" scale="0" />
+  </property>
+
+    <property
+        name="factDepartamento"
+	    type="string"
+    >
+<column name="FACT_DEPARTAMENTO" length="4" />
+  </property>
+
+    <property
+        name="factCodigoPostal"
+	    type="string"
+    >
+<column name="FACT_CODIGO_POSTAL" length="20" />
+  </property>
+
+    <property
+        name="factIdPais"
+	    type="java.lang.Integer"
+    >
+<column name="FACT_ID_PAIS" precision="5" scale="0" />
+  </property>
+
+    <property
+        name="factIdProvincia"
+	    type="java.lang.Integer"
+    >
+<column name="FACT_ID_PROVINCIA" precision="5" scale="0" />
+  </property>
+
+    <property
+        name="factIdLocalidad"
+	    type="java.lang.Integer"
+    >
+<column name="FACT_ID_LOCALIDAD" precision="5" scale="0" />
+  </property>
+
+    <property
+        name="tipoEnvio"
+	    type="string"
+    >
+<column name="TIPO_ENVIO" length="10" >
+<comment>Tipo de Envío a Domicilio</comment>
+</column>  </property>
+
+
+	<set name="itemsMovimientoses"
+table="ITEMS_MOVIMIENTOS"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_SUCURSAL" precision="4" scale="0" not-null="true" >
+<comment>Código de la sucursal que registra el movimiento</comment>
+</column><column name="ID_MOVIMIENTO" precision="10" scale="0" not-null="true" >
+<comment>Código del movimiento</comment>
+</column>		</key>
+<one-to-many class="org.reverse.ItemsMovimientos"
+/>
+	</set>
+    <one-to-one
+	    name="movimientosDatosExt"
+	    class="org.reverse.MovimientosDatosExt"
+
+    >
+   </one-to-one>
+
+</class>
+
+</hibernate-mapping>

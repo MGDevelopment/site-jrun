@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.AlianzaTelefonoBup"
+    table="ALIANZA_TELEFONO_BUP"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.AlianzaTelefonoBupId"
+    >		
+	        <key-property name="idAlianza" type="long">
+<column name="ID_ALIANZA" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="tipoTelefono" type="string">
+<column name="TIPO_TELEFONO" length="4" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <property
+        name="codArea"
+	    type="string"
+    >
+<column name="COD_AREA" length="10" />
+  </property>
+
+    <property
+        name="nroTel"
+	    type="string"
+    >
+<column name="NRO_TEL" length="15" not-null="true" />
+  </property>
+
+    <property
+        name="extInt"
+	    type="string"
+    >
+<column name="EXT_INT" length="10" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

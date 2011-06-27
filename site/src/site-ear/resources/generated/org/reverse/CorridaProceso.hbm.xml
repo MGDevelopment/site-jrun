@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.CorridaProceso"
+    table="CORRIDA_PROCESO"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.CorridaProcesoId"
+    >		
+	        <key-property name="idBloque" type="int">
+<column name="ID_BLOQUE" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="idProceso" type="int">
+<column name="ID_PROCESO" precision="5" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <many-to-one
+	    name="estadoProceso"
+	    class="org.reverse.EstadoProceso"
+	    
+        fetch="select"
+    >
+<column name="ID_ESTADO" precision="5" scale="0" >
+<comment>Estado del proceso</comment>
+</column>   </many-to-one>
+    <property
+        name="ultimaCorrida"
+	    type="date"
+    >
+<column name="ULTIMA_CORRIDA" length="7" >
+<comment>Fecha que se corrio por ultima vez</comment>
+</column>  </property>
+
+    <property
+        name="obtuvoDatos"
+	    type="string"
+    >
+<column name="OBTUVO_DATOS" length="1" >
+<comment>Indica se la ultima vez manejo datos</comment>
+</column>  </property>
+
+    <property
+        name="orden"
+	    type="byte"
+    >
+<column name="ORDEN" precision="2" scale="0" not-null="true" >
+<comment>Ordenamiento</comment>
+</column>  </property>
+
+
+</class>
+
+</hibernate-mapping>

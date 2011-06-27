@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SnpPromoObjeto"
+    table="SNP_PROMO_OBJETO"
+>
+
+ <comment>snapshot table for snapshot TEMATIKA.SNP_PROMO_OBJETO</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.SnpPromoObjetoId"
+    >		
+	        <key-property name="idPromocion" type="long">
+<column name="ID_PROMOCION" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="item" type="short">
+<column name="ITEM" precision="3" scale="0" />
+	        </key-property>
+	        <key-property name="categoriaSeccion" type="java.lang.Byte">
+<column name="CATEGORIA_SECCION" precision="2" scale="0" />
+	        </key-property>
+	        <key-property name="categoriaGrupo" type="java.lang.Byte">
+<column name="CATEGORIA_GRUPO" precision="2" scale="0" />
+	        </key-property>
+	        <key-property name="categoriaFamilia" type="java.lang.Byte">
+<column name="CATEGORIA_FAMILIA" precision="2" scale="0" />
+	        </key-property>
+	        <key-property name="categoriaSubfamilia" type="java.lang.Byte">
+<column name="CATEGORIA_SUBFAMILIA" precision="2" scale="0" />
+	        </key-property>
+	        <key-property name="idProveedor" type="java.lang.Long">
+<column name="ID_PROVEEDOR" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idEditor" type="java.lang.Long">
+<column name="ID_EDITOR" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idColeccion" type="java.lang.Long">
+<column name="ID_COLECCION" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idArticulo" type="java.lang.Long">
+<column name="ID_ARTICULO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="cantidad" type="java.lang.Short">
+<column name="CANTIDAD" precision="3" scale="0" />
+	        </key-property>
+	        <key-property name="monto" type="big_decimal">
+<column name="MONTO" precision="15" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="35" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="usrModi" type="string">
+<column name="USR_MODI" length="35" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

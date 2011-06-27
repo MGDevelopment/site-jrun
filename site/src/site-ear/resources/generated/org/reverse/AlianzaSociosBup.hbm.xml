@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.AlianzaSociosBup"
+    table="ALIANZA_SOCIOS_BUP"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.AlianzaSociosBupId"
+    >		
+	        <key-property name="idSocio" type="long">
+<column name="ID_SOCIO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idSucursal" type="short">
+<column name="ID_SUCURSAL" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="idAlianza" type="big_decimal">
+<column name="ID_ALIANZA" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="idSeccion" type="big_decimal">
+<column name="ID_SECCION" precision="22" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

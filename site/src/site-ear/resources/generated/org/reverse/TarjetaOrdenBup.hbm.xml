@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.TarjetaOrdenBup"
+    table="TARJETA_ORDEN_BUP"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.TarjetaOrdenBupId"
+    >		
+	        <key-property name="idOrden" type="long">
+<column name="ID_ORDEN" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idMedioCobro" type="string">
+<column name="ID_MEDIO_COBRO" length="5" />
+	        </key-property>
+	        <key-property name="nroTarjeta" type="binary">
+<column name="NRO_TARJETA" />
+	        </key-property>
+	        <key-property name="nombreCliente" type="string">
+<column name="NOMBRE_CLIENTE" length="50" />
+	        </key-property>
+	        <key-property name="codigoRespuesta" type="java.lang.Long">
+<column name="CODIGO_RESPUESTA" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="codigoAutorizacion" type="java.lang.Long">
+<column name="CODIGO_AUTORIZACION" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="mensajeGpay" type="string">
+<column name="MENSAJE_GPAY" length="240" />
+	        </key-property>
+	        <key-property name="tipoDoc" type="string">
+<column name="TIPO_DOC" length="5" />
+	        </key-property>
+	        <key-property name="nroDoc" type="java.lang.Long">
+<column name="NRO_DOC" precision="15" scale="0" />
+	        </key-property>
+	        <key-property name="direccionResumen" type="string">
+<column name="DIRECCION_RESUMEN" length="510" />
+	        </key-property>
+	        <key-property name="p1" type="binary">
+<column name="P1" />
+	        </key-property>
+	        <key-property name="p2" type="binary">
+<column name="P2" />
+	        </key-property>
+	        <key-property name="p3" type="binary">
+<column name="P3" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

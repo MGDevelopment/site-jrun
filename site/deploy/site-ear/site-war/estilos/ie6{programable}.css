@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+/* FONDOS TRANSPARENTES PARA INTERNET EXPLORER 6 */
+
+.tmtkMesa-back {
+ behavior: url("/js/iepngfix/iepngfix.htc");
+}
+
+
+.hBuscButton { behavior: url("/js/iepngfix/iepngfix.htc"); }
+
+.footerLogos { behavior: url("/js/iepngfix/iepngfix.htc"); }
+
+.calificacionStar, .calificacionStarAct, .calificacionStarDes { behavior: url("/js/iepngfix/iepngfix.htc"); }
+
+.detalleBoton, .dSolapasPie div { behavior: url("/js/iepngfix/iepngfix.htc"); }
+
+.dInfoCalifStar, .dInfoCalifStarDes, .dInfoCalifStarAct { behavior: url("/js/iepngfix/iepngfix.htc"); }
+
+.dInfoCalifBoton div { behavior: url("/js/iepngfix/iepngfix.htc"); }
+
+.dComentarios .calificacionStar, .dRecomendMod .calificacionStar { behavior: url("/js/iepngfix/iepngfix.htc"); }
+
+.dComentarios .calificacionStarDes, .dRecomendMod .calificacionStarDes { behavior: url("/js/iepngfix/iepngfix.htc"); }
+
+.dComentsCalifResp a { behavior: url("/js/iepngfix/iepngfix.htc"); }
+
+
+
+
+
+.hBuscador, .hBuscMenu, .hServClientes, .hModUsuarioBack, .solapas, .solapasMenu, .arbolItemMas, .arbolItemMin, .arbolItemF, .arbolItemMax, .arbolItemMini, .tapaInfo, .dComprarButton, .detalleBotonMenu, ul.dropdown *.dir, .tmtkMesaMenuMod ul.dropdown *.dir, .globoArticuloComprar, .globoArticuloPedir { behavior: url("/js/iepngfix/iepngfix.htc"); }
+
+
+
+.dFavButton, .listadoModAcciones div a { behavior: url("/js/iepngfix/iepngfix.htc"); }
+/* POSITION:FIXED PARA EXPLORER 6 */
+
+#modalBack, .modalBack { 
+	top: expression( (ignorar = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop) + 'px' );
+	position:absolute;
+}
+
+/* BUSQUEDA (productos):FIXED PARA EXPLORER 6 */
+
+.detalleListaMenu {
+	position:absolute;
+	margin:35px 0 0 -173px;
+}
+	
+.detalleListaMenu span {
+	width:147px;
+	font-weight:normal;
+	margin-top:3px;
+	float:left;
+}
+
+.detalleListaMenu input {
+	margin:0 5px 0 0;
+}
+
+.detalleListaMenu p {
+	padding:3px 0;
+}
+
+input.dListaMenuDesBut {
+	margin:8px 51px 8px 0;
+	width:80px;
+}
+
+.dInfoTit h5 {
+	font-size:14px;
+}
+
+.detalleModMenu {
+	position:static;
+	float:left;
+}
+
+.detalleBotonMenu {
+	z-index:5;
+	position:static;
+}

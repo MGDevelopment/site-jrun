@@ -1,0 +1,25 @@
+<div style="margin-top: 10px;">	
+	<div class="compraWrapper2"><!-- style="background-color: #FBF5EF">-->
+		<div class="cProcTit" style="margin-top: 0pt;"><span>Promociones utilizadas:</span></div>
+		<tmpl_if hayPromociones>
+	        <tmpl_loop promociones>
+		        <div class="cProcFor-wrapper2 cProcForms2">
+		            <b style="margin-bottom: 0pt;width:300px;"><tmpl_var nombrePromocion></b>	            
+		        </div>
+		        <div class="cProcFor-wrapper2 cProcForms2" >
+		        	<div style="margin-bottom: 0pt;">
+		            	<span style="margin-right: 10px;">
+		            		Decripcion: <tmpl_var descripcion><br>
+		            		Fecha de inicio: <tmpl_var fechaDeInicio><br>
+		            		Fecha de finalizacion: <tmpl_var fechaDeFinalizacion><br>
+		      			</span>
+		            </div>
+		           </div>
+		    </tmpl_loop>
+		<tmpl_else>
+			<div class="cProcFor-wrapper2 cProcForms2" >
+		    	<b style="margin-bottom: 0pt;width:360px;">NO SE LE HAN APLICADO PROMOCIONES AL DIA DE HOY</b>	            
+		    </div>
+		</tmpl_if>
+	</div>
+</div>

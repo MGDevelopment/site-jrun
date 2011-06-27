@@ -1,0 +1,1633 @@
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+"http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+
+	<!-- **** DEFINICION DE LA TEMPLATE GENERAL (SIN BODY, NI MENU DERECHO)****  -->
+	<definition name="cmp.header.general" 				path= "/tiles/elemento/cmpHeaderGeneral.jsp">
+		<!-- <put name="logo" 								value="/tiles/elemento/logo.jsp"/>-->
+		<put name="buscador" 							value="/tiles/elemento/buscador.jsp"/>
+		<put name="panelDeUsuario" 						value="/tiles/elemento/panelDeUsuario.jsp"/>
+	</definition>
+	<definition name="cmp.js" 							path= "/tiles/elemento/cmpJsGeneral.jsp">
+		<put name="js.comun" 							value="/tiles/elemento/js/jsComun.jsp"/>
+		<put name="js.particular" 						value=""/>
+	</definition>
+	<!-- se duplica solo para la home -->
+	<definition name="tmp.general" 						path="/tiles/template/tmpGeneral.jsp" >
+		<put name="metaTag" 							value=""/>
+	 	<put name="js" 									value=""/> 
+		<put name="header" 								value="cmp.header.general"/>
+		<put name="body"								value=""/>
+		<put name="estilos" 							value="/tiles/elemento/estilos.jsp"/>
+		<put name="footer" 								value="/tiles/elemento/footer.jsp"/>
+	</definition>
+	<!-- *** FIN TEMPLATE.GENERAL **** -->
+
+
+	<!-- *** TEMPLATE CON MENU DERECHO ***(tmp.body.menu.derecho) -->
+    <definition name="cmp.tmp.body.mnuDcho" 			path= "/tiles/template/cmpTmpBodyMnuDcho.jsp">
+    	<put name="body.contenido" 						value=""/>
+    	<put name="body.mnuDcho" 						value="/tiles/elemento/mnuDcho.jsp"/>
+	</definition>
+
+	<!-- *** body con todos los modulos ***  -->
+	<definition name="cmp.seccion.modulo" 				path= "/tiles/template/cmpBodySeccionModulo.jsp">
+		<put name="mesa" 								value="/tiles/elemento/mesa.jsp"/>
+		<put name="arbol"								value="/tiles/elemento/arbol.jsp"/>
+		<put name="comentario"							value="/tiles/elemento/comentario.jsp"/>
+		<put name="lista" 								value="/tiles/elemento/lista.jsp"/>
+		<put name="usuario"								value="/tiles/elemento/usuario.jsp"/>
+		<put name="etiqueta"							value="/tiles/elemento/etiqueta.jsp"/>
+	</definition>
+	<!-- *** fin de body con todos los modulo *** -->
+	
+	<!-- HOME -->
+	<!--*** definicion del home.inicio con su body.seccion.modulo ***-->
+	<definition name="cmp.js.inicio" 					extends="cmp.js">
+    	<put name="js.particular" 						value="/tiles/elemento/inicio/jsSeccionInicio.jsp"/>
+	</definition>
+    <definition name="body.seccion.inicio" 				extends="cmp.tmp.body.mnuDcho">
+    	<put name="body.contenido" 						value="cmp.seccion.modulo"/>
+	</definition>
+    <definition name="seccion.inicio" 					extends="tmp.general">
+    	<put name="estilos" 							value="/tiles/elemento/inicio/estilosInicio.jsp"/>
+    	<put name="js" 									value="/tiles/elemento/inicio/jsSeccionInicio.jsp"/>    	
+    	<put name="metaTag" 							value="/tiles/elemento/inicio/metaTag.jsp"/>
+		<put name="body" 								value="body.seccion.inicio"/>		
+	</definition>
+
+	<!-- *** fin de home.seccion *** -->
+
+	<!-- DEFINIICON DE LA TMP CON MENU IZQ y DER-->
+	<definition name="cmp.tmp.body.biMnu" 				path="/tiles/template/cmpTmpBodyBiMnu.jsp">
+		<put name="body.mnuIzq"							value="/tiles/elemento/mnuIzq.jsp"/>
+    	<put name="body.contenido" 						value=""/>
+    	<put name="body.mnuDcho" 						value="/tiles/elemento/mnuDcho.jsp"/>
+    </definition>
+	<definition name="body.seccion.general"				extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 						value="cmp.seccion.modulo"/>
+	</definition>
+	<definition name="seccion.general" 					extends="tmp.general">
+   		<put name="body" 								value="body.seccion.general"/>
+	</definition>
+
+	<!--*** deficion del componente donde defino la mesa y el arbol que utilizan las secciones ***-->
+	<definition name="cmp.seccion.seccion" 				path= "/tiles/template/cmpBodySeccionSeccion.jsp">
+		<put name="mesa" 								value=""/>
+		<put name="arbol"								value="/tiles/elemento/arbol.jsp"/>
+		<put name="comentario"							value="/tiles/elemento/comentarioSeccion.jsp"/>
+		<put name="lista"								value="/tiles/elemento/listaSeccion.jsp"/>
+		<put name="usuario"								value="/tiles/elemento/usuarioSeccion.jsp"/>
+		<put name="etiqueta"							value="/tiles/elemento/etiquetaSeccion.jsp"/>
+	</definition>
+	<!-- CREADOS PARA EL CATALOGO -->
+	<!-- js para catalogo -->
+	<definition name="cmp.js.catalogo" 					extends="cmp.js">
+    	<put name="js.particular" 						value="/tiles/elemento/js/jsSeccionConCatalogo.jsp"/>
+	</definition>
+	<definition name="cmp.seccion.catalogo" 			path= "/tiles/template/cmpBodySeccionCatalogo.jsp">
+		<put name="mesa" 								value="/tiles/elemento/mesaSeccion.jsp"/>
+		<put name="arbol"								value="/tiles/elemento/arbol.jsp"/>
+		<put name="comentario"							value="/tiles/elemento/comentarioSeccion.jsp"/>
+		<put name="lista"								value="/tiles/elemento/listaSeccion.jsp"/>
+		<put name="usuario"								value="/tiles/elemento/usuarioSeccion.jsp"/>
+		<put name="etiqueta"							value="/tiles/elemento/etiquetaSeccion.jsp"/>
+		<put name="catalogo" 							value="/tiles/elemento/categorias/verFamilia.jsp"/>
+	</definition>
+	<!--<definition name="cmp.body.modulo.catalogo" 		extends="cmp.seccion.catalogo">
+		<put name="mesa" 								value="/tiles/elemento/mesaSeccion.jsp"/>
+  		<put name="catalogo" 							value="/tiles/elemento/categorias/verFamilia.jsp"/>
+	</definition>-->
+    <definition name="body.catalogo"					extends="cmp.tmp.body.biMnu"><!-- cmp.tmp.body.biMnu -->
+    	<put name="body.contenido" 						value="cmp.seccion.catalogo"/><!-- cmp.body.modulo.catalogo -->
+	</definition>
+	<definition name="seccion.general.catalogo" 		extends="tmp.general">
+		<put name="js" 									value="cmp.js.catalogo"/>
+		<put name="metaTag" 							value="/tiles/elemento/comunSeccion/metaTag.jsp"/>
+   		<put name="body" 								value="body.catalogo"/>
+	</definition>
+	<!-- FIN DEFINICION CATALOGO -->
+
+	<!-- *** extiende del modulo que contienen todas las componentes y se sobre escribo la mesa *** -->
+	<definition name="cmp.js.inicio.seccion" 			extends="cmp.js">
+    	<put name="js.particular" 						value="/tiles/elemento/inicio/jsSeccionInicio.jsp"/>
+	</definition>
+	<definition name="cmp.body.modulo.secciones" 		extends="cmp.seccion.seccion">
+		<put name="mesa" 								value="/tiles/elemento/mesaSeccion.jsp"/>
+	</definition>
+	<definition name="body.secciones"					extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 						value="cmp.body.modulo.secciones"/>
+	</definition>
+	<!--*** DEFICION QUE USAN TODAS LAS INDEX DE SECCIONES (libros, musica, pasatiempos, peliculas)***-->
+	<!-- original -->
+	<!-- <definition name="seccion.general.seccion" 			extends="tmp.general">
+		<put name="metaTag" 							value="/tiles/elemento/comunSeccion/metaTag.jsp"/>
+   		<put name="body" 								value="body.secciones"/>
+	</definition>-->
+	<!-- DEFINICIONES NUEVAS PARA LOS JS -->
+	<!-- js de comun a todas las secciones-->
+	<definition name="cmp.js.secciones" 				extends="cmp.js">
+    	<put name="js.particular" 						value="/tiles/elemento/js/jsSecciones.jsp"/>
+	</definition>
+	<definition name="seccion.general.libros" 			extends="tmp.general">
+		<put name="js" 									value="cmp.js.secciones" />
+		<put name="metaTag" 							value="/tiles/elemento/comunSeccion/metaTag.jsp"/>
+   		<put name="body" 								value="body.secciones"/>
+	</definition>
+	<definition name="seccion.general.musica" 			extends="tmp.general">
+		<put name="js" 									value="cmp.js.secciones" />
+		<put name="metaTag" 							value="/tiles/elemento/comunSeccion/metaTag.jsp"/>
+   		<put name="body" 								value="body.secciones"/>
+	</definition>
+	<definition name="seccion.general.peliculas" 		extends="tmp.general">
+		<put name="js" 									value="cmp.js.secciones" />
+		<put name="metaTag" 							value="/tiles/elemento/comunSeccion/metaTag.jsp"/>
+   		<put name="body" 								value="body.secciones"/>
+	</definition>
+	<definition name="seccion.general.pasatiempos" 		extends="tmp.general">
+		<put name="js" 									value="cmp.js.secciones" />
+		<put name="metaTag" 							value="/tiles/elemento/comunSeccion/metaTag.jsp"/>
+   		<put name="body" 								value="body.secciones"/>
+	</definition>
+
+	<!-- DEFINICION DE EXTRA (todas las secciones dentro de extra) -->
+	<definition name="cmp.js.extra" 					extends="cmp.js">
+    	<put name="js.particular" 						value="/tiles/elemento/js/jsExtra.jsp"/>
+	</definition>	
+	<!-- eXtra Inicio -->
+	<definition name="seccion.extra.inicio" 			extends="tmp.general">
+		<put name="js" 									value="cmp.js.extra"/>
+		<put name="metaTag" 							value="/tiles/elemento/extra/metaTagInicio.jsp"/>
+   		<put name="body" 								value="body.extra.inicio"/>
+	</definition>
+	<definition name="body.extra.inicio"				extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 						value="/tiles/elemento/extra/inicio.jsp"/>
+	</definition>
+	<!-- eXtra Beneficios -->
+	<definition name="seccion.extra.beneficios" 		extends="tmp.general">
+		<put name="js" 									value="cmp.js.extra"/>
+		<put name="metaTag" 							value="/tiles/elemento/extra/metaTagBeneficios.jsp"/>
+   		<put name="body" 								value="body.extra.beneficios"/>
+	</definition>
+	<definition name="body.extra.beneficios"			extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 						value="/tiles/elemento/extra/beneficios.jsp"/>
+	</definition>
+	<!-- eXtra Catalogo -->
+	<definition name="seccion.extra.catalogo" 			extends="tmp.general">
+		<put name="js" 									value="cmp.js.extra"/>
+		<put name="metaTag" 							value="/tiles/elemento/extra/metaTagCatalogo.jsp"/>
+   		<put name="body" 								value="body.extra.catalogo"/>
+	</definition>
+	<definition name="body.extra.catalogo"				extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 						value="/tiles/elemento/extra/catalogo.jsp"/>
+	</definition>
+	<!-- eXtra Consulta Puntos -->
+	<definition name="seccion.extra.puntos" 			extends="tmp.general">
+		<put name="js" 									value="cmp.js.extra"/>
+		<put name="metaTag" 							value="/tiles/elemento/extra/metaTagPuntos.jsp"/>
+   		<put name="body" 								value="body.extra.puntos"/>
+	</definition>
+	<definition name="body.extra.puntos"				extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 						value="/tiles/elemento/extra/puntos.jsp"/>
+	</definition>
+	<!-- eXtra puntos -->
+	<definition name="seccion.extra.responsePuntos" 	extends="tmp.general">
+		<put name="js" 									value="cmp.js.extra"/>
+		<put name="metaTag" 							value="/tiles/elemento/extra/metaTagPuntos.jsp"/>
+   		<put name="body" 								value="body.extra.responsePuntos"/>
+	</definition>
+	<definition name="body.extra.responsePuntos"		extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 						value="/tiles/elemento/extra/responsePuntos.jsp"/>
+	</definition>
+	<!-- eXtra Preguntas Frecuentes -->
+	<definition name="seccion.extra.preguntasFrecuentes" 	extends="tmp.general">
+		<put name="js" 										value="cmp.js.extra"/>
+		<put name="metaTag" 								value="/tiles/elemento/extra/metaTagPreguntasFrecuentes.jsp"/>
+   		<put name="body" 									value="body.extra.preguntasFrecuentes"/>
+	</definition>
+	<definition name="body.extra.preguntasFrecuentes"		extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 							value="/tiles/elemento/extra/preguntasFrecuentes.jsp"/>
+	</definition>
+	<!-- eXtra Reglamento -->
+	<definition name="seccion.extra.reglamento" 			extends="tmp.general">
+		<put name="js" 										value="cmp.js.extra"/>
+		<put name="metaTag" 								value="/tiles/elemento/extra/metaTagReglamento.jsp"/>
+   		<put name="body" 									value="body.extra.reglamento"/>
+	</definition>
+	<definition name="body.extra.reglamento"				extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 							value="/tiles/elemento/extra/reglamento.jsp"/>
+	</definition>
+	<!-- eXtra Actualizacion -->
+	<definition name="seccion.extra.actualizaTusDatos" 		extends="tmp.general">
+		<put name="js" 										value="cmp.js.extra"/>
+		<put name="metaTag" 								value="/tiles/elemento/extra/metaTagActualizaTusDatos.jsp"/>
+   		<put name="body" 									value="body.extra.actualizaTusDatos"/>
+	</definition>
+	<definition name="body.extra.actualizaTusDatos"			extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 							value="/tiles/elemento/extra/actualizaTusDatos.jsp"/>
+	</definition>
+	<!-- FIN DE DEFINICIONES DE EXTRA -->
+
+	<!--Quid-->
+	<definition name="cmp.body.quid" 						path="/tiles/elemento/cmpBodyQS.jsp">
+   		<put name="body"									value="/tiles/elemento/quid.jsp"/>
+	</definition>
+	<definition name="body.quid"							extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 							value="cmp.body.quid"/>
+	</definition>
+	<definition name="seccion.quid" 						extends="tmp.general">
+		<put name="js" 										value="/tiles/elemento/js/jsSucyQuid.jsp"/>
+		<put name="metaTag" 								value="/tiles/elemento/quid/metaTag.jsp"/>
+	   	<put name="body" 									value="body.quid"/>
+	</definition>
+
+	<!--Sucursales-->
+	<definition name="cmp.body.sucursales" 					path="/tiles/elemento/cmpBodyS.jsp">
+   		<put name="body"									value="/tiles/elemento/sucursales/sucursales.jsp"/>
+	</definition>
+	<definition name="body.sucursales"						extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 							value="cmp.body.sucursales"/>
+	</definition>
+	<definition name="seccion.sucursales" 					extends="tmp.general">
+		<put name="js" 										value="/tiles/elemento/js/jsSucyQuid.jsp"/>
+		<put name="metaTag" 								value="/tiles/elemento/sucursales/metaTag.jsp"/>
+   		<put name="body" 									value="body.sucursales"/>
+	</definition>
+
+	<!--*** DETALLES nuevo*** -->
+	<!-- js usados por el detalle actual y el nuevo no hace falta otro nuevo -->  
+	<definition name="cmp.js.detalle.articulo" 		extends="cmp.js">
+    	<put name="js.particular" 					value="/tiles/elemento/js/jsDetalleArticulo.jsp"/>
+	</definition>
+	<definition name="cmp.seccion.detalle2" 		path= "/tiles/template/cmpBodySeccionDetalle.jsp">
+		<put name="body"							value="/tiles/elemento/detalle/detalleNuevo.jsp"/>			
+	</definition>	
+	<definition name="body.detalle2"				extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 					value="cmp.seccion.detalle2"/>
+	</definition>	
+	<!-- detalle.jsp  o por urlrewrite.xml -->
+	<definition name="seccion.detalle.articulo2" 	extends="tmp.general">
+		<put name="js" 								value="cmp.js.detalle.articulo"/>
+		<put name="metaTag" 						value="/tiles/elemento/detalle/metaTagDetalleNuevo.jsp"/>
+   		<put name="body" 							value="body.detalle2"/>
+	</definition>
+	<!--**** FIN DETALLES ****-->
+
+	<!-- DETALLES ACTUAL -->
+	<!-- 
+	<definition name="cmp.body.detalle" 			path ="/tiles/template/cmpBodyDetalle.jsp">
+		<put name="arbol" 							value="/tiles/elemento/arbol.jsp"/>
+		<put name="body" 							value="/tiles/elemento/detalle/detalle.jsp"/>
+	</definition>
+	<definition name="body.detalle" 				extends ="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 					value="cmp.body.detalle"/>
+	</definition>
+	<definition name="seccion.detalleArticulo" 		extends="tmp.general">
+		<put name="js" 								value="cmp.js.detalle.articulo"/>
+		<put name="metaTag" 						value="/tiles/elemento/detalle/metaTagDetalle.jsp"/>
+		<put name="body" 							value="body.detalle"/>
+	</definition>
+	-->
+	<!-- FIN DETALLES -->
+
+	<!-- DETALLES BIOGRAFIA -->
+	<!-- 
+	<definition name="cmp.body.biografia" 			path ="/tiles/template/cmpBodyDetalle.jsp">
+		<put name="arbol" 							value="/tiles/elemento/arbol.jsp"/>
+		<put name="body" 							value="/tiles/elemento/detalle/biografia.jsp"/>
+	</definition>
+	<definition name="body.biografia" 				extends ="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 					value="cmp.body.biografia"/>
+	</definition>	
+	<definition name="seccion.biografiaArticulo" 	extends="tmp.general">
+		<put name="js" 								value="cmp.js.detalle.articulo"/>
+		<put name="metaTag" 						value="/tiles/elemento/detalle/metaTagBiografia.jsp"/>
+		<put name="body" 							value="body.biografia"/>
+	</definition>
+	-->
+	<!-- FIN DETALLES BIOGRAFIA -->
+
+	<!-- DETALLES PRIMER CAPITULO -->
+	<!--
+	<definition name="cmp.body.primerCapitulo" 			path ="/tiles/template/cmpBodyDetalle.jsp">
+		<put name="arbol" 								value="/tiles/elemento/arbol.jsp"/>
+		<put name="body" 								value="/tiles/elemento/detalle/primerCapitulo.jsp"/>
+	</definition>
+	<definition name="body.primerCapitulo" 				extends ="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 						value="cmp.body.primerCapitulo"/>
+	</definition>
+	<definition name="seccion.primerCapituloArticulo" 	extends="tmp.general">
+		<put name="js" 									value="cmp.js.detalle.articulo"/>
+		<put name="metaTag" 							value="/tiles/elemento/detalle/metaTagPrimerCapitulo.jsp"/>
+		<put name="body" 								value="body.primerCapitulo"/>
+	</definition>
+	-->
+	<!-- FIN DETALLES PRIMER CAPITULO -->
+
+	<!-- DETALLES INDICE DE CONTENIDOS -->
+	<!--
+	<definition name="cmp.body.indiceDeContenidos" 			path ="/tiles/template/cmpBodyDetalle.jsp">
+		<put name="arbol" 									value="/tiles/elemento/arbol.jsp"/>
+		<put name="body" 									value="/tiles/elemento/detalle/indiceDeContenidos.jsp"/>
+	</definition>
+	<definition name="body.indiceDeContenidos" 				extends ="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 							value="cmp.body.indiceDeContenidos"/>
+	</definition>
+	<definition name="seccion.indiceDeContenidosArticulo" 	extends="tmp.general">
+		<put name="js" 										value="/tiles/elemento/js/jsSucyQuid.jsp"/>
+		<put name="metaTag" 								value="/tiles/elemento/detalle/metaTagIndiceDeContenidos.jsp"/>
+		<put name="body" 									value="body.indiceDeContenidos"/>
+	</definition>
+	-->
+	<!-- FIN DETALLES INDICE DE CONTENIDOS -->
+
+	<!-- DETALLES ENTREVISTAS -->
+	<!--
+	<definition name="cmp.body.entrevistas" 				path ="/tiles/template/cmpBodyDetalle.jsp">
+		<put name="arbol" 									value="/tiles/elemento/arbol.jsp"/>
+		<put name="body" 									value="/tiles/elemento/detalle/entrevistas.jsp"/>
+	</definition>
+	<definition name="body.entrevistas" 					extends ="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 							value="cmp.body.entrevistas"/>
+	</definition>
+	<definition name="seccion.entrevistasArticulo" 			extends="tmp.general">
+		<put name="js" 										value="cmp.js.detalle.articulo"/>
+		<put name="metaTag" 								value="/tiles/elemento/detalle/metaTagEntrevistas.jsp"/>
+		<put name="body" 									value="body.entrevistas"/>
+	</definition>
+	-->
+	<!-- FIN DETALLES ENTREVISTAS -->
+
+	<!-- DETALLES NOTAS DE PRENSA -->
+	<!--
+	<definition name="cmp.body.notasDePrensa" 			path ="/tiles/template/cmpBodyDetalle.jsp">
+		<put name="arbol" 								value="/tiles/elemento/arbol.jsp"/>
+		<put name="body" 								value="/tiles/elemento/detalle/notasDePrensa.jsp"/>
+	</definition>
+	<definition name="body.notasDePrensa" 				extends ="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 						value="cmp.body.notasDePrensa"/>
+	</definition>
+	<definition name="seccion.notasDePrensaArticulo" 	extends="tmp.general">
+		<put name="js" 									value="/tiles/elemento/js/jsSucyQuid.jsp"/>		
+		<put name="metaTag" 							value="/tiles/elemento/detalle/metaTagNotasDePrensa.jsp"/>
+		<put name="body" 								value="body.notasDePrensa"/>
+	</definition>
+	-->
+	<!-- FIN DETALLES NOTAS DE PRENSA -->
+
+	<!-- **** MI CUENTA - REGISTRO DE SOCIOS **** -->
+	<definition name="cmp.js.micuenta" 					extends="cmp.js">
+    	<put name="js.particular" 						value="/tiles/elemento/js/jsMiCuenta.jsp"/>
+	</definition>	
+	<!--<definition name="cmp.body.micuenta.registro" 	path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	<definition name="cmp.body.micuenta.registro" 		path ="/tiles/template/cmpBodySeccionHome.jsp">
+    	<put name="body" 								value="/tiles/elemento/miCuenta/rediseno/registroSocioTMK.jsp"/>
+	</definition>
+	<!--<definition name="body.micuenta.registro"		extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.micuenta.registro"			extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 						value="cmp.body.micuenta.registro"/>
+	</definition>
+	<!-- <definition name="seccion.general.registroTMK" extends="tmp.general">-->
+	<definition name="seccion.general.registroTMK" 		extends="tiles.micuentarediseno">
+		<put name="js" 									value="cmp.js.micuenta"/>
+		<put name="metaTag" 							value="/componentes/comunes/metaTag.jsp"/>
+   		<put name="body" 								value="body.micuenta.registro"/>
+	</definition>
+	<!-- **** MI CUENTA - REGISTRO EXITOSO **** -->
+	<!-- <definition name="cmp.body.micuenta.registro.ok" 	path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	<definition name="cmp.body.micuenta.registro.ok" 	path ="/tiles/template/cmpBodySeccionHome.jsp">
+    	<put name="body" 								value="/tiles/elemento/miCuenta/rediseno/registroSocioTMKExitoso.jsp"/>
+	</definition>
+	<!-- <definition name="body.micuenta.registro.ok"		extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.micuenta.registro.ok"		extends="cmp.tmp.body.mnuDcho">
+			<put name="body.contenido" 					value="cmp.body.micuenta.registro.ok"/>
+	</definition>
+	<!-- <definition name="seccion.general.registrotmk.ok" 	extends="tmp.general">-->
+	<definition name="seccion.general.registrotmk.ok" 	extends="tiles.micuentarediseno">
+		<put name="js" 									value="cmp.js.micuenta"/>
+   		<put name="metaTag" 							value="/componentes/comunes/metaTag.jsp"/>
+   		<put name="body" 								value="body.micuenta.registro.ok"/>
+	</definition>		
+	<!--*** MI CUENTA LOGIN-->
+	<!-- <definition name="cmp.seccion.login" 			path= "/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	<definition name="cmp.seccion.login" 				path= "/tiles/template/cmpBodyMarcoHome.jsp">
+		<put name="body"								value="/tiles/elemento/miCuenta/body.jsp"></put>
+	</definition>
+	<definition name="body.login"						extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 						value="cmp.seccion.login"/>
+	</definition>
+	<!-- <definition name="seccion.general.micuenta" 	extends="tmp.general">-->
+	<definition name="seccion.general.micuenta" 		extends="tiles.marco.rediseno">	
+		<put name="js" 									value="cmp.js.micuenta"/>
+   		<put name="metaTag" 							value="/tiles/elemento/miCuenta/metatags/metaTagMiCuenta.jsp"/>
+   		<put name="body" 								value="body.login"/>
+	</definition>
+	<!-- **** MI CUENTA - MODIFICAR DATOS (2)**** -->
+	<definition name="cmp.body.micuenta.modificar" 		path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">
+   		<put name="body" 								value="/miCuenta/modificarSocioPage.jsp"/>
+	</definition>
+	<definition name="body.micuenta.modificar"			extends="cmp.tmp.body.biMnu">
+			<put name="body.contenido" 					value="cmp.body.micuenta.modificar"/>
+	</definition>
+	<definition name="seccion.general.modificar.datos" 	extends="tmp.general">
+		<put name="js" 									value="cmp.js.micuenta"/>
+		<put name="metaTag" 							value="/tiles/elemento/miCuenta/metatags/metaTagDatosPersonales.jsp"/>
+   		<put name="body" 								value="body.micuenta.modificar"/>
+	</definition>
+	<!-- **** MI CUENTA - DOMICILIOS **** -->
+	<!--<definition name="cmp.body.micuenta.domicilio" 		path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	<definition name="cmp.body.micuenta.domicilio" 		path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 								value="/miCuenta/domiciliosOpcion.jsp"/>
+	</definition>
+	<definition name="body.micuenta.domicilio"			extends="cmp.tmp.body.biMnu">
+			<put name="body.contenido" 					value="cmp.body.micuenta.domicilio"/>
+	</definition>
+	<definition name="seccion.general.domicilio" 		extends="tmp.general">
+		<!--<put name="js" 								value="cmp.js.micuenta"/>-->
+		<put name="metaTag" 							value="/tiles/elemento/miCuenta/metatags/metaTagDomicilios.jsp"/>
+   		<put name="body" 								value="body.micuenta.domicilio"/>
+	</definition>
+	<!-- **** MI CUENTA - REGISTRO EXTRA ****-->
+	<!-- <definition name="cmp.body.micuenta.extra.registrar" path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	<definition name="cmp.body.micuenta.extra.registrar" path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 								value="/miCuenta/registroSocioEXtraPage.jsp"/>
+	</definition>
+	<!--<definition name="body.micuenta.extra"			extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.micuenta.extra"				extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 						value="cmp.body.micuenta.extra.registrar"/>
+	</definition>
+	<!-- <definition name="seccion.general.extra.registro" 	extends="tmp.general">-->
+	<definition name="seccion.general.extra.registro" 	extends="tiles.micuentarediseno">
+		<put name="js" 									value="cmp.js.micuenta"/>
+		<put name="metaTag" 							value="/componentes/comunes/metaTag.jsp"/>
+   		<put name="body" 								value="body.micuenta.extra"/>
+	</definition>
+	<!-- **** MI CUENTA - RECUPERAR LA CLAVE **** -->
+	<!--<!-<definition name="cmp.body.micuenta.recuperar" 	path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	<definition name="cmp.body.micuenta.recuperar" 	path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 								value="/tiles/elemento/miCuenta/recuperarClave.jsp"/>
+	</definition>
+	<!--<definition name="body.micuenta.recuperar"			extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.micuenta.recuperar"			extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 						value="cmp.body.micuenta.recuperar"/>
+	</definition>
+	<!-- <definition name="seccion.general.recuperar" 		extends="tmp.general">-->
+	<definition name="seccion.general.recuperar" 		extends="tiles.micuentarediseno">
+		<!-- <put name="js" 									value="cmp.js.micuenta"/>	-->
+		<put name="metaTag" 							value="/tiles/elemento/miCuenta/metaTagRecuperarClave.jsp"/>
+   		<put name="body" 								value="body.micuenta.recuperar"/>
+	</definition>
+	<!-- **** MI CUENTA - VER LISTA DESEO **** -->
+	<!-- <definition name="cmp.body.micuenta.lista.deseo" 	path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	<definition name="cmp.body.micuenta.lista.deseo" 	path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 								value="/miCuenta/verListaPropia.jsp"/>
+	</definition>
+	<!--<definition name="body.micuenta.lista.deseo"	extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.micuenta.lista.deseo"		extends="cmp.tmp.body.mnuDcho">
+			<put name="body.contenido" 					value="cmp.body.micuenta.lista.deseo"/>
+	</definition>
+	<!-- <definition name="seccion.general.lista.deseo" extends="tmp.general">-->
+	<definition name="seccion.general.lista.deseo" 		extends="tiles.micuentarediseno">
+		<!-- <put name="js" 							value="cmp.js.micuenta"/>-->
+		<put name="metaTag" 							value="/tiles/elemento/miCuenta/metatags/metaTagListaDeseos.jsp"/>
+   		<put name="body" 								value="body.micuenta.lista.deseo"/>
+	</definition>
+	
+	<!--  <definition name="cmp.body.micuenta.modificar.lista.deseo" 	path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	 <definition name="cmp.body.micuenta.modificar.lista.deseo" path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/miCuenta/modificarLista.jsp"/>
+	</definition>
+	<!-- <definition name="body.micuenta.modificar.lista.deseo"	extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.micuenta.modificar.lista.deseo"		extends="cmp.tmp.body.mnuDcho">
+			<put name="body.contenido" 							value="cmp.body.micuenta.modificar.lista.deseo"/>
+	</definition>
+	<!-- <definition name="seccion.general.modificar.lista.deseo" 	extends="tmp.general">-->
+	<definition name="seccion.general.modificar.lista.deseo" 	extends="tiles.micuentarediseno">
+		<!-- <put name="js" 									value="cmp.js.micuenta"/>-->
+		<put name="metaTag" 									value="/componentes/comunes/metaTag.jsp"/>
+   		<put name="body" 										value="body.micuenta.modificar.lista.deseo"/>
+	</definition>
+	<!-- **** MI CUENTA - CLAVE ENVIADA **** -->
+	<!--<definition name="cmp.body.micuenta.clave.enviada" 			path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	<definition name="cmp.body.micuenta.clave.enviada" 			path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/tiles/elemento/miCuenta/claveEnviada.jsp"/>
+	</definition>
+	<!-- <definition name="body.micuenta.clave.enviada"				extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.micuenta.clave.enviada"				extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 								value="cmp.body.micuenta.clave.enviada"/>
+	</definition>
+	<!-- <definition name="seccion.general.clave.enviada" 			extends="tmp.general">-->
+	<definition name="seccion.general.clave.enviada" 			extends="tiles.micuentarediseno">
+		<!-- <put name="js" 									value="cmp.js.micuenta"/>-->
+		<put name="metaTag" 									value="/tiles/elemento/miCuenta/metaTagClaveEnviada.jsp"/>
+   		<put name="body" 										value="body.micuenta.clave.enviada"/>
+	</definition>
+	<!-- **** MI CUENTA - AGREGAR DOMICILIO **** -->
+	<!--<definition name="body.micuenta.agregar.domicilio"			extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.micuenta.agregar.domicilio"			extends="cmp.tmp.body.mnuDcho">
+			<put name="body.contenido" 							value="cmp.body.micuenta.domicilio"/>
+	</definition>
+	<!-- <definition name="seccion.general.agregar.domicilio" 		extends="tmp.general">-->
+	<definition name="seccion.general.agregar.domicilio" 		extends="tiles.micuentarediseno">
+		<put name="js" 											value="cmp.js.micuenta"/>
+		<put name="metaTag" 									value="/componentes/comunes/metaTag.jsp"/>
+   		<put name="body" 										value="body.micuenta.agregar.domicilio"/>
+	</definition>
+	<!-- **** MI CUENTA - DIRECCION -ENVIO - LISTA PERSONAL **** -->
+	<!-- <definition name="cmp.body.micuenta.lista" 			path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	<definition name="cmp.body.micuenta.lista" 					path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/miCuenta/domiciliosLista.jsp"/>
+	</definition>
+	<!--<definition name="body.micuenta.lista.direccion.modificar"	extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.micuenta.lista.direccion.modificar"	extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 								value="cmp.body.micuenta.lista"/>
+	</definition>
+	<!-- <definition name="seccion.general.lista.direccion.envio" 	extends="tmp.general">-->
+	<definition name="seccion.general.lista.direccion.envio" 	extends="tiles.micuentarediseno">
+		<!-- <put name="js" 									value="cmp.js.micuenta"/> -->
+		<put name="metaTag" 									value="/tiles/elemento/miCuenta/metatags/metaTagListaDeseos.jsp"/>
+   		<put name="body" 										value="body.micuenta.lista.direccion.modificar"/>
+	</definition>
+	<!-- **** MI CUENTA - REFERIDOS **** -->
+	<!-- referido confirmado -->
+	<definition name="cmp.body.micuenta.referidos.confirmado" 	path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/miCuenta/referidoConfirmado.jsp"/>
+	</definition>
+	<!-- <definition name="body.micuenta.referidos.confirmado"	extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.micuenta.referidos.confirmado"		extends="cmp.tmp.body.mnuDcho">
+			<put name="body.contenido" 							value="cmp.body.micuenta.referidos.confirmado"/>
+	</definition>
+	<!-- <definition name="tiles.micuenta.referidos.confirmado" extends="tmp.general">-->
+	<definition name="tiles.micuenta.referidos.confirmado" 		extends="tiles.micuentarediseno">
+		<!-- <put name="js" 									value="cmp.js.micuenta"/>-->
+		<put name="metaTag" 									value="/tiles/elemento/miCuenta/metatags/metaTagReferidosConfirmado.jsp"/>
+   		<put name="body" 										value="body.micuenta.referidos.confirmado"/>
+	</definition>
+	<!-- consultar referidos -->
+	<!-- <definition name="cmp.body.micuenta.referidos.consultar" 	path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	<definition name="cmp.body.micuenta.referidos.consultar" 	path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/miCuenta/consultaReferido.jsp"/>
+	</definition>
+	<!-- <definition name="body.micuenta.referidos.consultar"	extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.micuenta.referidos.consultar"		extends="cmp.tmp.body.mnuDcho">
+			<put name="body.contenido" 							value="cmp.body.micuenta.referidos.consultar"/>
+	</definition>
+	<!--<definition name="tiles.micuenta.referidos.consultar" 	extends="tmp.general">-->
+	<definition name="tiles.micuenta.referidos.consultar" 		extends="tiles.micuentarediseno">
+		<!-- <put name="js" 									value="cmp.js.micuenta"/>-->
+		<put name="metaTag" 									value="/tiles/elemento/miCuenta/metatags/metaTagReferidosConsultar.jsp"/>
+   		<put name="body" 										value="body.micuenta.referidos.consultar"/>
+	</definition>
+	<!-- agrega referidos -->
+	<!-- <definition name="cmp.body.micuenta.referidos.agregar" path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	<definition name="cmp.body.micuenta.referidos.agregar" 		path ="/tiles/template/cmpBodySeccionHome.jsp">	
+   		<put name="body" 										value="/miCuenta/agregarReferidos.jsp"/>
+	</definition>
+	<!--<definition name="body.micuenta.referidos.agregar"		extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.micuenta.referidos.agregar"			extends="cmp.tmp.body.mnuDcho">
+			<put name="body.contenido" 							value="cmp.body.micuenta.referidos.agregar"/>
+	</definition>
+	<!--<definition name="tiles.micuenta.referidos.agregar" 	extends="tmp.general">-->
+	<definition name="tiles.micuenta.referidos.agregar" 		extends="tiles.micuentarediseno">
+		<!-- <put name="js" 									value="cmp.js.micuenta"/>-->
+		<put name="metaTag" 									value="/tiles/elemento/miCuenta/metatags/metaTagReferidosAgregar.jsp"/>
+   		<put name="body" 										value="body.micuenta.referidos.agregar"/>
+	</definition>
+	<!-- refedidos -->
+	<!-- <definition name="cmp.body.micuenta.referidos" 		path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	<definition name="cmp.body.micuenta.referidos" 				path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/miCuenta/referidos.jsp"/>
+	</definition>
+	<!--<definition name="body.micuenta.lista.referidos"		extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.micuenta.lista.referidos"			extends="cmp.tmp.body.mnuDcho">
+			<put name="body.contenido" 							value="cmp.body.micuenta.referidos"/>
+	</definition>
+	<!-- <definition name="tiles.micuenta.referidos" 			extends="tmp.general">-->
+	<definition name="tiles.micuenta.referidos" 				extends="tiles.micuentarediseno">	
+		<!-- <put name="js" 											value="cmp.js.micuenta"/>-->
+		<put name="metaTag" 									value="/tiles/elemento/miCuenta/metatags/metaTagReferidos.jsp"/>
+   		<put name="body" 										value="body.micuenta.lista.referidos"/>
+	</definition>
+	<!--
+	<definition name="cmp.body.micuenta.referido" 				path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">
+   		<put name="body" 										value="/miCuenta/referidosOpcion.jsp"/>
+	</definition>
+	<definition name="body.micuenta.lista.referido"				extends="cmp.tmp.body.biMnu">
+			<put name="body.contenido" 							value="cmp.body.micuenta.referido"/>
+	</definition>
+	<definition name="seccion.general.referidos" 				extends="tmp.general">
+		<put name="js" 											value="cmp.js.micuenta"/>
+		<put name="metaTag" 									value="/tiles/elemento/miCuenta/metatags/metaTagProgramaReferidos.jsp"/>
+   		<put name="body" 										value="body.micuenta.lista.referido"/>
+	</definition>-->
+	<!-- referido confirmado
+	<definition name="cmp.body.micuenta.referido.confirmado" path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">
+   		<put name="body" 				value="/miCuenta/referidosOpcion.jsp"/>
+	</definition>
+	<definition name="body.micuenta.lista.referido.confirmado"		extends="cmp.tmp.body.biMnu">
+			<put name="body.contenido" 		value="cmp.body.micuenta.referido.confirmado"/>
+	</definition>
+	<definition name="seccion.general.referidos.confirmado" 		extends="tmp.general">
+			<put name="metaTag" 				value="/componentes/comunes/metaTag.jsp"/>
+   		<put name="body" 				value="body.micuenta.lista.referido.confirmados"/>
+	</definition>-->
+	<!-- **** MI CUENTA - TARJETAS **** -->
+	<definition name="cmp.body.micuenta.tarjetas" 				path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">
+   		<put name="body" 										value="/miCuenta/tarjetasOpcion.jsp"/>
+	</definition>
+	<definition name="body.micuenta.lista.tarjetas"				extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.micuenta.tarjetas"/>
+	</definition>
+	<definition name="seccion.general.tarjetas" 				extends="tmp.general">
+		<put name="js" 											value="cmp.js.micuenta"/>
+		<put name="metaTag" 									value="/tiles/elemento/miCuenta/metatags/metaTagTarjetasDeCredito.jsp"/>
+   		<put name="body" 										value="body.micuenta.lista.tarjetas"/>
+	</definition>
+	<!-- **** MI CUENTA - PROMOCIONES HISTORICAS **** (13)-->
+	<!--
+	<definition name="cmp.body.micuenta.promociones.historicas" path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">
+   		<put name="body" 										value="/miCuenta/promocionesHistoricasPage.jsp"/>
+	</definition>
+	<definition name="body.micuenta.promociones.historicas"		extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.micuenta.promociones.historicas"/>
+	</definition>
+	<definition name="seccion.general.promo.historicas" 		extends="tmp.general">
+		<put name="js" 											value="cmp.js.micuenta"/>
+		<put name="metaTag" 									value="/componentes/comunes/metaTag.jsp"/>
+   		<put name="body" 										value="body.micuenta.promociones.historicas"/>
+	</definition>
+	-->
+	<!-- **** MI CUENTA - MIS ORDENES**** -->
+	<definition name="cmp.body.micuenta.mis.ordenes" 			path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">
+   		<put name="body" 										value="/miCuenta/misOrdenes.jsp"/>
+	</definition>
+	<definition name="body.micuenta.mis.ordenes"				extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.micuenta.mis.ordenes"/>
+	</definition>
+	<definition name="seccion.general.mis.ordenes" 				extends="tmp.general">
+		<put name="js" 											value="cmp.js.micuenta"/>
+		<put name="metaTag" 									value="/componentes/comunes/metaTag.jsp"/>
+   		<put name="body" 										value="body.micuenta.mis.ordenes"/>
+	</definition>
+	<!-- **** MI CUENTA - MODIFICAR LOS DOMICILIOS DE LA LISTA DE DESO (15)**** -->
+	<!-- <definition name="cmp.body.micuenta.mod.lista.deseo" 		path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	<definition name="cmp.body.micuenta.mod.lista.deseo" 		path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/miCuenta/modificarDomicilioDeseo.jsp"/>
+	</definition>
+	<!--<definition name="body.micuenta.mod.lista.deseo"		extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.micuenta.mod.lista.deseo"			extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 								value="cmp.body.micuenta.mod.lista.deseo"/>
+	</definition>
+	<!--<definition name="seccion.general.modificar.domicilio.deseo" extends="tmp.general">-->
+	<definition name="seccion.general.modificar.domicilio.deseo" extends="tiles.micuentarediseno">
+		<!-- <put name="js" 									value="cmp.js.micuenta"/>-->
+		<put name="metaTag" 									value="/componentes/comunes/metaTag.jsp"/>
+   		<put name="body" 										value="body.micuenta.mod.lista.deseo"/>
+	</definition>
+	<!-- **** MI CUENTA - ENVIAR CORREO **** -->
+	<!-- <definition name="cmp.body.micuenta.enviar.correo" 	path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	<definition name="cmp.body.micuenta.enviar.correo" 			path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/miCuenta/enviarCorreo.jsp"/>
+	</definition>
+	<!-- <definition name="body.micuenta.enviar.correo"			extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.micuenta.enviar.correo"				extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 								value="cmp.body.micuenta.enviar.correo"/>
+	</definition>
+	<!--<definition name="seccion.general.enviar.correo" 		extends="tmp.general">-->
+	<definition name="seccion.general.enviar.correo" 			extends="tiles.micuentarediseno">
+		<!-- <put name="js" 									value="cmp.js.micuenta"/>-->
+		<put name="metaTag" 									value="/tiles/elemento/miCuenta/metatags/metaTagListaDeseos.jsp"/>
+   		<put name="body" 										value="body.micuenta.enviar.correo"/>
+	</definition>
+<!-- **** MI CUENTA - REGISTRO SOCIO CADENA **** -->
+	<!--
+	<definition name="seccion.general.registro.cadena" 			extends="tmp.general">
+		<put name="js" 											value="cmp.js.micuenta"/>
+		<put name="metaTag" 									value="/componentes/comunes/metaTag.jsp"/>
+   		<put name="body" 										value="body.micuenta.registro.cadena"/>
+	</definition>
+	<definition name="body.micuenta.registro.cadena"			extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.micuenta.registro.cadena"/>
+	</definition>
+	<definition name="cmp.body.micuenta.registro.cadena" 		path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">
+   		<put name="body" 										value="/miCuenta/comunes/registroSocioCadena.jsp"/>
+	</definition>
+	-->
+	
+	<!-- **** PROCESO DE COMPARA DESDE DARLE AL BOTON COMPRAR HASTA MENSAJE DE CONFIRMACION  **** -->
+	<definition name="cmp.js.proceso.compra" 					extends="cmp.js">
+    	<put name="js.particular" 								value="/tiles/elemento/js/jsMiCuenta.jsp"/>
+	</definition>	
+	<!-- **** CARRITO ANTES DE PAPEL DE REGALO ****-->
+	<definition name="cmp.body.compra.carrito" 					path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">
+   		<put name="body" 										value="/tiles/elemento/carrito.jsp"/>
+	</definition>
+	<definition name="body.compra.carrito"						extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.compra.carrito"/>
+	</definition>
+	<definition name="seccion.general.compra.carrito" 			extends="tmp.general">
+		<put name="js" 											value="cmp.js.proceso.compra"/>
+		<put name="metaTag" 									value="/tiles/elemento/compra/metaTag.jsp"/>
+   		<put name="body" 										value="body.compra.carrito"/>
+	</definition>
+	<!-- **** MEDIOS DE COBRO ****-->
+	<definition name="cmp.body.compra.medio.cobro" 				path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">
+   		<put name="body" 										value="/tiles/elemento/compra/mediosDeCobro.jsp"/>
+	</definition>
+	<definition name="body.compra.medio.cobro"					extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.compra.medio.cobro"/>
+	</definition>
+	<definition name="seccion.general.compra.medio.cobro" 		extends="tmp.general">
+		<put name="js" 											value="cmp.js.proceso.compra"/>
+		<put name="metaTag" 									value="/tiles/elemento/compra/metaTag.jsp"/>
+   		<put name="body" 										value="body.compra.medio.cobro"/>
+	</definition>
+	<!-- **** AGREGAR DOMICILIOS ****-->
+	<definition name="cmp.body.compra.agregar.domicilio" 		path ="/tiles/template/cmpBodyContenidoMiCuentaCompra.jsp">
+   		<put name="body" 										value="/tiles/elemento/compra/agregarDomicilio.jsp"/>
+	</definition>
+	<definition name="body.compra.agregar.domicilio"			extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.compra.agregar.domicilio"/>
+	</definition>
+	<definition name="seccion.general.compra.agregar.domicilio" extends="tmp.general">
+		<put name="js" 											value="cmp.js.proceso.compra"/>
+		<put name="metaTag" 									value="/tiles/elemento/compra/metaTag.jsp"/>
+   		<put name="body" 										value="body.compra.agregar.domicilio"/>
+	</definition>	
+	<!-- **** PAPEL DE REGALO ****-->
+	<definition name="cmp.body.compra.papel.regalo" 			path ="/tiles/template/cmpBodyContenidoMiCuentaCompra.jsp">
+   		<put name="body" 										value="/tiles/elemento/compra/papelDeRegalo.jsp"/>
+	</definition>
+	<definition name="body.compra.papel.regalo"					extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.compra.papel.regalo"/>
+	</definition>
+	<definition name="seccion.general.compra.papel.regalo" 		extends="tmp.general">
+		<put name="js" 											value="cmp.js.proceso.compra"/>
+		<put name="metaTag" 									value="/tiles/elemento/compra/metaTag.jsp"/>
+   		<put name="body" 										value="body.compra.papel.regalo"/>
+	</definition>
+	<!-- **** DOMICILIO ****-->
+	<definition name="cmp.body.compra.domicilio" 				path ="/tiles/template/cmpBodyContenidoMiCuentaCompra.jsp">
+   		<put name="body" 										value="/tiles/elemento/compra/domicilios.jsp"/>
+	</definition>
+	<definition name="body.compra.domicilio"					extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.compra.domicilio"/>
+	</definition>
+	<definition name="seccion.general.compra.domicilio" 		extends="tmp.general">
+		<put name="js" 											value="cmp.js.proceso.compra"/>
+		<put name="metaTag" 									value="/tiles/elemento/compra/metaTag.jsp"/>
+   		<put name="body" 										value="body.compra.domicilio"/>
+	</definition>
+	<!-- **** MODIFICAR DOMICILIO ****-->
+	<definition name="cmp.body.compra.modificar.domicilio" 		path ="/tiles/template/cmpBodyContenidoMiCuentaCompra.jsp">
+   		<put name="body" 										value="/tiles/elemento/compra/modificarDomicilio.jsp"/>
+	</definition>
+	<definition name="body.compra.modificar.domicilio"			extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.compra.modificar.domicilio"/>
+	</definition>
+	<definition name="seccion.general.compra.modificar.domicilio" 	extends="tmp.general">
+		<put name="js" 											value="cmp.js.proceso.compra"/>
+		<put name="metaTag" 									value="/tiles/elemento/compra/metaTag.jsp"/>
+   		<put name="body" 										value="body.compra.modificar.domicilio"/>
+	</definition>
+	<!-- **** MEDIO DE COBRO ****-->
+	<definition name="cmp.body.compra.cobro" 					path ="/tiles/template/cmpBodyContenidoMiCuentaCompra.jsp">
+   		<put name="body" 										value="/tiles/elemento/compra/medioDeCobro.jsp"/>
+	</definition>
+	<definition name="body.compra.cobro"						extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.compra.cobro"/>
+	</definition>
+	<definition name="seccion.general.compra.cobro" 			extends="tmp.general">
+		<put name="js" 											value="cmp.js.proceso.compra"/>
+		<put name="metaTag" 									value="/tiles/elemento/compra/metaTag.jsp"/>
+   		<put name="body" 										value="body.compra.cobro"/>
+	</definition>
+	<!-- **** CONFIRMACION ****-->
+	<definition name="cmp.body.compra.confirmacion" 			path ="/tiles/template/cmpBodyContenidoMiCuentaCompra.jsp">
+   		<put name="body" 										value="/tiles/elemento/compra/confirmacion.jsp"/>
+	</definition>
+	<definition name="body.compra.confirmacion"					extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.compra.confirmacion"/>
+	</definition>
+	<definition name="seccion.general.compra.confirmacion" 		extends="tmp.general">
+		<put name="js" 											value="cmp.js.proceso.compra"/>
+		<put name="metaTag" 									value="/tiles/elemento/compra/metaTag.jsp"/>
+   		<put name="body" 										value="body.compra.confirmacion"/>
+	</definition>
+	<!-- **** DETALLE DE COMPRA****-->
+	<definition name="cmp.body.compra.detalle" 					path ="/tiles/template/cmpBodyContenidoMiCuentaCompra.jsp">
+   		<put name="body" 										value="/tiles/elemento/compra/detalleDeOrden.jsp"/>
+	</definition>
+	<definition name="body.compra.detalle"						extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.compra.detalle"/>
+	</definition>
+	<definition name="seccion.general.compra.detalle" 			extends="tmp.general">
+		<put name="js" 											value="cmp.js.proceso.compra"/>
+		<put name="metaTag" 									value="/tiles/elemento/compra/metaTag.jsp"/>
+   		<put name="body" 										value="body.compra.detalle"/>
+	</definition>
+	<!-- *** DETALLE DE LA ORDEN (UAN VES GENERADA)*** -->
+	<definition name="cmp.body.compra.detalle.de.orden" 		path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/tiles/elemento/compra/detalleOrden.jsp"/>
+	</definition>
+	<definition name="body.compra.detalle.de.orden"				extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 								value="cmp.body.compra.detalle.de.orden"/>
+	</definition>
+	<definition name="seccion.general.compra.detalleOrden" 		extends="tiles.micuentarediseno">
+		<put name="js" 											value="cmp.js.proceso.compra"/>
+		<!-- <put name="metaTag" 									value="/tiles/elemento/compra/metaTag.jsp"/>-->
+   		<put name="body" 										value="body.compra.detalle.de.orden"/>
+	</definition>
+	<!-- **** COMPRA CON ERRORES -->
+	<definition name="cmp.body.compra.pago.fallas" 				path ="/tiles/template/cmpBodyContenidoMiCuentaCompra.jsp">
+   		<put name="body" 										value="/tiles/elemento/compra/pagoConFallas.jsp"/>
+	</definition>
+	<definition name="body.compra.pago.fallas"					extends="cmp.tmp.body.biMnu">
+			<put name="body.contenido" 							value="cmp.body.compra.pago.fallas"/>
+	</definition>
+	<definition name="seccion.general.compra.pago.fallas" 		extends="tmp.general">
+		<put name="js" 											value="cmp.js.proceso.compra"/>
+		<put name="metaTag" 									value="/tiles/elemento/compra/metaTag.jsp"/>
+   		<put name="body" 										value="body.compra.pago.fallas"/>
+	</definition>
+	<!-- FIN PROCESO DE COMPRA -->
+
+	<!--RSS-->
+	<definition name="seccion.rss" 								extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsSucyQuid.jsp"/>
+		<put name="metaTag" 									value="/tiles/elemento/rss/metaTag.jsp"/>
+   		<put name="body" 										value="body.rss"/>
+	</definition>
+	<definition name="body.rss"									extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="cmp.body.rss"/>
+	</definition>
+	<definition name="cmp.body.rss" 							path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/novedadesRSS.jsp"/>
+	</definition>
+
+	<!--CONOZCANOS-->
+	<!--
+	<definition name="seccion.conozcanos" 						extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsSucyQuid.jsp"/>
+		<put name="metaTag" 									value="/tiles/elemento/institucional/metaTagInstitucional.jsp"/>
+   		<put name="body" 										value="body.conozcanos"/>
+	</definition>
+	<definition name="body.conozcanos"							extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="cmp.body.conozcanos"/>
+	</definition>
+	<definition name="cmp.body.conozcanos" 						path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/institucional/conozcanos.jsp"/>
+	</definition>
+	-->
+	<!--PRENSA-->
+	<!-- 
+	<definition name="seccion.prensa" 							extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsSucyQuid.jsp"/>
+   		<put name="metaTag" 									value="/tiles/elemento/institucional/metaTagPrensa.jsp"/>
+   		<put name="body" 										value="body.prensa"/>
+	</definition>
+	<definition name="body.prensa"								extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="cmp.body.prensa"/>
+	</definition>
+	<definition name="cmp.body.prensa" 							path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/institucional/prensa.jsp"/>
+	</definition>
+	-->
+	<!--CLIENTES INSTITUCIONALES-->
+	<definition name="seccion.clienteInstitucional.form" 		extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsSucyQuid.jsp"/>
+   		<put name="metaTag" 									value="/tiles/elemento/institucional/metaTagClienteInstitucionalForm.jsp"/>
+   		<put name="body" 										value="body.clienteInstitucional.form"/>
+	</definition>
+	<definition name="body.clienteInstitucional.form"			extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="cmp.body.clienteInstitucional.form"/>
+	</definition>
+	<definition name="cmp.body.clienteInstitucional.form" 		path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/institucional/clientesInstitucionales.jsp"/>
+	</definition>
+
+	<definition name="seccion.clienteInstitucional.enviado" 	extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsSucyQuid.jsp"/>
+   		<put name="metaTag" 									value="/tiles/elemento/institucional/metaTagClienteInstitucionalForm.jsp"/>
+   		<put name="body" 										value="body.clienteInstitucional.enviado"/>
+	</definition>
+	<definition name="body.clienteInstitucional.enviado"		extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="cmp.body.clienteInstitucional.enviado"/>
+	</definition>
+	<definition name="cmp.body.clienteInstitucional.enviado" 	path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/institucional/clientesInstitucionalesConfirmado.jsp"/>
+	</definition>
+
+	<!--AYUDA-->
+	<definition name="seccion.ayuda" 							extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsSucyQuid.jsp"/>
+		<put name="metaTag" 									value="/tiles/elemento/ayuda/metaTag.jsp"/>
+   		<put name="body" 										value="body.ayuda"/>
+	</definition>
+	<definition name="body.ayuda"								extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="cmp.body.ayuda"/>
+	</definition>
+	<definition name="cmp.body.ayuda" 							path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/ayuda/ayudaEstandar.jsp"/>
+	</definition>
+
+	<!--Empleo-->
+	<!-- <definition name="seccion.empleo.form" 						extends="tmp.general">-->
+	<definition name="seccion.empleo.form" 						extends="tiles.micuentarediseno">
+		<put name="js" 											value="/tiles/elemento/js/jsEmpleo.jsp"/>
+   		<put name="metaTag" 									value="/tiles/elemento/empleo/metaTag.jsp"/>
+   		<put name="body" 										value="body.empleo.form"/>
+	</definition>
+	<definition name="body.empleo.form"							extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="cmp.body.empleo.form"/>
+	</definition>
+	<!-- <definition name="cmp.body.empleo.form" 				path ="/tiles/template/cmpBodyContenidoGeneral.jsp">-->
+	<definition name="cmp.body.empleo.form" 					path ="/tiles/template/cmpBodyMarcoHome.jsp">
+   		<put name="body" 										value="/tiles/elemento/empleo/empleo.jsp"/>
+	</definition>
+
+	<!--Servicio al Cliente-->
+	<definition name="seccion.servicio.cliente" 				extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsSucyQuid.jsp"/>
+		<put name="metaTag" 									value="/tiles/elemento/institucional/metaTagServicio.jsp"/>
+   		<put name="body" 										value="body.servicio.cliente"/>
+	</definition>
+	<definition name="body.servicio.cliente"					extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="cmp.body.servicio.cliente"/>
+	</definition>
+	<definition name="cmp.body.servicio.cliente" 				path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/institucional/servicios.jsp"/>
+	</definition>
+	<!-- js de empleo -->
+	<definition name="cmp.js.empleo" 							extends="cmp.js">
+    	<put name="js.particular" 								value="/tiles/elemento/js/jsEmpleo.jsp"/>
+	</definition>
+	<definition name="seccion.empleo.enviado" 					extends="tmp.general">
+		<put name="js" 											value="cmp.js.empleo"/>
+		<put name="metaTag" 									value="/tiles/elemento/empleo/metaTag.jsp"/>
+   		<put name="body" 										value="body.empleo.enviado"/>
+	</definition>
+	<definition name="body.empleo.enviado"						extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="cmp.body.empleo.enviado"/>
+	</definition>
+	<definition name="cmp.body.empleo.enviado" 					path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/empleo/enviado.jsp"/>
+	</definition>
+
+	<!-- indice de articulos -->
+	<definition name="seccion.indice" 							extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsSucyQuid.jsp"/>	
+   		<put name="metaTag" 									value="/tiles/elemento/indice/metaTag.jsp"/>
+   		<put name="body" 										value="body.indice"/>
+	</definition>
+	<definition name="body.indice"								extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="cmp.body.indice"/>
+	</definition>
+	<definition name="cmp.body.indice" 							path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/indice/indice.jsp"/>
+	</definition>
+
+	<!-- **** RESULTADOS DE BUSQUEDA (actual)**** -->
+	<definition name="cmp.js.buscador.actual" 					extends="cmp.js">
+    	<put name="js.particular" 								value="/tiles/elemento/js/jsBuscador.jsp"/>
+	</definition>		
+	<definition name="cmp.body.busqueda.productos" 				path ="/tiles/elemento/buscador/productos2.jsp">
+		<put name="arbol" 										value="/tiles/elemento/arbol.jsp"/>
+	</definition>
+	
+	<definition name="cmp.body.busqueda" 						path ="/tiles/template/cmpBodySeccionBusqueda.jsp">
+		<put name="busqueda" 									value="cmp.body.busqueda.productos"/>
+	</definition>
+	<definition name="body.busqueda" 							extends ="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.busqueda"/>
+	</definition>
+	<definition name="seccion.general.busqueda" 				extends="tmp.general">
+		<put name="js" 											value="cmp.js.buscador.actual"/>		
+		<put name="metaTag" 									value="/tiles/elemento/buscador/metaTag.jsp"/>
+		<put name="body" 										value="body.busqueda"/>
+	</definition>
+	<definition name="body.busqueda.inicio" 					extends ="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 								value="cmp.body.busqueda"/>
+	</definition>	
+	<!-- buscador de inicio actual-->
+	<definition name="seccion.general.busqueda.inicio" 			extends="tmp.general">
+		<put name="js" 											value="cmp.js.buscador.actual"/>
+		<put name="metaTag" 									value="/tiles/elemento/buscador/metaTag.jsp"/>
+		<put name="body" 										value="body.busqueda.inicio"/>
+	</definition>
+	<!-- buscador avanzado actual-->
+	<definition name="cmp.body.buscador.avanzado" 				path ="/tiles/template/cmpBodySeccionBusqueda.jsp">
+		<put name="arbol" 										value="/tiles/elemento/arbol.jsp"/>
+		<put name="busqueda" 									value="/tiles/elemento/articulo/buscadorAvanzado.jsp"/>
+	</definition>
+	<definition name="body.buscador.avanzado"					extends="cmp.tmp.body.biMnu">
+			<put name="body.contenido" 							value="cmp.body.buscador.avanzado"/>
+	</definition>
+	<definition name="seccion.general.buscador.avanzado" 		extends="tmp.general">
+		<put name="js" 											value="cmp.js.buscador.actual"/>
+		<put name="metaTag" 									value="/tiles/elemento/buscador/metaTagBusquedaAvanzada.jsp"/>
+   		<put name="body" 										value="body.buscador.avanzado"/>
+	</definition>
+	<!-- fin resultado busqueda -->
+
+	<!-- *** FLUJO DE COMENTARIOS *** -->
+	<!-- al hacer click en agregar comentarios -->
+	<definition name="cmp.body.agregar.comentario" 				path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/comentario/agregarComentario.jsp"/>
+	</definition>
+	<definition name="body.agregar.comentario"					extends="cmp.tmp.body.biMnu">
+			<put name="body.contenido" 							value="cmp.body.agregar.comentario"/>
+	</definition>
+	<definition name="seccion.general.agregar.comentario" 		extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsGenerico.jsp"/>
+		<put name="metaTag" 									value="/componentes/comunes/metaTag.jsp"/>
+   		<put name="body" 										value="body.agregar.comentario"/>
+	</definition>
+	<!-- *** comentario confirmado *** -->
+	<definition name="cmp.body.comentario.confirmado" 			path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/comentario/comentarioConfirmado.jsp"/>
+	</definition>
+	<definition name="body.comentario.confirmado"				extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.comentario.confirmado"/>
+	</definition>
+	<definition name="seccion.general.comentario.confirmado"	extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsGenerico.jsp"/>
+		<put name="metaTag" 									value="/componentes/comunes/metaTag.jsp"/>
+   		<put name="body" 										value="body.comentario.confirmado"/>
+	</definition>
+
+	<!-- *** FLUJO DE PEDIDO ESPECIAL*** -->
+	<definition name="cmp.body.pedido.especial" 				path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/miCuenta/pedidoEspecial.jsp"/>
+	</definition>
+	<definition name="body.pedido.especial"						extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 								value="cmp.body.pedido.especial"/>
+	</definition>
+	<definition name="seccion.general.pedido.especial" 			extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsGenerico.jsp"/>
+		<put name="metaTag" 									value="/componentes/comunes/metaTag.jsp"/>
+   		<put name="body" 										value="body.pedido.especial"/>
+	</definition>
+	<!-- *** PEDIDO ESPECUAL CONFIRMADO *** -->
+	<definition name="cmp.body.pedido.especial.confirmado" 		path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/miCuenta/pedidoEspecialConfirmado.jsp"/>
+	</definition>
+	<definition name="body.pedido.especial.confirmado"			extends="cmp.tmp.body.biMnu">
+			<put name="body.contenido" 							value="cmp.body.pedido.especial.confirmado"/>
+	</definition>
+	<definition name="seccion.general.pedido.especial.confirmado" 	extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsGenerico.jsp"/>
+		<put name="metaTag" 									value="/componentes/comunes/metaTag.jsp"/>
+   		<put name="body" 										value="body.pedido.especial.confirmado"/>
+	</definition>
+	
+	<!-- *** MANTENIMIENTO*** -->
+	<definition name="seccion.mantenimiento" 					page="/mantenimiento/mantenimiento.jsp">
+		<put name="estilos" 									value="/tiles/elemento/estilos.jsp"/>
+		<put name="metaTag" 									value="/tiles/elemento/mantenimiento/metaTag.jsp"/>
+   		<put name="body" 										value="/tiles/elemento/mantenimiento/mantenimiento.jsp"/>
+	</definition>
+
+	<!-- **** BUSCADOR DE LISTA DE DESEO **** -->
+	<!-- <definition name="cmp.body.buscador.lista" 			path ="/tiles/template/cmpBodyContenidoGeneral.jsp">-->
+	<definition name="cmp.body.buscador.lista" 					path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/tiles/elemento/listaDeseos/indexRO.jsp"/>
+	</definition>
+	<!-- <definition name="body.buscador.lista"					extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.buscador.lista"						extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 								value="cmp.body.buscador.lista"/>
+	</definition>
+	<!-- <definition name="seccion.general.buscador.lista" 		extends="tmp.general">-->
+	<definition name="seccion.general.buscador.lista" 			extends="tiles.micuentarediseno">
+		<!-- <put name="js" 											value="cmp.js.micuenta"/>-->
+		<put name="metaTag" 									value="/tiles/elemento/listaDeseos/metaTagBusquedaDeLista.jsp"/>
+   		<put name="body" 										value="body.buscador.lista"/>
+	</definition>
+	<!-- **** VER LISTA DE DESEO **** -->
+	<!-- <definition name="cmp.body.ver.lista" 						path ="/tiles/template/cmpBodyContenidoGeneral.jsp">-->
+	 <definition name="cmp.body.ver.lista" 						path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/tiles/elemento/listaDeseos/verLista.jsp"/>
+	</definition>
+	<!-- <definition name="body.ver.lista"							extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.ver.lista"							extends="cmp.tmp.body.mnuDcho">
+			<put name="body.contenido" 							value="cmp.body.ver.lista"/>
+	</definition>
+	<!--<definition name="seccion.general.ver.lista" 			extends="tmp.general">-->
+	<definition name="seccion.general.ver.lista" 				extends="tiles.micuentarediseno">
+		<!-- <put name="js" 											value="cmp.js.micuenta"/>-->
+		<put name="metaTag" 									value="/tiles/elemento/listaDeseos/metaTagBusquedaDeLista.jsp"/>
+   		<put name="body" 										value="body.ver.lista"/>
+	</definition>
+
+	<!-- ACTUALIZACION DE DATOS DE EXTRA -->
+	<!--*** la definicion para el mail en uso, datos no estan completos, datos no corresponden a socio fidelizado
+			usan la misma que la actualizar datos	***-->
+
+	<!-- *** ENVIO DE MAIL CORRECTO -->
+	<definition name="seccion.extra.inicio.proceso" 			extends="tmp.general">
+		<put name="js" 											value="cmp.js.extra"/>
+		<put name="metaTag" 									value="/tiles/elemento/extra/metaTagPuntos.jsp"/>
+   		<put name="body" 										value="body.extra.inicio.proceso"/>
+	</definition>
+	<definition name="body.extra.inicio.proceso"				extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="/tiles/elemento/fidelizacion/panel/msgActEMailInicio.jsp"/>
+	</definition>
+
+	<!-- ***actualizacion cerrada previamente o codigo incorrecto*** -->
+	<definition name="seccion.extra.proceso.error" 				extends="tmp.general">
+		<put name="js" 											value="cmp.js.extra"/>
+		<put name="metaTag" 									value="/tiles/elemento/extra/metaTagPuntos.jsp"/>
+   		<put name="body" 										value="body.extra.proceso.error"/>
+	</definition>
+	<definition name="body.extra.proceso.error"					extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="/tiles/elemento/fidelizacion/panel/msgActEMailError.jsp"/>
+	</definition>
+	<!-- ***fin de proceso*** -->
+	<definition name="seccion.extra.proceso.fin" 				extends="tmp.general">
+		<put name="js" 											value="cmp.js.extra"/>
+		<put name="metaTag" 									value="/tiles/elemento/extra/metaTagPuntos.jsp"/>
+   		<put name="body" 										value="body.extra.proceso.fin"/>
+	</definition>
+	<definition name="body.extra.proceso.fin"					extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="/tiles/elemento/fidelizacion/panel/msgActEMailFin.jsp"/>
+	</definition>
+	<!-- ERROR PAGE -->
+	<definition name="seccion.error.page" 						extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsGenerico.jsp"/>
+		<put name="metaTag" 									value="/tiles/elemento/extra/metaTagPuntos.jsp"/>
+   		<put name="body" 										value="body.error.page"/>
+	</definition>
+	<definition name="body.error.page"							extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="/tiles/elemento/errorPage/errorPage404FW.jsp"/>
+	</definition>
+	<!-- ***AFILIADO ESTANDAR*** -->
+	<definition name="seccion.general.afiliado" 				extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsSucyQuid.jsp"/>
+		<put name="metaTag" 									value="/tiles/elemento/extra/metaTagAfiliados.jsp"/>
+   		<put name="body" 										value="body.general.afiliado"/>
+	</definition>
+	<definition name="body.general.afiliado"					extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="cmp.general.afiliado"/>
+	</definition>
+	<definition name="cmp.general.afiliado" 					path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/afiliados/afiliadoEstandar.jsp"/>
+	</definition>
+	<!-- *** AFILIADOS PRINCIPAL ***-->
+	<definition name="seccion.afiliado" 						extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsSucyQuid.jsp"/>
+		<put name="metaTag" 									value="/tiles/elemento/extra/metaTagAfiliados.jsp"/>
+   		<put name="body" 										value="body.afiliado"/>
+	</definition>
+	<definition name="body.afiliado"							extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="cmp.body.contenido"/>
+	</definition>
+	<definition name="cmp.body.contenido" 						path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/afiliados/index.jsp"/>
+	</definition>
+	<!-- *** AFILIADOS VER EVENTO ***-->
+	<definition name="seccion.institucional.ver.evento" 		extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsSucyQuid.jsp"/>
+		<put name="metaTag" 									value="/tiles/elemento/institucional/metaTagVerEvento.jsp"/>
+   		<put name="body" 										value="body.institucional.ver.evento"/>
+	</definition>
+	<definition name="body.institucional.ver.evento"			extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="cmp.institucional.ver.evento"/>
+	</definition>
+	<definition name="cmp.institucional.ver.evento" 			path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/institucional/verEventos.jsp"/>
+	</definition>
+
+	<!-- **** HOME DE GRUPOS (link de los manuales de afiliacion)**** -->
+	<definition name="seccion.inicio.manuales" 					extends="tmp.general">
+		<put name="js" 											value="/tiles/elemento/js/jsSucyQuid.jsp"/>
+		<put name="metaTag" 									value="/tiles/elemento/inicio/metaTag.jsp"/>
+   		<put name="body" 										value="body.inicio.manuales"/>
+	</definition>
+	<definition name="body.inicio.manuales"						extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="cmp.inicio.manuales"/>
+	</definition>
+	<definition name="cmp.inicio.manuales" 						path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/inicio/index.jsp"/>
+	</definition>
+	<!-- **** RANKINK **** -->
+	<definition name="cmp.js.ranking" 							extends="cmp.js">
+    	<put name="js.particular" 								value="/tiles/elemento/js/jsRanking.jsp"/>
+	</definition>	
+	<definition name="seccion.general.ranking" 					extends="tmp.general">
+		<put name="js" 											value="cmp.js.ranking"/>
+		<put name="metaTag" 									value="/tiles/elemento/inicio/metaTag.jsp"/>
+   		<put name="body" 										value="body.general.ranking"/>
+	</definition>
+	<definition name="body.general.ranking"						extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 								value="cmp.general.ranking"/>
+	</definition>
+	<definition name="cmp.general.ranking" 						path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 										value="/tiles/elemento/ranking/index.jsp"/>
+	</definition>
+	<!-- *** CUPONES DE PAGO UNA FINALIZADA LA COMPRA -->
+	<!-- CON CUPONES DE PAGO  -->
+	<definition name="seccion.cupones.vercupondepago" 		extends="tmp.general">
+		<put name="js" 										value="cmp.js.micuenta"/>
+		<put name="metaTag" 								value="/tiles/elemento/miCuenta/metaTagCupones.jsp"/>
+   		<put name="body" 									value="body.cupones.vercupondepago"/>
+	</definition>
+	<definition name="body.cupones.vercupondepago"			extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 							value="cmp.cupones.vercupondepago"/>
+	</definition>
+	<definition name="cmp.cupones.vercupondepago" 			path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 									value="/tiles/elemento/miCuenta/verCuponDePago.jsp"/>
+	</definition>
+	<!-- CON DINERO MAIL -->
+	<definition name="seccion.cupones.verformdm" 			extends="tmp.general">
+		<put name="js" 										value="cmp.js.micuenta"/>
+		<put name="metaTag" 								value="/tiles/elemento/miCuenta/metaTagCupones.jsp"/>
+   		<put name="body" 									value="body.cupones.verformdm"/>
+	</definition>
+	<definition name="body.cupones.verformdm"				extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 							value="cmp.cupones.verformdm"/>
+	</definition>
+	<definition name="cmp.cupones.verformdm" 				path ="/tiles/template/cmpBodyContenidoGeneral.jsp">
+   		<put name="body" 									value="/tiles/elemento/miCuenta/verFormDM.jsp"/>
+	</definition>
+
+	<!--  VISUALIZADOR DE PROMOCIONES -->
+	<definition name="seccion.mensajes" 					extends="tmp.general">
+		<put name="js" 										value="cmp.js.inicio"/>
+		<put name="metaTag" 								value="/tiles/elemento/inicio/metaTag.jsp"/>
+   		<put name="body" 									value="body.mensajes"/>
+	</definition>
+<!-- 	<definition name="body.mensajes"						extends="cmp.tmp.body.biMnu">-->
+	<definition name="body.mensajes"						extends="cmp.tmp.body.mnuDcho">
+    	<put name="body.contenido" 							value="cmp.mensajes"/>
+	</definition>
+	<definition name="cmp.mensajes" 						path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">
+   		<put name="body" 									value="/tiles/elemento/promo/visualizar.jsp"/>
+	</definition>	
+	
+	<!--DEFINICION DE BUSQUEDA NUEVA-->
+	<!-- js para busqueda -->
+	<definition name="cmp.js.buscador" 						extends="cmp.js">
+    	<put name="js.particular" 							value="/tiles/elemento/js/jsBuscador.jsp"/>
+	</definition>	
+	<!-- fin -->
+	<definition name="cmp.body.resultado.busqueda2" 		path ="/tiles/template/cmpBodyResultadoBusqueda.jsp">
+		<put name="body" 									value="/tiles/elemento/buscador/resultadoDeBusqueda.jsp"/>
+	</definition>		
+	<definition name="body.resultado.busqueda2" 			extends ="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 							value="cmp.body.resultado.busqueda2"/> 
+	</definition>
+	<!-- busqueda de de seccion -->	
+	<definition name="seccion.general.busqueda2" 			extends="tmp.general">
+		<put name="js" 										value="cmp.js.buscador"/>
+		<put name="metaTag" 								value="/tiles/elemento/buscador/metaTag.jsp"/>
+		<put name="body" 									value="body.resultado.busqueda2"/>
+	</definition>		
+	<definition name="body.resultado.busqueda2.inicio" 		extends ="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 							value="cmp.body.resultado.busqueda2"/>
+	</definition>
+	<!-- busqueda de inicio -->
+	<definition name="seccion.general.busqueda2.inicio" 	extends="tmp.general">
+		<put name="js" 										value="cmp.js.buscador"/>
+		<put name="metaTag" 								value="/tiles/elemento/buscador/metaTag.jsp"/>
+		<put name="body" 									value="body.resultado.busqueda2.inicio"/>
+	</definition>		
+	<!-- busqueda avanzada (se usa la miama definicion que la actual)-->
+	<!-- FIN -->	
+	
+	<!-- definicion del work-flow de popego -->
+	<!-- <definition name="seccion.popego" 					extends="tmp.general">-->
+	<definition name="seccion.popego" 						extends="tiles.micuentarediseno">
+		<!-- <put name="js" 										value="/tiles/elemento/js/jsGenerico.jsp"/>-->
+		<put name="metaTag" 								value="/tiles/elemento/inicio/metaTag.jsp"/>
+   		<put name="body" 									value="body.servicio.popego"/>
+	</definition>
+	<!-- <definition name="body.servicio.popego"			extends="cmp.tmp.body.biMnu"> -->
+	<definition name="body.servicio.popego"					extends="cmp.tmp.body.mnuDcho">
+    	<put name="body.contenido" 							value="cmp.servicio.popego"/>
+	</definition>
+	<!-- <definition name="cmp.servicio.popego" 			path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">-->
+	<definition name="cmp.servicio.popego" 					path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 									value="/tiles/elemento/miCuenta/servicios/servicioPopego.jsp"/>
+	</definition>	
+		
+	<!-- definicion para el informar el pago ok con arcash -->
+	<definition name="seccion.arcash.pagook" 				extends="tmp.general">
+		<put name="js" 										value="/tiles/elemento/js/jsGenerico.jsp"/>
+		<put name="metaTag" 								value="/tiles/elemento/inicio/metaTag.jsp"/>
+   		<put name="body" 									value="body.arcash.pagook"/>
+	</definition>
+	<definition name="body.arcash.pagook"					extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 							value="cmp.body.arcash.pagook"/>
+	</definition>
+	<definition name="cmp.body.arcash.pagook"				path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">
+   		<put name="body" 									value="/tiles/elemento/compra/pagoARCOK.jsp"/>
+	</definition>	
+	<!-- para informar el pago con errores -->
+	<!-- definicion para el informar el pago nook con arcash -->
+	<definition name="seccion.arcash.pagonook" 				extends="tmp.general">
+		<put name="js" 										value="/tiles/elemento/js/jsGenerico.jsp"/>
+		<put name="metaTag" 								value="/tiles/elemento/inicio/metaTag.jsp"/>
+   		<put name="body" 									value="body.arcash.pagonook"/>
+	</definition>
+	<definition name="body.arcash.pagonook"					extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 							value="cmp.body.arcash.pagonook"/>
+	</definition>
+	<definition name="cmp.body.arcash.pagonook"				path ="/tiles/template/cmpBodyContenidoMiCuenta.jsp">
+   		<put name="body" 									value="/tiles/elemento/compra/pagoARCNOOK.jsp"/>
+	</definition>
+		
+<!-- HASTA ACA VERSION IMPLEMENTADA  -->
+
+<!-- DESARROLLO DEL PROESO DE SUSCRIPCION QUID -->
+<!--Quid-->
+	<definition name="cmp.body.quid.suscripcion"			path="/tiles/elemento/cmpBodyQS.jsp">
+   		<put name="body"									value="/tiles/elemento/suscripcionQuid.jsp"/>
+	</definition>
+	<definition name="body.quid.suscripcion"				extends="cmp.tmp.body.biMnu">
+    	<put name="body.contenido" 							value="cmp.body.quid.suscripcion"/>
+	</definition>
+	<definition name="seccion.quid.suscripcion"				extends="tmp.general">
+		<put name="js" 										value="/tiles/elemento/js/jsSucyQuid.jsp"/>
+		<put name="metaTag" 								value="/tiles/elemento/quid/metaTag.jsp"/>
+	   	<put name="body" 									value="body.quid.suscripcion"/>
+	</definition>
+
+	
+<!--PROCESO DE COMPRAS NUEVO ***********************************************************************-->	
+	<definition name="cmp.js.proceso.compras" 			extends="cmp.js">
+    	<put name="js.particular" 						value="/tiles/elemento/js/jsCarrito.jsp"/>
+	</definition>
+	<!-- CARRITO DE COMPRAS -->
+	<definition name="cmp.body.proceso.compra.carrito"	path= "/tiles/template/cmpBodyProcesoDeCompra.jsp">
+		<put name="body" 								value="/tiles/elemento/compra/carrito.jsp"/>
+	</definition>
+    <definition name="body.proceso.compras.carrito" 	extends="cmp.tmp.body.mnuDcho">
+    	<put name="js" 									value="cmp.js.proceso.compras" />
+    	<put name="body.contenido" 						value="cmp.body.proceso.compra.carrito"/>
+	</definition>
+	<!-- <definition name="proceso.compras.carrito"		extends="tmp.general" controllerUrl="/MostrarCarritoDeCompras.do">-->
+	<definition name="proceso.compras.carrito"			extends="tmp.general">
+    	<put name="js" 									value="cmp.js.proceso.compras" />
+    	<put name="metaTag" 							value="/tiles/elemento/compra/metaTag.jsp"/>
+		<put name="body" 								value="body.proceso.compras.carrito"/>		
+	</definition>
+	<!-- PAPEL DE REGALO -->
+	<definition name="cmp.js.proceso.papel" 			extends="cmp.js">
+    	<put name="js.particular" 						value="/tiles/elemento/js/jsCarrito.jsp"/>
+	</definition>							<!-- uso el 2 por que tiene incorporado ya las barras de titulos e indicadores de posicion en el procesop-->
+	<definition name="cmp.body.proceso.papel"			path= "/tiles/template/cmpBodyProcesoDeCompra2.jsp">
+		<put name="marcoSuperior" 						value="/tiles/elemento/compra/marco/papelDeRegalo.jsp" />
+		<put name="body" 								value="/tiles/elemento/compra/papelDeRegalo.jsp"/>
+	</definition>
+    <definition name="body.proceso.papel" 				extends="cmp.tmp.body.mnuDcho">
+    	<put name="body.contenido" 						value="cmp.body.proceso.papel"/>
+	</definition>
+	<definition name="proceso.compras.papel"			extends="tmp.general" >
+    	<put name="js" 									value="cmp.js.proceso.papel" />
+    	<put name="metaTag" 							value="/tiles/elemento/compra/metaTag.jsp"/>
+		<put name="body" 								value="body.proceso.papel"/>		
+	</definition>		
+	<!-- DOMICILIOS -->
+	<definition name="cmp.js.proceso.domicilios" 		extends="cmp.js">
+    	<put name="js.particular" 						value="/tiles/elemento/js/jsDomicilios.jsp"/>
+	</definition>
+	<definition name="cmp.body.proceso.domicilios"		path= "/tiles/template/cmpBodyProcesoDeCompra2.jsp">
+		<put name="marcoSuperior" 						value="/tiles/elemento/compra/marco/domicilios.jsp" />
+		<put name="body" 								value="/tiles/elemento/compra/domicilios.jsp"/>
+	</definition>	
+    <definition name="body.proceso.domicilios" 			extends="cmp.tmp.body.mnuDcho">
+    	<put name="body.contenido" 						value="cmp.body.proceso.domicilios"/>
+	</definition>
+	<definition name="tiles.proceso.compras.domicilios"	extends="tmp.general" >
+    	<put name="js" 									value="cmp.js.proceso.domicilios" />
+    	<put name="metaTag" 							value="/tiles/elemento/compra/metaTag.jsp"/>
+		<put name="body" 								value="body.proceso.domicilios"/>		
+	</definition>
+	<!-- PAGO -->
+	<definition name="cmp.js.proceso.medio.de.cobro" 		extends="cmp.js">
+    	<put name="js.particular" 							value="/tiles/elemento/js/jsPago.jsp"/>
+	</definition>
+	<definition name="cmp.body.proceso.medio.de.cobro"		path= "/tiles/template/cmpBodyProcesoDeCompra2.jsp">
+		<put name="marcoSuperior" 							value="/tiles/elemento/compra/marco/medioDeCobro.jsp" />
+		<put name="body" 									value="/compra/medioDeCobro.jsp"/>
+	</definition>	
+    <definition name="body.proceso.medio.de.cobro" 			extends="cmp.tmp.body.mnuDcho">
+    	<put name="body.contenido" 							value="cmp.body.proceso.medio.de.cobro"/>
+	</definition>
+	<definition name="tiles.proceso.compras.medio.de.cobro"	extends="tmp.general" >
+    	<put name="js" 										value="cmp.js.proceso.medio.de.cobro" />
+    	<put name="metaTag" 								value="/tiles/elemento/compra/metaTag.jsp"/>
+		<put name="body" 									value="body.proceso.medio.de.cobro"/>		
+	</definition>
+	<!-- VISTA PREVIA -->
+	<definition name="cmp.js.proceso.vista.previa" 			extends="cmp.js">
+    	<put name="js.particular" 							value="/tiles/elemento/js/jsPago.jsp"/>
+	</definition>
+	<definition name="cmp.body.proceso.vista.previa"		path= "/tiles/template/cmpBodyProcesoDeCompra2.jsp">
+		<put name="marcoSuperior" 							value="/tiles/elemento/compra/marco/vistaPrevia.jsp" />
+		<put name="body" 									value="/tiles/elemento/compra/vistaPrevia.jsp"/>
+	</definition>	
+    <definition name="body.proceso.vista.previa" 			extends="cmp.tmp.body.mnuDcho">
+    	<put name="body.contenido" 							value="cmp.body.proceso.vista.previa"/>
+	</definition>
+	<definition name="tiles.proceso.compras.vista.previa"	extends="tmp.general" >
+    	<put name="js" 										value="cmp.js.proceso.vista.previa" />
+    	<put name="metaTag" 								value="/tiles/elemento/compra/metaTag.jsp"/>
+		<put name="body" 									value="body.proceso.vista.previa"/>		
+	</definition>
+	<!-- confirmacion-->
+	<definition name="cmp.js.proceso.confirmacion" 			extends="cmp.js">
+    	<put name="js.particular" 							value="/tiles/elemento/js/jsVacio.jsp"/>
+	</definition>
+	<definition name="cmp.body.proceso.confirmacion"		path= "/tiles/template/cmpBodyProcesoDeCompra2.jsp">
+		<put name="marcoSuperior" 							value="/tiles/elemento/compra/marco/confirmacion.jsp" />
+		<put name="body" 									value="/tiles/elemento/compra/confirmacion.jsp"/>
+	</definition>	
+    <definition name="body.proceso.confirmacion" 			extends="cmp.tmp.body.mnuDcho">
+    	<put name="body.contenido" 							value="cmp.body.proceso.confirmacion"/>
+	</definition>
+	<definition name="tiles.proceso.compras.confirmacion"	extends="tmp.general" >
+    	<put name="js" 										value="cmp.js.proceso.confirmacion" />
+    	<put name="metaTag" 								value="/tiles/elemento/compra/metaTag.jsp"/>
+		<put name="body" 									value="body.proceso.confirmacion"/>		
+	</definition>
+		
+	<definition name="cmp.js.proceso.pagoConFallas" 	extends="cmp.js">
+    	<put name="js.particular" 						value="/tiles/elemento/js/jsVacio.jsp"/>
+	</definition>
+	<definition name="cmp.body.proceso.pagoConFallas"	path= "/tiles/template/cmpBodyProcesoDeCompra.jsp">
+		<put name="marcoSuperior" 						value="/tiles/elemento/compra/marco/confirmacion.jsp" />
+		<put name="body" 								value="/tiles/elemento/compra/pagoConFallas.jsp"/>
+	</definition>	
+    <definition name="body.proceso.pagoConFallas" 			extends="cmp.tmp.body.mnuDcho">
+    	<put name="body.contenido" 						value="cmp.body.proceso.pagoConFallas"/>
+	</definition>
+	<definition name="tiles.proceso.compras.pagoConFallas"	extends="tmp.general" >
+    	<put name="js" 									value="cmp.js.proceso.pagoConFallas" />
+    	<put name="metaTag" 							value="/tiles/elemento/compra/metaTag.jsp"/>
+		<put name="body" 								value="body.proceso.pagoConFallas"/>		
+	</definition>
+	
+	
+	<!-- *** LISTAS DE USUAIOS *** -->
+	<!-- crar lista -->	
+	<definition name="cmp.body.listas.crearlista" 		path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 								value="/tiles/elemento/miCuenta/listasDeUsuarios/crearMiLista.jsp"/>
+	</definition>
+	<definition name="body.listas.crearlista" 			extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 						value="cmp.body.listas.crearlista"/>
+	</definition>
+	<definition name="tiles.listas.crearlista" 			extends="tiles.micuentarediseno">
+   		<put name="body" 								value="body.listas.crearlista"/>
+	</definition>
+	<!-- ver mis listas -->
+	<definition name="cmp.body.listas.vermislistas" 	path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 								value="/tiles/elemento/miCuenta/listasDeUsuarios/verMisListas.jsp"/>
+	</definition>
+	<definition name="body.listas.vermislistas" 		extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 						value="cmp.body.listas.vermislistas"/>
+	</definition>
+	<definition name="tiles.listas.vermislistas" 		extends="tiles.micuentarediseno">
+   		<put name="body" 								value="body.listas.vermislistas"/>
+	</definition>
+	<!-- ver todas mis listas -->
+	<definition name="cmp.body.listas.vertodasmislistas" path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 								value="/tiles/elemento/miCuenta/listasDeUsuarios/verTodasMisListas.jsp"/>
+	</definition>
+	<definition name="body.listas.vertodasmislistas" 	extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 						value="cmp.body.listas.vertodasmislistas"/>
+	</definition>
+	<definition name="tiles.listas.vertodasmislistas" 	extends="tiles.micuentarediseno">
+   		<put name="body" 								value="body.listas.vertodasmislistas"/>
+	</definition>
+	
+	<!-- **** MARCO PARA MI CUENTA - REDISEÑO**** -->
+	<definition name="cmp.js.micuentarediseno" 			extends="cmp.js">
+		<put name="js.comun" 							value="/tiles/elemento/js/jsMiCuentaComun.jsp"/>
+    	<put name="js.particular" 						value="/tiles/elemento/js/jsMiCuentaRediseno.jsp"/>
+	</definition>	
+	<definition name="cmp.body.micuentarediseno" 		path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 								value=""/>
+	</definition>
+	<definition name="body.micuentarediseno"			extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 						value="cmp.body.micuentarediseno"/>
+	</definition>
+	<definition name="tiles.micuentarediseno" 			extends="tmp.general">
+		<put name="js" 									value="cmp.js.micuentarediseno"/>
+		<put name="estilos" 							value="/tiles/elemento/miCuenta/rediseno/estilosMiCuenta.jsp"/>
+		<put name="metaTag" 							value="/tiles/elemento/miCuenta/metatags/metaTagMiCuenta.jsp"/>
+   		<put name="body" 								value="body.micuentarediseno"/>
+	</definition>	
+	
+	<!-- REDISENO - MICUENTA -->
+	<!-- modificar datos de socios -->
+	<definition name="cmp.body.micuenta.modificarsocio" 		path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/tiles/elemento/miCuenta/rediseno/modificarSocio.jsp"/>   		
+	</definition>
+	<definition name="body.micuenta.modificarsocio" 			extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 								value="cmp.body.micuenta.modificarsocio"/>
+	</definition>
+	<definition name="tiles.micuenta.modificarsocio" 			extends="tiles.micuentarediseno">
+		<put name="metaTag" 									value="/tiles/elemento/miCuenta/metatags/metaTagDatosPersonales.jsp"/>
+   		<put name="body" 										value="body.micuenta.modificarsocio"/>
+	</definition>
+	<!-- lista de domicilios de un socio-->
+	<definition name="js.micuenta.domicilios" 					extends="cmp.js.micuentarediseno">
+    	<put name="js.particular" 								value="/tiles/elemento/js/jsDomicilios.jsp"/>
+	</definition>
+	<definition name="cmp.body.micuenta.domicilios" 			path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/tiles/elemento/miCuenta/rediseno/domiciliosDeSocio.jsp"/>
+   		<put name="metaTag" 									value="/tiles/elemento/miCuenta/metatags/metaTagDomicilios.jsp"/>
+	</definition>
+	<definition name="body.micuenta.domicilios" 				extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 								value="cmp.body.micuenta.domicilios"/>
+	</definition>
+	<definition name="tiles.micuenta.domicilios" 				extends="tiles.micuentarediseno">
+		<put name="js" 											value="js.micuenta.domicilios"/>
+   		<put name="body" 										value="body.micuenta.domicilios"/>
+	</definition>
+	<!-- modificar domicilio de socio -->
+	<definition name="cmp.body.micuenta.domicilios.modificar" 	path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/tiles/elemento/miCuenta/rediseno/modificarDomicilio.jsp"/>
+	</definition>
+	<definition name="body.micuenta.domicilios.modificar" 		extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 								value="cmp.body.micuenta.domicilios.modificar"/>
+	</definition>
+	<definition name="tiles.micuenta.domicilios.modificar" 		extends="tiles.micuentarediseno">
+		<put name="metaTag" 									value="/tiles/elemento/miCuenta/metatags/metaTagDomicilios.jsp"/>
+		<put name="js" 											value="js.micuenta.domicilios"/><!-- mismo js que para la visualizacion de los domicilios -->
+   		<put name="body" 										value="body.micuenta.domicilios.modificar"/>
+	</definition>
+	<!-- registro socio cadena -->
+	<definition name="cmp.body.micuenta.registro.socio.cadena" 	path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/tiles/elemento/miCuenta/rediseno/registroSocioCadena.jsp"/>
+	</definition>
+	<definition name="body.micuenta.registro.socio.cadena" 		extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 								value="cmp.body.micuenta.registro.socio.cadena"/>
+	</definition>
+	<definition name="tiles.micuenta.registro.socio.cadena" 	extends="tiles.micuentarediseno">
+		<put name="js" 											value="js.micuenta.domicilios"/>
+   		<put name="body" 										value="body.micuenta.registro.socio.cadena"/>
+	</definition>
+	<!-- SERVICIOS ADICIONALES - popego -->
+	<definition name="cmp.body.micuenta.servicios.popego" 		path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/tiles/elemento/miCuenta/servicios/popego.jsp"/>
+	</definition>
+	<definition name="body.micuenta.servicios.popego" 			extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 								value="cmp.body.micuenta.servicios.popego"/>
+	</definition>
+	<definition name="tiles.micuenta.servicios.popego" 			extends="tiles.micuentarediseno">
+		<put name="js" 											value="js.micuenta.domicilios"/>
+   		<put name="body" 										value="body.micuenta.servicios.popego"/>
+	</definition>
+	
+	<!-- DEFINICION DE MARCO PARA LOS PAGINAS QUE NO REQUIERAN menu de mi cuenta "tipos-institucional" -->	
+	<definition name="cmp.body.marco.rediseno" 					path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value=""/>
+	</definition>
+	<definition name="body.marcos.redisneo"						extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 								value="cmp.body.marco.rediseno"/>
+	</definition>
+	<definition name="tiles.marco.rediseno" 					extends="tmp.general">
+		<put name="estilos" 									value="/tiles/elemento/miCuenta/rediseno/estilosMiCuenta.jsp"/>
+   		<put name="body" 										value="cmp.body.rediseno.marcos"/>
+	</definition>
+	<!-- todas las paginas tipo institucional pasan por aca -->
+	<definition name="cmp.body.institucional" 		path ="/tiles/template/cmpBodyMarcoHome.jsp">
+   		<put name="body" 							value="/tiles/elemento/institucional/incluidorDeArchivos.jsp"/>
+   		<!-- <put name="body" 						value="/ServletTest.do"/>-->
+	</definition>
+	<definition name="body.institucional" 			extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 					value="cmp.body.institucional"/>
+	</definition>
+	<definition name="tiles.institucional" 			extends="tiles.marco.rediseno">
+		<put name="js" 								value="js.micuenta.domicilios"/>
+		<put name="metaTag" 						value="/tiles/elemento/miCuenta/metatags/metaTagMiCuenta.jsp"/>
+   		<put name="body" 							value="body.institucional"/>
+	</definition>
+	<!-- misma definicion, pero con un menu-->
+	<definition name="cmp.body.institucional.menu" 	path ="/tiles/template/cmpBodyMarcoHomeConMenu.jsp">
+   		<put name="body" 							value="/tiles/elemento/institucional/incluidorDeArchivos.jsp"/>
+   		<!-- <put name="body" 						value="/ServletTest.do"/>-->
+	</definition>
+	<definition name="body.institucional.menu" 		extends="cmp.tmp.body.biMnu">
+		<put name="body.contenido" 					value="cmp.body.institucional.menu"/>
+	</definition>
+	<definition name="tiles.institucional.menu" 	extends="tiles.marco.rediseno">
+		<put name="js" 								value="js.micuenta.domicilios"/>
+		<put name="metaTag" 						value="/tiles/elemento/miCuenta/metatags/metaTagMiCuenta.jsp"/>
+   		<put name="body" 							value="body.institucional.menu"/>
+	</definition>
+	<!-- MI CUENTA->promoicones utilizadas -->
+	<definition name="cmp.body.micuenta.ordenes.promociones" 	path ="/tiles/template/cmpBodySeccionHome.jsp">
+   		<put name="body" 										value="/tiles/elemento/institucional/incluidorDeArchivos.jsp"/>
+	</definition>
+	<definition name="body.micuenta.ordenes.promociones" 		extends="cmp.tmp.body.mnuDcho">
+		<put name="body.contenido" 								value="cmp.body.micuenta.ordenes.promociones"/>
+	</definition>
+	<definition name="tiles.micuenta.ordenes.promociones" 		extends="tiles.micuentarediseno">
+		<put name="js" 											value="js.micuenta.domicilios"/><!-- mismo js que para la visualizacion de los domicilios -->
+   		<put name="body" 										value="body.micuenta.ordenes.promociones"/>
+	</definition>	
+</tiles-definitions>

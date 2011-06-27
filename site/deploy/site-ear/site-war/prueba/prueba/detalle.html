@@ -1,0 +1,361 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+
+
+
+
+
+
+
+<link href="/estilos/comun.css" rel="stylesheet" type="text/css" />
+<link href="/estilos/carrito.css" rel="stylesheet" type="text/css" />	
+<link href="/estilos/mesaSeccion.css" rel="stylesheet" type="text/css" /><link href="/estilos/seccion_libros.css" rel="stylesheet" type="text/css" /><link href="/estilos/old/seccion_libros.css" rel="stylesheet" type="text/css" /><link href="/estilos/old/comun.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">var ieversion=/*@cc_on function(){ switch(@_jscript_version){ case 1.0:return 3; case 3.0:return 4; case 5.0:return 5; case 5.1:return 5; case 5.5:return 5.5; case 5.6:return 6; case 5.7:return 7; }}()||@*/0;
+if (ieversion == 6 || ieversion == 5.5) {document.write('<link href="/estilos/ie6.css" rel="stylesheet" type="text/css" />');}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/js/prototype-1.6.0.3.js"></script><script type="text/javascript" src="/js/dropDownMenu.js"></script><script type="text/javascript" src="/js/equalcolumns.js"></script><script type="text/javascript" src="/js/menuarbol.js"></script><script type="text/javascript" src="/js/buscador.js"></script><script type="text/javascript" src="/js/jsutil.js"></script><script type="text/javascript" src="/js/carritoNew.js"></script><script type="text/javascript" src="/js/popups.js"></script><script type="text/javascript" src="/js/mensaje.js"></script>
+<script>
+addEvent(window, 'load', carrito_ActualizarCarrito);
+addEvent(window, 'load', getVisualizaMensaje);
+</script>
+
+<script type="text/javascript" src="/js/detalleArticulo.js"></script>
+<script type="text/javascript" src="http://assets01.popego.com/javascripts/popego-core.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<!-- <script> addEvent(window, 'load', traerModuloExtra);</script>-->
+<script> addEvent(window, 'load', verTodosComentarios1);</script>
+<script> addEvent(window, 'load', getEvaluacionDeArticulo);</script>
+<script> addEvent(window, 'load', getModuloExtra);</script>
+<script> addEvent(window, 'load', getArticulosRelacionados);</script>
+<script> addEvent(window, 'load', lanzarPopego);</script></head>
+<body>	<center><!-- **** INICIO DEL CONTENIDO DEL SITIO **** --><div class="lienzo">	<!-- **** HEADER **** -->	
+<div class="header">
+	<a href="/" class="hLogo" title="Tematika.com"></a>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="hBuscador">
+<ul class="dropdown">
+<li class="dir"	onclick="javascript:desplegarOpciones('listaBuscador');">
+<span id="optBusqueda">Título</span>
+<ul style="display: none;" id="listaBuscador" onmouseover="clearTimeout(tempo);" onmouseout="ocultarOpcionesT('listaBuscador');">
+
+<li><a id="optBus1"  href="javascript:mostrarBuscarPor('optBus1','optBusqueda','listaBuscador','1','1','En Libros');">Título</a>
+</li>
+
+<li><a id="optBus2"  href="javascript:mostrarBuscarPor('optBus2','optBusqueda','listaBuscador','1','1','En Libros');">Autor</a>
+</li>
+
+<li><a id="optBus3"  href="javascript:mostrarBuscarPor('optBus3','optBusqueda','listaBuscador','1','1','En Libros');">Editorial</a>
+</li>
+
+<li><a id="optBus4"  href="javascript:mostrarBuscarPor('optBus4','optBusqueda','listaBuscador','1','1','En Libros');">ISBN</a>
+</li>
+
+<li><a id="optBus5"  href="javascript:mostrarBuscarPor('optBus5','optBusqueda','listaBuscador','1','1','En Libros');">Palabra Clave</a>
+</li>
+
+</ul>
+</li>
+</ul>
+<input id="txtBuscar" name="buscadorTxtField" type="text" value="" class="hBuscTxtF" onkeypress="javascript: if(pressEnter(event)) buscador_setBusqueda($('optBusqueda').innerHTML, $('txtBuscar').value, '1','1',$('seccionBusqueda').value);"/>
+<input type="hidden" id="seccionBusqueda" value="En Libros">
+<input type="hidden" id="idSeccionPropia" value="1">
+<input type="hidden" id="idSeccion" value="1">
+<a id="btnBuscar" class="hBuscButton" title="Buscar" 
+href="javascript:buscador_setBusqueda($('optBusqueda').innerHTML,$('txtBuscar').value,'1',$('idSeccionPropia').value,$('seccionBusqueda').value);">&nbsp;</a>
+</div>
+<a href="/institucional/servicios.jsp#servicios" class="hServClientes" title="Servicio al cliente"></a>
+
+	
+ 
+
+<div class="hModUsuarioBack"></div>
+<div class="hModUsuario">
+<div class="hModUsrNombre" style="cursor:pointer" onclick="window.location.href='/miCuenta/index.jsp';">Mi Cuenta</div>
+
+
+<a style="visibility:hidden;" class="hModUsrCerrar" href="/TerminarSesion" title="Salir">salir</a>
+<div class="hModUsrExtra">
+
+Consultá tus
+<br/><a id="lnkCantPuntExtra" href="/extra">puntos</a>eXtra!</div>
+<a href="/IniciarCompra" id="textoCarrito" class="hModUsrCarrito" title="Finalizar la compra"></a>
+<a href="/compra/carrito.jsp" id="textoCarritoLnk" class="hModUsrCarritoLnk" title="Carrito de compra"></a>
+<a href="/miCuenta" class="hModUsrButton" title="Panel de Usuario"></a></div>
+</div><div id="msjMax" class="panelMensajes" style="display:none">
+	<div class="panelMsjTit">Tenés&nbsp;<span id="totalMsg"></span> mensajes por leer &gt;</div>
+	<div class="panelMsjTxt">	<a href="javascript:mostrarDiv('msjMin'); javascript:mostrarDiv('msjMax');javascript:setVisualizaMensaje(false)" class="panelMsjCerrar">cerrar</a>
+    	<span id="pagMsg"></span> <span id="textoMsgActual"></span> <div><a href="javascript:nada()" class="pnlMsgComandos" id="msgAnterior">&lt;Anterior</a> | <a href="javascript:nada()" class="pnlMsgComandos" id="msgSiguiente">Siguiente&gt;</a> | <a href="javascript:nada()" class="pnlMsgComandos" id="msgLeido">No volver a mostrar este mensaje</a></div>
+    </div>
+</div><div id="msjMin" class="panelMensajes" style="display:none"> <div class="panelMsjTxt"><a href="javascript:mostrarDiv('msjMin'); javascript:mostrarDiv('msjMax');javascript:setVisualizaMensaje(true)" class="panelMsjAbrir">abrir panel y ver mensajes</a>   </div></div>	<!-- **** BODY -->	<!-- **** BARRA CENTRAL **** -->	<div class="barraCentral" id="barraCentral">	
+
+
+
+
+
+
+
+<div class="panelSeccionesLeft">
+	
+	
+	
+	
+	
+	
+	
+</div>
+
+
+
+
+<!-- **** SECCION TEMATIKA **** -->
+
+
+<div id="seccionTematika">
+	
+	
+
+
+
+
+
+
+<!-- DETALLE GENERADO SI ES RELEASE-->
+	<div id="divCarrito" class="efectoCarritoMod" style="display:none">    
+        <div class="efectoCarritoTxt"><span class="txtMsgCarritoOK" id="msgCarritoOK">
+            </span><br />
+            <div id="msgCarritoERROR" style="font-size:12;color:red"></div>
+            <span id="spnPrecioCarrito" class="txtPrecioCarrito">PRECIO: $ <span  class="txtPrecioCarrito" id="precioCarrito"></span>.-</span>
+        </div>        
+        <div class="efectoCarritoImages"><img id="carritoImagen" src="" class="efectoCarritoImag"></div>        
+        <div id="efectoCarritoB"><a href="javascript:carrito_CloseCarrito();">
+        	<img src="/imagenes/b-carrContinuar.gif" alt="Continuar" border="0"></a></div>    
+	</div>    
+	<div id="modalBack" style="display:none"></div>    
+	<div class="globoArticuloLoad" id="loadArticulo" style="display:none;" >cargando</div>    
+	<div class="globoArticulo" style="display:none;" id="globo" onMouseOver="this.style.display=''">
+		<table  bgcolor="dddddd" border="0" cellspacing="0" cellpadding="0" onMouseOver="this.style.display=''" onMouseOut="ocultarGlobo()">
+			<tr>
+				<td>Titulo:</td><td id="artTitulo"></td>
+			</tr>
+			<tr id="trAutor">
+				<td id="autor"></td><td id="artAutor"></td>
+			</tr>
+			<tr id="trEditor">
+				<td id="editor"></td><td id="artEditor"></td>
+			</tr>
+			<tr id="trRanking">
+				<td>Ranking:</td><td id="artRanking"></td>
+			</tr>
+			<tr>
+			</tr>
+			<tr>
+				<td>Fecha de Publicaci&oacute;n:</td><td id="artPublicacion"></td>
+			</tr>
+			<tr>
+				<td>Idioma:</td><td id="artIdioma"></td>
+			</tr>
+			<tr id="trPagina">
+				<td id="pagina"></td><td id="artPagina"></td>
+			</tr>
+			<tr id="trFormato">
+				<td>Formato:</td><td id="artFormato"></td>
+			</tr>
+			<tr id="trDisponibilidad">
+				<td>Disponibilidad:</td><td id="artDisponibilidad"></td>
+			</tr>
+			<tr id="trComprar">
+				<td colspan="2"><input id="btnComprar" onClick="" type="button"  value="Agregar al Carrito"></td>
+			</tr>
+			<tr id="trPedir">
+				<td colspan="2"><input id="btnPedir" type="button"  value="Pedido Especial"></td>
+			</tr>
+		</table>
+	</div>
+<a href="/libros" class="panelSeccAct"></a>
+<div class="detalleInfoPrinc">
+   	<div id="dTopLeft">
+        <div class="dImagenes">
+            <div class="detalleImagen">
+                <a href="">
+                	<img src="/tapas/adicionales/sinImagen_1.jpg" title="Agrandar imagen"> 
+                </a>            
+            </div>
+        </div>        
+        <div class="dInfoPrincipal">        
+           <div class="dInfoTit">Eva Luna</div>
+            <div class="dInfoAutor">de 
+            	                    		
+                	<a href="/buscador/productos.jsp?seccion=1&idSeccion=1&criterioDeOrden=2&claveDeBusqueda=porIDdeAutor&texto=Isabel+Allende&idAutor=29533">Isabel Allende</a>
+                       
+            </div>            
+            <span>Editorial: <a href="/buscador/productos.jsp?seccion=1&idSeccion=1&criterioDeOrden=2&claveDeBusqueda=porIDdeEditorial&texto=Sudamericana&idEditor=121">Sudamericana</a></span>
+            <span>Género: <a href="/buscador/productos.jsp?seccion=1&idSeccion=1&criterioDeOrden=6&claveDeBusqueda=porCategorias&texto=FICCI%D3N+Y+LITERATURA&grupo=1Ficción y Literatura">General</a></span>
+            
+            	<span>Paginas:288 </span>
+            
+            <span>Publicación: 01/09/2000 | Idioma: Español</span>
+            <a href="/libros/ficcion_y_literatura--1/novelas--1/general--1/eva_luna--106232.htm">+ info</a>
+            <div id="divEvaluacion">         	            
+	        </div            
+        </div>    
+    </div>           
+    <div id="dInfoCompl">
+    	<div class="dSolapas" id="datosCompl">            
+	            <div class="tmtkMesaMenuMod"><div class="solapasTitDatosPrinc" title="Datos principales"/></div></div>            
+	            <div class="dResena">
+	            	
+		            
+		            <span>Sinopsis</span> En Eva Luna, su tercera novela, Isabel Allende recupera su país a través de la memoria y la imaginación. La cautivadora protagonista de este libro es un nostálgico alter ego de la autora, que se llama así misma <(><<)><(><<)>ladrona de historias>> precisamente porque en las historias radica el secreto de la vida y del mundo. Como una moderna Scherezade, Eva Luna convierte su vida en una sorprendente galería de personajes: un embalsamador de cadáveres, una madrina que sobrevive a una decapitación, una mujer con el cuerpo de hombre, un fotógrafo austriaco atormentado por los recuerdos del nazismo...
+	            </div>
+        	</div>
+                
+<div class="dSolapas" id="comentarios"><div class="tmtkMesaMenuMod"><div class="solapasTitComent"></div></div></div>    
+<div id="divComentarios"></div><div id="googleBook" class="dSolapas1"><div id="viewerCanvas" style="height: 500px;"></div></div>
+<input type="hidden" value="106232" id="articulo">        
+<div class="dSolapas" id="listas" style="height: 200px;display: none;">                             
+    </div>
+	<div class="dSolapas" id="tags">                
+	</div>             
+</div>
+</div>
+<div id="divModuloExtra"><div id="dTopRight"><div class="dCompra"><p align="center">Cargando extra...</p></div></div></div>	
+<input type="hidden" value="1" id="idSccion">
+<input type="hidden" value="15.0" id="precio">
+<input type="hidden" value="106232" id="idArticulo">	
+<div id="dRecomendaciones" style="height: 500px;" >    
+<div id="divArticulosRelacionados"><div class="dRecomendTit" >Cargando obras relacionadas...</div></div>
+</div>
+
+
+<!-- GOOGLE BOOKS -->
+
+	
+
+
+<script type="text/javascript">
+		  google.load("books", "0", {"language": "es"});	  
+	      function alertNotFound() {
+	        if(document.getElementById('viewerCanvas') != 'undefined'){
+	        	document.getElementById('viewerCanvas').innerHTML = '';
+	        	document.getElementById('googleBook').innerHTML = '';        	       	
+	        }
+	      }
+	      function alertInitialized() {
+	          if(document.getElementById('viewerCanvas')!='undefined') {
+		      		var view = document.getElementById('viewerCanvas');
+					var viewChildNodes = view.childNodes;
+					var nodes = viewChildNodes[0].childNodes;			
+					nodes[1].innerHTML = '<div>';
+					nodes[1].innerHTML = '<a href=\'http://books.google.com/?hl=es\' target=\'_blank\'> <img style=\'border:none;\'src=\"http://books.google.com/googlebooks/images/poweredby.png\"> </a>'+
+										 '</div>';
+	          }
+	      }
+	      function initialize() {
+	      	var divVisor = document.getElementById('viewerCanvas');
+	        var viewer = new google.books.DefaultViewer(divVisor, {'showLinkChrome': false});
+	        
+	        viewer.load('ISBN:9500717654', alertNotFound, alertInitialized);
+	      }	
+	    if(document.getElementById('viewerCanvas') != null){
+	  		google.setOnLoadCallback(initialize);
+	  	}
+	</script>
+
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-635166-1";
+urchinTracker();
+</script>
+
+
+
+
+
+
+
+<div class="panelSecciones">
+	
+	
+		<a href="/musica" id="panelSeccMusica" title="Música"><span></span></a>
+	
+	
+		<a href="/peliculas" id="panelSeccPeliculas" title="Películas"><span></span></a>
+	
+	
+		<a href="/juguetes" id="panelSeccPasatiempos" title="Pasatiempos"><span></span></a>
+	
+	
+		<a href="/sucursales" id="panelSeccSucursales" title="Sucursales"><span></span></a>
+	
+	
+		<a href="#" onclick="window.open('http://www.yenny-elateneo.com/index.php?idS=1');return false;" id="panelSeccQuid" title="Quid"><span></span></a>
+	
+	
+		<a href="/extra" id="panelSeccExtra" title="eXtra!"><span></span></a>
+	
+</div>
+
+
+
+
+
+
+</div>	<!-- **** FIN BARRA CENTRAL **** --><!-- **** FOOTER **** --><div class="footer">	
+<div class="footerShadow"></div>
+    <div class="footerLogos"></div>
+    <div class="footerText"><a href="/">TEMATIKA</a> |
+    <a href="/libros">LIBROS</a> |
+    <a href="/musica">MUSICA</a> |
+    <a href="/peliculas">PELICULAS</a>|
+    <a href="/juguetes">PASATIEMPOS</a></div>
+    <div class="footerText2"><a href="/rss">
+    <img src="/imagenes/rediseno/imagenes/comun/rssLogo.gif" />
+    <span>Descargue las Novedades y Lanzamientos de Tematika en su sitio</span></a></div>
+    <div class="footerText">
+    <a href="/institucional/conozcanos.jsp">MARCAS</a> |
+    <a href="/sucursales">SUCURSALES</a> |
+    <a href="/institucional/prensa.jsp?page=/asociadas/prensa/prensa1.htm">PRENSA</a> |
+    <a href="/institucional/verEventos.jsp">EVENTOS</a> |
+    <a href="/ranking/index.jsp?idSeccion=5">RANKING</a> |
+    <a href="/indice">MAPA DE PRODUCTOS</a> |
+    <a href="/institucional/servicios.jsp#preguntasfrecuentes">PREGUNTAS FRECUENTES</a> |
+    <a href="/empleos">EMPLEOS</a> |
+    <a href="mailto:desarrollo@tematika.com">CONTACTO</a> <br />
+	<a href="/miCuenta/?seccionMiCuenta=11&opcionMenuReferido=0">PROGRAMA DE REFERIDOS</a> |
+    <a href="/afiliados/index.jsp">PROGRAMA DE ASOCIADOS</a> |
+    <a href="/institucional/clientesInstitucionales.jsp">VENTAS CORPORATIVAS</a> |
+	<a href="/institucional/servicios.jsp#servicios">SERVICIO AL CLIENTE</a> |
+    <a href="/ayuda/ayudaEstandar.jsp?url=/ayuda/enviosPlazos.jsp">PLAZOS Y COSTOS DE ENV&Iacute;O</a></div>	</div></div><!-- **** FIN DEL CONTENIDO DEL SITIO **** --></center></body><div id="divCarrito" class="efectoCarritoMod" style="display:none"><div class="efectoCarritoTxt"><span class="txtMsgCarritoOK" id="msgCarritoOK"></span><span  id="msgCarritoERROR" style="font-size:12;color:red"></span><br /><span id="spnPrecioCarrito" class="txtPrecioCarrito">PRECIO: $ <span  class="txtPrecioCarrito" id="precioCarrito"></span>.-</span></div><div class="efectoCarritoImages"><img id="carritoImagen"  class="efectoCarritoImag"></div><div id="efectoCarritoB"><a href="javascript:carrito_CloseCarrito()"><img src="/imagenes/b-carrContinuar.gif" alt="Continuar" border="0"></a></div></div><div id="modalBack" style="display:none"></div></html>
+

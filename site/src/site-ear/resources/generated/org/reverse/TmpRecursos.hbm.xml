@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.TmpRecursos"
+    table="TMP_RECURSOS"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.TmpRecursosId"
+    >		
+	        <key-property name="nombres" type="string">
+<column name="NOMBRES" length="100" />
+	        </key-property>
+	        <key-property name="apellidos" type="string">
+<column name="APELLIDOS" length="100" />
+	        </key-property>
+	        <key-property name="dni" type="string">
+<column name="DNI" length="50" />
+	        </key-property>
+	        <key-property name="email1" type="string">
+<column name="EMAIL1" length="100" />
+	        </key-property>
+	        <key-property name="email2" type="string">
+<column name="EMAIL2" length="100" />
+	        </key-property>
+	        <key-property name="telefonoParticular" type="string">
+<column name="TELEFONO_PARTICULAR" length="100" />
+	        </key-property>
+	        <key-property name="telefonoCelular" type="string">
+<column name="TELEFONO_CELULAR" length="100" />
+	        </key-property>
+	        <key-property name="telefonoMensajes" type="string">
+<column name="TELEFONO_MENSAJES" length="100" />
+	        </key-property>
+	        <key-property name="remuneracionActual" type="big_decimal">
+<column name="REMUNERACION_ACTUAL" precision="10" />
+	        </key-property>
+	        <key-property name="remuneracionPretendida" type="big_decimal">
+<column name="REMUNERACION_PRETENDIDA" precision="10" />
+	        </key-property>
+	        <key-property name="perfil1" type="string">
+<column name="PERFIL1" length="100" />
+	        </key-property>
+	        <key-property name="perfil2" type="string">
+<column name="PERFIL2" length="100" />
+	        </key-property>
+	        <key-property name="perfil3" type="string">
+<column name="PERFIL3" length="100" />
+	        </key-property>
+	        <key-property name="perfil4" type="string">
+<column name="PERFIL4" length="100" />
+	        </key-property>
+	        <key-property name="perfil5" type="string">
+<column name="PERFIL5" length="100" />
+	        </key-property>
+	        <key-property name="senority1" type="string">
+<column name="SENORITY1" length="100" />
+	        </key-property>
+	        <key-property name="senority2" type="string">
+<column name="SENORITY2" length="100" />
+	        </key-property>
+	        <key-property name="senority3" type="string">
+<column name="SENORITY3" length="100" />
+	        </key-property>
+	        <key-property name="senority4" type="string">
+<column name="SENORITY4" length="100" />
+	        </key-property>
+	        <key-property name="senority5" type="string">
+<column name="SENORITY5" length="100" />
+	        </key-property>
+	        <key-property name="idioma1" type="string">
+<column name="IDIOMA1" length="50" />
+	        </key-property>
+	        <key-property name="idioma2" type="string">
+<column name="IDIOMA2" length="50" />
+	        </key-property>
+	        <key-property name="idioma3" type="string">
+<column name="IDIOMA3" length="50" />
+	        </key-property>
+	        <key-property name="nivelIdioma1" type="string">
+<column name="NIVEL_IDIOMA1" length="50" />
+	        </key-property>
+	        <key-property name="nivelIdioma2" type="string">
+<column name="NIVEL_IDIOMA2" length="50" />
+	        </key-property>
+	        <key-property name="nivelIdioma3" type="string">
+<column name="NIVEL_IDIOMA3" length="50" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

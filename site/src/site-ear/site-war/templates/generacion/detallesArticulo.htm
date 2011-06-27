@@ -1,0 +1,60 @@
+<!--DETALLA DE LOS LIBROS-->
+<tmpl_if libros>
+	<tmpl_if isbn>
+		<BR>ISBN </b>: <tmpl_var isbn><br>
+	</tmpl_if>
+	<tmpl_if clasificacion>
+		Editorial:</b> <tmpl_var editorial><br>
+	</tmpl_if>
+	<tmpl_if clasificacion>
+		Clasificaci&oacute;n:</b> <tmpl_var clasificacion><br>
+	</tmpl_if>
+	<tmpl_if paginas>
+		P&aacute;ginas</b> <tmpl_var paginas><br>
+	</tmpl_if>
+	<tmpl_if formato>
+		Formato:</b> <tmpl_var formato><br>
+	</tmpl_if>
+	<tmpl_if peso>
+		Peso:</b> <tmpl_var peso> en articulos<br>
+	</tmpl_if>
+	<tmpl_if medidas>
+		Medidas:</b> <tmpl_var medidas><br>
+	</tmpl_if>
+</tmpl_if>
+
+<!--DETALLA DE LOS JUGUETES-->
+<tmpl_if juguetes>
+	<tmpl_if ano>
+		A&ntilde;o:</b> <tmpl_var ano><br>
+	</tmpl_if>
+</tmpl_if>
+
+<!--DETALLA MUSICA-->
+<tmpl_if musica>
+	<tmpl_if selloDiscografico>
+		Sello discogr&aacute;fico:</b> <tmpl_var selloDiscografico><br>
+	</tmpl_if>
+	<tmpl_if soporte>
+		Soporte:</b> <tmpl_var soporte><br>
+	</tmpl_if>
+</tmpl_if>
+
+<!--DETALLA PELICULAS-->
+<tmpl_if peliculas>
+	<tmpl_if productora>
+		Productora:</b> <tmpl_var productora><br>
+	</tmpl_if>
+	<tmpl_if estreno>
+		Estreno:</b> <tmpl_var estreno><br>
+	</tmpl_if>
+	<tmpl_if formato>
+		Formato:</b> <tmpl_var formato><br>
+	</tmpl_if>
+	<tmpl_if genero>
+			G&eacute;nero:</b> <tmpl_var genero><br>
+	</tmpl_if>
+	<tmpl_if duracion>
+			Duración:</b> <tmpl_var duracion><br>
+	</tmpl_if>
+</tmpl_if>

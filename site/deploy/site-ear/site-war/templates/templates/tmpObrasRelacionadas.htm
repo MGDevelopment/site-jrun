@@ -1,0 +1,27 @@
+<div class="dRecomendTit">Obras relacionadas</div>
+<tmpl_loop obrasRelacioandas>
+	<div class="dRecomendMod">
+	    <div class="tapaContenedor">
+	        <a href="<tmpl_var urlDetalle>">
+	        	<img src="<tmpl_var urlImagen>" class="tapaLibros">
+	        </a>
+	        <div class="tapaInfo" style="visibility: hidden;">
+	    </div>
+	    </div>    
+	    <a href="<tmpl_var urlDetalle>" class="fTitulos"><tmpl_var titulo></a>
+	    <span>Precio:<tmpl_var precio></span>
+	    <div class="calificacionMod">
+	      <span>Calificación:</span>
+	      <tmpl_if esCalificado>
+	          	<tmpl_loop calificacionXArticulo>
+                   	<div class="<tmpl_var estrellaClass>"></div>                       	 			
+                </tmpl_loop>
+	           <!-- <div class="dInfoCalifStar"></div>-->
+	       </tmpl_else>
+		       <!-- <a style="text-align: left; font-size: 11px;" href="/Comentario?ID_ARTICULO=<tmpl_var idArticulo>&idSeccion=<tmpl_var idSeccion>">Comentar!!!</a> -->
+		       <span style="cursor:pointer;color:#70965B;" onclick="javasctipt:window.location.href='/Comentario?ID_ARTICULO=<tmpl_var idArticulo>&idSeccion=<tmpl_var idSeccion>'">Comentar!!!</span>
+	       	<!-- <label style="color:green;"> Aun sin evaluacion</label>-->	                	                
+	       </tmpl_if>  
+	    </div>
+	 </tmpl_loop>
+</div>

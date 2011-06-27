@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<rss xmlns:tmk="http://www.tematika.com.com/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+	<channel>
+		<title>Tematika.com - Novedades</title>
+		<link>http://www.tematika.com/rss/novedadesRss.jsp</link>
+		<description>Ultimas novedades de Libros en Tematika.com</description>
+		<copyright>Tematika.com - All rights reserved</copyright>
+		<pubDate>Tue, 29 Jan 2008 16:11:26 -0300</pubDate>
+		<image>
+			<title>Tematika.com - Novedades Libros</title>
+			<url>http://www.tematika.com/imagenes/Logo-Tematika.gif</url>
+			<link>http://www.tematika.com/novedadesRss.jsp</link>
+		</image>
+		<ttl>10</ttl>
+		<category domain="Libros">Libros</category>
+		<language>es-ar</language>
+		<generator>Exportador de Novedades de Libros RSS Tematika.com</generator>
+<item>
+  <title>Caribe entre Europa y America: Evolución Pers</title>
+  <link>http://www.tematika.com/libros/derecho_y_ciencias_sociales--4/politica--4/internacional--3/caribe_entre_europa_y_america_evolucion_pers--347{ALIANZA}.htm</link>
+  <pubDate>Thu, 11 Jun 2093 00:00:00 -0300</pubDate>
+  <category>Derecho y ciencias sociales</category>
+  <guid>http://www.tematika.com/libros/derecho_y_ciencias_sociales--4/politica--4/internacional--3/caribe_entre_europa_y_america_evolucion_pers--347{ALIANZA}.htm</guid>
+  <tmk:publisher>Nueva sociedad</tmk:publisher>
+</item><item>
+  <title>Politica Tecnología y Modernización Productiva</title>
+  <link>http://www.tematika.com/libros/derecho_y_ciencias_sociales--4/politica--4/internacional--3/politica_tecnologia_y_modernizacion_productiva--446{ALIANZA}.htm</link>
+  <pubDate>Thu, 11 Jun 2093 00:00:00 -0300</pubDate>
+  <category>Derecho y ciencias sociales</category>
+  <guid>http://www.tematika.com/libros/derecho_y_ciencias_sociales--4/politica--4/internacional--3/politica_tecnologia_y_modernizacion_productiva--446{ALIANZA}.htm</guid>
+  <tmk:publisher>Nueva sociedad</tmk:publisher>
+</item><item>
+  <title>El Juguete Rabioso</title>
+  <link>http://www.tematika.com/libros/ficcion_y_literatura--1/novelas--1/argentina--3/el_juguete_rabioso--410{ALIANZA}.htm</link>
+  <pubDate>Wed, 5 Aug 2093 00:00:00 -0300</pubDate>
+  <category>Ficción y literatura</category>
+  <guid>http://www.tematika.com/libros/ficcion_y_literatura--1/novelas--1/argentina--3/el_juguete_rabioso--410{ALIANZA}.htm</guid>
+  <tmk:publisher>Alfaguara</tmk:publisher>
+</item><item>
+  <title>Divina Comedia - Vida Nueva</title>
+  <link>http://www.tematika.com/libros/ficcion_y_literatura--1/novelas--1/universal--2/divina_comedia___vida_nueva--13660{ALIANZA}.htm</link>
+  <pubDate>Tue, 23 Mar 2094 00:00:00 -0300</pubDate>
+  <category>Ficción y literatura</category>
+  <guid>http://www.tematika.com/libros/ficcion_y_literatura--1/novelas--1/universal--2/divina_comedia___vida_nueva--13660{ALIANZA}.htm</guid>
+  <author>nodisponible@tematika.com (Dante Alighieri)</author>
+  <tmk:publisher>Porrua</tmk:publisher>
+</item><item>
+  <title>Los Miserables</title>
+  <link>http://www.tematika.com/libros/ficcion_y_literatura--1/novelas--1/universal--2/los_miserables--61552{ALIANZA}.htm</link>
+  <pubDate>Thu, 21 Nov 2097 00:00:00 -0300</pubDate>
+  <category>Ficción y literatura</category>
+  <guid>http://www.tematika.com/libros/ficcion_y_literatura--1/novelas--1/universal--2/los_miserables--61552{ALIANZA}.htm</guid>
+  <author>nodisponible@tematika.com (Victor Hugo)</author>
+  <tmk:publisher>Porrua</tmk:publisher>
+</item><item>
+  <title>Los tres Mosqueteros</title>
+  <link>http://www.tematika.com/libros/ficcion_y_literatura--1/novelas--1/general--1/los_tres_mosqueteros--72266{ALIANZA}.htm</link>
+  <pubDate>Wed, 17 Sep 2098 00:00:00 -0300</pubDate>
+  <category>Ficción y literatura</category>
+  <guid>http://www.tematika.com/libros/ficcion_y_literatura--1/novelas--1/general--1/los_tres_mosqueteros--72266{ALIANZA}.htm</guid>
+  <author>nodisponible@tematika.com (Alejandro Dumas)</author>
+  <tmk:publisher>Porrua</tmk:publisher>
+</item><item>
+  <title>El Libro de Poemas</title>
+  <link>http://www.tematika.com/libros/ficcion_y_literatura--1/poesia--5/el_libro_de_poemas--71692{ALIANZA}.htm</link>
+  <pubDate>Tue, 30 Sep 2098 00:00:00 -0300</pubDate>
+  <category>Ficción y literatura</category>
+  <guid>http://www.tematika.com/libros/ficcion_y_literatura--1/poesia--5/el_libro_de_poemas--71692{ALIANZA}.htm</guid>
+  <author>nodisponible@tematika.com (Federico Garcia Lorca)</author>
+  <tmk:publisher>Porrua</tmk:publisher>
+</item><item>
+  <title>Teatro la Gaviota - Tio Vania - Las tres Hnas</title>
+  <link>http://www.tematika.com/libros/ficcion_y_literatura--1/teatro--6/teatro_la_gaviota___tio_vania___las_tres_hnas--74158{ALIANZA}.htm</link>
+  <pubDate>Mon, 6 Oct 2098 00:00:00 -0300</pubDate>
+  <category>Ficción y literatura</category>
+  <guid>http://www.tematika.com/libros/ficcion_y_literatura--1/teatro--6/teatro_la_gaviota___tio_vania___las_tres_hnas--74158{ALIANZA}.htm</guid>
+  <author>nodisponible@tematika.com (Anton Pavlovich Chejov)</author>
+  <tmk:publisher>Porrua</tmk:publisher>
+</item><item>
+  <title>Ana Karenina</title>
+  <link>http://www.tematika.com/libros/ficcion_y_literatura--1/novelas--1/general--1/ana_karenina--74173{ALIANZA}.htm</link>
+  <pubDate>Mon, 6 Oct 2098 00:00:00 -0300</pubDate>
+  <category>Ficción y literatura</category>
+  <guid>http://www.tematika.com/libros/ficcion_y_literatura--1/novelas--1/general--1/ana_karenina--74173{ALIANZA}.htm</guid>
+  <author>nodisponible@tematika.com (Leon Tolstoi)</author>
+  <tmk:publisher>Porrua</tmk:publisher>
+</item><item>
+  <title>El Decameron</title>
+  <link>http://www.tematika.com/libros/ficcion_y_literatura--1/cuentos--4/el_decameron--74181{ALIANZA}.htm</link>
+  <pubDate>Mon, 6 Oct 2098 00:00:00 -0300</pubDate>
+  <category>Ficción y literatura</category>
+  <guid>http://www.tematika.com/libros/ficcion_y_literatura--1/cuentos--4/el_decameron--74181{ALIANZA}.htm</guid>
+  <author>nodisponible@tematika.com (Boccaccio)</author>
+  <tmk:publisher>Porrua</tmk:publisher>
+</item><item>
+  <title>Un Mundo Feliz</title>
+  <link>http://www.tematika.com/libros/ficcion_y_literatura--1/novelas--1/universal--2/un_mundo_feliz--75934{ALIANZA}.htm</link>
+  <pubDate>Tue, 21 Oct 2098 00:00:00 -0300</pubDate>
+  <category>Ficción y literatura</category>
+  <guid>http://www.tematika.com/libros/ficcion_y_literatura--1/novelas--1/universal--2/un_mundo_feliz--75934{ALIANZA}.htm</guid>
+  <author>nodisponible@tematika.com (Aldous L. Huxley)</author>
+  <tmk:publisher>Porrua</tmk:publisher>
+</item><item>
+  <title>Amada Inmovil - Serenidad Elevación</title>
+  <link>http://www.tematika.com/libros/ficcion_y_literatura--1/poesia--5/amada_inmovil___serenidad_elevacion--80637{ALIANZA}.htm</link>
+  <pubDate>Mon, 26 Jan 2099 00:00:00 -0300</pubDate>
+  <category>Ficción y literatura</category>
+  <guid>http://www.tematika.com/libros/ficcion_y_literatura--1/poesia--5/amada_inmovil___serenidad_elevacion--80637{ALIANZA}.htm</guid>
+  <author>nodisponible@tematika.com (Amado Nervo)</author>
+  <tmk:publisher>Porrua</tmk:publisher>
+</item><item>
+  <title>Energia Solar Aplicaciones Practicas</title>
+  <link>http://www.tematika.com/libros/computacion_y_sistemas--11/programacion_y_lenguajes--3/sql__bases_de_datos--2/energia_solar_aplicaciones_practicas--102108{ALIANZA}.htm</link>
+  <pubDate>Mon, 21 Dec 2099 00:00:00 -0300</pubDate>
+  <category>Computación y sistemas</category>
+  <guid>http://www.tematika.com/libros/computacion_y_sistemas--11/programacion_y_lenguajes--3/sql__bases_de_datos--2/energia_solar_aplicaciones_practicas--102108{ALIANZA}.htm</guid>
+  <tmk:publisher>Promotora general de estudios</tmk:publisher>
+</item></channel></rss>

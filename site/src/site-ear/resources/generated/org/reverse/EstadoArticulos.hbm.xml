@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.EstadoArticulos"
+    table="ESTADO_ARTICULOS"
+>
+
+	<id 
+        name="secuencia"
+        type="long"
+    >
+    
+<column name="SECUENCIA" precision="10" scale="0" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="descripcion"
+	    type="string"
+    >
+<column name="DESCRIPCION" length="200" not-null="true" >
+<comment>Cual es el proposito de la regla</comment>
+</column>  </property>
+
+    <property
+        name="estado"
+	    type="string"
+    >
+<column name="ESTADO" length="1" not-null="true" >
+<comment>Estado en el cual estará el articulo que cumpla con las condiciones</comment>
+</column>  </property>
+
+    <property
+        name="idDisponibilidad"
+	    type="java.lang.Long"
+    >
+<column name="ID_DISPONIBILIDAD" precision="10" scale="0" >
+<comment>Disponibilidad forzada en caso de cumplir la condicion</comment>
+</column>  </property>
+
+    <property
+        name="fechaDesde"
+	    type="date"
+    >
+<column name="FECHA_DESDE" length="7" >
+<comment>Fecha de Alta de la regla</comment>
+</column>  </property>
+
+    <property
+        name="fechaHasta"
+	    type="date"
+    >
+<column name="FECHA_HASTA" length="7" >
+<comment>Fecha de Modificación de la regla</comment>
+</column>  </property>
+
+    <property
+        name="idArticulo"
+	    type="java.lang.Long"
+    >
+<column name="ID_ARTICULO" precision="10" scale="0" >
+<comment>Id del articulo si se lo desea cambiar a este estado</comment>
+</column>  </property>
+
+    <property
+        name="categoriaSeccion"
+	    type="java.lang.Long"
+    >
+<column name="CATEGORIA_SECCION" precision="10" scale="0" >
+<comment>Seccion que se desea cambiar a este estado</comment>
+</column>  </property>
+
+    <property
+        name="categoriaGrupo"
+	    type="java.lang.Long"
+    >
+<column name="CATEGORIA_GRUPO" precision="10" scale="0" >
+<comment>Grupo que se desea cambiar a este estado</comment>
+</column>  </property>
+
+    <property
+        name="categoriaFamilia"
+	    type="java.lang.Long"
+    >
+<column name="CATEGORIA_FAMILIA" precision="10" scale="0" >
+<comment>Familia que se desea cambiar a este estado</comment>
+</column>  </property>
+
+    <property
+        name="categoriaSubfamilia"
+	    type="java.lang.Long"
+    >
+<column name="CATEGORIA_SUBFAMILIA" precision="10" scale="0" >
+<comment>SubFamilia que se desea cambiar a este estado</comment>
+</column>  </property>
+
+    <property
+        name="editorial"
+	    type="java.lang.Long"
+    >
+<column name="EDITORIAL" precision="10" scale="0" >
+<comment>Articulos de la editorial que se desean cambiar a este estado</comment>
+</column>  </property>
+
+    <property
+        name="proveedor"
+	    type="java.lang.Long"
+    >
+<column name="PROVEEDOR" precision="10" scale="0" >
+<comment>Articulos de este proveedor que se desean cambiar a este estado</comment>
+</column>  </property>
+
+    <property
+        name="importeMinimo"
+	    type="big_decimal"
+    >
+<column name="IMPORTE_MINIMO" precision="15" >
+<comment>Cambia al estado si el importe del articulo es menor a este importe</comment>
+</column>  </property>
+
+    <property
+        name="importeMaximo"
+	    type="big_decimal"
+    >
+<column name="IMPORTE_MAXIMO" precision="15" >
+<comment>Cambia al estado si el importe del articulo es mayor a este importe</comment>
+</column>  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

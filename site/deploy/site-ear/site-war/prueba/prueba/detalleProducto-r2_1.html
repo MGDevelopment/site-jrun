@@ -1,0 +1,680 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>	Tematika.com | Seccion </title>
+    
+	<link href="/estilos/comun.css" rel="stylesheet" type="text/css" />
+
+
+	<link href="/rediseno/estilos/old/seccion_libros.css" rel="stylesheet" type="text/css" />
+	<link href="/estilos/seccion_libros.css" rel="stylesheet" type="text/css" />
+
+	<link href="/estilos/mesa.css" rel="stylesheet" type="text/css" />
+	<link href="/estilos/carrito.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="/js/prototype-1.6.0.3.js"></script>
+	<script type="text/javascript" src="/js/imagePreloader.js"></script>
+	<script type="text/javascript" src="/js/hashtable.js"></script>
+	<script type="text/javascript" src="/js/carritoNew.js"></script>
+	<script type="text/javascript" src="/js/jsutil.js"></script>
+	<script type="text/javascript" src="/js/mesa.js"></script>
+	<script type="text/javascript" src="/js/dropDownMenu.js"></script>
+	<script type="text/javascript" src="/js/equalcolumns.js"></script>
+	<script type="text/javascript" src="/js/menuarbol.js"></script>
+
+	<!--[if lt IE 7]>
+		<script src="/rediseno/scripts/iepngfix/iepngfix_tilebg.js" type="text/javascript"></script>
+	<![endif]-->
+</head>
+
+<body onload="cargarCbos();getTotal()">
+	<center>
+	<!-- **** INICIO DEL CONTENIDO DEL SITIO **** -->
+	<div class="lienzo">
+
+		<!-- **** HEADER **** -->
+			
+<div class="header">
+	
+<a href="/rediseno/" class="hLogo" title="Tematika.com"></a>
+	
+
+    <div class="hBuscador">
+
+        <ul class="dropdown">
+            <li class="dir"><span onclick="javascript:desplegarOpciones('listaBuscador');" id="buscarEn">En Tematika.com</span>
+                <ul style="display:none;" id="listaBuscador">
+                    <li><a id="tematikaLnk" onmouseover="javascript:desplegarOpciones('listaBuscador');" onmouseout="javascript:ocultarOpciones('listaBuscador');" href="javascript:mostrarBuscarPor('tematikaLnk','buscarEn','listaBuscador');">En Tematika.com</a></li>
+                    <li><a id="librosLnk" onmouseover="javascript:desplegarOpciones('listaBuscador');" onmouseout="javascript:ocultarOpciones('listaBuscador');" href="javascript:mostrarBuscarPor('librosLnk','buscarEn','listaBuscador');">En Libros</a></li>
+                    <li><a id="musicaLnk" onmouseover="javascript:desplegarOpciones('listaBuscador');" onmouseout="javascript:ocultarOpciones('listaBuscador');" href="javascript:mostrarBuscarPor('musicaLnk','buscarEn','listaBuscador');">En M&uacute;sica</a></li>
+                    <li><a id="peliculasLnk" onmouseover="javascript:desplegarOpciones('listaBuscador');" onmouseout="javascript:ocultarOpciones('listaBuscador');" href="javascript:mostrarBuscarPor('peliculasLnk','buscarEn','listaBuscador');">En Peliculas</a></li>
+                    <li><a id="pasatiemposLnk" onmouseover="javascript:desplegarOpciones('listaBuscador');" onmouseout="javascript:ocultarOpciones('listaBuscador');" href="javascript:mostrarBuscarPor('pasatiemposLnk','buscarEn','listaBuscador');">En Pasatiempos</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <input name="buscadorTxtField" type="text" class="hBuscTxtF" />
+        <div class="hBuscButton" title="Buscar "></div>
+
+    </div>
+
+	<a href="#" class="hServClientes" title="Servicio al cliente" ></a>
+
+	
+
+<div class="hModUsuario">
+   	<div class="hModUsrNombre">Carlos Lopez</div>
+       <a class="hModUsrCerrar" href="#" title="Salir">
+       	salir
+       </a>
+       <div class="hModUsrExtra">
+       	Tens acumulados<br />
+       	<a href="#">150 puntos </a>
+       		eXtra!
+       	</div>
+       <a href="#" class="hModUsrCarrito" title="Finalizar la compra"> 1 item<br />$51,50</a>
+    <a href="#" class="hModUsrButton" title="Desplegar mi panel de usuario"></a>
+</div>
+</div>
+
+
+		<!-- **** BODY -->
+
+		<!-- **** BARRA CENTRAL **** -->
+		<div class="barraCentral">
+				
+
+
+
+
+
+
+
+<div class="panelSeccionesLeft">
+	
+	
+	
+	
+	
+	
+	
+</div>
+
+
+
+
+<!-- **** SECCION TEMATIKA **** -->
+<div id="seccionTematika">
+
+	<div id="divCarrito" class="efectoCarritoMod" style="display:none">    
+        <div class="efectoCarritoTxt"><span class="txtMsgCarritoOK" id="msgCarritoOK">
+            </span><br />
+            <div id="msgCarritoERROR" style="font-size:12;color:red"></div>
+            <span id="spnPrecioCarrito" class="txtPrecioCarrito">PRECIO: $ <span  class="txtPrecioCarrito" id="precioCarrito"></span>.-</span>
+        </div>
+        
+        <div class="efectoCarritoImages"><img id="carritoImagen" src="" class="efectoCarritoImag"></div>
+        
+        <div id="efectoCarritoB"><a href="javascript:carrito_CloseCarrito()"><img src="../rediseno/libros/imagenes/b-carrContinuar.gif" alt="Continuar" border="0"></a></div>    
+	</div>
+    
+	<div id="modalBack" style="display:none"></div>
+    
+	<div class="globoArticuloLoad" id="loadArticulo" style="display:none;" >cargando</div>
+    
+	<div class="globoArticulo" style="display:none;" id="globo" onMouseOver="this.style.display=''">
+		<table  bgcolor="#dddddd" border="0" cellspacing="0" cellpadding="0" onMouseOver="this.style.display=''" onMouseOut="ocultarGlobo()">
+			<tr>
+				<td>Titulo:</td><td id="artTitulo"></td>
+			</tr>
+			<tr id="trAutor">
+				<td id="autor"></td><td id="artAutor"></td>
+			</tr>
+			<tr id="trEditor">
+				<td id="editor"></td><td id="artEditor"></td>
+			</tr>
+
+			<tr id="trRanking">
+				<td>Ranking:</td><td id="artRanking"></td>
+			</tr>
+			<tr>
+			</tr>
+			<tr>
+				<td>Fecha de Publicaci&oacute;n:</td><td id="artPublicacion"></td>
+			</tr>
+			<tr>
+				<td>Idioma:</td><td id="artIdioma"></td>
+			</tr>
+			<tr id="trPagina">
+				<td id="pagina"></td><td id="artPagina"></td>
+			</tr>
+			<tr id="trFormato">
+				<td>Formato:</td><td id="artFormato"></td>
+			</tr>
+			<tr id="trDisponibilidad">
+				<td>Disponibilidad:</td><td id="artDisponibilidad"></td>
+			</tr>
+			<tr id="trComprar">
+				<td colspan="2"><input id="btnComprar" onClick="" type="button"  value="Agregar al Carrito"></td>
+			</tr>
+			<tr id="trPedir">
+				<td colspan="2"><input id="btnPedir" type="button"  value="Pedido Especial"></td>
+			</tr>
+		</table>
+	</div>
+
+<a href="#" class="panelSeccAct"></a><!-- link a la home de sección correspondiente -->
+
+
+<div class="detalleInfoPrinc"><!-- **** INFO DEL PRODUCTO (SIN COMPRA) **** -->
+
+   	<div id="dTopLeft"><!-- Top del producto (Left) -->
+    
+        <div class="dImagenes"><!-- imagenes del producto -->
+            <div class="detalleImagen">
+                <a href="#"><img src="http://www.tematika.com/tapas/sitio/477474g0.jpg" title="Agrandar imagen"></a>            
+            </div>
+            <a href="#" class="detalleImagenAnt"></a>
+            <span>1 de 5</span>
+            <a href="#" class="detalleImagenSig"></a>
+        </div><!-- FIN imagenes -->
+        
+        <div class="dInfoPrincipal"><!-- datos principales -->
+        
+            <div class="dInfoTit">La Apelación</div>
+            <div class="dInfoAutor">de <a href="#">John Grisham</a></div>
+            
+            <span>Editorial: <a href="#">Plaza & Janes</a></span>
+            <span>Género: <a href="#">Ficción y Literatura</a></span>
+            <span>Páginas: 360</span>
+            <span>Publicación: Agosto 2008 | Idioma: Español</span>
+            <a href="#datosCompl">+ info</a><br />
+            <div class="dInfoM">              
+                <a href="#primerCap">[+] Primer capitulo</a><br />
+                <a href="#indCont">[+] Indice de contenidos</a><br />
+            </div>
+            
+            <div class="dInfoCalif">
+                <div class="dInfoCalifStarMod">
+                    <span>Evaluación de lectores:</span>
+                    <div class="dInfoCalifStar"></div>
+                    <div class="dInfoCalifStar"></div>
+                    <div class="dInfoCalifStar"></div>
+                    <div class="dInfoCalifStarDes"></div>
+                    <div class="dInfoCalifStarDes"></div>
+                </div>
+                <div class="dInfoCalifBoton">
+                    <span>15 votos y <a href="#comentarios">7 Comentarios</a></span>
+                    <a href="#"><div>AGREGAR COMENTARIO</div></a>
+                </div>
+            </div>
+            
+            <div class="dInfoLinks">Listas: <a href="#">leyes</a>, <a href="#">autor</a>, <a href="#">john grisham</a>, <a href="#">abogados</a>, <a href="#">política</a>, <a href="#">tribunal</a>, <a href="#listas">(15+)</a></div>
+            <div class="dInfoLinks">Etiquetas: <a href="#">leyes</a>, <a href="#">autor</a>, <a href="#">john grisham</a>, <a href="#">abogados</a>, <a href="#">política</a>, <a href="#">tribunal</a>, <a href="#tags">(15+)</a></div>
+            
+        </div><!-- FIN datos principales -->
+    
+    </div><!-- FIN Top del producto (Left) -->
+    
+    
+    <div id="dInfoCompl"><!-- **** Info Complementaria **** -->
+
+        <div class="dSolapas" id="datosCompl"><!-- datos principales -->
+            
+            <div class="tmtkMesaMenuMod">
+                <div class="solapasTitDatosPrinc" title="Datos principales"/></div>
+            </div>
+            
+            <div class="dResena">
+                <span>Solapa</span>
+                John Grisham es uno de los novelistas actuales de más éxito en todo el mundo. Se licenció en derecho en 1981 y en solo diez años se especializó en la defensa de daños personales y derecho criminal. Decidió escribir después de oír el testimonio de una chica de doce años víctima de una violación e imaginó lo que pasaría si el padre de la víctima asesinara al violador. Le costó tres años acabar su primera novela, Tiempo para matar, que se publicó en 1988, pero fue la segunda, La tapadera, la que le llevó a las listas de best seller donde permaneció durante 47 semanas y le convirtió en uno de los autores de más éxito y el rey sin rivales del drama legal. Doce de sus novelas se han convertido en películas de gran éxito. John Grisham escribe sobre el mundo que más conoce, el de los tribunales. En 1983 fue elegido para la Cámara de Representantes de Mississippi donde sirvió hasta 1990. En 1996 Grisham retornó brevemente a la práctica del derecho representando con éxito a la familia de un hombre muerto en accidente de tren.
+                <span>Contratapa</span>
+                La política siempre ha sido un juego sucio. Ahora la justicia también lo es. En una abarrotada sala de un tribunal del estado de Mississippi el jurado pronuncia un veredicto totalmente inesperado: declara culpable a una empresa química por realizar vertidos tóxicos en el sistema de conducción de agua potable de la ciudad, lo que ha provocado la incidencia de cáncer más alta de la historia. La empresa apela al Tribunal Supremo del estado, cuyos nueve jueces deberán confirmar o revocar el veredicto. Carl Trudeau, el propietario de la empresa, no confía en que emita un fallo favorable para él e investiga a cada juez. Aprovechando que hay una vacante en el Tribunal, decide presentar su propio candidato, aunque le cueste unos cuantos millones de dólares. Para eso se pone en contacto con una empresa que le selecciona un abogado joven y maleable. Lo financian, lo promocionan y lo moldean a su gusto para que llegue a convertirse en juez del Tribunal Supremo. Su juez del Tribunal Supremo. La apelación es un drama intenso, que aborda un tema muy actual y está lleno de sorpresas. Una historia llamada a suscitar profundas dudas sobre qué significa la justicia. «Grisham nos ofrece su libro más inteligente» The New York Times JOHN GRISHAM es autor de diecinueve novelas y de una crónica basada en un hecho real, El proyecto Williamson. Vive entre Virginia y Mississippi. www.jgrisham.com Una novela que se convertirá en un clásico de nuestra era. John Grisham refleja nuestro tiempo igual que lo hizo Tom Wolfe en La hoguera de las vanidades. The Boston Globe Una historia perfectamente construida en cada detalle. El final sorprenderá a muchos lectores. People Fascinante# poblado de personajes perfectamente retratados por un autor que conoce la política y la ley desde dentro. Los Angeles Times Una historia inteligente y una trama bien pensada. Grisham muestra directamente el alto riesgo de elegir a los jueces en una sociedad en la cual el dinero lo decide todo. Seattle Times - Post Int.
+            </div>
+                    
+        </div><!-- FIN datos principales -->
+        
+        <div class="dSolapas" id="primerCap"><!-- Indice de contenidos -->
+            
+            <div class="tmtkMesaMenuMod">
+            
+            <div class="solapasTitprimerCap" title="Primer capítulo"/></div>
+            </div>
+            
+            <div class="dResena">
+                <span></span>
+                John Grisham es uno de los novelistas actuales de más éxito en todo el mundo. Se licenció en derecho en 1981 y en solo diez años se especializó en la defensa de daños personales y derecho criminal. Decidió escribir después de oír el testimonio de una chica de doce años víctima de una violación e imaginó lo que pasaría si el padre de la víctima asesinara al violador. Le costó tres años acabar su primera novela, Tiempo para matar, que se publicó en 1988, pero fue la segunda, La tapadera, la que le llevó a las listas de best seller donde permaneció durante 47 semanas y le convirtió en uno de los autores de más éxito y el rey sin rivales del drama legal. Doce de sus novelas se han convertido en películas de gran éxito. John Grisham escribe sobre el mundo que más conoce, el de los tribunales. En 1983 fue elegido para la Cámara de Representantes de Mississippi donde sirvió hasta 1990. En 1996 Grisham retornó brevemente a la práctica del derecho representando con éxito a la familia de un hombre muerto en accidente de tren.
+            <br /><br /><a href="#">+ seguir leyendo...</a>
+            
+            </div>
+
+                    
+        </div><!-- FIN Indice de contenidos -->
+
+        <div class="dSolapas" id="indCont"><!-- Primer Cap -->
+            
+            <div class="tmtkMesaMenuMod">            
+            <div class="solapasTitIndCont" title="Índice de contenidos"/></div>
+            </div>
+            
+            <div class="dResena">
+                <span></span>
+                John Grisham es uno de los novelistas actuales de más éxito en todo el mundo. Se licenció en derecho en 1981 y en solo diez años se especializó en la defensa de daños personales y derecho criminal. Decidió escribir después de oír el testimonio de una chica de doce años víctima de una violación e imaginó lo que pasaría si el padre de la víctima asesinara al violador. Le costó tres años acabar su primera novela, Tiempo para matar, que se publicó en 1988, pero fue la segunda, La tapadera, la que le llevó a las listas de best seller donde permaneció durante 47 semanas y le convirtió en uno de los autores de más éxito y el rey sin rivales del drama legal. Doce de sus novelas se han convertido en películas de gran éxito. John Grisham escribe sobre el mundo que más conoce, el de los tribunales. En 1983 fue elegido para la Cámara de Representantes de Mississippi donde sirvió hasta 1990. En 1996 Grisham retornó brevemente a la práctica del derecho representando con éxito a la familia de un hombre muerto en accidente de tren.
+            <br /><br /><a href="#">+ seguir leyendo...</a>
+            
+            </div>
+                                
+        </div><!-- FIN Primer Capítulo -->
+        
+        
+        <div class="dSolapas" id="comentarios"><!-- comentarios -->
+            
+            <div class="tmtkMesaMenuMod">
+                <div class="solapasTitComent"></div> 
+                <ul class="dropdown">
+                    <li class="dir"><span onclick="javascript:desplegarOpciones('displayUsuarios');" id="mostrardisplayUsuarios">Los más recientes</span>
+                        <ul id="displayUsuarios">
+                            <li><a id="recientesUsr" onmouseover="javascript:desplegarOpciones('displayUsuarios);" onmouseout="javascript:ocultarOpciones('displayUsuarios');" href="javascript:mostrarBuscarPor('recientesUsr','mostrardisplayUsuarios','displayUsuarios');">Los más recientes</a></li>
+                            <li><a id="utilesUsr" onmouseover="javascript:desplegarOpciones('displayUsuarios');" onmouseout="javascript:ocultarOpciones('displayUsuarios');" href="javascript:mostrarBuscarPor('utilesUsr','mostrardisplayUsuarios','displayUsuarios');">Los más útiles</a></li>
+                            <li><a id="popularesUsr" onmouseover="javascript:desplegarOpciones('displayUsuarios');" onmouseout="javascript:ocultarOpciones('displayUsuarios');" href="javascript:mostrarBuscarPor('popularesUsr','mostrardisplayUsuarios','displayUsuarios');">Los más populares</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="dComentarios">
+                
+                <div class="dComentsInfo">            
+                    <span><a href="#">Jesica Carla Khadjoyan</a>  dijo el 03/11/2008:</span>
+                    <div class="calificacionMod">
+                        <span>Calificación del producto:</span>
+                        <div class="calificacionStar"></div>
+                        <div class="calificacionStar"></div>
+                        <div class="calificacionStar"></div>
+                        <div class="calificacionStarDes"></div>
+                        <div class="calificacionStarDes"></div>
+                    </div>
+                </div>
+                
+                <div class="dComentsMod">            
+                    <a href="#"><img src="/imagenes/rediseno/imagenes/comun/avatarM-ch.gif"/></a>                
+                    <div class="dComentsTxt">
+                        Mis amigos siempre andan por ahí leyendo libros de este autor. Siempre me pregunté qué tendría de atractivo para hacer que ellos leyeran libracos de 400 páginas. Así que decidí comprobarlo y me compré “La apelación”. La verdad es que está muy bueno. Grisham es un abogado que conoce muchísimo del mundo de los jueces y los tribunales, de todos los manejos de la justicia, la parte sucia de la ley, y de los casos terribles que pasan por allí. Es un best seller de lo que se llama “drama judicial”. Es evidente que este autor combina como ninguno sus conocimientos como abogado con una habilidad única para narrar y generar tensión e intriga. En este caso, Grisham cuenta la historia de un caso que ocurre en Mississippi, cuando un jurado declara culpable a una empresa química por verter residuos tóxicos en la red de agua potable, provocando un aumento alarmante en los casos de cáncer en la zona. Este tipo de casos no es ajeno: ¡Podemos ver casos reales todas las semanas en la televisión, en barrios del gran Buenos Aires! <br /><br />
+                        En este caso, la justicia actúa como quisiéramos que lo haga en la vida real. Lo que ocurre es que el dueño de la empresa intenta manipular la justicia, tratando de colocar un juez que responde a sus intereses en el Tribunal Supremo, quien tendrá a cargo revisar la apelación (que da nombre a la novela), y dar vuelta el veredicto a favor de su empresa. La novela desnuda la trama secreta de las relaciones entre poder y justicia, y nos hace pensar que es muy difícil ser justos en el mundo de hoy. Varias novelas de este autor mundialmente conocido se llevaron al cine, como Fachada (The Firm) y El poder de la justicia (The Rainmaker). Aconsejo a quien quiera conocer más al autor antes o después de leer “La apelación”, que vean estas películas apasionantes y se metan de lleno en el mundo de Grisham, para leer también sus novelas anteriores. 
+                    </div>            
+                </div>
+                
+                <div class="dComentsCalif">
+                    <span>Evaluar comentario:</span><a href="#" class="dComentsCalifP" title="Este comentario me fué útil"></a> <span>(4)</span> <a href="#" class="dComentsCalifN" title="Este comentario no me fué útil"></a> <span>(10)</span>
+                    <div class="dComentsCalifResp"><a href="#">RESPONDER</a></div>
+                    <a href="#" class="dComentsCalifReportar">Reportar contenido inapropiado</a>
+                </div>
+                
+            </div>
+            
+            
+            <div class="dComentarios">
+                
+                <div class="dComentsInfo">            
+                    <span><a href="#">Jesica Carla Khadjoyan</a>  dijo el 03/11/2008:</span>
+                    <div class="calificacionMod">
+                        <span>Calificación del producto:</span>
+                        <div class="calificacionStar"></div>
+                        <div class="calificacionStar"></div>
+                        <div class="calificacionStar"></div>
+                        <div class="calificacionStarDes"></div>
+                        <div class="calificacionStarDes"></div>
+                    </div>
+                </div>
+                
+                <div class="dComentsMod">            
+                    <a href="#"><img src="/imagenes/rediseno/imagenes/comun/avatarM-ch.gif"/></a>                
+                    <div class="dComentsTxt">
+                        Mis amigos siempre andan por ahí leyendo libros de este autor. Siempre me pregunté qué tendría de atractivo para hacer que ellos leyeran libracos de 400 páginas. Así que decidí comprobarlo y me compré “La apelación”. La verdad es que está muy bueno. Grisham es un abogado que conoce muchísimo del mundo de los jueces y los tribunales, de todos los manejos de la justicia, la parte sucia de la ley, y de los casos terribles que pasan por allí. Es un best seller de lo que se llama “drama judicial”. Es evidente que este autor combina como ninguno sus conocimientos como abogado con una habilidad única para narrar y generar tensión e intriga. En este caso, Grisham cuenta la historia de un caso que ocurre en Mississippi, cuando un jurado declara culpable a una empresa química por verter residuos tóxicos en la red de agua potable, provocando un aumento alarmante en los casos de cáncer en la zona. Este tipo de casos no es ajeno: ¡Podemos ver casos reales todas las semanas en la televisión, en barrios del gran Buenos Aires! <br /><br />
+                        En este caso, la justicia actúa como quisiéramos que lo haga en la vida real. Lo que ocurre es que el dueño de la empresa intenta manipular la justicia, tratando de colocar un juez que responde a sus intereses en el Tribunal Supremo, quien tendrá a cargo revisar la apelación (que da nombre a la novela), y dar vuelta el veredicto a favor de su empresa. La novela desnuda la trama secreta de las relaciones entre poder y justicia, y nos hace pensar que es muy difícil ser justos en el mundo de hoy. Varias novelas de este autor mundialmente conocido se llevaron al cine, como Fachada (The Firm) y El poder de la justicia (The Rainmaker). Aconsejo a quien quiera conocer más al autor antes o después de leer “La apelación”, que vean estas películas apasionantes y se metan de lleno en el mundo de Grisham, para leer también sus novelas anteriores. 
+                    </div>            
+                </div>
+                
+                <div class="dComentsCalif">
+                    <span>Evaluar comentario:</span><a href="#" class="dComentsCalifP" title="Este comentario me fué útil"></a> <span>(4)</span> <a href="#" class="dComentsCalifN" title="Este comentario no me fué útil"></a> <span>(10)</span>
+                    <div class="dComentsCalifResp"><a href="#">RESPONDER</a></div>
+                    <a href="#" class="dComentsCalifReportar">Reportar contenido inapropiado</a>
+                </div>
+                
+            </div>
+            
+        <div class="dSolapasPie">
+            <a href="#" class="dSolapasPieLink">+ comentarios (13)</a>
+            <a href="#"><div>AGREGAR COMENTARIO</div></a>
+        </div>  
+                    
+        </div><!-- FIN comentarios -->
+        
+         <div class="dSolapas" id="listas"><!-- listas -->
+                
+                <div class="tmtkMesaMenuMod">
+                    <div class="solapasTitListas"></div>
+                    <ul class="dropdown">
+                        <li class="dir"><span onclick="javascript:desplegarOpciones('displayListas');" id="mostrardisplayListas">Las más populares</span>
+                            <ul id="displayListas">
+                                <li><a id="popularesListas" onmouseover="javascript:desplegarOpciones('displayListas');" onmouseout="javascript:ocultarOpciones('displayListas');" href="javascript:mostrarBuscarPor('popularesListas','mostrardisplayListas','displayListas');">Las más populares</a></li>
+                                <li><a id="recientesListas" onmouseover="javascript:desplegarOpciones('displayListas');" onmouseout="javascript:ocultarOpciones('displayListas');" href="javascript:mostrarBuscarPor('recientesListas','mostrardisplayListas','displayListas');">Las más recientes</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="solapaModulos"><!-- este div contiene a las calles de los comentarios -->
+                
+                    <div class="solapaCalle" id="calleLibrosListas">
+                        <div class="hListaP">
+                            <span><a href="#">TITULO DE LA LISTA</a></span>
+                            <div class="calificacionMod">
+                                <span>Calificación:</span>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStarDes"></div>
+                                <div class="calificacionStarDes"></div>
+                            </div><br />
+                            Generada por: <a href="#">Jesica Carla Khadjoyan</a>
+                        </div>
+                        
+                        <div class="hListaP">
+                            <span><a href="#">TITULO DE LA LISTA</a></span>
+                            <div class="calificacionMod">
+                                <span>Calificación:</span>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStarDes"></div>
+                                <div class="calificacionStarDes"></div>
+                            </div><br />
+                            Generada por: <a href="#">Jesica Carla Khadjoyan</a>
+                        </div>
+                        
+                        <div class="hListaP">
+                            <span><a href="#">TITULO DE LA LISTA</a></span>
+                            <div class="calificacionMod">
+                                <span>Calificación:</span>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStarDes"></div>
+                                <div class="calificacionStarDes"></div>
+                            </div><br />
+                            Generada por: <a href="#">Jesica Carla Khadjoyan</a>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="solapaCalleSeparador" id="calleSeparadorListas"></div><!-- líneas divisorias -->
+                    
+                    <div class="solapaCalle" id="calleMusicaListas">
+                        <div class="hListaP">
+                            <span><a href="#">TITULO DE LA LISTA</a></span>
+                            <div class="calificacionMod">
+                                <span>Calificación:</span>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStarDes"></div>
+                                <div class="calificacionStarDes"></div>
+                            </div><br />
+                            Generada por: <a href="#">Jesica Carla Khadjoyan</a>
+                        </div>
+                        
+                        <div class="hListaP">
+                            <span><a href="#">TITULO DE LA LISTA</a></span>
+                            <div class="calificacionMod">
+                                <span>Calificación:</span>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStarDes"></div>
+                                <div class="calificacionStarDes"></div>
+                            </div><br />
+                            Generada por: <a href="#">Jesica Carla Khadjoyan</a>
+                        </div>
+                        
+                        <div class="hListaP">
+                            <span><a href="#">TITULO DE LA LISTA</a></span>
+                            <div class="calificacionMod">
+                                <span>Calificación:</span>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStar"></div>
+                                <div class="calificacionStarDes"></div>
+                                <div class="calificacionStarDes"></div>
+                            </div><br />
+                            Generada por: <a href="#">Jesica Carla Khadjoyan</a>
+                        </div>
+                       
+                    </div>                
+               
+                </div>
+                
+                <div class="dSolapasPie">
+                    <a href="#" class="dSolapasPieLink">+ listas (13)</a>
+                    <a href="#"><div>CREAR UNA LISTA</div></a>
+                </div>  
+                             
+          </div><!-- FIN listas --> 
+            
+            <div class="dSolapas" id="tags"><!-- tags -->
+                
+                <div class="tmtkMesaMenuMod">
+                    <div class="solapasTitTags"></div> 
+                    <ul class="dropdown">
+                        <li class="dir"><span onclick="javascript:desplegarOpciones('displayTags');" id="mostrardisplayTags">Las más recientes</span>
+                            <ul id="displayTags">
+                                <li><a id="recientesTags" onmouseover="javascript:desplegarOpciones('displayTags);" onmouseout="javascript:ocultarOpciones('displayTags');" href="javascript:mostrarBuscarPor('recientesTags','mostrardisplayTags','displayTags');">Las más recientes</a></li>
+                                <li><a id="popularesTags" onmouseover="javascript:desplegarOpciones('displayTags');" onmouseout="javascript:ocultarOpciones('displayTags');" href="javascript:mostrarBuscarPor('popularesTags','mostrardisplayTags','displayTags');">Las más populares</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="hTags" style="padding-top:-10px;">
+                    <div class="hTagsContainer">
+                        <a href="#" class="tag1">Lorem ipsum dolor sit amet, consectetuer adipiscing</a> <a href="#" class="tag1">elit. Aenean</a> <a href="#" class="tag1">commodo ligula eget dolor.</a> <a href="#" class="tag2">Aenean massa.</a> <a href="#" class="tag1">Cum sociis natoque penatibus</a> <a href="#" class="tag1">et magnis dis</a> <a href="#" class="tag3">parturient</a> <a href="#" class="tag1">montes, nascetur ridiculus mus.</a> <a href="#" class="tag1">Donec quam felis, ultricies nec,</a> <a href="#" class="tag2">pellentesque</a> <a href="#" class="tag1">pretium quis, sem. Nulla consequat massa quis enim.</a> <a href="#" class="tag1">Donec pede justo,</a> <a href="#" class="tag3">fringilla vel</a> <a href="#" class="tag1">aliquet nec,</a> <a href="#" class="tag1">vulputate eget,</a> <a href="#" class="tag1">arcu. In enim</a> <a href="#" class="tag1">justo</a> <a href="#" class="tag2">rhoncus ut,</a> <a href="#" class="tag1">imperdiet a, venenatis vitae,</a> <a href="#" class="tag1">justo. Nullam</a> <a href="#" class="tag4">dictum</a> <a href="#" class="tag1">felis eu pede mollis pretium.</a> <a href="#" class="tag1">Integer tincidunt.</a> <a href="#" class="tag1">Cras dapibus.</a> <a href="#" class="tag1">Vivamus elementum semper nisi.</a> <a href="#" class="tag1">Aenean vulputate eleifend tellus.</a> <a href="#" class="tag3">Aenean</a> <a href="#" class="tag1">leo ligula,</a> <a href="#" class="tag1">porttitor eu, consequat vitae,</a> <a href="#" class="tag2">eleifend ac</a> <a href="#" class="tag1">Aliquam lorem ante, dapibus in,</a> <a href="#" class="tag3">viverra quis</a> <a href="#" class="tag1">feugiat a, tellus.</a> <a href="#" class="tag1">Phasellus viverra nulla</a> <a href="#" class="tag2">ut metus varius laoreet.</a> <a href="#" class="tag1">Quisque rutrum.</a> <a href="#" class="tag1">Aenean imperdiet. Etiam ultricies</a> <a href="#" class="tag3">nisi vel</a> <a href="#" class="tag1">augue. Curabitur ullamcorper</a> <a href="#" class="tag2">ultricies nisi</a> <a href="#" class="tag1">Nam eget dui.<a href="#" class="tag1"><a href="#" class="tag3"> Etiam rhoncus</a> <a href="#" class="tag1">Maecenas tempus,</a> <a href="#" class="tag1">tellus eget condimentum rhoncus,</a> <a href="#" class="tag2">sem quam semper</a> <a href="#" class="tag1">libero, sit amet</a> <a href="#" class="tag2">adipiscing sem neque</a> <a href="#" class="tag1">sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar,</a> <a href="#" class="tag3">hendrerit id</a> <a href="#" class="tag1">lorem. Maecenas nec odio</a> <a href="#" class="tag1">et ante tincidunt</a> <a href="#" class="tag2">tempus. Donec vitae</a> <a href="#" class="tag1">sapien ut libero venenatis faucibus.</a> <a href="#" class="tag3">Nullam</a> <a href="#" class="tag1">quis ante. Etiam sit amet orci</a> <a href="#" class="tag2">eget eros</a> <a href="#" class="tag1">faucibus tincidunt. Duis leo. Sed fringilla mauris sit</a> <a href="#" class="tag1">amet nibh. Donec sodales sagittis magna.</a> <a href="#" class="tag2">Sed consequat</a>, <a href="#" class="tag1">leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero.</a>
+                    </div>
+                </div>
+                
+                <div class="dSolapasPie">
+                    <a href="#"><div>AGREGAR ETIQUETA/S</div></a>
+                </div>          
+                
+            </div><!-- FIN tags --> 
+        
+    
+    </div><!-- **** FIN Info Complementaria **** -->
+    
+
+</div><!-- **** FIN INFO DEL PRODUCTO (SIN COMPRA) **** -->
+
+
+<div id="dTopRight"><!-- compra -->
+    
+    <div class="dCompra">
+        <span>$ 59,90 <p>precio de lista</p></span>
+        <span>$ -11,50 <a href="#">tus beneficios aplicables</a></span>
+        
+        <ul>
+            <span>$ 48,40 <p>tu precio</p></span>
+            <span><p>+ 177 puntos</p><img src="/imagenes/rediseno/imagenes/comun/detalleExtraLogo.gif" /><a href="#">ingresar a extra</a></span>            
+        </ul>
+        <a href="#"><div class="dComprarButton" title="Agregar al carrito"></div></a>
+        <a href="#" class="dComprarEnvio">Ver costos de envío y Tiempos de Entrega</a>
+        <div class="detalleAcciones">
+            <a href="#" class="detalleBotonMenu"><span>COMPARTIR</span></a>
+            <a href="#" class="detalleBotonMenu"><span>AGREGAR A UNA LISTA</span></a>        
+            <a href="#" class="detalleBoton"><span>YA LO TENGO</span></a>
+        </div>
+        
+    </div>
+    
+</div><!-- FIN compra -->   
+
+
+<div id="dRecomendaciones"><!-- recomendaciones -->    
+
+<div class="dRecomendTit">Obras relacionadas</div>
+
+<div class="dRecomendMod">
+    <div class="tapaContenedor">
+        <a href="#"><img src="http://www.tematika.com/tapas/sitio/471702c0.jpg" class="tapaLibros"></a>
+        <div class="tapaInfo"></div>
+    </div>    
+    <a href="#" class="fTitulos">SEXO EN NUEVA YORK</a>
+    <span>Precio: $54.00</span>
+    <div class="calificacionMod">
+      <span>Calificación:</span>
+      <div class="calificacionStar"></div>
+      <div class="calificacionStar"></div>
+      <div class="calificacionStar"></div>
+      <div class="calificacionStarDes"></div>
+      <div class="calificacionStarDes"></div>
+    </div>
+</div>
+
+<div class="dRecomendMod">
+    <div class="tapaContenedor">
+        <a href="#"><img src="http://www.tematika.com/tapas/sitio/471702c0.jpg" class="tapaLibros"></a>
+        <div class="tapaInfo"></div>
+    </div>    
+    <a href="#" class="fTitulos">SEXO EN NUEVA YORK</a>
+    <span>Precio: $54.00</span>
+    <div class="calificacionMod">
+      <span>Calificación:</span>
+      <div class="calificacionStar"></div>
+      <div class="calificacionStar"></div>
+      <div class="calificacionStar"></div>
+      <div class="calificacionStarDes"></div>
+      <div class="calificacionStarDes"></div>
+    </div>
+</div>
+
+<div class="dRecomendMod">
+    <div class="tapaContenedor">
+        <a href="#"><img src="http://www.tematika.com/tapas/sitio/471702c0.jpg" class="tapaLibros"></a>
+        <div class="tapaInfo"></div>
+    </div>    
+    <a href="#" class="fTitulos">SEXO EN NUEVA YORK</a>
+    <span>Precio: $54.00</span>
+    <div class="calificacionMod">
+      <span>Calificación:</span>
+      <div class="calificacionStar"></div>
+      <div class="calificacionStar"></div>
+      <div class="calificacionStar"></div>
+      <div class="calificacionStarDes"></div>
+      <div class="calificacionStarDes"></div>
+    </div>
+</div>
+
+<div class="dRecomendTit">Usuarios relacionados</div>
+
+<div class="dRecomendMod">
+    <div class="tapaContenedor">
+        <a href="#"><img src="/imagenes/rediseno/imagenes/comun/avatarM.gif" class="imgAvatar"></a>
+    </div>    
+    <a href="#" class="fUsuarios">Marah</a>
+</div>
+
+<div class="dRecomendMod">
+    <div class="tapaContenedor">
+        <a href="#"><img src="/imagenes/rediseno/imagenes/comun/avatarM.gif" class="imgAvatar"></a>
+    </div>    
+    <a href="#" class="fUsuarios">Marah</a>
+</div>
+
+<div class="dRecomendMod">
+    <div class="tapaContenedor">
+        <a href="#"><img src="/imagenes/rediseno/imagenes/comun/avatarM.gif" class="imgAvatar"></a>
+    </div>    
+    <a href="#" class="fUsuarios">Marah</a>
+</div>
+
+
+
+</div><!-- FIN recomendaciones -->
+    
+
+</div><!-- **** FIN SECCION TEMATIKA **** -->
+
+
+
+
+
+
+
+<div class="panelSecciones">
+	
+	
+		<a href="/rediseno/musica" id="panelSeccMusica" title="Msica"><span></span></a>
+	
+	
+		<a href="/rediseno/peliculas" id="panelSeccPeliculas" title="Pelculas"><span></span></a>
+	
+	
+		<a href="/rediseno/juguetes" id="panelSeccPasatiempos" title="Pasatiempos"><span></span></a>
+	
+	
+		<a href="/rediseno/sucursales" id="panelSeccSucursales" title="Sucursales"><span></span></a>
+	
+	
+		<a href="/rediseno/quid" id="panelSeccQuid" title="Quid"><span></span></a>
+	
+	
+		<a href="/rediseno/extra" id="panelSeccExtra" title="eXtra!"><span></span></a>
+	
+</div>
+
+
+
+
+
+
+
+		</div>
+		<!-- **** FIN BARRA CENTRAL **** -->
+
+		<!-- **** FOOTER **** -->
+		<div class="footer">
+			
+	<div class="footerShadow"></div>
+    <div class="footerLogos"></div>
+
+    <div class="footerText"><a href="#">
+    TEMATIKA</a> |
+    <a href="#">LIBROS</a> |
+    <a href="#">MUSICA</a> |
+    <a href="#">PASATIEMPOS</a> |
+    <a href="#">PELICULAS</a></div>
+    <div class="footerText2"><a href="#">
+    <img src="/imagenes/rediseno/imagenes/comun/rssLogo.gif" />
+    <span>Descargue las Novedades y Lanzamientos de Tematika.com en su sitio</span></a></div>
+    <div class="footerText">
+    <a href="#">MARCAS ILHSA</a> |
+    <a href="#">SUCURSALES</a> |
+    <a href="#">PRENSA</a> |
+    <a href="#">PREGUNTAS FRECUENTES</a> |
+    <a href="#">ASOCIADOS Y REFERIDOS</a> |
+    <a href="#">VENTAS CORPORATIVAS</a><br />
+    <a href="#">MAPA DE PRODUCTOS</a> |
+    <a href="#">EMPLEO</a> |
+    <a href="#">CONTACTO</a> |
+    <a href="#">SERVICIO AL CLIENTE</a>
+ </div>
+
+
+	  </div>
+
+	</div>
+	<!-- **** FIN DEL CONTENIDO DEL SITIO **** -->
+</center>
+</body>
+</html>
+
+
+<!-- tiles:useAttribute ignore="true" id="idSeccion" name="idSeccion" scope="request"/-->

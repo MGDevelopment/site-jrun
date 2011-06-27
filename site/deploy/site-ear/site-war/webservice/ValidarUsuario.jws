@@ -1,0 +1,13 @@
+import com.tmk.util.ShortCuts;
+import com.tmk.socio.SocioLocal;
+
+public class ValidarUsuario {
+	public boolean validar(String login, String pass) {
+		SocioLocal socio = ShortCuts.findSocioByLoginPassword(login, pass);
+		if (socio != null) {
+			return true;
+		}
+		return false;
+	}
+}
+

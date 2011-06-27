@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.BufferFdnCuentasXSociosbup"
+    table="BUFFER_FDN_CUENTAS_X_SOCIOSBUP"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.BufferFdnCuentasXSociosbupId"
+    >		
+	        <key-property name="idCuenta" type="long">
+<column name="ID_CUENTA" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idCuso" type="byte">
+<column name="ID_CUSO" precision="2" scale="0" />
+	        </key-property>
+	        <key-property name="idSucursal" type="short">
+<column name="ID_SUCURSAL" precision="4" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <property
+        name="idSocio"
+	    type="java.lang.Long"
+    >
+<column name="ID_SOCIO" precision="10" scale="0" />
+  </property>
+
+    <property
+        name="idSucursalSocio"
+	    type="java.lang.Short"
+    >
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" />
+  </property>
+
+    <property
+        name="dperCodigo"
+	    type="java.lang.Integer"
+    >
+<column name="DPER_CODIGO" precision="8" scale="0" />
+  </property>
+
+    <property
+        name="componente"
+	    type="byte"
+    >
+<column name="COMPONENTE" precision="2" scale="0" not-null="true" >
+<comment>0: Titular, 1: Primera extensión, > 80 no son mas adicionales de la cuenta</comment>
+</column>  </property>
+
+    <property
+        name="fechaTransmision"
+	    type="date"
+    >
+<column name="FECHA_TRANSMISION" length="7" />
+  </property>
+
+    <property
+        name="canjeHabilitado"
+	    type="string"
+    >
+<column name="CANJE_HABILITADO" length="2" not-null="true" />
+  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="35" not-null="true" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="35" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

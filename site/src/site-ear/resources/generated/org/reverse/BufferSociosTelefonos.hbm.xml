@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.BufferSociosTelefonos"
+    table="BUFFER_SOCIOS_TELEFONOS"
+>
+
+ <comment>Teléfonos del Cliente</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.BufferSociosTelefonosId"
+    >		
+	        <key-property name="idSucursal" type="short">
+<column name="ID_SUCURSAL" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="idSocio" type="long">
+<column name="ID_SOCIO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="tipoTelefono" type="string">
+<column name="TIPO_TELEFONO" length="4" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <many-to-one
+	    name="bufferSocios"
+	    class="org.reverse.BufferSocios"
+	    
+        update="false"
+        insert="false"
+        fetch="select"
+    >
+<column name="ID_SUCURSAL" precision="4" scale="0" not-null="true" >
+<comment>Id de Sucursal</comment>
+</column><column name="ID_SOCIO" precision="10" scale="0" not-null="true" >
+<comment>Id del Socio</comment>
+</column>   </many-to-one>
+    <property
+        name="codArea"
+	    type="string"
+    >
+<column name="COD_AREA" length="10" not-null="true" >
+<comment>Código de Area</comment>
+</column>  </property>
+
+    <property
+        name="nroTel"
+	    type="string"
+    >
+<column name="NRO_TEL" length="15" not-null="true" >
+<comment>Número de Teléfono</comment>
+</column>  </property>
+
+    <property
+        name="extInt"
+	    type="string"
+    >
+<column name="EXT_INT" length="10" >
+<comment>Extensión o Interno</comment>
+</column>  </property>
+
+    <property
+        name="comentarios"
+	    type="string"
+    >
+<column name="COMENTARIOS" length="100" >
+<comment>Comentarios</comment>
+</column>  </property>
+
+    <property
+        name="operacion"
+	    type="string"
+    >
+<column name="OPERACION" length="1" >
+<comment>Operación realizada</comment>
+</column>  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" >
+<comment>Fecha de Alta</comment>
+</column>  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="30" not-null="true" >
+<comment>Usuario de Alta</comment>
+</column>  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" >
+<comment>Fecha de Modificación</comment>
+</column>  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="30" >
+<comment>Usuario de Modificación</comment>
+</column>  </property>
+
+    <property
+        name="procesado"
+	    type="string"
+    >
+<column name="PROCESADO" length="1" not-null="true" >
+<comment>Indica que fue procesado por Temátika</comment>
+</column>  </property>
+
+    <property
+        name="procesadoEcl"
+	    type="string"
+    >
+<column name="PROCESADO_ECL" length="6" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

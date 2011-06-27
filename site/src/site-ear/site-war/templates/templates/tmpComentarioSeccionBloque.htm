@@ -1,0 +1,58 @@
+<div class="solapaModulos"><!-- primera fila de comentarios -->	
+	<tmpl_loop articulosFila0>        
+              	<div class="solapaCalle" id="calleComents01">
+                    <div class="tapaContenedor">
+                        <a href="<tmpl_var urlDetalle>">
+                        	<img src="http://www.tematika.com/<tmpl_var urlImagen>" alt="<tmpl_var altImagen>" class="<tmpl_var class>">
+                        </a>
+                        <div class="tapaInfo" style="visibility: hidden;"></div>
+                    </div>
+                <div class="hComentarios" id="comentarios01">
+                        <!-- <a href="#"><tmpl_var comentador></a>  dijo sobre-->
+                        <a ><tmpl_var comentador></a>  dijo sobre 
+                        <a href="<tmpl_var urlDetalle>" class="fTitulos"><tmpl_var titulo></a>
+                        <span>
+                        	<tmpl_var comentario>
+                        </span>
+                 </div>
+                 <div class="calificacionMod">
+                      <span>Calificación:</span>
+                      <tmpl_loop calificacionXArticulo>
+	                  	<div class="<tmpl_var estrellaClass>"></div>                       	 			
+	                  </tmpl_loop>
+                 </div>
+                </div>
+                <tmpl_if llevaLineaDivisora>
+                	<div class="solapaCalleSeparador" id="calleSeparadorComents" style="height: 230px;"></div><!-- líneas divisorias -->
+                </tmpl_if>
+	</tmpl_loop>
+</div>
+<div class="solapaModulos"><!-- primera fila de comentarios -->
+	<tmpl_loop articulosFila1>
+              <div class="solapaCalle" id="calleComents02">
+                    <div class="tapaContenedor">
+                        <a href="<tmpl_var urlDetalle>">
+                        	<img src="http://www.tematika.com/<tmpl_var urlImagen>" alt="<tmpl_var altImagen>" class="<tmpl_var class>">
+                        </a>
+                        <div class="tapaInfo" style="visibility: hidden;"></div>
+                    </div>
+                <div class="hComentarios" id="comentarios01">
+                        <!-- <a href="#"><tmpl_var comentador></a>  dijo sobre-->
+                        <a ><tmpl_var comentador></a>  dijo sobre 
+                        <a href="<tmpl_var urlDetalle>" class="fTitulos"><tmpl_var titulo></a>
+                        <span>
+                        	<tmpl_var comentario>
+                        </span>
+                  </div>
+                  <div class="calificacionMod">
+                      <span>Calificación:</span>
+                      	<tmpl_loop calificacionXArticulo>
+	                   		<div class="<tmpl_var estrellaClass>"></div>                       	 			
+	                    </tmpl_loop>
+                  </div>
+                </div>
+                <tmpl_if llevaLineaDivisora>
+                	<div class="solapaCalleSeparador" id="calleSeparadorComents" style="height: 230px;"></div><!-- líneas divisorias -->
+                </tmpl_if>              
+	</tmpl_loop>
+</div><!-- FIN primera fila de comentarios -->

@@ -1,0 +1,64 @@
+#seccionTematika {
+	width:800px;
+	/*background-image:url(/imagenes/imagenes/comun/tmtkMesaNovedadesExtra-back.jpg);*/
+	background-repeat:no-repeat;
+}
+
+/* Panel de secciones */
+
+#panelSeccSucursales, #panelSeccQuid, #panelSeccExtra {
+	width:15px;
+	background-image:url(/imagenes/imagenes/comun/panelSecc-back.jpg);
+	background-position:bottom;
+}
+
+	#panelSeccSucursales {
+		background-image:url(/imagenes/imagenes/seccionLibros/panelSeccSucursales-back.gif);
+	}
+
+	#panelSeccQuid {
+		background-image:url(/imagenes/imagenes/seccionLibros/panelSeccQuid-back.gif);
+	}
+
+	#panelSeccExtra {
+		background-image:url(/imagenes/imagenes/seccionLibros/panelSeccExtra-back.gif);
+	}
+
+
+#panelSeccSucursales span, #panelSeccQuid span, #panelSeccExtra span {
+	width:15px;
+	height:90px;
+	cursor:pointer;
+	float:left;
+}
+
+	#panelSeccSucursales span {
+		background-image:url(/imagenes/imagenes/seccionLibros/panelSeccSucTop-back.gif);
+	}
+
+	#panelSeccQuid span {
+		background-image:url(/imagenes/imagenes/seccionLibros/panelSeccQuidTop-back.gif);
+	}
+
+	#panelSeccExtra span {
+		background-image:url(/imagenes/imagenes/seccionLibros/panelSeccExtraTop-back.gif);
+	}
+
+/* FIN Panel de secciones */
+
+.modulosderecha { border-bottom:solid 2px #CCC; margin-bottom:15px; }
+.titulosceldas { background-color:#FFF; padding:0px 0px 4px 0px; text-align:left; border-bottom:solid 2px #CCC; }
+
+/*estilos para los links de popego*/
+	.lnkHabilitado{
+		font-size:11px;
+		font-weight:bold;
+		color: #000000;	
+		text-decoration:underline;	
+	}
+	.lnkNoHabilitado{
+		font-style: italic;	
+		font-size:10px;
+		font-weight:lighter;
+		color: #00000f; 
+	}

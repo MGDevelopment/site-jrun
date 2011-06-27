@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SnpSucursales4"
+    table="SNP_SUCURSALES4"
+>
+
+ <comment>snapshot table for snapshot TEMATIKA.SNP_SUCURSALES4</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.SnpSucursales4Id"
+    >		
+	        <key-property name="idSucursal" type="short">
+<column name="ID_SUCURSAL" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="descripcion" type="string">
+<column name="DESCRIPCION" length="50" />
+	        </key-property>
+	        <key-property name="fechaApertura" type="date">
+<column name="FECHA_APERTURA" length="7" />
+	        </key-property>
+	        <key-property name="abreviatura" type="string">
+<column name="ABREVIATURA" length="5" />
+	        </key-property>
+	        <key-property name="deposito" type="string">
+<column name="DEPOSITO" length="2" />
+	        </key-property>
+	        <key-property name="direccion" type="string">
+<column name="DIRECCION" length="100" />
+	        </key-property>
+	        <key-property name="idPais" type="java.lang.Integer">
+<column name="ID_PAIS" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="idProvincia" type="java.lang.Integer">
+<column name="ID_PROVINCIA" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="idLocalidad" type="java.lang.Integer">
+<column name="ID_LOCALIDAD" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="codigoPostal" type="string">
+<column name="CODIGO_POSTAL" length="10" />
+	        </key-property>
+	        <key-property name="telefono" type="string">
+<column name="TELEFONO" length="100" />
+	        </key-property>
+	        <key-property name="fax" type="string">
+<column name="FAX" length="100" />
+	        </key-property>
+	        <key-property name="email" type="string">
+<column name="EMAIL" length="100" />
+	        </key-property>
+	        <key-property name="modem" type="string">
+<column name="MODEM" length="100" />
+	        </key-property>
+	        <key-property name="contacto" type="string">
+<column name="CONTACTO" length="100" />
+	        </key-property>
+	        <key-property name="observaciones" type="string">
+<column name="OBSERVACIONES" length="2000" />
+	        </key-property>
+	        <key-property name="idEmpresa" type="string">
+<column name="ID_EMPRESA" length="5" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="35" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="usrModi" type="string">
+<column name="USR_MODI" length="35" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+	        <key-property name="idUsrAlta" type="java.lang.Long">
+<column name="ID_USR_ALTA" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idUsrModi" type="java.lang.Long">
+<column name="ID_USR_MODI" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="mostrar" type="string">
+<column name="MOSTRAR" length="2" />
+	        </key-property>
+	        <key-property name="idRegion" type="string">
+<column name="ID_REGION" length="3" />
+	        </key-property>
+	        <key-property name="codigoContable" type="string">
+<column name="CODIGO_CONTABLE" length="5" />
+	        </key-property>
+	        <key-property name="fechaUltTransmision" type="date">
+<column name="FECHA_ULT_TRANSMISION" length="7" />
+	        </key-property>
+	        <key-property name="comisiona" type="string">
+<column name="COMISIONA" length="2" />
+	        </key-property>
+	        <key-property name="garantiaExtendida" type="string">
+<column name="GARANTIA_EXTENDIDA" length="2" />
+	        </key-property>
+	        <key-property name="categoriaSucursal" type="string">
+<column name="CATEGORIA_SUCURSAL" length="8" />
+	        </key-property>
+	        <key-property name="idMarca" type="java.lang.Byte">
+<column name="ID_MARCA" precision="2" scale="0" />
+	        </key-property>
+	        <key-property name="superficie" type="big_decimal">
+<column name="SUPERFICIE" precision="10" />
+	        </key-property>
+	        <key-property name="fechaBaja" type="date">
+<column name="FECHA_BAJA" length="7" />
+	        </key-property>
+	        <key-property name="foto" type="string">
+<column name="FOTO" length="100" />
+	        </key-property>
+	        <key-property name="horarios" type="string">
+<column name="HORARIOS" length="100" />
+	        </key-property>
+	        <key-property name="productos" type="string">
+<column name="PRODUCTOS" length="200" />
+	        </key-property>
+	        <key-property name="grupoBenchmark" type="string">
+<column name="GRUPO_BENCHMARK" length="10" />
+	        </key-property>
+	        <key-property name="tieneBar" type="string">
+<column name="TIENE_BAR" length="2" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

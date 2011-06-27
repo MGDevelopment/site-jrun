@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+ <wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="https://tematika.dbndigital.com" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="https://tematika.dbndigital.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+ <wsdl:types>
+ <s:schema elementFormDefault="qualified" targetNamespace="https://tematika.dbndigital.com">
+ <s:element name="CompleteShopping">
+ <s:complexType>
+ <s:sequence>
+  <s:element minOccurs="0" maxOccurs="1" name="idUser" type="s:string" /> 
+  <s:element minOccurs="0" maxOccurs="1" name="idSession" type="s:string" /> 
+  <s:element minOccurs="0" maxOccurs="1" name="idOrder" type="s:string" /> 
+  <s:element minOccurs="0" maxOccurs="1" name="orderDetails" type="tns:ArrayOfOrderDetail" /> 
+  </s:sequence>
+  </s:complexType>
+  </s:element>
+ <s:complexType name="ArrayOfOrderDetail">
+ <s:sequence>
+  <s:element minOccurs="0" maxOccurs="unbounded" name="OrderDetail" type="tns:OrderDetail" /> 
+  </s:sequence>
+  </s:complexType>
+ <s:complexType name="OrderDetail">
+ <s:sequence>
+  <s:element minOccurs="0" maxOccurs="1" name="ProductType" type="s:string" /> 
+  <s:element minOccurs="0" maxOccurs="1" name="ProductID" type="s:string" /> 
+  <s:element minOccurs="0" maxOccurs="1" name="ProductPrice" type="s:string" /> 
+  </s:sequence>
+  </s:complexType>
+ <s:element name="CompleteShoppingResponse">
+ <s:complexType>
+ <s:sequence>
+  <s:element minOccurs="1" maxOccurs="1" name="CompleteShoppingResult" type="tns:ReturnMethod" /> 
+  </s:sequence>
+  </s:complexType>
+  </s:element>
+ <s:complexType name="ReturnMethod">
+ <s:sequence>
+  <s:element minOccurs="1" maxOccurs="1" name="HasError" type="s:boolean" /> 
+  <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" /> 
+  </s:sequence>
+  </s:complexType>
+ <s:element name="Search">
+ <s:complexType>
+ <s:sequence>
+  <s:element minOccurs="1" maxOccurs="1" name="searchType" type="s:int" /> 
+  <s:element minOccurs="0" maxOccurs="1" name="searchValue" type="s:string" /> 
+  <s:element minOccurs="1" maxOccurs="1" name="searchOrder" type="s:int" /> 
+  </s:sequence>
+  </s:complexType>
+  </s:element>
+ <s:element name="SearchResponse">
+ <s:complexType>
+ <s:sequence>
+  <s:element minOccurs="0" maxOccurs="1" name="SearchResult" type="tns:ArrayOfSearchResult" /> 
+  </s:sequence>
+  </s:complexType>
+  </s:element>
+ <s:complexType name="ArrayOfSearchResult">
+ <s:sequence>
+  <s:element minOccurs="0" maxOccurs="unbounded" name="SearchResult" type="tns:SearchResult" /> 
+  </s:sequence>
+  </s:complexType>
+ <s:complexType name="SearchResult">
+ <s:sequence>
+  <s:element minOccurs="0" maxOccurs="1" name="productType" type="s:string" /> 
+  <s:element minOccurs="0" maxOccurs="1" name="productID" type="s:string" /> 
+  <s:element minOccurs="0" maxOccurs="1" name="productPrice" type="s:string" /> 
+  <s:element minOccurs="0" maxOccurs="1" name="productTitle" type="s:string" /> 
+  <s:element minOccurs="0" maxOccurs="1" name="productArtist" type="s:string" /> 
+  <s:element minOccurs="0" maxOccurs="1" name="productLabel" type="s:string" /> 
+  <s:element minOccurs="0" maxOccurs="1" name="productURL" type="s:string" /> 
+  <s:element minOccurs="0" maxOccurs="1" name="productCoverURL" type="s:string" /> 
+  </s:sequence>
+  </s:complexType>
+  </s:schema>
+  </wsdl:types>
+ <wsdl:message name="CompleteShoppingSoapIn">
+  <wsdl:part name="parameters" element="tns:CompleteShopping" /> 
+  </wsdl:message>
+ <wsdl:message name="CompleteShoppingSoapOut">
+  <wsdl:part name="parameters" element="tns:CompleteShoppingResponse" /> 
+  </wsdl:message>
+ <wsdl:message name="SearchSoapIn">
+  <wsdl:part name="parameters" element="tns:Search" /> 
+  </wsdl:message>
+ <wsdl:message name="SearchSoapOut">
+  <wsdl:part name="parameters" element="tns:SearchResponse" /> 
+  </wsdl:message>
+ <wsdl:portType name="DBNTematikaWSSoap">
+ <wsdl:operation name="CompleteShopping">
+  <wsdl:input message="tns:CompleteShoppingSoapIn" /> 
+  <wsdl:output message="tns:CompleteShoppingSoapOut" /> 
+  </wsdl:operation>
+ <wsdl:operation name="Search">
+  <wsdl:input message="tns:SearchSoapIn" /> 
+  <wsdl:output message="tns:SearchSoapOut" /> 
+  </wsdl:operation>
+  </wsdl:portType>
+ <wsdl:binding name="DBNTematikaWSSoap" type="tns:DBNTematikaWSSoap">
+  <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" /> 
+ <wsdl:operation name="CompleteShopping">
+  <soap:operation soapAction="https://tematika.dbndigital.com/CompleteShopping" style="document" /> 
+ <wsdl:input>
+  <soap:body use="literal" /> 
+  </wsdl:input>
+ <wsdl:output>
+  <soap:body use="literal" /> 
+  </wsdl:output>
+  </wsdl:operation>
+ <wsdl:operation name="Search">
+ <soap:operation soapAction="https://tematika.dbndigital.com/Search" style="document" /> 
+ <wsdl:input>
+  <soap:body use="literal" /> 
+  </wsdl:input>
+ <wsdl:output>
+  <soap:body use="literal" /> 
+  </wsdl:output>
+  </wsdl:operation>
+  </wsdl:binding>
+ <wsdl:service name="DBNTematikaWS">
+ <wsdl:port name="DBNTematikaWSSoap" binding="tns:DBNTematikaWSSoap">
+  <soap:address location="https://tematika.dbndigital.com/DBNTematikaWS.asmx" /> 
+  </wsdl:port>
+  </wsdl:service>
+  </wsdl:definitions>

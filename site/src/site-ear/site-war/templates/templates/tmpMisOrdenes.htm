@@ -1,0 +1,81 @@
+<div style="margin-top: 10px;">	
+	<div class="compraWrapper2" style="width:610px"><!-- ;background-color: #FBF5EF"" >-->
+		<div class="cProcTit" style="margin-top: 0pt;"><span>Mis Ordenes:</span></div>
+        <tmpl_if tieneOrdenesEnProceso>
+        	<div class="cProcFor-wrapper2 cProcForms2">
+            	<b style="margin-bottom: 0pt;">&nbsp;</b>
+            	<div style="margin-bottom: 0pt;">
+            		<span style="margin-right: 10px;">
+            			&nbsp;
+            		</span>
+            	</div>
+        	</div>
+	        <div class="cProcFor-wrapper2 cProcForms2">
+	            <b style="margin-bottom: 0pt;">Ordenes en proceso</b>
+	            <div style="margin-bottom: 0pt;">
+	            	<span style="margin-right: 10px;">
+	            		&nbsp;
+	            	</span>
+	            </div>
+	        </div>
+	        <tmpl_loop ordenesEnProceso>
+	        <div class="cProcFor-wrapper2 cProcForms2">
+	            <div style="margin-bottom: 0pt;">
+	            	<span style="margin-right: 10px;">
+	      				Fecha : <tmpl_var fecha><br>
+		            	Numero de orden: <a href="/compra/detalleOrden.jsp?idOrden=<tmpl_var idOrden>"><tmpl_var idOrden></a><br>
+		            	<font style="font-weight: bolder">Estado: </font><font color="red"><tmpl_var estado></font><br><br>
+		            	Precio: <tmpl_var precio><br>
+	      			</span>
+	            </div>
+	        </div>
+	        </tmpl_loop>
+	    </tmpl_else>
+	    	<div class="cProcFor-wrapper2 cProcForms2">
+            	<div style="margin-bottom: 0pt;">
+            		<span style="margin-right: 10px;font-weight: bold;">
+            			NO HAY ORDENES EN PROCESO AL DIA DE HOY
+            		</span>
+            	</div>
+        	</div>	    	
+	    </tmpl_if>
+	    	<div class="cProcFor-wrapper2 cProcForms2" style="border-bottom: none;">
+            	<b style="margin-bottom: 0pt;">&nbsp;</b>
+            	<div style="margin-bottom: 0pt;">
+            		<span style="margin-right: 10px;">
+            			&nbsp;
+            		</span>
+            	</div>
+        	</div>
+	    <tmpl_if tieneOrdenesProcesadas>
+			<div class="cProcFor-wrapper2 cProcForms2">
+            	<b style="margin-bottom: 0pt;">Ordenes procesadas</b>
+            	<div style="margin-bottom: 0pt;">
+            		<span style="margin-right: 10px;">
+            			&nbsp;
+            		</span>
+            	</div>
+        	</div>	    
+	        <tmpl_loop ordenesProcesadas>
+	        <div class="cProcFor-wrapper2 cProcForms2">
+	            <div style="margin-bottom: 0pt;">
+	            	<span style="margin-right: 10px;">
+	      				<font style="font-weight: bolder"> Fecha : </font><tmpl_var fecha><br>
+		            	<font style="font-weight: bolder">Numero de orden: </font><a href="/compra/detalleOrden.jsp?idOrden=<tmpl_var idOrden>"><tmpl_var idOrden></a><br>
+		            	<font style="font-weight: bolder">Estado: </font><font color="red"><tmpl_var estado></font><br><br>
+		            	<font style="font-weight: bolder">Precio: </font><tmpl_var precio><br>
+	      			</span>
+	            </div>
+	        </div>
+	        </tmpl_loop>
+	    </tmpl_else>
+	    	<div class="cProcFor-wrapper2 cProcForms2">
+            	<div style="margin-bottom: 0pt;">
+            		<span style="margin-right: 10px;">
+						NO HAY ORDENES PROCESADAS AL DIA DE HOY.
+            		</span>
+            	</div>
+        	</div>	  
+	    </tmpl_if> 
+	</div>
+</div>

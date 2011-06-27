@@ -1,0 +1,331 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.Orden"
+    table="ORDEN"
+>
+
+	<id 
+        name="idOrden"
+        type="long"
+    >
+    
+<column name="ID_ORDEN" precision="10" scale="0" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <many-to-one
+	    name="alianzaSeccion"
+	    class="org.reverse.AlianzaSeccion"
+	    
+        fetch="select"
+    >
+<column name="ID_ALIANZA" precision="10" scale="0" >
+<comment>ID ALIANZA RELACIONADA A LA ORDEN GENERADA</comment>
+</column><column name="ID_SECCION" precision="22" scale="0" >
+<comment>ID SECCION DE LA ALIANZA RELACIONADA A LA ORDEN GENERADA</comment>
+</column>   </many-to-one>
+    <many-to-one
+	    name="dominioSite"
+	    class="org.reverse.DominioSite"
+	    
+        fetch="select"
+    >
+<column name="ID_DOMINIO" precision="2" scale="0" >
+<comment>Dominio por el cual se accedio a tematika para cargar una orden</comment>
+</column>   </many-to-one>
+    <many-to-one
+	    name="estadoOrden"
+	    class="org.reverse.EstadoOrden"
+	    
+        fetch="select"
+    >
+<column name="ESTADO" length="2" not-null="true" >
+<comment>Estado</comment>
+</column>   </many-to-one>
+    <many-to-one
+	    name="socios2"
+	    class="org.reverse.Socios2"
+	    
+        fetch="select"
+    >
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" not-null="true" >
+<comment>Id. de la sucursal con la que se dio de alta el Socio</comment>
+</column><column name="ID_SOCIO" precision="10" scale="0" not-null="true" >
+<comment>Id. de Socio o usuario</comment>
+</column>   </many-to-one>
+    <many-to-one
+	    name="nivelDeRiesgo"
+	    class="org.reverse.NivelDeRiesgo"
+	    
+        fetch="select"
+    >
+<column name="NIVEL_RIESGO" precision="1" scale="0" >
+<comment>NIVEL DE RIESGO ASOCIADO A LA TARJETA DE CREDITO: 0 SIN RIESGO (VERDE) 1: RIESGO MEDIO (AMARILLO) 2: RIESGO MAXIMO (ROJO)</comment>
+</column>   </many-to-one>
+    <property
+        name="fecha"
+	    type="date"
+    >
+<column name="FECHA" length="7" not-null="true" >
+<comment>Fecha del movimiento</comment>
+</column>  </property>
+
+    <property
+        name="neto"
+	    type="big_decimal"
+    >
+<column name="NETO" precision="15" >
+<comment>Importe neto (sin impuestos)</comment>
+</column>  </property>
+
+    <property
+        name="total"
+	    type="big_decimal"
+    >
+<column name="TOTAL" precision="15" />
+  </property>
+
+    <property
+        name="telefono"
+	    type="string"
+    >
+<column name="TELEFONO" length="35" />
+  </property>
+
+    <property
+        name="hrContacto"
+	    type="string"
+    >
+<column name="HR_CONTACTO" length="40" />
+  </property>
+
+    <property
+        name="comentarios"
+	    type="string"
+    >
+<column name="COMENTARIOS" length="200" />
+  </property>
+
+    <property
+        name="motivoRiesgo"
+	    type="string"
+    >
+<column name="MOTIVO_RIESGO" length="200" />
+  </property>
+
+    <property
+        name="idOrdenMotivoRiesgo"
+	    type="java.lang.Long"
+    >
+<column name="ID_ORDEN_MOTIVO_RIESGO" precision="10" scale="0" >
+<comment>ID_ORDEN que generó activación del criterio de visa (motivo_riesgo no nulo)</comment>
+</column>  </property>
+
+    <property
+        name="nombresReceptor"
+	    type="string"
+    >
+<column name="NOMBRES_RECEPTOR" length="50" />
+  </property>
+
+    <property
+        name="apellidosReceptor"
+	    type="string"
+    >
+<column name="APELLIDOS_RECEPTOR" length="50" />
+  </property>
+
+    <property
+        name="cupon"
+	    type="string"
+    >
+<column name="CUPON" length="20" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="35" />
+  </property>
+
+    <property
+        name="FModiEstado"
+	    type="date"
+    >
+<column name="F_MODI_ESTADO" length="7" />
+  </property>
+
+    <property
+        name="usrModiEstado"
+	    type="string"
+    >
+<column name="USR_MODI_ESTADO" length="35" />
+  </property>
+
+    <property
+        name="cpfCnpj"
+	    type="string"
+    >
+<column name="CPF_CNPJ" length="30" />
+  </property>
+
+    <property
+        name="nroDocReceptor"
+	    type="java.lang.Long"
+    >
+<column name="NRO_DOC_RECEPTOR" precision="15" scale="0" />
+  </property>
+
+    <property
+        name="tipoDocReceptor"
+	    type="string"
+    >
+<column name="TIPO_DOC_RECEPTOR" length="4" />
+  </property>
+
+    <property
+        name="rangoHorarioReceptor"
+	    type="string"
+    >
+<column name="RANGO_HORARIO_RECEPTOR" length="50" />
+  </property>
+
+    <property
+        name="facElcEnv"
+	    type="date"
+    >
+<column name="FAC_ELC_ENV" length="7" />
+  </property>
+
+
+	<set name="pagoOrdens"
+table="PAGO_ORDEN"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_ORDEN" precision="10" scale="0" not-null="true" >
+<comment>Id. Orden</comment>
+</column>		</key>
+<one-to-many class="org.reverse.PagoOrden"
+/>
+	</set>
+
+	<set name="referidos"
+table="REFERIDO"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_ORDEN_REFERIDO" precision="10" scale="0" unique="true" />
+		</key>
+<one-to-many class="org.reverse.Referido"
+/>
+	</set>
+    <one-to-one
+	    name="cuponRespuestas"
+	    class="org.reverse.CuponRespuestas"
+
+    >
+   </one-to-one>
+
+	<set name="logEstadoOrdens"
+table="LOG_ESTADO_ORDEN"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_ORDEN" precision="10" scale="0" not-null="true" >
+<comment>identificador de la orden</comment>
+</column>		</key>
+<one-to-many class="org.reverse.LogEstadoOrden"
+/>
+	</set>
+
+	<set name="cuponDePagos"
+table="CUPON_DE_PAGO"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_ORDEN" precision="10" scale="0" >
+<comment>id orden de TMK</comment>
+</column>		</key>
+<one-to-many class="org.reverse.CuponDePago"
+/>
+	</set>
+
+	<set name="itemOrdens"
+table="ITEM_ORDEN"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_ORDEN" precision="10" scale="0" not-null="true" >
+<comment>Id Orden</comment>
+</column>		</key>
+<one-to-many class="org.reverse.ItemOrden"
+/>
+	</set>
+
+	<set name="direccionOrdens"
+table="DIRECCION_ORDEN"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_ORDEN" precision="10" scale="0" not-null="true" >
+<comment>Id. Orden</comment>
+</column>		</key>
+<one-to-many class="org.reverse.DireccionOrden"
+/>
+	</set>
+
+	<set name="referenteOrdens"
+table="REFERENTE_ORDEN"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_ORDEN_REFERENTE" precision="10" scale="0" not-null="true" >
+<comment>id orden referente</comment>
+</column>		</key>
+<one-to-many class="org.reverse.ReferenteOrden"
+/>
+	</set>
+
+</class>
+
+</hibernate-mapping>

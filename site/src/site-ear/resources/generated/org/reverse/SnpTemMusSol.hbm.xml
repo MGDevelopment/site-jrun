@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SnpTemMusSol"
+    table="SNP_TEM_MUS_SOL"
+>
+
+ <comment>snapshot table for snapshot TEMATIKA.SNP_TEM_MUS_SOL</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.SnpTemMusSolId"
+    >		
+	        <key-property name="idArticulo" type="long">
+<column name="ID_ARTICULO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="nroTema" type="short">
+<column name="NRO_TEMA" precision="3" scale="0" />
+	        </key-property>
+	        <key-property name="idSolista" type="long">
+<column name="ID_SOLISTA" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idInstrumento" type="long">
+<column name="ID_INSTRUMENTO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="30" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+	        <key-property name="usrModi" type="string">
+<column name="USR_MODI" length="30" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

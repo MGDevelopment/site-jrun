@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <data-sources>
+  </data-sources>
+  <form-beans>
+    <form-bean name="resultadoBusquedaForm" type="com.tmk.view.model.ResultadoBusquedaForm"/>
+    <!-- form de empleo -->
+    <form-bean name="enviarCvForm" type="com.tmk.view.model.EnviarCvForm"/>
+  </form-beans>
+  <global-exceptions>
+  </global-exceptions>
+  <global-forwards>
+  </global-forwards>
+  <action-mappings>
+    <action path="/buscar" name="resultadoBusquedaForm" type="com.tmk.action.ResultadoBusquedaAction" scope="session" validate="true" input="/">
+      <exception type="java.lang.Exception" key="exception.general" path="/inicio/index.jsp"/>
+      <forward name="vistaBusquedaSeccion" redirect="true" path="seccion.general.busqueda2"/>
+      <forward name="vistaBusquedaInicio" redirect="true" path="seccion.general.busqueda2.inicio"/>
+      <forward name="frwMantenimiento" redirect="true" path="/mantenimiento.jsp"/>
+    </action>
+    <action path="/enviarEmpleo" name="enviarCvForm" type="com.tmk.action.EnviarCvAction" scope="request" input="seccion.empleo.form" attribute="frmCV">
+      <forward name="tilesFormCvEnviado" redirect="true" path="seccion.empleo.enviado"/>
+    </action>
+    <!-- flujo de detalle nuevo -->
+    <action path="/mostrarDetalleArticulo" type="com.tmk.action.DetalleArticuloAction" scope="request" validate="false" input="/">
+      <exception type="javax.servlet.jsp.JspException" key="exception.general" path="/inicio/index.jsp"/>
+      <forward name="errorDetalle" redirect="true" path="/errorPage/errorPage404FW.jsp"/>
+    </action>
+    <!--
+    GENERA LOS DETALLES MANUALMENTE 
+        <action 
+        	path="/generarDetalleArticulo" 
+        	scope="request"
+        	type="com.tmk.action.GeneradorDetalleArticuloAction"
+        	validate="false"     	
+        	input="/236-TMK/generacion/generacionDetallesArticulosNuevo.jsp" >
+        	<forward 
+        		name="errorDetalle" 
+        		path="/errorPage/errorPage404FW.jsp" 
+        		redirect="true">
+        	</forward>
+        	<forward 
+        		name="frwGeracionPage" 
+        		path="/236-TMK/generacion/generacionDetallesArticulosNuevo.jsp" 
+        		redirect="true">
+        	</forward>
+        </action>
+         OBTIENE LOS COMENTARIOS PARA UN ARTICULO
+    -->
+    <action path="/GetComentarioXArticuloAction" type="com.tmk.action.GetComentarioXArticuloAction" scope="request" validate="false" input="/">
+    </action>
+    <!-- obtiene la evaluacion de un articulo para un articulo -->
+    <action path="/GetEvaluacionXArticuloAction" type="com.tmk.action.GetEvaluacionXArticuloAction" scope="request" validate="false" input="/">
+    </action>
+    <!-- obtiene los datos del modulo extra -->
+    <action path="/GetModuloExtraAction" type="com.tmk.action.GetModuloExtraAction" scope="request" validate="false" input="/">
+    </action>
+    <!-- obtiene los articulos realcionados a uno particular -->
+    <action path="/GetArticulosRelacionadosAction" type="com.tmk.action.GetArticulosRelacionadosAction" scope="request" validate="false" input="/">
+    </action>
+    <!-- obtiene el primer capitulo dede file system -->
+    <action path="/GetPrimerCapitulo" type="com.tmk.action.GetPrimerCapitulo" scope="request" validate="false" input="/">
+    </action>
+    <!-- obtiene la biografia de un articulo-autor -->
+    <action path="/GetBiografiaByIdArticulo" type="com.tmk.action.GetBiografiaByIdArticulo" scope="request" validate="false" input="/">
+    </action>
+    <!-- Agrega un articuo a la lista de artiulos para generar la mesa -->
+    <action path="/AgregarAListaDeMesa" type="com.tmk.action.AgregarAListaDeMesa" scope="request" validate="false" input="/">
+      <forward name="frwAgregado" redirect="false" path="/236-TMK/comentario/generarMesaRecomendada.jsp"/>
+      <forward name="frwHomeIntranet" redirect="false" path="/236-TMK/"/>
+    </action>
+    <!-- busca lista de articulos de la lsita de la mesa -->
+    <action path="/GetArticulosRecomendadosMesa" type="com.tmk.action.GetArticulosRecomendadosMesa" scope="request" validate="false" input="/">
+      <forward name="frwAgregado" redirect="false" path="/236-TMK/comentario/generarMesaRecomendada.jsp"/>
+      <forward name="frwHomeIntranet" redirect="false" path="/236-TMK/"/>
+    </action>
+    <!-- elimina un articulos de la lsita de la mesa -->
+    <action path="/EliminarArticuloDeLaMesa" type="com.tmk.action.EliminarArticuloDeLaMesa" scope="request" validate="false" input="/">
+      <forward name="frwAgregado" redirect="false" path="/236-TMK/comentario/generarMesaRecomendada.jsp"/>
+      <forward name="frwHomeIntranet" redirect="false" path="/236-TMK/"/>
+    </action>
+    <!-- elimina una lista de  articulos de la mesa -->
+    <action path="/EliminarListaDeArticuloDeLaMesa" type="com.tmk.action.EliminarListaDeArticuloDeLaMesa" scope="request" validate="false" input="/">
+      <forward name="frwAgregado" redirect="false" path="/236-TMK/comentario/generarMesaRecomendada.jsp"/>
+      <forward name="frwHomeIntranet" redirect="false" path="/236-TMK/"/>
+    </action>
+    <!-- obtiene el primer capitulo dede file system -->
+    <action path="/GetEntrevista" type="com.tmk.action.GetEntrevista" scope="request" validate="false" input="/">
+    </action>
+    <!-- servlet usado para pruebas -->
+    <action path="/ServletTest" type="com.tmk.action.ServletTest" scope="request" validate="false" input="/">
+    </action>
+    <action path="/CuponDePagoRender" type="com.tmk.action.compra.CuponDePagoRender" scope="request" validate="false" input="/"/>
+    
+<!-- PROCESO DE COMPRAS  -->    
+    <!-- pantalla 1-carrito -->
+    <action path="/compra/carrito" type="com.tmk.action.compra.MostrarCarritoDeComprasAction" scope="request" validate="false" >
+      <forward name="frwCarrito" redirect="false" path="proceso.compras.carrito"/>
+    </action>
+    <!-- pantalla 2-papelDeRegalo -->
+    <action path="/compra/papelDeRegalo" type="com.tmk.action.compra.SeleccionarPapelDeRegaloAction" scope="request" validate="false" >
+      <forward name="frwPapelDeRegalo" redirect="false" path="proceso.compras.papel" />
+      <forward name="frwMiCuenta" redirect="true" path="/miCuenta"/>
+      <forward name="frwRegistroSocioCadena" redirect="true" path="/miCuenta/registroSocioCadena.jsp"/>
+      <forward name="frwDomicilio" redirect="true" path="/compra/domicilio.do"/>
+    </action>
+    <!-- pantalla 3-domicilios-->
+    <action path="/compra/domicilio" type="com.tmk.action.compra.DomiciliosAction" scope="request" validate="false" >
+      <forward name="frwDomicilio" redirect="true" path="tiles.proceso.compras.domicilios" />
+      <forward name="frwMiCuenta" redirect="true" path="/miCuenta"/>
+      <forward name="frwPapelDeRegalo" redirect="true" path="/compra/papelDeRegalo.do" />      
+      <forward name="frwRegistroSocioCadena" redirect="true" path="/miCuenta/registroSocioCadena.jsp"/>      
+    </action>
+    <!-- pantalla 4-medio de cobros-->
+    <action path="/compra/medioDeCobro" type="com.tmk.action.compra.MedioDeCobroAction" scope="request" validate="false" >
+      <forward name="frwMedioDeCobro" redirect="true" path="tiles.proceso.compras.medio.de.cobro" />    
+      <forward name="frwMiCuenta" redirect="true" path="/miCuenta/" contextRelative="true"/>      
+      <forward name="frwRegistroSocioCadena" redirect="true" path="/miCuenta/registroSocioCadena.jsp"/>
+      <!-- si no tiene direcciones de envio o facturacion -->
+      <forward name="frwDomicilio" redirect="true" path="/compra/domicilio.do"/>      
+    </action>
+    <!-- pantalla 5-vista previa-->
+    <action path="/compra/vistaPrevia" type="com.tmk.action.compra.VistaPreviaAction" scope="request" validate="false" >
+      <forward name="frwVistaPrevia" redirect="true" path="tiles.proceso.compras.vista.previa" />
+      <forward name="frwMiCuenta" redirect="true" path="/miCuenta/" contextRelative="true"/>
+      <forward name="frwDomicilio" redirect="true" path="/compra/domicilio.do"/>      
+      <forward name="frwRegistroSocioCadena" redirect="true" path="/miCuenta/registroSocioCadena.jsp"/>
+    </action>
+    <!-- pantalla 6-vista confirmacion-->
+    <action path="/compra/confirmacion" type="com.tmk.action.compra.ConfirmacionAction" scope="request" validate="false" >
+      <forward name="frwConfirmacion" redirect="true" path="tiles.proceso.compras.confirmacion" contextRelative="true"/>
+      <forward name="frwMiCuenta" redirect="true" path="/miCuenta/" contextRelative="true"/>      
+      <forward name="frwRegistroSocioCadena" redirect="true" path="/miCuenta/registroSocioCadena.jsp"/>
+      <forward name="frwDomicilio" redirect="true" path="/compra/domicilio.do"/>
+    </action>
+<!-- FIN PROCEO DE COMPRAS -->
+
+ <!-- obtine la mesa y setea la template para seo de google -->
+    <action path="/GetMesaBySeccion" type="com.tmk.action.GetMesaBySeccion" scope="request" validate="false" input="/"></action>
+
+
+</action-mappings>
+
+  <!-- DEFINICIONES DE PLUGINS -->
+  <controller id="tiles" bufferSize="4096" processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+  <message-resources parameter="com.tmk.layout.labels" null="false"/>
+  <plug-in className="org.apache.struts.tiles.TilesPlugin">
+    <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml"/>
+    <set-property property="definitions-debug" value="0"/>
+    <set-property property="definitions-parser-details" value="0"/>
+    <set-property property="moduleAware" value="true"/>
+    <set-property property="definitions-parser-validate" value="false"/>
+    <set-property property="Log" value="false"/>
+  </plug-in>
+</struts-config>

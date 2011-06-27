@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SnpPromo2Cabecera"
+    table="SNP_PROMO2_CABECERA"
+>
+
+ <comment>snapshot table for snapshot TEMATIKA.SNP_PROMO2_CABECERA</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.SnpPromo2CabeceraId"
+    >		
+	        <key-property name="idPromocion" type="long">
+<column name="ID_PROMOCION" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="tipo" type="string">
+<column name="TIPO" length="3" />
+	        </key-property>
+	        <key-property name="nombre" type="string">
+<column name="NOMBRE" length="40" />
+	        </key-property>
+	        <key-property name="estado" type="string">
+<column name="ESTADO" length="1" />
+	        </key-property>
+	        <key-property name="FInicio" type="date">
+<column name="F_INICIO" length="7" />
+	        </key-property>
+	        <key-property name="FFin" type="date">
+<column name="F_FIN" length="7" />
+	        </key-property>
+	        <key-property name="tolerancia" type="byte">
+<column name="TOLERANCIA" precision="2" scale="0" />
+	        </key-property>
+	        <key-property name="costoIlhsa" type="big_decimal">
+<column name="COSTO_ILHSA" precision="5" />
+	        </key-property>
+	        <key-property name="costoProve1" type="big_decimal">
+<column name="COSTO_PROVE_1" precision="5" />
+	        </key-property>
+	        <key-property name="costoProve2" type="big_decimal">
+<column name="COSTO_PROVE_2" precision="5" />
+	        </key-property>
+	        <key-property name="costoProve3" type="big_decimal">
+<column name="COSTO_PROVE_3" precision="5" />
+	        </key-property>
+	        <key-property name="idProve1" type="java.lang.Long">
+<column name="ID_PROVE_1" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idProve2" type="java.lang.Long">
+<column name="ID_PROVE_2" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idProve3" type="java.lang.Long">
+<column name="ID_PROVE_3" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="comentarios" type="string">
+<column name="COMENTARIOS" />
+	        </key-property>
+	        <key-property name="idCampaign" type="java.lang.Integer">
+<column name="ID_CAMPAIGN" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="restringe" type="string">
+<column name="RESTRINGE" length="1" />
+	        </key-property>
+	        <key-property name="descuento" type="big_decimal">
+<column name="DESCUENTO" precision="5" />
+	        </key-property>
+	        <key-property name="cantidadObj" type="java.lang.Short">
+<column name="CANTIDAD_OBJ" precision="3" scale="0" />
+	        </key-property>
+	        <key-property name="montoObj" type="big_decimal">
+<column name="MONTO_OBJ" precision="15" />
+	        </key-property>
+	        <key-property name="cantidadDet" type="java.lang.Short">
+<column name="CANTIDAD_DET" precision="3" scale="0" />
+	        </key-property>
+	        <key-property name="montoDet" type="big_decimal">
+<column name="MONTO_DET" precision="15" />
+	        </key-property>
+	        <key-property name="acumula" type="string">
+<column name="ACUMULA" length="1" />
+	        </key-property>
+	        <key-property name="condicion" type="string">
+<column name="CONDICION" length="1" />
+	        </key-property>
+	        <key-property name="imagen" type="string">
+<column name="IMAGEN" length="100" />
+	        </key-property>
+	        <key-property name="tipoValor" type="string">
+<column name="TIPO_VALOR" length="1" />
+	        </key-property>
+	        <key-property name="idProc" type="java.lang.Long">
+<column name="ID_PROC" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="combinaMeco" type="string">
+<column name="COMBINA_MECO" length="1" />
+	        </key-property>
+	        <key-property name="tipoBeneficio" type="string">
+<column name="TIPO_BENEFICIO" length="100" />
+	        </key-property>
+	        <key-property name="itemCampaign" type="java.lang.Integer">
+<column name="ITEM_CAMPAIGN" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="acumulaDetalle" type="string">
+<column name="ACUMULA_DETALLE" length="1" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="35" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="usrModi" type="string">
+<column name="USR_MODI" length="35" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

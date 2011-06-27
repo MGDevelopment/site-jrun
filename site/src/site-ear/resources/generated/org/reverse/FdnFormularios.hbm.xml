@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.FdnFormularios"
+    table="FDN_FORMULARIOS"
+>
+
+	<id 
+        name="nroFormulario"
+        type="string"
+    >
+    
+<column name="NRO_FORMULARIO" length="20" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="fecha"
+	    type="date"
+    >
+<column name="FECHA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="datosAdicionales"
+	    type="string"
+    >
+<column name="DATOS_ADICIONALES" length="2" not-null="true" />
+  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="35" not-null="true" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="35" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+    <property
+        name="dperCodigo"
+	    type="java.lang.Integer"
+    >
+<column name="DPER_CODIGO" precision="8" scale="0" />
+  </property>
+
+
+	<set name="fdnTarjetasXCuentases"
+table="FDN_TARJETAS_X_CUENTAS"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="NRO_FORMULARIO" length="20" />
+		</key>
+<one-to-many class="org.reverse.FdnTarjetasXCuentas"
+/>
+	</set>
+
+</class>
+
+</hibernate-mapping>

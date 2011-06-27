@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.UsuarioXRolAplicacionB"
+    table="USUARIO_X_ROL_APLICACION_B"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.UsuarioXRolAplicacionBId"
+    >		
+	        <key-property name="rol" type="string">
+<column name="ROL" length="50" />
+	        </key-property>
+	        <key-property name="idUsuario" type="long">
+<column name="ID_USUARIO" precision="10" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <property
+        name="estado"
+	    type="boolean"
+    >
+<column name="ESTADO" precision="1" scale="0" not-null="true" >
+<comment>0: inactivo 1:activo</comment>
+</column>  </property>
+
+    <property
+        name="fechaAlta"
+	    type="date"
+    >
+<column name="FECHA_ALTA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="usuarioAlta"
+	    type="string"
+    >
+<column name="USUARIO_ALTA" length="30" not-null="true" />
+  </property>
+
+    <property
+        name="fechaModif"
+	    type="date"
+    >
+<column name="FECHA_MODIF" length="7" />
+  </property>
+
+    <property
+        name="usuarioModif"
+	    type="string"
+    >
+<column name="USUARIO_MODIF" length="30" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

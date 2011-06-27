@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.OrdenXCuenta"
+    table="ORDEN_X_CUENTA"
+>
+
+	<id 
+        name="idOrden"
+        type="long"
+    >
+    
+<column name="ID_ORDEN" precision="10" scale="0" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="idSucursalSocio"
+	    type="short"
+    >
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" not-null="true" />
+  </property>
+
+    <property
+        name="idSocio"
+	    type="long"
+    >
+<column name="ID_SOCIO" precision="10" scale="0" not-null="true" />
+  </property>
+
+    <property
+        name="idSucursalCuenta"
+	    type="short"
+    >
+<column name="ID_SUCURSAL_CUENTA" precision="4" scale="0" not-null="true" />
+  </property>
+
+    <property
+        name="idCuenta"
+	    type="long"
+    >
+<column name="ID_CUENTA" precision="10" scale="0" not-null="true" />
+  </property>
+
+    <property
+        name="nroTarjeta"
+	    type="string"
+    >
+<column name="NRO_TARJETA" length="20" not-null="true" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

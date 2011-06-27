@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>	Tematika.com | Seccion </title>
+
+<link href="/estilos/comun.css" rel="stylesheet" type="text/css" />
+<link href="/estilos/mesa.css" rel="stylesheet" type="text/css" />
+<link href="/estilos/carrito.css" rel="stylesheet" type="text/css" />
+
+<link href="/rediseno/estilos/old/seccion_tematikaInicio.css" rel="stylesheet" type="text/css" />
+<link href="/estilos/seccion_tematika.css" rel="stylesheet" type="text/css" />
+<link href="/estilos/seccion_tematikaInicio.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/js/prototype-1.6.0.3.js"></script>
+<script type="text/javascript" src="/js/dropDownMenu.js"></script>
+<script type="text/javascript" src="/js/equalcolumns.js"></script>
+<script type="text/javascript" src="/js/menuarbol.js"></script>
+<script type="text/javascript" src="/js/buscador.js"></script>
+<script type="text/javascript" src="/js/jsutil.js"></script>
+<script type="text/javascript" src="/js/carritoNew.js"></script>
+<script>
+	addEvent(window, 'load', carrito_ActualizarCarrito);
+</script>
+
+<script type="text/javascript" src="/js/imagePreloader.js"></script>
+<script type="text/javascript" src="/js/hashtable.js"></script>
+<script type="text/javascript" src="/js/mesa.js"></script>
+<script>
+	addEvent(window, 'load', cargarCbos);
+	addEvent(window, 'load', getTotal);
+</script>
+
+<!--[if lt IE 7]>
+    <script src="/rediseno/scripts/iepngfix/iepngfix_tilebg.js" type="text/javascript"></script>
+<![endif]-->
+</head>
+
+<body onload="">
+	
+<center>
+<!-- **** INICIO DEL CONTENIDO DEL SITIO **** -->
+<div class="lienzo">
+
+<!-- **** HEADER **** -->
+			
+<div class="header">
+	
+	<a href="/rediseno/" class="hLogo" title="Tematika.com"></a>
+
+	<div class="hBuscador">
+
+        <ul class="dropdown">
+            <li class="dir"><span onclick="javascript:desplegarOpciones('listaBuscador');" id="optBusqueda">En Tematika.com</span>
+                <ul style="display:none;" id="listaBuscador">
+	                    <li><a id="optBus1" onmouseover="javascript:desplegarOpciones('listaBuscador');" onmouseout="javascript:ocultarOpciones('listaBuscador');" href="javascript:mostrarBuscarPor('optBus1','optBusqueda','listaBuscador');">En Tematika.com</a></li>
+                    
+	                    <li><a id="optBus2" onmouseover="javascript:desplegarOpciones('listaBuscador');" onmouseout="javascript:ocultarOpciones('listaBuscador');" href="javascript:mostrarBuscarPor('optBus2','optBusqueda','listaBuscador');">En Libros</a></li>
+                    
+	                    <li><a id="optBus3" onmouseover="javascript:desplegarOpciones('listaBuscador');" onmouseout="javascript:ocultarOpciones('listaBuscador');" href="javascript:mostrarBuscarPor('optBus3','optBusqueda','listaBuscador');">En Musica</a></li>
+                    
+	                    <li><a id="optBus4" onmouseover="javascript:desplegarOpciones('listaBuscador');" onmouseout="javascript:ocultarOpciones('listaBuscador');" href="javascript:mostrarBuscarPor('optBus4','optBusqueda','listaBuscador');">En Peliculas</a></li>
+                    
+	                    <li><a id="optBus5" onmouseover="javascript:desplegarOpciones('listaBuscador');" onmouseout="javascript:ocultarOpciones('listaBuscador');" href="javascript:mostrarBuscarPor('optBus5','optBusqueda','listaBuscador');">En Pasatiempos</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <input id="txtBuscar" name="buscadorTxtField" type="text" value="" class="hBuscTxtF" onkeypress="javascript: if (pressEnter(event)) buscador_setBusqueda($('optBusqueda').innerHTML, $('txtBuscar').value, 0);" />
+        <a id="btnBuscar" href="javascript:buscador_setBusqueda($('optBusqueda').innerHTML, $('txtBuscar').value, 0)"><div class="hBuscButton" title="Buscar"></div></a>
+
+    </div>
+
+	<a href="#" class="hServClientes" title="Servicio al cliente" ></a>
+	
+	<div id="divCarrito" class="efectoCarritoMod" style="display:none">
+        <div class="efectoCarritoTxt"><span class="txtMsgCarritoOK" id="msgCarritoOK"></span><br />
+        <div id="msgCarritoERROR" style="font-size:12;color:red"></div>
+        <span id="spnPrecioCarrito" class="txtPrecioCarrito">PRECIO: $ <span  class="txtPrecioCarrito" id="precioCarrito"></span>.-</span></div>
+        <div class="efectoCarritoImages"><img id="carritoImagen" src="" class="efectoCarritoImag"></div>
+        <div id="efectoCarritoB"><a href="javascript:carrito_CloseCarrito()"><img src="/imagenes/b-carrContinuar.gif" alt="Continuar" border="0"></a></div>
+	</div>
+	<div id="modalBack" style="display:none"></div>
+    <div class="hModUsuario">
+        <div class="hModUsrNombre">Carlos Lopez</div>
+           <a class="hModUsrCerrar" href="#" title="Salir">
+            salir
+           </a>
+           <div class="hModUsrExtra">
+            Tens acumulados<br />
+            <a href="#">150 puntos </a>
+                eXtra!
+        </div>
+           <a href="#" id="textoCarrito" class="hModUsrCarrito" title="Finalizar la compra"></a>
+        <a href="#" class="hModUsrButton" title="Desplegar mi panel de usuario"></a>
+    </div>
+    <div class="hModUsuarioBack"></div>
+</div>
+
+<div class="barraCentral"><!-- **** BARRA CENTRAL **** -->
+
+    <div id="seccionTematika"><!-- **** SECCION TEMATIKA (CONTENIDO CENTRAL) **** -->
+    
+        <div class="tmtkMesaNovedades"><!-- mesa y ttulos de secciones -->
+    
+                <a href="/rediseno/libros" class="tmtkMesaSeccionesTit" title="Libros"></a>
+                <a href="/rediseno/musica" class="tmtkMesaSeccionesTit" title="Msica"></a>
+                <a href="/rediseno/peliculas" class="tmtkMesaSeccionesTit" title="Pelculas"></a>
+                <a href="/rediseno/juguetes" class="tmtkMesaSeccionesTit" title="Pasatiempos"></a>
+    
+        </div><!-- FIN mesa y ttulos de secciones -->
+        
+	<div class="arbolShadow compraProc-wrapper">
+        <div class="compraProc">
+        	<div class="compraProcL-ok"><a href="#" class="cProcTxt-ok">¿Regalo?</a></div>
+            <div class="compraProc-ok"><a href="#" class="cProcTxt-ok">Entrega</a></div>
+            <div class="compraProc-ok"><a href="#" class="cProcTxt-ok">Pago</a></div>
+            <div class="compraProc-ok"><a href="#" class="cProcTxt-ok">Vista Previa</a></div>
+            <div class="compraProcR-act"></div>
+        </div>
+    </div>
+    
+    <div class="compProcConfBot"></div><!-- este div se pone por encima de la botonera del proceso de compra, haciendo que los links dejen de ser clickeables -->
+    
+    <div class="compraWrapper cProcConf">
+    
+    	<div class="cProcTit" style="margin-top:0;">¡Felicitaciones, tu compra se ha realizado exitosamente!</div>
+        <div class="cProcFor-wrapper cProcForms">
+            <div style="margin-bottom:0; width:690px;">
+            <span style="margin-right:10px;">Muchas gracias por habernos elegido.<br>
+            		Aguardamos su pago a trav&eacute;s de  por  para enviarle su pedido.
+            	</span>
+            </div>
+            <div style="margin-bottom:0; width:690px;">
+            <h1>Su número de Orden es 201463</h1><br />
+            <h2>Recibirás un mail que te confirmará el detalle de tu compra a: jgomez@gmail.com, jgomez@hotmail.com.</h2><br />
+            Por favor guardalo.<br />
+            </div>
+        </div>
+        
+        <div class="cProcConfFoot">Mientras tanto podés visitar: <a href="#">Tiempos esperables de entrega</a>, <a href="#">seguimiento de esta compra</a>, <a href="#">mi cuenta</a>, <a href="#">ir a la home</a>.</div>        
+    
+    </div>
+    
+    </div><!-- **** FIN SECCION TEMATIKA **** -->
+
+
+    <div class="panelSecciones">	
+        
+        <a href="/rediseno/sucursales" id="panelSeccSucursales" title="Sucursales"><span></span></a>	
+        <a href="/rediseno/quid" id="panelSeccQuid" title="Quid"><span></span></a>
+        <a href="/rediseno/extra" id="panelSeccExtra" title="eXtra!"><span></span></a>
+        
+    </div>    
+
+</div><!-- **** FIN BARRA CENTRAL **** -->
+
+<div class="footer"><!-- **** FOOTER **** -->
+    
+    <div class="footerShadow"></div>
+    <div class="footerLogos"></div>
+    <div class="footerText">
+        <a href="#">TEMATIKA</a> |
+        <a href="#">LIBROS</a> |
+        <a href="#">MUSICA</a> |
+        <a href="#">PASATIEMPOS</a> |
+        <a href="#">PELICULAS</a></div>
+        <div class="footerText2"><a href="#">
+        <img src="/imagenes/rediseno/imagenes/comun/rssLogo.gif" />
+        <span>Descargue las Novedades y Lanzamientos de Tematika.com en su sitio</span></a></div>
+        <div class="footerText">
+        <a href="#">MARCAS ILHSA</a> |
+        <a href="#">SUCURSALES</a> |
+        <a href="#">PRENSA</a> |
+        <a href="#">PREGUNTAS FRECUENTES</a> |
+        <a href="#">ASOCIADOS Y REFERIDOS</a> |
+        <a href="#">VENTAS CORPORATIVAS</a><br />
+        <a href="#">MAPA DE PRODUCTOS</a> |
+        <a href="#">EMPLEO</a> |
+        <a href="#">CONTACTO</a> |
+        <a href="#">SERVICIO AL CLIENTE</a>
+     </div>
+     
+</div><!-- **** FIN FOOTER **** -->
+
+
+</div>
+<!-- **** FIN DEL CONTENIDO DEL SITIO **** -->
+</center>
+</body>
+</html>
+

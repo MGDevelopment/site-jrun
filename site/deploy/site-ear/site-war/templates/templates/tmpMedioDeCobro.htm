@@ -1,0 +1,341 @@
+
+<!-- **** VENTANA MODAL **** -->
+<div class="ventModal-wrapper" id="modalPago" style="display:none;position:fixed">	
+    <div class="vModTop">
+    	<div class="hModUsrNombre">Medios de pago</div>
+        <a class="hModUsrCerrar" href="javascript:mostrarDiv('modalPago'); javascript:mostrarDiv('modalBack');" title="Cerrar">cerrar</a>
+    </div>    
+    <div class="vModContent vModTxto">
+    	<div>TARJETA DE CREDITO</div>
+        <span>Deber&aacute; elegir el tipo de tarjeta que posee de la lista. <br />
+		A continuaci&oacute;n debe completar los datos de la tarjeta tal cual como figuran en el pl&aacute;stico. <br />
+		Por &uacute;ltimo, ingrese su tipo y n&uacute;mero de documento, y el domicilio donde llega su res&uacute;men.</span>
+
+    	<div>SANTANDER RIO ONLINE BANKING</div>
+        <span>Seleccione esta opción si prefiere abonar la compra a través del sistema de Online Banking del banco Santander Río.  <br />
+		El pago se debitará de su cuenta bancaria.</span>
+    
+    	<div>PAGO FACIL</div>
+        <span>Al finalizar la compra deberás imprimir un cup&oacute;n con el cual podr&aacute;s realizar el pago en cualquier oficina de Pago Fácil.
+		Los tiempos de salida de despacho comenzar&aacute;n a correr una vez que efectivices el pago de la compra.</span>
+
+    	<div>RAPI PAGO</div>
+        <span>Al finalizar la compra deber&aacute;ás imprimir un cupón con el cual podr&aacute;s realizar el pago en cualquier oficina de Rapi Pago.
+		Los tiempos de salida de despacho comenzarán a correr una vez que efectivices el pago de la compra.</span>
+
+    	<div>DINERO MAIL</div>
+        <span>- Para abonar con Dinero Mail deber&aacute;s tener una cuenta registrada con dinero disponible en <a href="http://www.dineromail.com" target="_blank">http://www.dineromail.com</a>
+		- Los tiempos de salida de despacho comenzarán a correr una vez que efectivices el pago de la compra.</span>
+
+    	<div>EFECTIVO CONTRARREMBOLSO</div>
+        <span>Seleccione esta opci&oacute;n si prefiere abonar la compra en el momento en que recibe el pedido en su domicilio.</span>
+
+    	<div>FAX</div>
+        <span>Seleccione esta opci&oacute;n si desea completar un fax con los datos de la tarjeta y la orden. <br />
+		Luego deber&aacute; enviarlo a nuestras oficinas.</span></td></span>
+        
+        <div>CUPONES DE PAGO ARCASH</div>
+        <span>
+        Seleccione esta opción para abonar con los cupones prepagos arcash.
+		Al finalizar la compra deberás ingresar a arcash e ingresar el cup&oacute;n pregago.
+		M&aacute;s informaci&oacute;n en <a href="http://www.arcash.com.ar" target="_blank">http://www.arcash.com.ar</a>
+        </span>
+        <div>CODIGO</div>
+        <span>En el caso de poseer un c&oacute;digo especial de descuento, puede ingresarlo en el casillero correspondiente. <br />
+		Los descuentos obtenidos con este c&oacute;digo ser&aacute;n mostrados en la pantalla de <b>revisar el pedido</b></span>        
+    </div>    
+</div>
+
+<div class="ventModal-wrapper" id="modalCod" style="display:none;">	
+    <div class="vModTop">
+    	<div class="hModUsrNombre">Ayuda sobre el código de seguridad</div>
+        <a class="hModUsrCerrar" href="javascript:mostrarDiv('modalCod'); javascript:mostrarDiv('modalBack');" title="Cerrar">cerrar</a>
+  </div>    
+    <div class="vModContent vModTxto">
+    	<div>¿Qué es el Código de Seguridad de una Tarjeta?</div>
+        <span>El Código de Seguridad de una Tarjeta de Crédito está constituido por un grupo de números adicionales. Estos se encuentran próximos al de su Tarjeta de Crédito. Este Código es usado por la compañía que le otorgó su tarjeta como una forma de prevenir fraudes. Debido a que el Código (o Card ID) nunca es impreso en su extracto mensual enviado a usted, ello asegura que solo el poseedor de la Tarjeta conoce esa información y por lo tanto nadie podrá usarla en forma fraudulenta. .</span>
+        <div>Ejemplos</div>
+        <span>
+        	Si Usted posee una American Express, el Código de seguridad (o Card ID) estará en el frente del plástico según el siguiente ejemplo.
+            <img src="/imagenes/compra/codigoSeguridadFrente.jpg" />
+            Si por el contrario, posee Diners Club, Visa o Mastercard, el Código de seguridad (o Card ID) se encontrará en el reverso de su tarjeta tal cual lo ilustra el ejemplo a continuación.
+            <img src="/imagenes/compra/codigoSeguridadAtras.jpg" />
+        </span>
+    </div>    
+</div>
+<div id="modalBack" style="display:none;"></div>
+<!-- **** FIN VENTANA MODAL **** -->           
+    <div class="compraWrapper">    
+    <form name="frmMedioCobro" action="/SeleccionarMedioDeCobro" method="post">
+    	<input type="hidden" name="seguir" value="true"/>
+    	<div class="cProcTit" style="margin-top:5px;">
+    		<span>Seleccioná un medio de pago:</span>
+    	</div>        
+        <div class="cProcFor-wrapper cProcPago">
+        	<select id='MediosDePago' name="MEDIO_DE_COBRO" onChange="javascript: MostrarDivs(document.getElementById('MediosDePago').value);">
+				<tmpl_loop mediosDisponibles>
+					<option value="<tmpl_var idMedio>" <tmpl_var checked>><tmpl_var nombre></option>
+				</tmpl_loop>					
+			</select>        	
+            <a href="javascript:mostrarDiv('modalPago'); javascript:mostrarDiv('modalBack');">?</a>
+        </div>
+        <tmpl_if TA>
+	        <div id="TA" style="display:<tmpl_var displayTA>">
+		        <div class="cProcTit">
+		        	<span >Detalles de su medio de pago seleccionado:</span>
+		            <div id="ELIMINAR1">Ingresá el tipo de tarjeta que posee de la lista y los datos tal cual como figuran en el plástico. Completá los datos adicionales con su tipo y número de documento, y el domicilio donde llega tu resumen.  Por cualquier consulta contactanos en nuestro departamento de venta telefónica al: 0810-33-EXTRA (39872).</div>
+		        </div>
+		        <div class="cProcFor-wrapper cProcForms" id="ELIMINAR2">
+		            <b>Tarjeta:</b>
+		        	<div>
+		            	<select name="TIPO_DE_TARJETA" <tmpl_if habilitaCuontas> onchange="javascript:INDEX_TARJETA = actualizarCombo(this, document.frmMedioCobro.CAMPO_PLAN_DE_CUOTAS,tarjetaYPlan);"</tmpl_if> style="width:200px;">
+							<script>
+								for(i = 0; i < tarjetaYPlan.length; i++) {
+								    var selected = '';
+								    <tmpl_if tieneMedioDeCobro> 
+									    if (tarjetaYPlan[i].id == '<tmpl_var idMedioDeCobro>') {
+									        INDEX_TARJETA =  i;
+									        selected = ' selected ';
+									    }
+						    		</tmpl_if>
+									document.write('<option value="' + tarjetaYPlan[i].id + '"' + selected + '>');
+									document.write(tarjetaYPlan[i].descripcion);
+									document.write('</option>');
+								}
+							</script>
+		            	</select>
+		            </div>
+		            <b>Número de tarjeta:</b>
+		            <div>
+		            	<input onchange="verificarBin(this);" onblur="verificarBin(this);" name="NUMERO_DE_TARJETA" value="<tmpl_var numeroTarjeta>" type="text" style="width:250px;" />
+		            </div>
+		            <b>Código de seguridad:</b>
+		            <div>
+		            	<input name="CODIGO_DE_SEGURIDAD" type="text" value="<tmpl_var codigoDeSeguridad>"style="width:50px; margin-right:7px;" />
+		            	<a  href="javascript:mostrarDiv('modalCod'); javascript:mostrarDiv('modalBack');" onclick="window.scrollTo(0,0)" style="font-size:11px;">(Los 3/4 dígitos que figuran en el frente o dorso de la tarjeta).</a>
+		            </div>
+		            <b>Fecha de expiración:</b>
+		            <div>
+		            	<select name="MES" style="width:50px;">
+		            		<tmpl_loop meses>
+								<option value="<tmpl_var value>" <tmpl_var checked>><tmpl_var texto></option>
+							</tmpl_loop>
+		            	</select>
+		            	<select name="AÑO" style="width:100px;">
+		            		<tmpl_loop anios>
+								<option value="<tmpl_var value>" <tmpl_var checked>><tmpl_var texto></option>
+							</tmpl_loop>
+		            	</select>
+		            </div>
+		            <tmpl_if habilitaCuontas>
+			            <b>Plan de cuotas:</b>
+			        	<div>
+			            	<select name="CAMPO_PLAN_DE_CUOTAS" style="width:150px; margin-right:7px;">
+			            		<script>
+									for(i = 0; i < tarjetaYPlan[INDEX_TARJETA].comboDependiente.length; i++) {
+									var selected = '';
+									<tmpl_if tarjetaPlanYTarjeta>
+										selected = (tarjetaYPlan[INDEX_TARJETA].comboDependiente[i].id == '<tmpl_var tarjetaDaoClave>') ? ' selected ' : '';
+									</tmpl_if>
+									document.write('<option value="' + tarjetaYPlan[INDEX_TARJETA].comboDependiente[i].id + '"' + selected + '>');
+									document.write(tarjetaYPlan[INDEX_TARJETA].comboDependiente[i].descripcion);
+									document.write('</option>');
+									}
+								</script>
+			            	</select>
+			            	<span style="font-size:11px;">(Plan de pago no válido para residentes fuera de Argentina).</span>
+			            </div>
+			         </tmpl_if>
+		            <b>Apellido y nombre:</b>
+		            <div>
+		            	<input name="TITULAR"  value="<tmpl_var titularTarjeta>" type="text" style="width:250px;" />
+		            </div>
+		            <b>Idedntificación personal:</b>
+		            <div>
+		            	<span>Tipo:</span>
+		            	<select name="TIPO_DOCUMENTO" style="width:200px;">
+		            		<tmpl_loop tiposDocumentos>
+								<option value="<tmpl_var idDocumento>">
+									<tmpl_Var nombreDocumento>
+								</option>
+							</tmpl_loop>
+		            	</select>
+		            	<span>Número:</span><input name="NUMERO_DOCUMENTO" value="<tmpl_var numeroDocumento>" type="text" style="width:150px;" />
+		            </div>
+		            <b style="margin-top:-7px; position:relative;">Domicilio de envío del resumen de su tarjeta:</b>
+		            <div>
+		            	<input name="DOMICILIO_DE_ENVIO" type="text" value="<tmpl_var domEnvTarj>"style="width:350px;" />
+		            </div>
+		        </div>        
+	        </div>
+        </tmpl_if>
+        <tmpl_if TPP>
+	        <div id="TPP" style="display:<tmpl_var displayTPP>;">
+		        <div class="cProcTit" >
+		        	<span>Detalles de su medio de pago seleccionado:</span>
+		            <div>                
+		                Ingrese aquí los códigos de las Tarjetas Prepagas que desea utilizar.
+					</div>
+				</div>
+					<tmpl_loop tarjetasCargadas>
+					<div class="cProcFor-wrapper cProcForms">
+						<b style="margin-bottom: 0pt;">Codigo:</b>
+						<div style="margin-bottom: 0pt;">
+							<input type="text" maxlength="32" size="45" name="<tmpl_var name>" value="<tmpl_var value>" />
+						</div>
+					</div>							
+					</tmpl_loop>
+					<tmpl_loop tarjetas>
+						<div class="cProcFor-wrapper cProcForms">
+							<b style="margin-bottom: 0pt;">Codigo:</b>
+							<div style="margin-bottom: 0pt;">
+								<input type="text" maxlength="32" size="45" name="<tmpl_var name>" />
+							</div>
+						</div>
+					</tmpl_loop>						
+			</div>			
+		</tmpl_if>
+        <!-- RIO HB -->
+        <tmpl_if RIOHB>
+			<div id="RIOHB" style="display:<tmpl_var displayRIOHB>;">
+	            <div class="cProcTit" >
+		        	<span>Detalles de su medio de pago seleccionado:</span>
+		            <div>                
+		                Ingrese al <a target="_blank" href="http://www.santanderrio.com.ar" class="FAyuda"><b><tmpl_var nombreHomeBanking></b></a>
+		                para realizar el pago de la orden, seg&uacute;n el n&uacute;mero otorgado luego de la confirmaci&oacute;n de la compra.
+		                Por cualquier consulta cont&aacute;ctenos en nuestro departamento de venta telef&oacute;nica al:<br />
+		               <tmpl_var telCallCenter>.
+					</div>
+				</div>
+			</div>
+		</tmpl_if>        
+        <!-- PAGO FACIL-->
+        <tmpl_if PAGOF>
+			<div id="PAGOF" style="display:<tmpl_var displayPAGOF>;">
+	            <div class="cProcTit" >
+		        	<span>Detalles de su medio de pago seleccionado:</span>
+		            <div>                
+		                IMPORTANTE: El monto mínimo para operar con Pago Fácil es de $5. Al plazo habitual de salida del depósito de cada producto deberá sumarle 72hs hábiles luego de la realización del pago dado que ese es el tiempo que demoramos en recibir la constancia del mismo.
+						Al finalizar la compra deberá imprimir un cupón con el cual deberá realizar el pago en cualquier oficina de Pago Fácil para recibir su pedido.
+					</div>
+				</div>
+			</div>
+		</tmpl_if>
+		<!-- RAPI PAGO-->
+		<tmpl_if RPAGO>
+			<div id="RPAGO" style="display:<tmpl_var displayRPAGO>;">
+	            <div class="cProcTit" >
+		        	<span>Detalles de su medio de pago seleccionado:</span>
+		            <div>                
+		                IMPORTANTE: El monto mínimo para operar con Rapi Pago es de $5. Al plazo habitual de salida del depósito de cada producto deberá sumarle 72hs hábiles luego de la realización del pago dado que ese es el tiempo que demoramos en recibir la constancia del mismo.
+						Al finalizar la compra deberá imprimir un cupón con el cual deberá realizar el pago en cualquier oficina de Rapi Pago para recibir su pedido.
+					</div>
+				</div>
+			</div>
+		</tmpl_if>
+        
+        <!-- DINERO MAIL-->
+        <tmpl_if DINMA>
+			<div id="DINMA" style="display:<tmpl_var displayDINMA>;">
+	            <div class="cProcTit" >
+		        	<span>Detalles de su medio de pago seleccionado:</span>
+		            <div>                
+						IMPORTANTE: El monto mínimo para operar con Dinero Mail es de $5. Recuerde que al finalizar la compra deberá ingresar a Dinero Mail y realizar el pago correspondiente para recibir su pedido.
+						El plazo habitual de salida del depósito de cada producto comenzará a correr una vez efectivizado el pago de su compra.				
+					</div>
+				</div>
+			</div>		
+		</tmpl_if>
+        <!-- ARCASH-->
+        <tmpl_if ARCAS>
+			<div id="ARCAS" style="display:<tmpl_var displayARCAS>;">
+	            <div class="cProcTit" >
+		        	<span>Detalles de su medio de pago seleccionado:</span>
+		            <div>                
+					IMPORTANTE: Seleccione esta opci&oacute;n para abonar con los cupones prepagos Arcash.
+					Ingres&aacute; tus cupones Arcash, el pago ser&aacute; validado online y comenzar&aacute; a correr el plazo habitual de salida del dep&oacute;sito. 
+					M&aacute;s informaci&oacute;n en <a href="http://www.arcash.com.ar" target="_balnck">http://www.arcash.com.ar</a>
+					</div>
+				</div>
+			</div>
+		</tmpl_if>              
+		<!-- EFE REEMBOLSO-->
+		<tmpl_if EFCO>
+			<div id="EFCO" style="display:<tmpl_var displayEFCO>;">
+	            <div class="cProcTit" >
+		        	<span>Detalles de su medio de pago seleccionado:</span>
+		            <div>                
+					IMPORTANTE: Recuerde que el env&iacute;o con cobro contrareembolso s&oacute;lo es v&aacute;lido dentro de la Rep&uacute;blica Argentina y tiene un costo adicional de 5,0% sobre el total de la orden.
+					</div>
+				</div>
+			</div>
+		</tmpl_if>
+                
+        <!-- fax -->
+        <tmpl_if FAX>
+			<div id="FAX" style="display:<tmpl_var displayFAX>;">
+			 	<div class="cProcTit" >
+		        	<span>Detalles de su medio de pago seleccionado:</span>
+		            <div>
+					Complete el <a target="_blank"  <tmpl_var estadoFaxTexto> href="<tmpl_var urlFax>" class="FAyuda"><b>Formulario</b></a>, impr&iacute;malo y env&iacute;elo por fax al n&uacute;mero <tmpl_var faxCallCenter>,
+	                o cont&aacute;ctenos en nuestro departamento de venta telef&oacute;nica al <tmpl_var telCallCenter> y cerraremos su compra.
+	                </div>
+				</div>                
+			</div>          
+		</tmpl_if>
+		<!-- FIN DIVS CON METODOS DE PAGO -->
+		
+        <div class="cProcTit">
+        	<span>Datos de contacto</span>
+            <div>Indique un telefono de contacto</div>
+        </div>        
+        <div class="cProcFor-wrapper cProcForms">
+            <b style="margin-bottom:0;">Telefono: </b>
+            <div style="margin-bottom:0;">
+            	<input name="TELEFONO" value="<tmpl_var numeroTelefono>" type="text" style="width:250px;" />
+        	</div>
+        </div>
+        <div class="cProcTit"><span>Horario de contacto telefonico:</span></div>        
+        <div class="cProcFor-wrapper cProcForDom">
+        	<input name="HORARIO" type="radio" value="Mañana y Tarde (09:00 a 18:00)" <tmpl_var checkPorDefecto>/><p>Mañana y Tarde (09:00 a 18:00).</p><br/><br/>
+            <input name="HORARIO" type="radio" value="Por la Mañana (09:00 a 13:00)" <tmpl_var checkPorLaManana>/><p>Por la mañana (09:00 a 13:00).</p><br/><br/>
+            <input name="HORARIO" type="radio" value="Por la Tarde (13:00 a 18:00)" <tmpl_var checkPorLaTarde>/><p>Por la tarde (13:00 a 18:00).</p>
+        </div>
+        
+        <div class="cProcTit">
+        	<span>Código de descuento:</span>
+            <div>Los descuentos aplicados serán mostrados en la pantalla de <b>revisar el pedido</b>.</div>
+        </div>        
+        <div class="cProcFor-wrapper cProcForms">
+            <b style="margin-bottom:0;">Código de descuento:</b><div style="margin-bottom:0;">
+            	<input id="CAMPOCUPON" name="<tmpl_var campoCupon>" value="<tmpl_var valorCupon>" type="text" style="width:250px;" />
+            	<!-- <input name="<tmpl_var campoCupon>" value="<tmpl_var valorCupon>" type="text"/>-->
+            	<!-- <a href="#" class="cProcForButton">AGREGAR</a>-->
+        </div>
+        </div>        
+        <tmpl_if fideliazacionVigente>
+	        <div class="cProcTit"><span>Tarjeta eXtra!</span></div>        
+	        <div class="cProcFor-wrapper cProcForms">
+	            <b style="margin-bottom:0;">Nº de su tarjeta eXtra:</b><div style="margin-bottom:0;">
+	            <input name="TARJETA_EXTRA" type="text" value="<tmpl_var valorTarjeta>" style="width:250px;" />
+	            <!-- <a href="#" class="cProcForButton">AGREGAR</a>-->
+	        </div>
+	        </div>
+	    </tmpl_if>	    
+	    <tmpl_if esBrasil>
+		    <div class="cProcTit"><span>INGRESE CPF / CNPJ:</span></div>        
+	        <div class="cProcFor-wrapper cProcForDom">
+	        	<p>CPF</p>
+	        	<input name="ES_CPF_CNPJ" type="radio" value="CPF" <tmpl_var checkedCPF>/>	            
+	            <p>CNPJ</p>
+	            <input name="ES_CPF_CNPJ" type="radio" value="CNPJ" <tmpl_var checkedCNPJ>/>
+	            <div style="margin-bottom: 0pt;">
+		            <input type="text" style="width: 250px;" name="CAMPO_CPF_CNPJ" value="<tmpl_var valorCPF_CNPJ>"/>
+		        </div>
+	        </div>
+	    </tmpl_if>
+	</form>  
+    </div>    
+    <a href="<tmpl_var pantallaAnterior>" class="b-prev">DATOS DE ENTREGA</a>
+    <a href="<tmpl_var pantallaSiguiente>" class="b-next">REVISAR EL PEDIDO</a>
+<tmpl_var oogleAnalyticsSSL>

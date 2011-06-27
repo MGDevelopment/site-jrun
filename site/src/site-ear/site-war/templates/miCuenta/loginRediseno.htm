@@ -1,0 +1,89 @@
+
+<div>
+  <table width="386" border="0" cellpadding="0" cellspacing="0" class="moduloayudatop">
+    <tr>
+      <td width="50" class="titulosceldas"><img src="/imagenes/miCuenta/t-micuenta.gif" alt="Mi cuenta" width="139" height="12" /></td>
+    </tr>
+    <tmpl_if feedback>
+    <tr>
+    	<td>
+    		<div id="userLoginError">
+				<tmpl_var feedback>
+			</div>
+
+		</td>
+	</tr>
+	</tmpl_if>
+		<form name="formUsuarioRegistrado" action="/IniciarSesion" method="post">
+    <tr>
+      <td style="padding:10px 0px 10px 0px">
+      <div class="userLogin">
+      <div class="userLoginBack">
+      <img src="/imagenes/miCuenta/login-back.gif" border="0" usemap="#Map7" /></div>
+      <map name="Map7" id="Map7"><area shape="rect" coords="284,45,374,75" href="javascript:validarFormCliente();" alt="Ingresar a mi cuenta" tabindex="3">
+      <div class="userLoginTxt01"><span>Mi e-mail es:</span></div>
+      <input name="LOGIN" type="text" class="userTxtfield" style="width:130px;"  tabindex="1">
+      <div class="userLoginTxt02">Mi contraseña es:</div>
+      <input name="PASSWORD" type="password" class="userTxtfield2" style="width:115px;" onkeypress="javascript:if (presionoEnter(event))validarFormCliente();" tabindex="2">
+      <div class="userLoginTxt03"><a href="javascript:recuperarClave();" class="Flink01">Olvidé mi contraseña</a></div>
+      </map>
+      </td>
+    </tr>
+    </form>
+    <form name="formUsuarioNuevo" action="javascript:validarFormClienteNuevo();" method="post">
+    	<!--  <input type="hidden" name="_DISPATCHER" value="rediseno">-->
+	    <input type="hidden" name="ID_SESSION" value="<tmpl_var idSession>">
+        <input type="hidden" name="PAGE_DBN" value="<tmpl_var pageDBN>">
+    <tr>
+   	  <td>
+      </div>
+      <div class="userLogin">
+      <div class="userLoginBack">
+      <img src="/imagenes/miCuenta/login02-back.gif" border="0" usemap="#Map8" /></div>
+      <map name="Map8" id="Map8">
+        <area shape="rect" coords="257,45,374,75"  href="javascript:validarFormClienteNuevo();" alt="Registrarse en Tematika.com" tabindex="5">
+      <div class="userLoginTxt01"><span>Mi e-mail es:</span></div>
+      <input tabindex="4" name="LOGIN" type="text" class="userTxtfield" style="width:225px;" onkeypress="javascript:if (presionoEnter(event))validarFormClienteNuevo();">
+      </map>
+      </div>
+      </td>
+    </tr>
+    </form>
+  </table>
+</div>
+<script language="javascript">
+	function validarFormCliente() {
+		if(isEmpty(document.formUsuarioRegistrado.LOGIN.value)) {
+			document.formUsuarioRegistrado.LOGIN.focus();
+			alert('Debés indicar la dirección de e-mail utilizada como usuario de nuestro sitio.');
+			return;
+		}
+		if(isEmpty(document.formUsuarioRegistrado.PASSWORD.value)) {
+			document.formUsuarioRegistrado.PASSWORD.focus();
+			alert('Debés indicar una clave de acceso.');
+			return;
+		}
+		document.formUsuarioRegistrado.submit();
+	}
+
+	function recuperarClave() {
+		document.location = '/miCuenta/?seccionMiCuenta=5&LOGIN=' + document.formUsuarioRegistrado.LOGIN.value;
+	}
+
+	function validarFormClienteNuevo() {
+		if(isEmpty(document.formUsuarioNuevo.LOGIN.value)) {
+			document.formUsuarioNuevo.LOGIN.focus();
+			alert('Debés indicar una dirección de e-mail para identificarlo como usuario de nuestro sitio.');
+			return;
+		}
+		//alert("-");
+		//Utilizado en MOL
+    	 document.location = '/miCuenta/?seccionMiCuenta=LOGIN&opcionMenuRegistro=0&LOGIN='
+    	 				   + document.formUsuarioNuevo.LOGIN.value
+    	 				   + '&ID_SESSION=' + document.formUsuarioNuevo.ID_SESSION.value
+    	 				   + '&PAGE_DBN=' + document.formUsuarioNuevo.PAGE_DBN.value;
+        //Utilizado en MOL
+	}
+	document.formUsuarioRegistrado.LOGIN.focus();
+</script>
+

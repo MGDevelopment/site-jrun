@@ -1,0 +1,40 @@
+<div class="compraWrapper2"><!-- style="background-color: #FBF5EF">-->
+	<div style="margin-top: 0pt;" class="cProcTit"><span>Mis Listas:</span></div>
+		<tmpl_if hayListas>   
+			<tmpl_loop listas>
+					<div class="cProcFor-wrapper2 cProcForms2">
+			            <b style="margin-bottom: 0pt;"><tmpl_var listaTitulo> <tmpl_var publica> - <tmpl_var cantiadDeArticulos> <tmpl_var textoCantidadArticulo></b>		            
+			            <div style="margin-bottom: 0pt;margin-top: -2px;">
+			            	<span style="margin-right: 10px;" >
+			            		<a href="/EliminarListaDeUsuario?idLista=<tmpl_var idLista>" class="cProcForButton2">Eliminar</a>
+	            				<a href="/miCuenta/listasDeUsuarios/verMiLista.jsp?idLista=<tmpl_var idLista>" class="cProcForButton2">Ver/Editar</a>
+			            	</span>
+			            </div>			            
+			        </div>
+			
+		        <!-- <div class="cProcFor-wrapper2 cProcForms2">
+		            <b style="margin-bottom: 0pt;">Titulo</b>
+		            <div style="margin-bottom: 0pt;">
+		            	<span style="margin-right: 10px;">
+		            		<tmpl_var listaTitulo>
+		            	</span>
+		            </div>
+		            <div style="margin-bottom: 0pt;">
+	            		<a href="/EliminarListaDeUsuario?idLista=<tmpl_var idLista>" class="cProcForButton2">Eliminar</a>
+	            		<a href="/miCuenta/listasDeUsuarios/verMisListas.jsp?idLista=<tmpl_var idLista>" class="cProcForButton2">Ver Lista</a>
+	            	</div> 
+	            -->
+		    </tmpl_loop>
+	        <a class="cProcForButton vPrevButt" style="text-align:center;" href="/miCuenta/listasDeUsuarios/crearMiLista.jsp">Nueva Lista</a>
+       	</tmpl_else>
+       		<!--SI NO TIENE LISTAS MUESTRO UN MENSAJE  -->
+         	<div class="cProcFor-wrapper2 cProcForms2">	         
+		        <b style="margin-bottom: 0pt;">No tenes listas creadas!</b>
+	            <div style="margin-bottom: 0pt;">
+	            	<span style="margin-right: 10px;">
+	            		<a href="/miCuenta/listasDeUsuarios/crearMiLista.jsp" class="cProcForButton2">Nueva lista</a>
+	            	</span>
+	        	</div>
+	        </div>
+	    </tmpl_if>       		
+</div>

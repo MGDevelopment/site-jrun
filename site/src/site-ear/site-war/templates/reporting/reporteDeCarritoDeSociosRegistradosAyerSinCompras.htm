@@ -1,0 +1,67 @@
+<html>
+	<body>
+		<table align="center" width="95%" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">
+			<tr>
+				<td width="15%">
+					<B>Login</B>					
+				</td>
+				<td width="12%">
+					<B>Nombre</B>
+				</td>
+				<td width="12%">
+					<B>Apellido</B>
+				</td>
+				<td width="8%">
+					<B>Fecha</B>
+				</td>
+				<td width="18%">
+					<B>Articulo</B>
+				</td>
+				<td width="8%">
+					<B>id Articulo</B>
+				</td>
+				<td width="8%">
+					<B>Tipo</B>
+				</td>
+				<td width="5%">
+					<B>PVP</B>
+				</td>
+				<td width="14%">
+					<B>Autor</B>
+				</td>
+			</tr>
+		<tmpl_loop repRow>
+			<tr>
+				<td>
+					<tmpl_var login>
+				</td>
+				<td>
+					<tmpl_var nombres>
+				</td>
+				<td>
+					<tmpl_var apellidos>
+				</td>
+				<td>
+					<tmpl_var fecha>
+				</td>
+				<td>
+					<tmpl_var titulo>
+				</td>
+				<td>
+					<tmpl_var id_Articulo>
+				</td>
+				<td>
+					<tmpl_var tipo>
+				</td>
+				<td align="right">
+					<tmpl_var pvp>
+				</td>
+				<td>
+					<tmpl_var autor>
+				</td>
+			</tr>
+		</tmpl_loop>	
+			
+		</table>
+	</body>
+</html>

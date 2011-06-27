@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.TarjetaSocio"
+    table="TARJETA_SOCIO"
+>
+
+ <comment>EX TARJETA_USUARIO</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.TarjetaSocioId"
+    >		
+	        <key-property name="idSucursalSocio" type="short">
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="idSocio" type="long">
+<column name="ID_SOCIO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idItem" type="big_decimal">
+<column name="ID_ITEM" precision="22" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <many-to-one
+	    name="mediosDeCobros"
+	    class="org.reverse.MediosDeCobros"
+	    
+        fetch="select"
+    >
+<column name="ID_MEDIO_COBRO" length="5" not-null="true" />
+   </many-to-one>
+    <many-to-one
+	    name="socios2"
+	    class="org.reverse.Socios2"
+	    
+        update="false"
+        insert="false"
+        fetch="select"
+    >
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" not-null="true" >
+<comment>id sucursal de socios2 (el que hace la compra)</comment>
+</column><column name="ID_SOCIO" precision="10" scale="0" not-null="true" >
+<comment>id socio de socios2 (el que hace la compra)</comment>
+</column>   </many-to-one>
+    <property
+        name="nroTarjeta"
+	    type="binary"
+    >
+<column name="NRO_TARJETA" not-null="true" />
+  </property>
+
+    <property
+        name="nombreTitular"
+	    type="string"
+    >
+<column name="NOMBRE_TITULAR" length="50" >
+<comment>Pude o no coincidir con el nombre del socio que hace la compra</comment>
+</column>  </property>
+
+    <property
+        name="tipoDoc"
+	    type="string"
+    >
+<column name="TIPO_DOC" length="5" not-null="true" >
+<comment>Referencia CG_REF_CODES para RV_DOMAIN = TIPO_DOCUMENTO</comment>
+</column>  </property>
+
+    <property
+        name="nroDoc"
+	    type="long"
+    >
+<column name="NRO_DOC" precision="15" scale="0" not-null="true" />
+  </property>
+
+    <property
+        name="direccionResumen"
+	    type="string"
+    >
+<column name="DIRECCION_RESUMEN" length="510" />
+  </property>
+
+    <property
+        name="fechaAlta"
+	    type="date"
+    >
+<column name="FECHA_ALTA" length="7" />
+  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="30" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

@@ -1,0 +1,708 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.Socios2"
+    table="SOCIOS2"
+>
+
+ <comment>Clientes</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.Socios2Id"
+    >		
+	        <key-property name="idSucursal" type="short">
+<column name="ID_SUCURSAL" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="idSocio" type="long">
+<column name="ID_SOCIO" precision="10" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <property
+        name="idCaal"
+	    type="long"
+    >
+<column name="ID_CAAL" precision="10" scale="0" not-null="true" >
+<comment>Canal Alternativo</comment>
+</column>  </property>
+
+    <property
+        name="idTipoContribuyente"
+	    type="long"
+    >
+<column name="ID_TIPO_CONTRIBUYENTE" precision="10" scale="0" not-null="true" >
+<comment>Tipo de Contribuyente</comment>
+</column>  </property>
+
+    <property
+        name="nroIngBrutos"
+	    type="string"
+    >
+<column name="NRO_ING_BRUTOS" length="20" >
+<comment>Número de Ingresos Brutos</comment>
+</column>  </property>
+
+    <property
+        name="nroInscIva"
+	    type="big_decimal"
+    >
+<column name="NRO_INSC_IVA" precision="20" scale="0" >
+<comment>Número de Inscripción en Iva</comment>
+</column>  </property>
+
+    <property
+        name="inscGan"
+	    type="string"
+    >
+<column name="INSC_GAN" length="1" >
+<comment>Marca de Inscripción en Ganancias</comment>
+</column>  </property>
+
+    <property
+        name="tipoPersona"
+	    type="string"
+    >
+<column name="TIPO_PERSONA" length="1" not-null="true" >
+<comment>Indicativo de Persona Física/Jurídica</comment>
+</column>  </property>
+
+    <property
+        name="razonSocial"
+	    type="string"
+    >
+<column name="RAZON_SOCIAL" length="50" >
+<comment>Razón Social</comment>
+</column>  </property>
+
+    <property
+        name="sexo"
+	    type="string"
+    >
+<column name="SEXO" length="1" >
+<comment>Sexo</comment>
+</column>  </property>
+
+    <property
+        name="nombres"
+	    type="string"
+    >
+<column name="NOMBRES" length="50" >
+<comment>Nombre del Socio</comment>
+</column>  </property>
+
+    <property
+        name="apellidos"
+	    type="string"
+    >
+<column name="APELLIDOS" length="50" >
+<comment>Apellidos del Socio</comment>
+</column>  </property>
+
+    <property
+        name="tipoDoc"
+	    type="string"
+    >
+<column name="TIPO_DOC" length="4" >
+<comment>Tipo de Documento</comment>
+</column>  </property>
+
+    <property
+        name="nroDoc"
+	    type="java.lang.Long"
+    >
+<column name="NRO_DOC" precision="15" scale="0" >
+<comment>Número de Documento</comment>
+</column>  </property>
+
+    <property
+        name="cuit"
+	    type="string"
+    >
+<column name="CUIT" length="20" >
+<comment>Nº de CUIT/CUIL</comment>
+</column>  </property>
+
+    <property
+        name="nacionalidad"
+	    type="java.lang.Integer"
+    >
+<column name="NACIONALIDAD" precision="5" scale="0" >
+<comment>País de Nacimiento</comment>
+</column>  </property>
+
+    <property
+        name="fechaNacimiento"
+	    type="date"
+    >
+<column name="FECHA_NACIMIENTO" length="7" >
+<comment>Fecha de Nacimiento</comment>
+</column>  </property>
+
+    <property
+        name="idCategoria"
+	    type="string"
+    >
+<column name="ID_CATEGORIA" length="5" >
+<comment>Marca el origen de un Socio</comment>
+</column>  </property>
+
+    <property
+        name="estadoCivil"
+	    type="string"
+    >
+<column name="ESTADO_CIVIL" length="2" >
+<comment>Estado Civil</comment>
+</column>  </property>
+
+    <property
+        name="hijos"
+	    type="java.lang.Byte"
+    >
+<column name="HIJOS" precision="2" scale="0" >
+<comment>Cantidad de Hijos</comment>
+</column>  </property>
+
+    <property
+        name="EMail1"
+	    type="string"
+    >
+<column name="E_MAIL1" length="100" >
+<comment>Correo Electrónico 1</comment>
+</column>  </property>
+
+    <property
+        name="EMail2"
+	    type="string"
+    >
+<column name="E_MAIL2" length="100" >
+<comment>Correo Electrónico 2</comment>
+</column>  </property>
+
+    <property
+        name="usaTc"
+	    type="string"
+    >
+<column name="USA_TC" length="1" >
+<comment>Indica si posee Tarjeta de Crédito</comment>
+</column>  </property>
+
+    <property
+        name="habeasData"
+	    type="string"
+    >
+<column name="HABEAS_DATA" length="1" >
+<comment>Indica si firmó el permiso de Habeas Data</comment>
+</column>  </property>
+
+    <property
+        name="compraTel"
+	    type="string"
+    >
+<column name="COMPRA_TEL" length="1" >
+<comment>Indica si compra por Teléfono</comment>
+</column>  </property>
+
+    <property
+        name="compraInternet"
+	    type="string"
+    >
+<column name="COMPRA_INTERNET" length="1" >
+<comment>Indica si compra por Internet</comment>
+</column>  </property>
+
+    <property
+        name="comentarios"
+	    type="string"
+    >
+<column name="COMENTARIOS" length="2000" >
+<comment>Observaciones y Comentarios</comment>
+</column>  </property>
+
+    <property
+        name="idProfesion"
+	    type="java.lang.Integer"
+    >
+<column name="ID_PROFESION" precision="5" scale="0" >
+<comment>Profesión</comment>
+</column>  </property>
+
+    <property
+        name="password"
+	    type="binary"
+    >
+<column name="PASSWORD" >
+<comment>Contraseña del Usuario en el site</comment>
+</column>  </property>
+
+    <property
+        name="login"
+	    type="binary"
+    >
+<column name="LOGIN" >
+<comment>Nombre de Usuario en el site</comment>
+</column>  </property>
+
+    <property
+        name="idioma1"
+	    type="string"
+    >
+<column name="IDIOMA1" length="3" >
+<comment>Idioma de preferencia 1</comment>
+</column>  </property>
+
+    <property
+        name="idioma2"
+	    type="string"
+    >
+<column name="IDIOMA2" length="3" >
+<comment>Idioma de preferencia 2</comment>
+</column>  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" >
+<comment>Fecha de Alta</comment>
+</column>  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="30" not-null="true" >
+<comment>Usuario de Alta</comment>
+</column>  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" >
+<comment>Fecha de Modificación</comment>
+</column>  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="30" >
+<comment>Usuario de Modificación</comment>
+</column>  </property>
+
+    <property
+        name="clienteCodigo"
+	    type="java.lang.Long"
+    >
+<column name="CLIENTE_CODIGO" precision="10" scale="0" unique="true" />
+  </property>
+
+    <property
+        name="fechaInhab"
+	    type="date"
+    >
+<column name="FECHA_INHAB" length="7" />
+  </property>
+
+    <property
+        name="motivoInhab"
+	    type="string"
+    >
+<column name="MOTIVO_INHAB" length="200" />
+  </property>
+
+    <property
+        name="nombreFantasía"
+	    type="string"
+    >
+<column name="NOMBRE_FANTASÍA" length="40" />
+  </property>
+
+    <property
+        name="ibCodigo"
+	    type="java.lang.Short"
+    >
+<column name="IB_CODIGO" precision="3" scale="0" />
+  </property>
+
+    <property
+        name="inicioRelComercial"
+	    type="date"
+    >
+<column name="INICIO_REL_COMERCIAL" length="7" />
+  </property>
+
+    <property
+        name="retieneGan"
+	    type="string"
+    >
+<column name="RETIENE_GAN" length="1" />
+  </property>
+
+    <property
+        name="retieneIva"
+	    type="string"
+    >
+<column name="RETIENE_IVA" length="1" />
+  </property>
+
+    <property
+        name="retieneIb"
+	    type="string"
+    >
+<column name="RETIENE_IB" length="1" />
+  </property>
+
+    <property
+        name="ordenCh"
+	    type="string"
+    >
+<column name="ORDEN_CH" length="40" />
+  </property>
+
+    <property
+        name="resExGan"
+	    type="string"
+    >
+<column name="RES_EX_GAN" length="20" />
+  </property>
+
+    <property
+        name="resExIva"
+	    type="string"
+    >
+<column name="RES_EX_IVA" length="20" />
+  </property>
+
+    <property
+        name="tipoContIb"
+	    type="string"
+    >
+<column name="TIPO_CONT_IB" length="1" >
+<comment>Tipo de Contribuyente de Ingresos Brutos</comment>
+</column>  </property>
+
+    <property
+        name="idVendedor"
+	    type="java.lang.Long"
+    >
+<column name="ID_VENDEDOR" precision="10" scale="0" >
+<comment>Id. del Vendedor asociado al Cliente</comment>
+</column>  </property>
+
+    <property
+        name="categoriaValor"
+	    type="string"
+    >
+<column name="CATEGORIA_VALOR" length="3" />
+  </property>
+
+    <property
+        name="idProvinciaIibb"
+	    type="java.lang.Integer"
+    >
+<column name="ID_PROVINCIA_IIBB" precision="5" scale="0" />
+  </property>
+
+    <property
+        name="idPaisIibb"
+	    type="java.lang.Integer"
+    >
+<column name="ID_PAIS_IIBB" precision="5" scale="0" />
+  </property>
+
+    <property
+        name="dperCodigo"
+	    type="java.lang.Integer"
+    >
+<column name="DPER_CODIGO" precision="8" scale="0" />
+  </property>
+
+    <property
+        name="infoExtra"
+	    type="string"
+    >
+<column name="INFO_EXTRA" length="1" />
+  </property>
+
+    <property
+        name="infoTerceros"
+	    type="string"
+    >
+<column name="INFO_TERCEROS" length="1" />
+  </property>
+
+    <property
+        name="internetCasa"
+	    type="string"
+    >
+<column name="INTERNET_CASA" length="1" />
+  </property>
+
+    <property
+        name="pcCasa"
+	    type="string"
+    >
+<column name="PC_CASA" length="1" />
+  </property>
+
+    <property
+        name="idFormaPago"
+	    type="java.lang.Byte"
+    >
+<column name="ID_FORMA_PAGO" precision="2" scale="0" />
+  </property>
+
+    <property
+        name="auxnumber1"
+	    type="big_decimal"
+    >
+<column name="AUXNUMBER1" precision="22" scale="0" />
+  </property>
+
+    <property
+        name="auxnumber2"
+	    type="big_decimal"
+    >
+<column name="AUXNUMBER2" precision="22" scale="0" />
+  </property>
+
+    <property
+        name="auxnumber3"
+	    type="big_decimal"
+    >
+<column name="AUXNUMBER3" precision="22" scale="0" />
+  </property>
+
+    <property
+        name="auxvarchar1"
+	    type="string"
+    >
+<column name="AUXVARCHAR1" length="200" />
+  </property>
+
+    <property
+        name="auxvarchar2"
+	    type="string"
+    >
+<column name="AUXVARCHAR2" length="200" />
+  </property>
+
+    <property
+        name="auxvarchar3"
+	    type="string"
+    >
+<column name="AUXVARCHAR3" length="200" />
+  </property>
+
+    <property
+        name="auxflag1"
+	    type="string"
+    >
+<column name="AUXFLAG1" length="2" />
+  </property>
+
+    <property
+        name="auxflag2"
+	    type="string"
+    >
+<column name="AUXFLAG2" length="2" />
+  </property>
+
+    <property
+        name="auxflag3"
+	    type="string"
+    >
+<column name="AUXFLAG3" length="2" />
+  </property>
+
+    <property
+        name="codigoRif"
+	    type="string"
+    >
+<column name="CODIGO_RIF" length="50" />
+  </property>
+
+
+	<set name="sociosTarjetases"
+table="SOCIOS_TARJETAS"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_SUCURSAL" precision="4" scale="0" not-null="true" >
+<comment>Código</comment>
+</column><column name="ID_SOCIO" precision="10" scale="0" not-null="true" >
+<comment>Código de cliente</comment>
+</column>		</key>
+<one-to-many class="org.reverse.SociosTarjetas"
+/>
+	</set>
+
+	<set name="referidosForReSocReferenteFk"
+table="REFERIDO"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_SUCURSAL_REFERENTE" precision="4" scale="0" not-null="true" >
+<comment>id referente</comment>
+</column><column name="ID_SOCIO_REFERENTE" precision="10" scale="0" not-null="true" >
+<comment>id referente</comment>
+</column>		</key>
+<one-to-many class="org.reverse.Referido"
+/>
+	</set>
+
+	<set name="sociosIntegracions"
+table="SOCIOS_INTEGRACION"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_SUCURSAL" precision="4" scale="0" not-null="true" >
+<comment>Id de Sucursal</comment>
+</column><column name="ID_SOCIO" precision="10" scale="0" not-null="true" >
+<comment>Id del Socio</comment>
+</column>		</key>
+<one-to-many class="org.reverse.SociosIntegracion"
+/>
+	</set>
+
+	<set name="sociosDomicilioses"
+table="SOCIOS_DOMICILIOS"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_SUCURSAL" precision="4" scale="0" not-null="true" >
+<comment>ID de Sucursal</comment>
+</column><column name="ID_SOCIO" precision="10" scale="0" not-null="true" >
+<comment>ID del Socio</comment>
+</column>		</key>
+<one-to-many class="org.reverse.SociosDomicilios"
+/>
+	</set>
+
+	<set name="ordens"
+table="ORDEN"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" not-null="true" >
+<comment>Id. de la sucursal con la que se dio de alta el Socio</comment>
+</column><column name="ID_SOCIO" precision="10" scale="0" not-null="true" >
+<comment>Id. de Socio o usuario</comment>
+</column>		</key>
+<one-to-many class="org.reverse.Orden"
+/>
+	</set>
+
+	<set name="tarjetaSocios"
+table="TARJETA_SOCIO"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" not-null="true" >
+<comment>id sucursal de socios2 (el que hace la compra)</comment>
+</column><column name="ID_SOCIO" precision="10" scale="0" not-null="true" >
+<comment>id socio de socios2 (el que hace la compra)</comment>
+</column>		</key>
+<one-to-many class="org.reverse.TarjetaSocio"
+/>
+	</set>
+
+	<set name="sociosVehiculoses"
+table="SOCIOS_VEHICULOS"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_SUCURSAL" precision="4" scale="0" not-null="true" >
+<comment>Código de sucursal del cliente</comment>
+</column><column name="ID_SOCIO" precision="10" scale="0" not-null="true" >
+<comment>Código de cliente</comment>
+</column>		</key>
+<one-to-many class="org.reverse.SociosVehiculos"
+/>
+	</set>
+
+	<set name="sociosTelefonoses"
+table="SOCIOS_TELEFONOS"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_SUCURSAL" precision="4" scale="0" not-null="true" >
+<comment>Id de Sucursal</comment>
+</column><column name="ID_SOCIO" precision="10" scale="0" not-null="true" >
+<comment>Id del Socio</comment>
+</column>		</key>
+<one-to-many class="org.reverse.SociosTelefonos"
+/>
+	</set>
+
+	<set name="referidosForReSocReferidoFk"
+table="REFERIDO"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_SUCURSAL_REFERIDO" precision="4" scale="0" >
+<comment>id referido</comment>
+</column><column name="ID_SOCIO_REFERIDO" precision="10" scale="0" >
+<comment>id referido</comment>
+</column>		</key>
+<one-to-many class="org.reverse.Referido"
+/>
+	</set>
+
+	<set name="pedidoEspecials"
+table="PEDIDO_ESPECIAL"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" not-null="true" >
+<comment>id sucursal de SOCIOS2</comment>
+</column><column name="ID_SOCIO" precision="10" scale="0" not-null="true" >
+<comment>id socio del SOCIOS2</comment>
+</column>		</key>
+<one-to-many class="org.reverse.PedidoEspecial"
+/>
+	</set>
+
+</class>
+
+</hibernate-mapping>

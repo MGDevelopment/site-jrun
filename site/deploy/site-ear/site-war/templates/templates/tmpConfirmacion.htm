@@ -1,0 +1,97 @@
+<tmpl_if muestraPantalla>
+	<tmpl_if esRelease>
+		<script src="https://ssl.google-analytics.com/urchin.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			_uacct="UA-635166-1";
+			urchinTracker();
+		</script>
+	</tmpl_if>
+	<script language="javascript">
+		$(document).ready(function(){
+			__utmSetTrans();
+		});
+	</script>
+	<div class="compraWrapper cProcConf">    
+	    	<div class="cProcTit" style="margin-top:0;">
+	    		¡Felicitaciones, tu compra se ha realizado exitosamente!
+	    	</div>
+	        <div class="cProcFor-wrapper cProcForms">
+	            <div style="margin-bottom:0; width:690px;">
+	            	<span style="margin-right:10px;">            
+	            		Muchas gracias por habernos elegido.
+	            	</span>
+	            	<span style="margin-right:10px;">
+	            		<tmpl_if esBanking>
+	            			Aguardamos su pago a trav&eacute;s de <tmpl_var descripcionPago> por <tmpl_var totalOrden> para enviarle su pedido.
+	            		</tmpl_if>
+	            		<tmpl_if esFax>
+	            			Aguardamos los datos de su tarjeta para poder enviarle su pedido.
+	            		</tmpl_if>
+	            		<tmpl_if requiereCuponDePago>
+	            			Para recibir los productos necesitar&aacute; realizar el pago imprimiendo el cupón.<br>            			
+	            			<div style="margin-top:15px; text-align:center;">
+	                      		<iframe frameborder="0" width="650" style="border-width:0px" height="450" src="<tmpl_var urlIframe>">
+	                      		</iframe>
+	                      	</div>
+	            		</tmpl_if>
+	            		<tmpl_if esDineroMailOArcash>
+	            			IMPORTANTE:Para recibir los productos necesitar&aacute; realizar el pago a través de <tmpl_var descripcionPago>.<br>
+	            			<div style="margin-top:15px; text-align:center;">
+	            				<tmpl_var formulario>
+	            			</div>
+	            		</tmpl_if>
+	            		
+	            	</span>
+	            </div>
+	            <div style="margin-bottom:0; width:690px;">
+	            <h1>
+	            	Su número de Orden es <tmpl_var idOrden>
+	            </h1><br />
+	            
+	            <h2>Recibirás un mail que te confirmará el detalle de tu compra a: <tmpl_var email1><tmpl_var delimitador><tmpl_var email2></h2><br />
+	            Por favor guardalo.<br />
+	            </div>
+	        </div>
+	        <div class="cProcConfFoot">Mientras tanto podés visitar: <a href="/ayuda/ayudaEstandar.jsp?url=/ayuda/enviosPlazos.jsp">Tiempos esperables de entrega</a>, <a href="/compra/misOrdenes.jsp">seguimiento de esta compra</a>, <a href="/miCuenta">mi cuenta</a>, <a href="/">ir a la home</a>.</div>
+	</div>
+	<tmpl_if esRelease>
+		<!-- Google Code for purchase Conversion Page -->
+		<script language="JavaScript" type="text/javascript">
+			<!--
+			var google_conversion_id = 1063426378;
+			var google_conversion_language = "es";
+			var google_conversion_format = "1";
+			var google_conversion_color = "FFFFFF";
+			if (<tmpl_var totalOrden>) {
+				var google_conversion_value = <tmpl_var totalOrden>;
+			}
+			var google_conversion_label = "purchase";
+			//-->
+		</script>
+		<script language="JavaScript" src="https://www.googleadservices.com/pagead/conversion.js"></script>
+		<noscript>
+			<img height=1 width=1 border=0 src="https://www.googleadservices.com/pagead/conversion/1063426378/?value=<tmpl_var totalOrden>&label=purchase&script=0">
+		</noscript>
+	</tmpl_if>
+	
+		<!-- Tag for Activity Group: Tematika website - Sales, Activity: Tematika Datos de envio finaliza -->
+		
+		<!-- Start of DoubleClick Spotlight Tag: Please do not remove-->
+		<!-- Activity Name for this tag is:Tematika Datos de envio finaliza -->
+		<!-- Web site URL where tag should be placed: https://www.tematika.com/compra/detalleDeOrden.jsp -->
+		<!-- Creation Date:12/29/2006 -->
+		<IMG SRC="https://ad.doubleclick.net/activity;src=1364770;type=tematsal;cat=tematsd2;qty=1;cost=MONTO_COMPRA;ord=1?" WIDTH=1 HEIGHT=1 BORDER=0>
+		<!-- End of DoubleClick Spotlight Tag: Please do not remove-->
+		<form name="utmform" style="display:none;">	
+			<textarea style="display:none" id="utmtrans">UTM:T|<tmpl_var idOrden>|<tmpl_var idAlianza>|<tmpl_var totalSitioTasa>|<tmpl_var tax>|<tmpl_var totalGastoDeEnvio>|<tmpl_var localidad>|<tmpl_var provincia>|<tmpl_var pais>
+			<tmpl_loop articulos> UTM:I|<tmpl_var idOrden>|<tmpl_var idArticulo>|<tmpl_var titulo>|<tmpl_var idSeccion>|<tmpl_var totalSitioTasaDola>|<tmpl_var cantidadArticulo></tmpl_loop></textarea>
+		</form>
+		
+<!-- Si no se muestra la pantalla -->
+<tmpl_else>
+	<div class="compraWrapper cProcConf">    
+    	<div class="cProcTit" style="margin-top:0;">
+    		<tmpl_var mensaje>
+    	</div>
+   </div>
+</tmpl_if>

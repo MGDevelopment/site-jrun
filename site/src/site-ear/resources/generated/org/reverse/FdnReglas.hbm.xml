@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.FdnReglas"
+    table="FDN_REGLAS"
+>
+
+	<id 
+        name="idRegla"
+        type="long"
+    >
+    
+<column name="ID_REGLA" precision="10" scale="0" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="descripcion"
+	    type="string"
+    >
+<column name="DESCRIPCION" length="50" not-null="true" />
+  </property>
+
+    <property
+        name="observaciones"
+	    type="string"
+    >
+<column name="OBSERVACIONES" length="500" />
+  </property>
+
+    <property
+        name="vigenciaDesde"
+	    type="date"
+    >
+<column name="VIGENCIA_DESDE" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="vigenciaHasta"
+	    type="date"
+    >
+<column name="VIGENCIA_HASTA" length="7" />
+  </property>
+
+    <property
+        name="tipo"
+	    type="string"
+    >
+<column name="TIPO" length="2" not-null="true" />
+  </property>
+
+    <property
+        name="operadorLogico"
+	    type="string"
+    >
+<column name="OPERADOR_LOGICO" length="1" not-null="true" />
+  </property>
+
+    <property
+        name="tipoRangoAplicar"
+	    type="string"
+    >
+<column name="TIPO_RANGO_APLICAR" length="2" not-null="true" />
+  </property>
+
+    <property
+        name="habilitado"
+	    type="string"
+    >
+<column name="HABILITADO" length="2" not-null="true" />
+  </property>
+
+    <property
+        name="habilitadoFecha"
+	    type="date"
+    >
+<column name="HABILITADO_FECHA" length="7" >
+<comment>Es la fecha en la que cambio el estado</comment>
+</column>  </property>
+
+    <property
+        name="habilitadoUsr"
+	    type="string"
+    >
+<column name="HABILITADO_USR" length="35" >
+<comment>Es el usuario que realizo el cambio de estado</comment>
+</column>  </property>
+
+    <property
+        name="costoIlhsa"
+	    type="java.lang.Long"
+    >
+<column name="COSTO_ILHSA" precision="10" scale="0" />
+  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="35" not-null="true" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="35" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+	<set name="fdnReglasPuntoses"
+table="FDN_REGLAS_PUNTOS"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_REGLA" precision="10" scale="0" not-null="true" />
+		</key>
+<one-to-many class="org.reverse.FdnReglasPuntos"
+/>
+	</set>
+
+</class>
+
+</hibernate-mapping>

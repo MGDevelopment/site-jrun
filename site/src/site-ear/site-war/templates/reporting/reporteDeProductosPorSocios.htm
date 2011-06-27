@@ -1,0 +1,128 @@
+<table  align="left" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">
+	<tr>
+		<td>
+			<b>Reporte de Productos por socios</b>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<table align="left" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">
+				<tr bgcolor="DDDDEF">
+					<td width="150">
+						E-Mail
+					</td>
+					<td width="80">
+						Fecha
+					</td>
+					<td width="150">
+						Articulo
+					</td>
+					<td width="100">
+						Promo 1
+					</td>
+					<td width="100">
+						Promo 2
+					</td>
+					<td width="100">
+						Promo 3
+					</td>
+					<td width="100">
+						Promo 4
+					</td>
+					<td width="100">
+						Promo 5
+					</td>
+					<td width="100">
+						Campaña
+					</td>
+					<td width="100">
+						Alianza
+					</td>
+					<td width="40">
+						Precio
+					</td>
+					<td width="80">
+						País
+					</td>
+					<td width="80">
+						Seccion
+					</td>	
+					<td width="80">
+						Grupo
+					</td>
+					<td width="80">
+						Familia
+					</td>		
+					<td width="80">
+						SubFamila
+					</td>		
+					<td width="80">
+						Autor
+					</td>	
+					<td width="80">
+						Proveedor
+					</td>
+				</tr>
+				<tmpl_loop repRow>
+				<tr>
+					<td>
+						<tmpl_var login>
+					</td>
+					<td>
+						<tmpl_var fecha>
+					</td>
+					<td>
+						<tmpl_var titulo>
+					</td>
+					<td>
+						<tmpl_var nombrePromo1>
+					</td>
+					<td>
+						<tmpl_var nombrePromo2>
+					</td>
+					<td>
+						<tmpl_var nombrePromo3>
+					</td>
+					<td>
+						<tmpl_var nombrePromo4>
+					</td>
+					<td>
+						<tmpl_var nombrePromo5>
+					</td>
+					<td>
+						<tmpl_var campaña>
+					</td>
+					<td>
+						<tmpl_var alianza>
+					</td>
+					<td  align="right">
+						<tmpl_var precio>
+					</td>
+					<td>
+						<tmpl_var pais>
+					</td>	
+					<td width="80">
+						<tmpl_var seccion>
+					</td>	
+					<td width="80">
+						<tmpl_var grupo>
+					</td>
+					<td width="80">
+						<tmpl_var familia>
+					</td>		
+					<td width="80">
+						<tmpl_var subfamilia>
+					</td>		
+					<td width="80">
+						<tmpl_var autor>
+					</td>	
+					<td width="80">
+						<tmpl_var proveedor>
+					</td>	
+				</tr>
+				</tmpl_loop>
+			</table>
+		</td>
+	</tr>
+</table>				
+		

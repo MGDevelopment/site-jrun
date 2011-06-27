@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.ComentarioExterno"
+    table="COMENTARIO_EXTERNO"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.ComentarioExternoId"
+    >		
+	        <key-property name="idArticulo" type="long">
+<column name="ID_ARTICULO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idComentario" type="int">
+<column name="ID_COMENTARIO" precision="5" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <property
+        name="title"
+	    type="string"
+    >
+<column name="TITLE" length="200" not-null="true" >
+<comment>Titulo del comentario</comment>
+</column>  </property>
+
+    <property
+        name="reviewer"
+	    type="string"
+    >
+<column name="REVIEWER" length="50" not-null="true" >
+<comment>Nick del autor del comentario</comment>
+</column>  </property>
+
+    <property
+        name="fecha"
+	    type="date"
+    >
+<column name="FECHA" length="7" not-null="true" >
+<comment>Fecha</comment>
+</column>  </property>
+
+    <property
+        name="rating"
+	    type="byte"
+    >
+<column name="RATING" precision="2" scale="0" not-null="true" >
+<comment>Evaluacion del comentario de 1 a 5</comment>
+</column>  </property>
+
+    <property
+        name="pro"
+	    type="string"
+    >
+<column name="PRO" length="200" >
+<comment>Critica positiva</comment>
+</column>  </property>
+
+    <property
+        name="con"
+	    type="string"
+    >
+<column name="CON" length="200" >
+<comment>Critica negativa</comment>
+</column>  </property>
+
+    <property
+        name="body"
+	    type="string"
+    >
+<column name="BODY" length="500" not-null="true" >
+<comment>Comentario</comment>
+</column>  </property>
+
+    <property
+        name="fullBody"
+	    type="byte"
+    >
+<column name="FULL_BODY" precision="2" scale="0" not-null="true" >
+<comment>1 si esta completo, 0 si es en parte</comment>
+</column>  </property>
+
+    <property
+        name="urlReview"
+	    type="string"
+    >
+<column name="URL_REVIEW" length="200" not-null="true" >
+<comment>url del comentario</comment>
+</column>  </property>
+
+    <property
+        name="urlProfile"
+	    type="string"
+    >
+<column name="URL_PROFILE" length="200" not-null="true" >
+<comment>url del perfil del usuario</comment>
+</column>  </property>
+
+    <property
+        name="helpfulrecommentations"
+	    type="short"
+    >
+<column name="HELPFULRECOMMENTATIONS" precision="4" scale="0" not-null="true" >
+<comment>calificacion de recomendacion util</comment>
+</column>  </property>
+
+    <property
+        name="totalrecommentations"
+	    type="short"
+    >
+<column name="TOTALRECOMMENTATIONS" precision="4" scale="0" not-null="true" >
+<comment>cantidad de calificaciones</comment>
+</column>  </property>
+
+
+</class>
+
+</hibernate-mapping>

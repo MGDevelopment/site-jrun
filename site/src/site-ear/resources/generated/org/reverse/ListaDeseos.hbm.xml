@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.ListaDeseos"
+    table="LISTA_DESEOS"
+>
+
+ <comment>Lista de deseos de un socio</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.ListaDeseosId"
+    >		
+	        <key-property name="idSucursalSocio" type="short">
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" />
+	        </key-property>
+	        <key-property name="idSocio" type="long">
+<column name="ID_SOCIO" precision="10" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <many-to-one
+	    name="sociosDomicilios"
+	    class="org.reverse.SociosDomicilios"
+	    
+        update="false"
+        insert="false"
+        fetch="select"
+    >
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" not-null="true" >
+<comment>ID SUCURSAL en SOCIOS2 / SOCIOS_DOMICILIOS del que arma la lista de deseos</comment>
+</column><column name="ID_SOCIO" precision="10" scale="0" not-null="true" >
+<comment>ID SOCIO en SOCIOS2 / SOCIOS_DOMICILIOS del que arma la lista de deseos</comment>
+</column><column name="TIPO_DOMICILIO" length="4" >
+<comment>TIPO DOMICILIO EN SOCIOS_DOMICILIOS</comment>
+</column>   </many-to-one>
+    <property
+        name="nombres"
+	    type="string"
+    >
+<column name="NOMBRES" length="100" not-null="true" >
+<comment>Nombres del "deño de los deseos" (el que va a recibir el regalo)</comment>
+</column>  </property>
+
+    <property
+        name="apellidos"
+	    type="string"
+    >
+<column name="APELLIDOS" length="100" not-null="true" >
+<comment>Apellidos del "dueño de los deseos"</comment>
+</column>  </property>
+
+    <property
+        name="cumplDia"
+	    type="byte"
+    >
+<column name="CUMPL_DIA" precision="2" scale="0" not-null="true" >
+<comment>Dia del cumpleaños</comment>
+</column>  </property>
+
+    <property
+        name="cumplMes"
+	    type="byte"
+    >
+<column name="CUMPL_MES" precision="2" scale="0" not-null="true" >
+<comment>mes del compleaños</comment>
+</column>  </property>
+
+    <property
+        name="palabrasClaves"
+	    type="string"
+    >
+<column name="PALABRAS_CLAVES" not-null="true" >
+<comment>Palabras clave para las busquedas</comment>
+</column>  </property>
+
+    <property
+        name="publica"
+	    type="boolean"
+    >
+<column name="PUBLICA" precision="1" scale="0" not-null="true" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+	<set name="carritoListaDeseoses"
+table="CARRITO_LISTA_DESEOS"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_SUCURSAL_SOCIO" precision="4" scale="0" not-null="true" />
+<column name="ID_SOCIO" precision="10" scale="0" not-null="true" />
+		</key>
+<one-to-many class="org.reverse.CarritoListaDeseos"
+/>
+	</set>
+
+</class>
+
+</hibernate-mapping>

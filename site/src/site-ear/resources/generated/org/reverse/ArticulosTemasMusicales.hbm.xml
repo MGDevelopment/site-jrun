@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.ArticulosTemasMusicales"
+    table="ARTICULOS_TEMAS_MUSICALES"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.ArticulosTemasMusicalesId"
+    >		
+	        <key-property name="idArticulo" type="long">
+<column name="ID_ARTICULO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="nroTema" type="short">
+<column name="NRO_TEMA" precision="3" scale="0" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <many-to-one
+	    name="articulos"
+	    class="org.reverse.Articulos"
+	    
+        update="false"
+        insert="false"
+        fetch="select"
+    >
+<column name="ID_ARTICULO" precision="10" scale="0" not-null="true" />
+   </many-to-one>
+    <property
+        name="nombre"
+	    type="string"
+    >
+<column name="NOMBRE" length="200" not-null="true" />
+  </property>
+
+    <property
+        name="duracion"
+	    type="date"
+    >
+<column name="DURACION" length="7" />
+  </property>
+
+    <property
+        name="fechaGrabacion"
+	    type="date"
+    >
+<column name="FECHA_GRABACION" length="7" />
+  </property>
+
+    <property
+        name="nomenclatura"
+	    type="string"
+    >
+<column name="NOMENCLATURA" length="100" />
+  </property>
+
+    <property
+        name="parte"
+	    type="string"
+    >
+<column name="PARTE" length="100" />
+  </property>
+
+    <property
+        name="tipo"
+	    type="string"
+    >
+<column name="TIPO" length="100" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="30" not-null="true" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="30" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

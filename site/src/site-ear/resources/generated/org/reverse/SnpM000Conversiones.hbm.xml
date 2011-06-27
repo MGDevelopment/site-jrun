@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SnpM000Conversiones"
+    table="SNP_M000_CONVERSIONES"
+>
+
+ <comment>snapshot table for snapshot TEMATIKA.SNP_M000_CONVERSIONES</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.SnpM000ConversionesId"
+    >		
+	        <key-property name="convCodigo" type="string">
+<column name="CONV_CODIGO" length="10" />
+	        </key-property>
+	        <key-property name="convItem" type="int">
+<column name="CONV_ITEM" precision="8" scale="0" />
+	        </key-property>
+	        <key-property name="convDescripcion" type="string">
+<column name="CONV_DESCRIPCION" length="200" />
+	        </key-property>
+	        <key-property name="convTabla" type="string">
+<column name="CONV_TABLA" length="30" />
+	        </key-property>
+	        <key-property name="convColumna" type="string">
+<column name="CONV_COLUMNA" length="30" />
+	        </key-property>
+	        <key-property name="convValorOriginal" type="string">
+<column name="CONV_VALOR_ORIGINAL" length="15" />
+	        </key-property>
+	        <key-property name="convValorNuevo" type="string">
+<column name="CONV_VALOR_NUEVO" length="15" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="35" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+	        <key-property name="usrModi" type="string">
+<column name="USR_MODI" length="35" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

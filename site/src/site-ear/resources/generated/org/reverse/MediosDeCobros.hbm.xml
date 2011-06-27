@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.MediosDeCobros"
+    table="MEDIOS_DE_COBROS"
+>
+
+	<id 
+        name="idMedioCobro"
+        type="string"
+    >
+    
+<column name="ID_MEDIO_COBRO" length="5" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="descripcion"
+	    type="string"
+    >
+<column name="DESCRIPCION" length="50" not-null="true" />
+  </property>
+
+    <property
+        name="cuentaMascara"
+	    type="string"
+    >
+<column name="CUENTA_MASCARA" length="100" />
+  </property>
+
+    <property
+        name="tipo"
+	    type="string"
+    >
+<column name="TIPO" length="2" not-null="true" >
+<comment>Tipo de medio</comment>
+</column>  </property>
+
+    <property
+        name="usrAlta"
+	    type="string"
+    >
+<column name="USR_ALTA" length="35" not-null="true" >
+<comment>Usuario de Alta</comment>
+</column>  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" >
+<comment>Fecha de Alta</comment>
+</column>  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="35" >
+<comment>Usuario de Modificación</comment>
+</column>  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" >
+<comment>Fecha de Modificación</comment>
+</column>  </property>
+
+    <property
+        name="idUsrAlta"
+	    type="java.lang.Long"
+    >
+<column name="ID_USR_ALTA" precision="10" scale="0" >
+<comment>Usuario de Alta</comment>
+</column>  </property>
+
+    <property
+        name="idUsrModi"
+	    type="java.lang.Long"
+    >
+<column name="ID_USR_MODI" precision="10" scale="0" >
+<comment>Usuario de Modificación</comment>
+</column>  </property>
+
+    <property
+        name="idConceptoDiferencia"
+	    type="java.lang.Integer"
+    >
+<column name="ID_CONCEPTO_DIFERENCIA" precision="5" scale="0" />
+  </property>
+
+    <property
+        name="habilita"
+	    type="string"
+    >
+<column name="HABILITA" length="2" not-null="true" />
+  </property>
+
+    <property
+        name="cierre"
+	    type="string"
+    >
+<column name="CIERRE" length="20" not-null="true" >
+<comment>Se incluye o no el medio en el cierre</comment>
+</column>  </property>
+
+    <property
+        name="idMoneda"
+	    type="string"
+    >
+<column name="ID_MONEDA" length="5" >
+<comment>Moneda relacionada al medio para permitir la cotizacion del medio</comment>
+</column>  </property>
+
+    <property
+        name="idMedioExterno"
+	    type="string"
+    >
+<column name="ID_MEDIO_EXTERNO" length="10" />
+  </property>
+
+    <property
+        name="tipoDevolucion"
+	    type="string"
+    >
+<column name="TIPO_DEVOLUCION" length="20" not-null="true" >
+<comment>En que forma se va a realizar la devolución</comment>
+</column>  </property>
+
+    <property
+        name="auxvarchar01"
+	    type="string"
+    >
+<column name="AUXVARCHAR01" length="100" />
+  </property>
+
+    <property
+        name="auxvarchar02"
+	    type="string"
+    >
+<column name="AUXVARCHAR02" length="100" />
+  </property>
+
+    <property
+        name="auxnumber01"
+	    type="big_decimal"
+    >
+<column name="AUXNUMBER01" precision="22" scale="0" />
+  </property>
+
+    <property
+        name="auxnumber02"
+	    type="big_decimal"
+    >
+<column name="AUXNUMBER02" precision="22" scale="0" />
+  </property>
+
+    <property
+        name="habilitadoTematika"
+	    type="string"
+    >
+<column name="HABILITADO_TEMATIKA" length="1" not-null="true" />
+  </property>
+
+
+	<set name="tarjetaRangosOlds"
+table="TARJETA_RANGOS_OLD"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_MEDIO_COBRO" length="5" not-null="true" />
+		</key>
+<one-to-many class="org.reverse.TarjetaRangosOld"
+/>
+	</set>
+
+	<set name="tarjetaOrdens"
+table="TARJETA_ORDEN"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_MEDIO_COBRO" length="5" not-null="true" >
+<comment>EX - Id. Forma Pago</comment>
+</column>		</key>
+<one-to-many class="org.reverse.TarjetaOrden"
+/>
+	</set>
+
+	<set name="sociosTarjetases"
+table="SOCIOS_TARJETAS"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_MEDIO_COBRO" length="5" not-null="true" >
+<comment>Código de medio de cobro tarjeta</comment>
+</column>		</key>
+<one-to-many class="org.reverse.SociosTarjetas"
+/>
+	</set>
+
+	<set name="tarjetaSocios"
+table="TARJETA_SOCIO"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_MEDIO_COBRO" length="5" not-null="true" />
+		</key>
+<one-to-many class="org.reverse.TarjetaSocio"
+/>
+	</set>
+
+	<set name="pagoOrdens"
+table="PAGO_ORDEN"
+	inverse="true"
+	lazy="true"	 		
+	 fetch="select"
+	>
+		<key
+		> 
+<column name="ID_MEDIO_COBRO" length="5" not-null="true" >
+<comment>EX Id_Forma_Pago</comment>
+</column>		</key>
+<one-to-many class="org.reverse.PagoOrden"
+/>
+	</set>
+
+</class>
+
+</hibernate-mapping>

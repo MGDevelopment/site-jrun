@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.ItemOrdenBup"
+    table="ITEM_ORDEN_BUP"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.ItemOrdenBupId"
+    >		
+	        <key-property name="idOrden" type="long">
+<column name="ID_ORDEN" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idArticulo" type="long">
+<column name="ID_ARTICULO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="cantidad" type="long">
+<column name="CANTIDAD" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="precioOriginal" type="big_decimal">
+<column name="PRECIO_ORIGINAL" precision="15" />
+	        </key-property>
+	        <key-property name="idPapelRegalo" type="java.lang.Integer">
+<column name="ID_PAPEL_REGALO" precision="6" scale="0" />
+	        </key-property>
+	        <key-property name="precioUnitario" type="big_decimal">
+<column name="PRECIO_UNITARIO" precision="15" />
+	        </key-property>
+	        <key-property name="precioDescuento" type="big_decimal">
+<column name="PRECIO_DESCUENTO" precision="15" />
+	        </key-property>
+	        <key-property name="precioPromocion" type="big_decimal">
+<column name="PRECIO_PROMOCION" precision="15" />
+	        </key-property>
+	        <key-property name="idListaPvp" type="java.lang.Integer">
+<column name="ID_LISTA_PVP" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="estado" type="string">
+<column name="ESTADO" length="2" />
+	        </key-property>
+	        <key-property name="idPromocion" type="java.lang.Long">
+<column name="ID_PROMOCION" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idLiquidacionAlianza" type="big_decimal">
+<column name="ID_LIQUIDACION_ALIANZA" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="porcComisionAlianza" type="big_decimal">
+<column name="PORC_COMISION_ALIANZA" precision="5" />
+	        </key-property>
+	        <key-property name="tipoComisionAlianza" type="string">
+<column name="TIPO_COMISION_ALIANZA" length="4" />
+	        </key-property>
+	        <key-property name="idMetodoEnvio" type="java.lang.Short">
+<column name="ID_METODO_ENVIO" precision="3" scale="0" />
+	        </key-property>
+	        <key-property name="fechaEnvio" type="date">
+<column name="FECHA_ENVIO" length="7" />
+	        </key-property>
+	        <key-property name="precioPromocionSinImpuestos" type="big_decimal">
+<column name="PRECIO_PROMOCION_SIN_IMPUESTOS" precision="15" />
+	        </key-property>
+	        <key-property name="desdeLdd" type="string">
+<column name="DESDE_LDD" length="2" />
+	        </key-property>
+	        <key-property name="idArticuloMol" type="java.lang.Long">
+<column name="ID_ARTICULO_MOL" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="item" type="java.lang.Long">
+<column name="ITEM" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

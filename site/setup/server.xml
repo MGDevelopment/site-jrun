@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Server xsi:noNamespaceSchemaLocation="server.xsd"
+    url="http://localhost:8101" modoAplicacionHabilitado="false"
+    dominioSitio="www.tematika.com"
+    dominioIntranet="localhost:8101/intranet" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Aplicacion>intranet</Aplicacion>
+    <Log>alto</Log>
+    <Modo>debug</Modo>
+    <!--  192.168.77.109 -->
+    <!-- para poder enviar mail tunneling -->
+    <Mailing habilitado="true" mailer="Desarrollo" smtpHost="tunneling"
+        webmasterMail="clopez@ilhsa.com"  serverMail="http://localhost:8101" mailLargos="true"/>
+    <Control habilitado="true" iteraciones="2" memoriaAlerta="5000"
+        memoriaMaxima="327000" consola="D:\util\JRun4\bin\jrun.exe -stop tematika"/>
+    <ProgramaExtra habilitado="true"/>
+    <GPay host="tmk2-pre" port="20001" comercio="tematikasite"
+        mensaje="COMPRA EN TEMATIKA" baseTerminal="tematika-"
+        tiempoEsperaMaxima="60" cantidadDeTerminales="7" habilitaCuotas="true">
+       <Errores mensajePorDefecto="Su operación ha fallado por un problema de comunicación. Por favor, intente nuevamente más tarde y disculpe las molestias ocasionadas.">
+            <Error codigo="0" mensajeAMostrar="Su operación ha fallado por un problema de comunicación. Por favor, intente nuevamente más tarde y disculpe las molestias ocasionadas."/>
+            <Error codigo="1" mensajeAMostrar="La operación no ha sido aprobada ya que ha ingresado algún dato de su tarjeta en forma errónea. Por favor, verifique la fecha de vencimiento y el código de seguridad y vuelva a intentar el pago."/>
+            <Error codigo="2" mensajeAMostrar="La operación no ha sido aprobada ya que ha ingresado algún dato de su tarjeta en forma errónea. Por favor, verifique la fecha de vencimiento y el código de seguridad y vuelva a intentar el pago."/>
+            <Error codigo="4" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras. Le pedimos por favor se contacte con el Banco o Entidad emisora de la misma para regularizar la situación."/>
+            <Error codigo="5" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras. Le pedimos por favor se contacte con el Banco o Entidad emisora de la misma para regularizar la situación."/>
+            <Error codigo="7" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras. Le pedimos por favor se contacte con el Banco o Entidad emisora de la misma para regularizar la situación."/>
+            <Error codigo="12" mensajeAMostrar="Por favor, verifique que todos los datos ingresados sean correctos e intente nuevamente la operación. Tenga en cuenta que las tarjetas de débito no se encuentran habilitadas en nuestro sistema para realizar compras y que solamente podrá operar en cuotas en caso de utilizar una tarjeta de procedencia Argentina."/>
+            <Error codigo="14" mensajeAMostrar="Por favor, verifique que todos los datos ingresados sean correctos e intente nuevamente la operación. Tenga en cuenta que las tarjetas de débito no se encuentran habilitadas en nuestro sistema para realizar compras."/>
+            <Error codigo="25" mensajeAMostrar="La operación no ha sido aprobada ya que ha ingresado algún dato de su tarjeta en forma errónea. Por favor, verifique la fecha de vencimiento y el código de seguridad y vuelva a intentar el pago."/>
+            <Error codigo="30" mensajeAMostrar="Por favor, verifique que todos los datos ingresados sean correctos e intente nuevamente la operación. Tenga en cuenta que las tarjetas de débito no se encuentran habilitadas en nuestro sistema para realizar compras."/>
+            <Error codigo="43" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras. Le pedimos por favor se contacte con el Banco o Entidad emisora de la misma para regularizar la situación."/>
+            <Error codigo="45" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras en cuotas en nuestro site. Le pedimos por favor realice el pedido a través del pago en una única cuota. Muchas gracias."/>
+            <Error codigo="48" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras en cuotas en nuestro site. Le pedimos por favor realice el pedido a través del pago en una única cuota. Muchas gracias."/>
+            <Error codigo="50" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras ya que no posee los fondos suficientes para realizar esta operación."/>
+            <Error codigo="51" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras ya que no posee los fondos suficientes para realizar esta operación."/>
+            <Error codigo="53" mensajeAMostrar="La operación no ha sido aprobada ya que ha ingresado algún dato de su tarjeta en forma errónea. Por favor, verifique los datos ingresados y vuelva a intentar el pago."/>
+            <Error codigo="54" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras ya que la misma se encuentra vencida. Verifique los datos ingresados y en caso de ser correctos comuníquese con el Banco o Entidad emisora de la misma para regularizar la situación."/>
+            <Error codigo="57" mensajeAMostrar="Por favor, verifique que todos los datos ingresados sean correctos e intente nuevamente la operación. Tenga en cuenta que las tarjetas de débito no se encuentran habilitadas en nuestro sistema para realizar compras."/>
+            <Error codigo="77" mensajeAMostrar="Por favor, verifique que todos los datos ingresados sean correctos e intente  nuevamente la operación. Tenga en cuenta que las tarjetas de débito no se encuentran habilitadas en nuestro sistema para realizar compras y que solamente podrá operar en cuotas en caso de utilizar una tarjeta de procedencia Argentina."/>
+            <Error codigo="94" mensajeAMostrar="Su compra se encuentra en proceso de aprobación y será contactado por nuestro personal de Atención al Cliente para verificar sus datos. El contacto se realizará a la mayor brevedad posible vía mail o telefónicamente al número ingresado en el pedido. Le recordamos que nuestro horario de atención es de Lunes a Viernes de 9 a 20hs. Muchas Gracias.">
+
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="96" mensajeAMostrar="Su operación ha fallado por un problema de comunicación. Por favor, intente nuevamente más tarde y disculpe las molestias ocasionadas."/>
+            <Error codigo="110">
+
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="111">
+
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="120">
+
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="121">
+
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="130">
+
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="131">
+
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="141">
+
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="142" mensajeAMostrar="Por favor, verifique que todos los datos ingresados sean correctos e intente nuevamente la operación. Tenga en cuenta que las tarjetas de débito no se encuentran habilitadas en nuestro sistema para realizar compras y que solamente podrá operar en cuotas en caso de utilizar una tarjeta de procedencia Argentina."/>
+            <Error codigo="143" mensajeAMostrar="La operación no ha sido aprobada ya que ha ingresado algún dato de su tarjeta en forma errónea. Por favor, verifique la fecha de vencimiento y el código de seguridad y vuelva a intentar el pago."/>
+            <Error codigo="147" mensajeAMostrar="Su tarjeta se encuentra inhabilitada para generar compras ya que la misma se encuentra vencida. Verifique los datos ingresados y en caso de ser correctos comuníquese con el Banco o Entidad emisora de la misma para regularizar la situación."/>
+            <Error codigo="151">
+
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="152">
+
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="153">
+
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="154" mensajeAMostrar="Su compra se encuentra en proceso de aprobación y será contactado por nuestro personal de Atención al Cliente para verificar sus datos. El contacto se realizará a la mayor brevedad posible vía mail o telefónicamente al número ingresado en el pedido. Le recordamos que nuestro horario de atención es de Lunes a Viernes de 9 a 20hs. Muchas Gracias.">
+
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="160">
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="161" mensajeAMostrar="Su compra se encuentra en proceso de aprobación y será contactado por nuestro personal de Atención al Cliente para verificar sus datos. El contacto se realizará a la mayor brevedad posible vía mail o telefónicamente al número ingresado en el pedido. Le recordamos que nuestro horario de atención es de Lunes a Viernes de 9 a 20hs. Muchas Gracias.">
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="178">
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="180">
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="181">
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="182">
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="183">
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="184">
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="185">
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+            <Error codigo="215" mensajeAMostrar="Su compra se encuentra en proceso de aprobación y será contactado por nuestro personal de Atención al Cliente para verificar sus datos. El contacto se realizará a la mayor brevedad posible vía mail o telefónicamente al número ingresado en el pedido. Le recordamos que nuestro horario de atención es de Lunes a Viernes de 9 a 20hs. Muchas Gracias.">
+
+                <Email>clopez@ilhsa.com</Email>
+
+            </Error>
+        </Errores>
+    </GPay>
+    <Inactividad mensajeMantenimiento="EN MANTENIMIENTO"
+        mensajePrevio="Entraremos en mantenimiento en minutos." minutosDeAnticipacion="10"/>
+    <ProgramaReferido habilitado="true" vigenciaReferente="90" vigenciaReferido="60"/>
+    <PromoChequeObsequio habilitado="true" codigoChequeObsequio="00050"/>
+    <PromoDiaDeLaMadre habilitado="false" pesosPorCupon="50.0"/>
+    <BloqueoIP habilitado="false" hits="10" tiempoEntreHits="100000"/>
+    <Dominios>
+        <Principal>localhost:8101</Principal>
+        <Secundario>192.168.42.170:8101</Secundario>
+        <Secundario>externo02.ilhsa.local:8101</Secundario>
+    </Dominios>
+    <MusicaOnLine habilitado="false" seccion="4" grupo="20" familia="0"
+        subfamilia="0" disponibilidad="18"/>
+    <ProcesosBackground>
+        <Proceso id="DirectorioDaemon"
+            nombre="Mapa de Productos (Directorio)" habilitado="false"/>
+        <!-- SeReemplaza Proceso id="GeneradorDeHomes" nombre="Genera las homes" habilitado="false"/-->
+        <!-- SE REEMLAZA Proceso id="LimpiadorDeCarritoDaemon"
+            nombre="Limpiador de carrito" habilitado="false"/-->
+        <Proceso id="ReporteDeComprasPorAlianzasDaemon" nombre="Reporte" habilitado="false"/>
+        <Proceso id="ReporteDeComprasPorSociosDaemon" nombre="Reporte" habilitado="false"/>
+        <Proceso id="ReporteDeMedioDeCobroDaemon" nombre="Reporte" habilitado="false"/>
+        <Proceso id="ReporteDePedidosEspecialesDaemon" nombre="Reporte" habilitado="false"/>
+        <Proceso id="ReporteDeReferenteBeneficioDaemon" nombre="Reporte" habilitado="false"/>
+        <Proceso id="ReporteDeReferenteComprasDaemon" nombre="Reporte" habilitado="false"/>
+        <Proceso id="ReporteDeReferidosCompraAprobadaDaemon"
+            nombre="Reporte" habilitado="false"/>
+        <Proceso id="ReporteDeReferidosNoRegistradosDaemon"
+            nombre="Reporte" habilitado="false"/>
+        <Proceso id="ReporteDeReferidosRegistradosDaemon"
+            nombre="Reporte" habilitado="false"/>
+        <Proceso id="ReporteDeReferidosXDiaDaemon" nombre="Reporte" habilitado="false"/>
+        <Proceso id="ReporteDeSociosRegistradosDaemon" nombre="Reporte" habilitado="true"/>
+        <Proceso id="ReporteVisitasDaemon" nombre="Reporte" habilitado="false"/>
+        <Proceso id="ReporteDeComentariosDaemon" nombre="Reporte" habilitado="false"/>
+        <Proceso id="ReporteEstadisticasDaemon" nombre="Reporte" habilitado="false"/>
+        <Proceso id="ReporteEstadisticasTemporalesDaemon"
+            nombre="Reporte" habilitado="false"/>
+        <Proceso id="ReporteDeOrdenesPorAlianzaDaemon" nombre="Reporte" habilitado="false"/>
+        <!--TEMPORALMENTE DESHABILITADO Proceso id="SessionTracker"
+            nombre="Seguimiento de sessiones registros y compras" habilitado="false"/-->
+        <!--  SE REEMPLAZA Proceso id="SiteMap" nombre="Generador de Site Map para Google" habilitado="false"/-->
+        <!--  SE REEMPLAZA Proceso id="ReporteDeSociosRegistradosAyerSinCompras"
+            nombre="Reporte" habilitado="true"/-->
+        <!-- ELIMINADO Proceso id="GeneradorDeFacturasDigitales"
+            nombre="Envio de facturas digitales" habilitado="false"/-->
+        <!-- SE REEMPLAZA Proceso id="GeneradorDeArticulos"
+            nombre="Generacion de Articulos" habilitado="false"/-->
+        <!-- SE REEMPLAZA Proceso id="GeneradorDeRanking"
+            nombre="Generacion de ranking" habilitado="false"/-->
+        <!-- Se REEMPLAZA Proceso id="GeneradorDeTopFamilia"
+            nombre="Generacion de top familia" habilitado="false"/-->
+       <!-- Se Reemplaza Proceso id="GeneradorDeCatalogo"
+            nombre="GeneradorDeCatalogo" habilitado="false"/-->
+       <Proceso id="LogBusquedas" nombre="LogBusquedas" habilitado="true"/>
+    </ProcesosBackground>
+    <Generacion
+        sentenciaDeMapeo="net use /persistent:no j: \\172.29.0.10\tematika /user:administrator somosseis06"
+        directorioDeGeneracion="j:\recursos"
+        directorioRaiz="j:\preproduccion\server\site-ear\site-war"
+        sentenciaDeDesMapeo="net use /delete j: /yes" url="http://localhost:8101"/>
+	<Procesos>
+		<RunPro nombre="CargadorDeCategorias" clase="com.tmk.service.categoria.CategoriaService" metodo="cargarCategorias"
+			comienzo="20" espera="10800"/>
+		<RunPro nombre="Mensajes a Usuario" clase="com.tmk.service.mensaje.MensajeService" metodo="cargarMensajesDeUsuario"
+			comienzo="30" espera="10800"/>
+		<!-- RunPro nombre="MesaXCategoria" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarMesa"
+			comienzo="60" espera="86000"/-->
+
+		<!-- RunPro nombre="Generador de Feed de Comentarios" clase="com.tmk.generacion.feed.ComentarioFeed" metodo="generarFeed"
+			comienzo="60" espera="82800"/>
+		<RunPro nombre="Generador de Feed de Listas de Deseos"  clase="com.tmk.generacion.feed.WishListFeed" metodo="generarFeed" comienzo="60"
+			espera="82800"/>
+		<RunPro nombre="Generador de RSS de Novedades"  clase="com.tmk.generacion.rss.GeneradorDeRSS" metodo="generadorDeNovedades"
+			comienzo="60" espera="82800"></RunPro>
+		<RunPro nombre="Generador de RSS de Top"  clase="com.tmk.generacion.rss.GeneradorDeRSS" metodo="generadorDeTop" comienzo="60"
+			espera="82800"></RunPro>
+		<RunPro nombre="Generador de RSS de Categorias"  clase="com.tmk.generacion.rss.GeneradorDeRSS" metodo="generadorDeCategoria"
+			comienzo="60" espera="82800"></RunPro>
+		<RunPro nombre="Reporte de actualizacion de mail eXtra" clase="com.tmk.report.Report" metodo="reporteDeActualizacionMailExtra"
+			espera="82800" comienzo="60">
+			<Email>clopez@ilhsa.com</Email>
+		</RunPro>
+		<RunPro nombre="Reporte de carrito de socios registrados ayer sin compras" clase="com.tmk.report.Report"
+			metodo="reporteDeCarritoDeSociosRegistradosAyerSinCompras" espera="82800" comienzo="60">
+			 <Email>clopez@ilhsa.com</Email>
+		</RunPro>
+		<RunPro nombre="Reporte de clientes nuevos y repetitivos" clase="com.tmk.report.Report" metodo="reporteDeClientesNuevosYRepetitivos"
+			espera="82800" comienzo="60">
+ 			 <Email>clopez@ilhsa.com</Email>
+		</RunPro>
+		<RunPro nombre="Reporte de productos por socios" clase="com.tmk.report.Report" metodo="reporteDeProductosPorSocios" espera="82800"
+			 comienzo="60">
+ 		   <Email>clopez@ilhsa.com</Email>
+		</RunPro>
+		
+		<RunPro nombre="Reporte de productos por socios, informando si fue regalo" clase="com.tmk.report.Report" metodo="reporteDeProductosPorSocios2" espera="300"
+			 comienzo="60">
+ 		   <Email>clopez@ilhsa.com</Email>
+		</RunPro>
+
+		-->
+		
+		<!-- 
+		<RunPro nombre="Reporte de socios de tematika asocioados a popego" clase="com.tmk.report.Report" metodo="reporteDeSociosRegitradosPopegoSemanal" espera="4800"
+			 comienzo="60" >
+ 		   <Email>CLOPEZ@ILHSA.COM</Email>
+		</RunPro>
+		-->
+		<!-- 
+		<RunPro nombre="Reporte de cantidad de scrol sobre las vidrieras" clase="com.tmk.report.Report" metodo="reporteDeVecesQueSeScroleoEnLaMesa" espera="21600"
+			 comienzo="120" >
+ 		   <Email>CLOPEZ@ILHSA.COM</Email>
+		</RunPro>
+		-->
+		<!--<RunPro nombre="Reporte de tiempo de proceso de compras" clase="com.tmk.report.Report" metodo="reporteDeTiempoDeProcesoDeCompras" espera="86400"
+ 			 comienzo="120" >
+ 		   <Email>CLOPEZ@ILHSA.COM</Email>
+		</RunPro>
+		-->		 
+		<!-- 	
+		<RunPro nombre="Actualizador de paginaciones de vidriera" clase="com.tmk.report.Report" metodo="actualizadorDeVecesQueSeScroleoEnLaMesa" espera="4800"
+			 comienzo="120" >
+ 		   <Email>CLOPEZ@ILHSA.COM</Email>
+		</RunPro>
+		-->
+		<!--
+		<RunPro nombre="Reporte de socios Registrados" clase="com.tmk.report.Report" metodo="reporteDeSociosRegistradosTotal" espera="82800"
+			 comienzo="60">
+			 <Email>clopez@ilhsa.com</Email>
+		</RunPro>
+		<RunPro  nombre="Generador de Ranking Mediodia" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarRanking" espera="82800"
+			 comienzo="600" hora="12" minuto="30"/>
+		<RunPro  nombre="Generador de Ranking Tarde" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarRanking" espera="82800"
+			 comienzo="600" hora="16" minuto="25"/>
+		<RunPro  nombre="Generador de Ranking Noche" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarRanking" espera="82800"
+			 comienzo="600" hora="23" minuto="25"/>
+		<RunPro nombre="Generador de Top Familia" clase="com.tmk.service.categoria.CategoriaService" metodo="generarTopFamilia" espera="82800" comienzo="300" hora="17" minuto="5"/>
+		<RunPro nombre="Limpiador de Carrito" clase="com.tmk.kernel.DBUtil" metodo="limpiarCarrito" espera="21600" comienzo="60"/-->
+		<!-- RunPro nombre="SiteMap" clase="com.tmk.generacion.SiteMap" metodo="generarSiteMap" espera="82800" comienzo="60"/-->
+		<!-- <RunPro nombre="GeneradorDeArticulos" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarArticulo"
+			comienzo="60" espera="4800"/>-->
+		<!-- RunPro nombre="MesaXCategoria" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarMesa"
+			comienzo="600" espera="86000" hora="7"/-->
+		<!-- RunPro nombre="GeneracionDeArbol" clase="com.tmk.service.categoria.CategoriaService" metodo="generarArbolEstatico"
+			comienzo="70" espera="86000"/-->
+		<!-- RunPro nombre="GeneradorDeCatalogo" clase="com.tmk.service.categoria.CategoriaService" metodo="generarCatalogo"
+			comienzo="60" espera="86000"/-->
+		 <!-- RunPro nombre="Reporte de socios registrados ayer sin compras" clase="com.tmk.report.Report" metodo="reporteDeSociosRegistradosAyerSinCompras" espera="82800"
+			 comienzo="60">
+				 <Email>clopez@ilhsa.com</Email>
+		</RunPro-->
+
+
+	<!-- DESARROLLO -->
+		<!-- RunPro nombre="CargadorDeCategorias" clase="com.tmk.service.categoria.CategoriaService" metodo="cargarCategorias"
+			comienzo="20" espera="210800"/-->
+		<!-- RunPro nombre="MesaXCategoria" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarMesa"
+			comienzo="60" espera="86000"/-->
+		<!-- RunPro nombre="GeneracionDeArbol" clase="com.tmk.service.categoria.CategoriaService" metodo="generarArbolEstatico"
+			comienzo="60" espera="210800"/-->
+		<!-- RunPro nombre="GeneradorDeCatalogo" clase="com.tmk.service.categoria.CategoriaService" metodo="generarCatalogo"
+			comienzo="600" espera="86000" dia="1" hora="6"/-->
+		<!-- RunPro nombre="GeneradorDeArticulos" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarArticulo"
+			comienzo="600" espera="1800"/-->
+		<!-- RunPro nombre="Generador de Feed de Comentarios" clase="com.tmk.generacion.feed.ComentarioFeed" metodo="generarFeed"
+			comienzo="600" espera="82800" hora="7"/-->
+		<!-- RunPro nombre="Generador de Feed de Listas de Deseos"  clase="com.tmk.generacion.feed.WishListFeed" metodo="generarFeed" comienzo="600"
+			espera="82800" hora="10"/-->
+		<!-- RunPro nombre="Generador de RSS de Novedades"  clase="com.tmk.generacion.rss.GeneradorDeRSS" metodo="generadorDeNovedades"
+			comienzo="600" espera="82800" hora="11"><DiaSemana>6</DiaSemana></RunPro-->
+		<!-- RunPro nombre="Generador de RSS de Top"  clase="com.tmk.generacion.rss.GeneradorDeRSS" metodo="generadorDeTop" comienzo="700"
+			espera="82800" hora="11"><DiaSemana>5</DiaSemana></RunPro-->
+		<!-- RunPro nombre="Generador de RSS de Categorias"  clase="com.tmk.generacion.rss.GeneradorDeRSS" metodo="generadorDeCategoria"
+			comienzo="600" espera="82800" dia="26"></RunPro-->
+		<!-- RunPro nombre="Reporte de actualizacion de mail eXtra" clase="com.tmk.report.Report" metodo="reporteDeActualizacionMailExtra"
+			espera="82800" comienzo="600" dia="1">
+			<Email>clopez@ilhsa.com</Email>
+		</RunPro-->
+		<!-- RunPro nombre="Reporte de carrito de socios registrados ayer sin compras" clase="com.tmk.report.Report"
+			metodo="reporteDeCarritoDeSociosRegistradosAyerSinCompras" espera="82800" comienzo="600" hora="12">
+			<Email>laguirre@ilhsa.com</Email>
+		</RunPro-->
+		<!-- RunPro nombre="Reporte de clientes nuevos y repetitivos" clase="com.tmk.report.Report" metodo="reporteDeClientesNuevosYRepetitivos"
+			espera="82800" comienzo="600" dia="1" hora="10">
+			<Email>laguirre@ilhsa.com</Email>
+			<Email>dwinnik@ilhsa.com</Email>
+		</RunPro-->
+		<!-- RunPro nombre="Reporte de productos por socios" clase="com.tmk.report.Report" metodo="reporteDeProductosPorSocios" espera="82800"
+			 comienzo="600" dia="1" hora="9">
+			<Email>laguirre@ilhsa.com</Email>
+		</RunPro-->
+		<!-- RunPro nombre="Reporte de socios Registrados" clase="com.tmk.report.Report" metodo="reporteDeSociosRegistradosTotal" espera="82800"
+			 comienzo="600" dia="1" hora="5">
+			<Email>laguirre@ilhsa.com</Email>
+		</RunPro-->
+		<!-- RunPro  nombre="Generador de Ranking Mediodia" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarRanking" espera="82800"
+			 comienzo="600" hora="12" minuto="30"/>
+		<RunPro  nombre="Generador de Ranking Tarde" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarRanking" espera="82800"
+			 comienzo="600" hora="16" minuto="25"/>
+		<RunPro  nombre="Generador de Ranking Noche" clase="com.tmk.generacion.articulo.GeneradorDeArticulo" metodo="generarRanking" espera="82800"
+			 comienzo="600" hora="23" minuto="25"/-->
+		 <!-- RunPro nombre="Reporte de socios registrados ayer sin compras" clase="com.tmk.report.Report" metodo="reporteDeSociosRegistradosAyerSinCompras" espera="82800"
+			 comienzo="600" hora="6">
+				<Email>laguirre@ilhsa.com</Email>
+		</RunPro-->
+		<!-- RunPro nombre="Generador de Top Familia" clase="com.tmk.service.categoria.CategoriaService" metodo="generarTopFamilia" espera="82800" comienzo="300" hora="17" minuto="5"/-->
+		<!-- RunPro nombre="Limpiador de Carrito" clase="com.tmk.kernel.DBUtil" metodo="limpiarCarrito" espera="21600" comienzo="60"/-->
+		<!-- RunPro nombre="SiteMap" clase="com.tmk.generacion.SiteMap" metodo="generarSiteMap" espera="82800" comienzo="600" dia="6" hora="6"/-->
+
+	</Procesos>
+
+	<UbicacionDeRed>
+		<Ubicacion ip="localhost" host="" id="contenidosEstaticos" defaultDir="j:\tmp\recursos\contenidosEstaticos"  password="" user=""/>
+		<Ubicacion ip="localhost" host="" id="appRaiz" defaultDir="l:\tmp\workspace\Tematika\site\deploy\site-ear\site-war"  password="" user=""/>
+		<Ubicacion ip="localhost" host="" id="recursos" defaultDir="j:\tmp\recursos"  password="" user=""/>
+	</UbicacionDeRed>
+	
+</Server>

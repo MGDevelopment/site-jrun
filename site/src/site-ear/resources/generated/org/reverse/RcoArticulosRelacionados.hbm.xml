@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.RcoArticulosRelacionados"
+    table="RCO_ARTICULOS_RELACIONADOS"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.RcoArticulosRelacionadosId"
+    >		
+	        <key-property name="idArticulo" type="long">
+<column name="ID_ARTICULO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idArticuloRelacionado" type="long">
+<column name="ID_ARTICULO_RELACIONADO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="tipoRelacion" type="string">
+<column name="TIPO_RELACION" length="1" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+    <property
+        name="idRelacion"
+	    type="big_decimal"
+    >
+<column name="ID_RELACION" precision="22" scale="0" >
+<comment>Solo para los tipo 'C' y sirve para relacionar el detalle x sucursal</comment>
+</column>  </property>
+
+    <property
+        name="fechaDesdeConteo"
+	    type="date"
+    >
+<column name="FECHA_DESDE_CONTEO" length="7" >
+<comment>fecha desde en que arranco el conteo de la cant de hits</comment>
+</column>  </property>
+
+    <property
+        name="fechaHastaConteo"
+	    type="date"
+    >
+<column name="FECHA_HASTA_CONTEO" length="7" >
+<comment>fecha hasta que se consideró para la cant de hits</comment>
+</column>  </property>
+
+    <property
+        name="fechaExpiracion"
+	    type="date"
+    >
+<column name="FECHA_EXPIRACION" length="7" >
+<comment>fecha en que la relacion deja de ser valida</comment>
+</column>  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="usrModi"
+	    type="string"
+    >
+<column name="USR_MODI" length="35" not-null="true" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+    <property
+        name="userModi"
+	    type="string"
+    >
+<column name="USER_MODI" length="35" />
+  </property>
+
+    <property
+        name="cantComprobantes"
+	    type="big_decimal"
+    >
+<column name="CANT_COMPROBANTES" precision="22" scale="0" >
+<comment>Cantidad de comprobantes en los que aparece el articulo</comment>
+</column>  </property>
+
+    <property
+        name="seqUpdnov1"
+	    type="big_decimal"
+    >
+<column name="SEQ_UPDNOV1" precision="22" scale="0" >
+<comment>id secuencia que permite la transferencia rápida a las sucursales</comment>
+</column>  </property>
+
+
+</class>
+
+</hibernate-mapping>

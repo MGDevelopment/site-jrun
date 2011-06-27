@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SnpFdnItemsCatalogos"
+    table="SNP_FDN_ITEMS_CATALOGOS"
+>
+
+ <comment>snapshot table for snapshot TEMATIKA.SNP_FDN_ITEMS_CATALOGOS</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.SnpFdnItemsCatalogosId"
+    >		
+	        <key-property name="idCatalogo" type="int">
+<column name="ID_CATALOGO" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="idArticulo" type="long">
+<column name="ID_ARTICULO" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="puntos" type="int">
+<column name="PUNTOS" precision="6" scale="0" />
+	        </key-property>
+	        <key-property name="importeAdicional" type="big_decimal">
+<column name="IMPORTE_ADICIONAL" precision="15" />
+	        </key-property>
+	        <key-property name="fechaVigencia" type="date">
+<column name="FECHA_VIGENCIA" length="7" />
+	        </key-property>
+	        <key-property name="habilitado" type="string">
+<column name="HABILITADO" length="2" />
+	        </key-property>
+	        <key-property name="habilitadoFecha" type="date">
+<column name="HABILITADO_FECHA" length="7" />
+	        </key-property>
+	        <key-property name="habilitadoUsr" type="string">
+<column name="HABILITADO_USR" length="35" />
+	        </key-property>
+	        <key-property name="hastaStkCero" type="string">
+<column name="HASTA_STK_CERO" length="2" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="35" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="usrModi" type="string">
+<column name="USR_MODI" length="35" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

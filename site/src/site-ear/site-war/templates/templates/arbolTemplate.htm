@@ -1,0 +1,60 @@
+<div class="arbol">
+	<div class="arbolShadow">
+		<tmpl_loop idsSecciones>
+			<div id="arbol<tmpl_var seccion>" style="">
+		</tmpl_loop>
+				<tmpl_loop nivel0>
+					<div class="arbolItem" id="<tmpl_var idNivel0>"	style="display: <tmpl_var dispNvl0>;">
+						<tmpl_if dispNvl0>
+							<a id="lnk_<tmpl_var idNivel0>"	class="<tmpl_var lnkClassNvl0>" title="<tmpl_var title>" <tmpl_if abroSubNivel0> onclick="mostrar(this);" <tmpl_else> href="<tmpl_var hrefNivel0>" </tmpl_if> ></a>
+						<tmpl_else>
+							<a id="lnk_<tmpl_var idNivel0>" class="<tmpl_var lnkClassNvl0>" title="<tmpl_var title>" <tmpl_if abroSubNivel0> onclick="mostrar(this);" <tmpl_else> href="<tmpl_var hrefNivel0>" </tmpl_if> ></a>
+						</tmpl_if>
+						<tmpl_var negrita0><a href="<tmpl_var hrefNivel0>" class="arbolItemLink"><tmpl_var desNivel0> (<tmpl_var cantNivel0>)</a><tmpl_var _negrita0>
+					</div>
+					<tmpl_if dispNvl1>
+					<div id="hijo<tmpl_var idNivel0>" style="display: <tmpl_var dispNvl1>" class="arbolItemA">
+					<tmpl_else>
+					<div style="display: none" id="hijo<tmpl_var idNivel0>" class="arbolItem">
+					</tmpl_if>
+						<tmpl_loop nivel1>
+							<div id="<tmpl_var idNivel1>" class="arbolItem">
+								<tmpl_if dispNvl2>
+									<a id="lnk_<tmpl_var idNivel1>" class="<tmpl_var lnkClassNvl1>" title="<tmpl_var title>" <tmpl_if abroSubNivel1>onclick="mostrar(this);"<tmpl_else>href="<tmpl_var hrefNivel1>"</tmpl_if> ></a>
+								<tmpl_else>
+									<a id="lnk_<tmpl_var idNivel1>" class="<tmpl_var lnkClassNvl1>" title="<tmpl_var title>" <tmpl_if abroSubNivel1>onclick="mostrar(this);"<tmpl_else>href="<tmpl_var hrefNivel1>"</tmpl_if> ></a>
+								</tmpl_if>
+								<tmpl_var negrita1><a href="<tmpl_var hrefNivel1>" class="arbolItemLink"><tmpl_var desNivel1> (<tmpl_var cantNivel1>)</a><tmpl_var _negrita1>
+							</div>
+							<tmpl_if dispNvl2>
+							<div id="hijo<tmpl_var idNivel1>" style="display: <tmpl_var dispNvl2>" class="arbolItemB">
+							<tmpl_else>
+							<div id="hijo<tmpl_var idNivel1>" style="display: <tmpl_var dispNvl2>" class="arbolItem">
+							</tmpl_if>
+								<tmpl_loop nivel2>
+									<div class="arbolItem" title="<tmpl_var title>">
+										<a class="arbolItemF" ></a>
+										<tmpl_var negrita2><a href="<tmpl_var hrefNivel2>" class="arbolItemLink"><tmpl_var desNivel2> (<tmpl_var cantNivel2>)</a><tmpl_var _negrita2>
+									</div>
+								</tmpl_loop>
+							</div>
+						</tmpl_loop>
+					</div>
+				</tmpl_loop>
+		<tmpl_loop idsSecciones>
+			<tmpl_if masSeccion1>
+				<a id="<tmpl_var seccion>" name="<tmpl_var seccion>" href="/libros" class="arbolItemMax" title="Ver todas las catogorías de <tmpl_var seccion>"></a>
+			</tmpl_if>
+			<tmpl_if masSeccion3>
+				<a id="<tmpl_var seccion>" name="<tmpl_var seccion>" href="/juguetes" class="arbolItemMax" title="Ver todas las catogorías de <tmpl_var seccion>"></a>
+			</tmpl_if>
+			<tmpl_if masSeccion4>
+				<a id="<tmpl_var seccion>" name="<tmpl_var seccion>" href="/musica" class="arbolItemMax" title="Ver todas las catogorías de <tmpl_var seccion>"></a>
+			</tmpl_if>
+			<tmpl_if masSeccion5>
+				<a id="<tmpl_var seccion>" name="<tmpl_var seccion>" href="/peliculas" class="arbolItemMax" title="Ver todas las catogorías de <tmpl_var seccion>"></a>
+			</tmpl_if>
+			</div>
+		</tmpl_loop>
+	</div>
+</div>

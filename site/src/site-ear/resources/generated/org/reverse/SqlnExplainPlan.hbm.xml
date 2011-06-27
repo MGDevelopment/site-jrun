@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SqlnExplainPlan"
+    table="SQLN_EXPLAIN_PLAN"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.SqlnExplainPlanId"
+    >		
+	        <key-property name="statementId" type="string">
+<column name="STATEMENT_ID" length="30" />
+	        </key-property>
+	        <key-property name="timestamp" type="date">
+<column name="TIMESTAMP" length="7" />
+	        </key-property>
+	        <key-property name="remarks" type="string">
+<column name="REMARKS" length="80" />
+	        </key-property>
+	        <key-property name="operation" type="string">
+<column name="OPERATION" length="30" />
+	        </key-property>
+	        <key-property name="options" type="string">
+<column name="OPTIONS" length="30" />
+	        </key-property>
+	        <key-property name="objectNode" type="string">
+<column name="OBJECT_NODE" length="128" />
+	        </key-property>
+	        <key-property name="objectOwner" type="string">
+<column name="OBJECT_OWNER" length="30" />
+	        </key-property>
+	        <key-property name="objectName" type="string">
+<column name="OBJECT_NAME" length="30" />
+	        </key-property>
+	        <key-property name="objectInstance" type="big_decimal">
+<column name="OBJECT_INSTANCE" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="objectType" type="string">
+<column name="OBJECT_TYPE" length="30" />
+	        </key-property>
+	        <key-property name="optimizer" type="string">
+<column name="OPTIMIZER" />
+	        </key-property>
+	        <key-property name="searchColumns" type="big_decimal">
+<column name="SEARCH_COLUMNS" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="id" type="big_decimal">
+<column name="ID" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="parentId" type="big_decimal">
+<column name="PARENT_ID" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="position" type="big_decimal">
+<column name="POSITION" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="cost" type="big_decimal">
+<column name="COST" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="cardinality" type="big_decimal">
+<column name="CARDINALITY" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="bytes" type="big_decimal">
+<column name="BYTES" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="otherTag" type="string">
+<column name="OTHER_TAG" />
+	        </key-property>
+	        <key-property name="partitionStart" type="string">
+<column name="PARTITION_START" />
+	        </key-property>
+	        <key-property name="partitionStop" type="string">
+<column name="PARTITION_STOP" />
+	        </key-property>
+	        <key-property name="partitionId" type="big_decimal">
+<column name="PARTITION_ID" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="other" type="string">
+<column name="OTHER" length="0" />
+	        </key-property>
+	        <key-property name="distribution" type="string">
+<column name="DISTRIBUTION" length="30" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

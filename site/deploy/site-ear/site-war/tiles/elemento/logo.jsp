@@ -1,0 +1,1 @@
+<a href="/" class="hLogo" title="Tematika.com"></a>

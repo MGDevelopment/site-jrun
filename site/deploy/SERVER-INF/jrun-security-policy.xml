@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jrun-resources PUBLIC "-//Macromedia Inc.//DTD jrun-security-policy 4.0//EN" "http://jrun.macromedia.com/dtds/jrun-security-policy.dtd">
+
+<jrun-security-policy>
+  <policy>
+    <policy-scope>global</policy-scope>
+    <policy-id>JRUN_GLOBAL_POLICY</policy-id>
+      <policy-statement>
+         <statement-type>grant</statement-type>
+         <permission>
+           <permission-class>jrun.security.authorization.JNDIPermission</permission-class>
+           <permission-name>*</permission-name>
+           <action>lookup</action>
+           <action>bind</action>
+           <action>unbind</action>
+           <action>rebind</action>
+            <action>create-context</action>
+         </permission>
+         <security-identity>
+           <identity-type>user</identity-type>
+           <identity-name>admin</identity-name>
+         </security-identity>
+      </policy-statement>
+      <unchecked-policy>
+         <!-- this permission defined for development only, allows unauthorized access to JNDI -->
+<!--          <permission>
+           <permission-class>jrun.security.authorization.JNDIPermission</permission-class>
+           <permission-name>*</permission-name>
+           <action>lookup</action>
+           <action>bind</action>
+           <action>unbind</action>
+           <action>rebind</action>
+           <action>create-context</action>
+         </permission>    -->
+          <permission>
+           <permission-class>jrun.security.authorization.JNDIPermission</permission-class>
+           <permission-name>java:comp/env/*</permission-name>
+           <action>lookup</action>
+         </permission>
+        <permission>
+           <permission-class>jrun.security.authorization.JNDIPermission</permission-class>
+           <permission-name>java:comp/UserTransaction</permission-name>
+           <action>lookup</action>
+         </permission>
+         <permission>
+           <permission-class>jrun.security.authorization.JNDIPermission</permission-class>
+           <permission-name>java:comp/jdbc/*</permission-name>
+           <action>lookup</action>
+         </permission>
+      </unchecked-policy>
+  </policy>
+</jrun-security-policy>

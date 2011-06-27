@@ -1,0 +1,44 @@
+<html>
+	<body>
+		Se asociaron <B><tmpl_var CANTIDAD></B> cuentas de <B>TEMATIKA a POPEGO.COM</B>
+	
+		<table align="center" width="420" cellspacing="0" cellpadding="2" border="1" style="border: solid 1px #59B3D9; border-collapse: collapse; font-family: Verdana, Arial; font-size: 11px;">
+			<tr>
+				<td width="70">
+					<B>Nombre</B>
+				</td>
+				<td width="100">
+					<B>Apellidos</B>
+				</td>
+				<td width="100">
+					<B>Dominio</B>
+				</td>
+				<td width="200">
+					<B>E-MAIL</B>
+				</td>
+				<td width="220">
+					<B>Fecha de Alta</B>
+				</td>
+			</tr>
+			<tmpl_loop repRow>
+			<tr>
+				<td>
+					<tmpl_var NOMBRES>
+				</td>
+				<td align="right">
+					<tmpl_var APELLIDOS>
+				</td>
+				<td  align="right">
+					<tmpl_var DOMINIO>
+				</td>
+				<td  align="right">
+					<tmpl_var EMAIL>
+				</td>
+				<td  align="right">
+					<tmpl_var F_ALTA>
+				</td>
+			</tr>
+			</tmpl_loop>
+		</table>
+	</body>
+</html>

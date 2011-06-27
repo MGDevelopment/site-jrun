@@ -1,0 +1,156 @@
+<div style="margin-top: 10px;">	
+	<div class="compraWrapper2">
+		<div class="cProcTit" style="margin-top: 0pt;"><span>Agregar nuevo domicilio</span></div>
+			<tmpl_if tieneOrdenEnProgreso>
+				<div class="cProcFor-wrapper2 cProcForms2" id="divMensajes" style="border:1px dashed #FF070F;color:red;display:block;padding:4px 4px 4px 25px;">
+	            	<b style="margin-bottom: 0pt;">&nbsp;</b>
+	            	<div style="margin-bottom: 0pt;text-align:center;" >
+	            		Si Ud. modifica esta dirección el cambio se reflejará en la orden número <tmpl_var idOrden>  actualmente en progreso. Para evitarlo agregue una nueva dirección.
+	            	</div>			            
+	     		</div>
+	     	</tmpl_if>    
+			<form action="/ActualizarDomicilio" method="post" name="formDomicilio" id="formDomicilio">
+				<input type="hidden" name="TIPO_DOMICILIO" value="<tmpl_var TIPO_DOMICILIO>">
+				<input type="hidden" name="_DISPATCHER" value="<tmpl_var _DISPACHER>">
+		        <div class="cProcFor-wrapper2 cProcForms2">
+		            <b style="margin-bottom: 0pt;"><label style="color:#FF0000;">*&nbsp;</label>Calle</b>
+		            <div style="margin-bottom: 0pt;">
+		            	<span style="margin-right: 10px;">
+		            		<input type="text" style="width: 150px;" name="CALLE" value="<tmpl_var CALLE>">
+		            	</span>
+		            </div>
+		        </div>		        
+		        <div class="cProcFor-wrapper2 cProcForms2">
+		            <b style="margin-bottom: 0pt;"><label style="color:#FF0000;">*&nbsp;</label>Número</b>
+		            <div style="margin-bottom: 0pt;">
+		            	<span style="margin-right: 10px;">
+		            		<input type="text" style="width: 150px;" name="NUMERO" value="<tmpl_var NUMERO>">
+		            	</span>
+		            </div>
+		        </div>
+		        <div class="cProcFor-wrapper2 cProcForms2">
+		            <b style="margin-bottom: 0pt;"><label style="color:#FF0000;">&nbsp;</label>Piso</b>
+		            <div style="margin-bottom: 0pt;">
+		            	<span style="margin-right: 10px;">
+		            		<input type="text" style="width: 150px;" name="PISO" value="<tmpl_var PISO>">
+		            	</span>
+		            </div>
+		        </div>
+		        <div class="cProcFor-wrapper2 cProcForms2">
+		            <b style="margin-bottom: 0pt;"><label style="color:#FF0000;">&nbsp;</label>Departamento</b>
+		            <div style="margin-bottom: 0pt;">
+		            	<span style="margin-right: 10px;">
+		            		<input type="text" style="width: 150px;" name="DEPTO" value="<tmpl_var DEPTO>">
+		            	</span>
+		            </div>
+		        </div>
+		        <div class="cProcFor-wrapper2 cProcForms2">
+		            <b style="margin-bottom: 0pt;"><label style="color:#FF0000;">&nbsp;</label>Edificio</b>
+		            <div style="margin-bottom: 0pt;">
+		            	<span style="margin-right: 10px;">
+		            		<input type="text" style="width: 150px;" name="EDIFICIO" value="<tmpl_var EDIFICIO>">
+		            	</span>
+		            </div>
+		        </div>
+		        		       
+		        	<!--  PAISES -->
+		        	<div class="cProcFor-wrapper2 cProcForms2">
+			            <b style="margin-bottom: 0pt;"><label style="color:#FF0000;">*&nbsp;</label>P&aacute;ises</b>
+			            <div style="margin-bottom: 0pt;">
+			            	<span style="margin-right: 10px;">
+			            		<select name="ID_PAIS" onChange="javascript:INDEX_PAIS = actualizarCombo(this, document.formDomicilio.ID_PROVINCIA, paises);INDEX_PROVINCIA = actualizarCombo(formDomicilio.ID_PROVINCIA, document.formDomicilio.ID_LOCALIDAD, paises[INDEX_PAIS].comboDependiente);activarOtraProvincia();" onKeyPress="cambiarFoco(event,'document.formDomicilio.ID_PROVINCIA');" style="width:200px;">
+				                    <script type="text/javascript">
+										for(i = 0; i < paises.length; i++) {
+											var selected;	
+											if (paises[i].id == <tmpl_var PAISID>) {
+												selected =  " selected ";
+												INDEX_PAIS = i ;
+											} else {
+												selected = ""
+											}	
+											document.write('<option value="' + paises[i].id + '"' + selected + '>');
+											document.write(paises[i].descripcion);
+											document.write('</option>');
+										}
+									</script>
+               					</select>   
+			            	</span>
+			            </div>			           
+		        	</div>
+		        	
+		        	<!-- provincia -->
+		        	<div class="cProcFor-wrapper2 cProcForms2">
+			            <b style="margin-bottom: 0pt;"><label style="color:#FF0000;">*&nbsp;</label>Provincia</b>
+			            <div style="margin-bottom: 0pt;">
+			            	<span style="margin-right: 10px;">			            		
+								<select name="ID_PROVINCIA" onfocus="activarOtraLocalidad()" onChange="javascript:INDEX_PROVINCIA = actualizarCombo(this, document.formDomicilio.ID_LOCALIDAD, paises[INDEX_PAIS].comboDependiente);activarOtraProvincia();" onKeyPress="cambiarFoco(event,'document.formDomicilio.ID_LOCALIDAD');" style="width:200px;">
+					                <option value="-1">Elegir de la lista</option>
+									<script type="text/javascript">
+										for(i = 0; i < paises[INDEX_PAIS].comboDependiente.length; i++){
+					                        if (paises[INDEX_PAIS].comboDependiente[i].id == <tmpl_var PROVINCIAID>) {
+					                            selected = " selected";
+					                            INDEX_PROVINCIA = i;
+					                        } else {
+					                            selected = "";
+					                        }
+					                        document.write('<option value="' + paises[INDEX_PAIS].comboDependiente[i].id + '"'  + selected + '>');
+											document.write(paises[INDEX_PAIS].comboDependiente[i].descripcion);
+											document.write('</option>');
+										}
+									</script>
+              					</select>           		
+			            	</span>
+			            </div>			            
+        			</div>
+        			
+        			<!-- otra -->
+        			<div class="cProcFor-wrapper2 cProcForms2">
+			            <b style="margin-bottom: 0pt;">Otra</b>
+			            <div style="margin-bottom: 0pt;">
+			            	<span style="margin-right: 10px;">
+			            		<input type="text" style="width: 150px;" name="PROVINCIA_EXTERNA" value="<tmpl_var PROVINCIA_EXTERNA>">
+			            	</span>
+			            </div>
+		        	</div>		
+        			
+        			<!-- Codigo postal -->
+        			<div class="cProcFor-wrapper2 cProcForms2">
+			            <b style="margin-bottom: 0pt;">C&oacute;digo postal:</b>
+			            <div style="margin-bottom: 0pt;">
+			            	<span style="margin-right: 10px;">
+			            		<input type="text" style="width: 50px;" name="CP" value="<tmpl_var CP>">
+			            	</span>
+			            </div>
+		        	</div>	
+        			
+        			
+		        	<!-- localidad -->
+					<div class="cProcFor-wrapper2 cProcForms2">
+			            <b style="margin-bottom: 0pt;">Localidad</b>
+			            <div style="margin-bottom: 0pt;">
+			            	<span style="margin-right: 10px;">			            		
+								<select name="ID_LOCALIDAD" onchange="activarOtraLocalidad();" onfocus="activarOtraLocalidad();"  style="width:200px;">
+					            	<option value="-1">Elegir de la lista</option>
+									<script type="text/javascript">
+										if(paises[INDEX_PAIS].comboDependiente.length > 0) {
+											for(i = 0; i < paises[INDEX_PAIS].comboDependiente[INDEX_PROVINCIA].comboDependiente.length; i++) {
+												var selected;
+					        					selected = (paises[INDEX_PAIS].comboDependiente[INDEX_PROVINCIA].comboDependiente[i].id == <tmpl_var LOCALIDADID>) ? " selected " : "";
+												document.write('<option value="' + paises[INDEX_PAIS].comboDependiente[INDEX_PROVINCIA].comboDependiente[i].id + '"' + selected + '>');
+												document.write(paises[INDEX_PAIS].comboDependiente[INDEX_PROVINCIA].comboDependiente[i].descripcion);
+												document.write('</option>');
+											}
+										}
+									</script>
+								</select>			            		
+			            	</span>
+			            </div>			            
+        			</div>
+        			
+        			<div class="cProcFor-wrapper2 cProcForms2" id="btnModificar">
+			            <b style="margin-bottom: 0pt;"></b>
+			            <a href="javascript:validarForm();" class="vModButton"><span>MODIFICAR DOMICILIO</span></a>
+        			</div>         	
+	       </form>	       	       
+	</div>
+</div>

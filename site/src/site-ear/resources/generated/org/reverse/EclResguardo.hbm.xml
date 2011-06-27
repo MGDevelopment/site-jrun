@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.EclResguardo"
+    table="ECL_RESGUARDO"
+>
+
+    <composite-id
+		name="id"
+        class="org.reverse.EclResguardoId"
+    >		
+	        <key-property name="clave" type="long">
+<column name="CLAVE" precision="15" scale="0" />
+	        </key-property>
+	        <key-property name="tabla" type="string">
+<column name="TABLA" length="50" />
+	        </key-property>
+	        <key-property name="VRowid" type="serializable">
+<column name="V_ROWID" />
+	        </key-property>
+	        <key-property name="fechaAlta" type="date">
+<column name="FECHA_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="accion" type="string">
+<column name="ACCION" length="1" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>

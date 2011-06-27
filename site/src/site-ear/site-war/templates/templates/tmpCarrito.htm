@@ -1,0 +1,69 @@
+		<tmpl_if hayArticulos>	   
+        <div class="busqTit">
+        	<tmpl_if socioLogueado>Carrito de compras de <span><tmpl_var usuario></span></tmpl_if>
+        </div>
+		<div class="carritoTop">
+        	<div class="cTopProd"></div>
+            <div class="cTopPrecio">Precio</div>
+            <div class="cTopCantidad">Cantidad</div>
+            <div class="cTopSubTot">Subtotal</div>
+        </div>        
+	    <!-- ARTICULOS -->	     
+		    <form name="formCarrito" action="/ActualizarProductos" method="post">
+		        <tmpl_loop articulos>        	
+			        <div class="carritoMod">	        		        
+			        	<div class="cModProd">
+			            	<div class="detalleImagen"><a href="<tmpl_var urlDetalle>"><img src="<tmpl_var urlImagen>"></a></div>
+			                <div class="cModProdInf">
+			                  <a href="<tmpl_var urlDetalle>" class="dInfoTit"><tmpl_var titulo> </a>
+			                  <div class="dInfoAutor"><tmpl_var textoAutor>
+			                  	<tmpl_loop autores>                    		
+		                			<a href="<tmpl_var urlAutor>"><tmpl_var autor></a>
+		                		</tmpl_loop>  	                  	
+			                  </div>
+			                  <div class="detalleAcciones">
+			                        <a href="<tmpl_var lnkEliminarArticulo>?idArticulo=<tmpl_var idArticulo>&posicionEnLista=<tmpl_var posicionEnlista>" class="detalleBoton"><span>ELIMINAR</span></a>			                  
+			                  		<a href="/MoverHaciaLista?ID_ARTICULO=<tmpl_var idArticulo>&posicionEnLista=<tmpl_var posicionEnLista>" class="detalleBoton"><span>Mover a mi lista de Deseos</span></a>
+			                  		<!-- SE COMENTA PARA CONTINUAR UNA VEZ REDISEÑADO MI CUENTA -->
+			                  		<!--
+			                        <a class="detalleBotonMenu" onclick="javascript:desplegarOpciones('detalleList<tmpl_var indice>');javascript:getMisListas(<tmpl_var indice>,<tmpl_var idArticulo>);">
+			                        	<span>AGREGAR  UNA LISTA</span>
+			                        </a> 
+			                        -->                      
+							        <!-- el contenido del div de abajo se llena dinamicamente con ajax, lenvatado con el js jsListasTmk.js-->
+							   </div>
+							   <div class="detalleListaMenu" id="detalleList<tmpl_var indice>" onMouseOver="clearTimeout(tempo);" onmouseout="ocultarOpcionesT('detalleList<tmpl_var indice>');" style="display:none;">
+							   </div>      	
+			                </div>
+			            </div>
+			            <div class="cModPrecio"><tmpl_var precioUnitario></div>
+			            <div class="cModCantidad">
+			            	<input name="CANTIDAD" type="text" value="<tmpl_var cantidad>"/><a href="javascript:document.formCarrito.submit();">Actualizar</a>
+			            	<input type="hidden" name="ID_ARTICULO" value="<tmpl_var idArticulo>">
+							<input type="hidden" name="posicionEnLista" value="<tmpl_var posicionEnLista>">	            	
+			            </div>
+			            <div class="cModSubTot"><tmpl_var precioSubtotal></div>                
+			        </div>
+		        </tmpl_loop>
+	       	</form>	    
+        <!-- FIN LOOP ARTICULOS -->        
+        <div class="carritoTotal">
+        	<h2 style="text-align: right;">Total:<tmpl_var total><br><tmpl_var precioFinalDolar><br><tmpl_var precioFinalEuro></h2>
+            <div>Los precios son expresados en <strong>pesos argentinos</strong>.<!--  Puede <a href="#">convertirlos a otra moneda</a>.--><br />
+            <tmpl_if faltanParaPromocion>
+            	Tiene usted una compra por <tmpl_var total> ¡Si llega a <tmpl_var valorDePromocion> tiene el envío gratis en Argentina! <br>¿Desea <a href="/">agregar algún producto</a>?
+           	</tmpl_if>
+        </div>
+        </div>        
+        <a href="<tmpl_var pantallaSiguiente>" class="b-next">INICIAR LA COMPRA</a>
+        <!-- <a href="/compra/SeleccionarPapelDeRegalo.do" class="b-next">INICIAR LA COMPRA</a>-->
+        <a href="<tmpl_var pantallaAnterior>?seguir=true" class="detalleBoton carritoAgregar"><span>AGREGAR PRODUCTOS</span></a>
+        </tmpl_else>  
+        <!-- SI NO HAY ARTICULOS -->      	
+        	<div class="busqTit">
+        		<table height="180px;" align="center"><tr><td>
+        			No hay elementos en el carrito
+        			</td></tr>
+        		</table>
+        	</div>
+        </tmpl_if>    

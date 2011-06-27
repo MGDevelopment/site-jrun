@@ -1,0 +1,18 @@
+<div class="hBuscador">
+<ul class="dropdown">
+<li class="dir"	onclick="javascript:desplegarOpciones('listaBuscador');">
+<span id="optBusqueda"><tmpl_var optSeleccionada></span>
+<ul style="display: none;" id="listaBuscador" onmouseover="clearTimeout(tempo);" onmouseout="ocultarOpcionesT('listaBuscador');">
+<tmpl_loop optsBusqueda>
+<li><a id="<tmpl_var idOpt>"  href="javascript:mostrarBuscarPor('<tmpl_var idOpt>','optBusqueda','listaBuscador','<tmpl_var idSeccion>','<tmpl_var idSeccionPropia>','<tmpl_var seccionBusqueda>');"><tmpl_var txtOpt></a></li>
+</tmpl_loop>
+</ul>
+</li>
+</ul>
+<input id="txtBuscar" name="buscadorTxtField" type="text" value="<tmpl_var texto>" class="hBuscTxtF" onkeypress="javascript: if(pressEnter(event)) buscador_setBusqueda(document.getElementById('optBusqueda').innerHTML, document.getElementById('txtBuscar').value, '<tmpl_var id_Seccion>','<tmpl_var idSeccionPropia>',document.getElementById('seccionBusqueda').value);"/>
+<input type="hidden" id="seccionBusqueda" value="<tmpl_var seccionBusqueda>">
+<input type="hidden" id="idSeccionPropia" value="<tmpl_var idSeccionPropia>">
+<input type="hidden" id="idSeccion" value="<tmpl_var idSeccionH>">
+<a id="btnBuscar" class="hBuscButton" title="Buscar" href="javascript:buscador_setBusqueda(document.getElementById('optBusqueda').innerHTML,document.getElementById('txtBuscar').value,'<tmpl_var id_seccion>',document.getElementById('idSeccionPropia').value,document.getElementById('seccionBusqueda').value);">&nbsp;</a>
+</div>
+<a href="/institucional/servicios.jsp#servicios" class="hServClientes" title="Servicio al cliente"></a>

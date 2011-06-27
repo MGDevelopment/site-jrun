@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.ConsultaBup"
+    table="CONSULTA_BUP"
+>
+
+	<id 
+        name="idConsulta"
+        type="short"
+    >
+    
+<column name="ID_CONSULTA" precision="4" scale="0" />
+	    <generator class="assigned" />
+    </id>
+
+
+
+
+    <property
+        name="descripcion"
+	    type="string"
+    >
+<column name="DESCRIPCION" length="240" not-null="true" />
+  </property>
+
+    <property
+        name="alcance"
+	    type="string"
+    >
+<column name="ALCANCE" length="5" not-null="true" />
+  </property>
+
+    <property
+        name="estado"
+	    type="string"
+    >
+<column name="ESTADO" length="1" not-null="true" />
+  </property>
+
+    <property
+        name="FAlta"
+	    type="date"
+    >
+<column name="F_ALTA" length="7" not-null="true" />
+  </property>
+
+    <property
+        name="FModi"
+	    type="date"
+    >
+<column name="F_MODI" length="7" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

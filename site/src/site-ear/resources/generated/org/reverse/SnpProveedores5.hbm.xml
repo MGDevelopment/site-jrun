@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Oct 20, 2010 10:22:06 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+
+<class
+    name="org.reverse.SnpProveedores5"
+    table="SNP_PROVEEDORES5"
+>
+
+ <comment>snapshot table for snapshot TEMATIKA.SNP_PROVEEDORES5</comment>
+    <composite-id
+		name="id"
+        class="org.reverse.SnpProveedores5Id"
+    >		
+	        <key-property name="idTipoContribuyente" type="long">
+<column name="ID_TIPO_CONTRIBUYENTE" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idProveedor" type="long">
+<column name="ID_PROVEEDOR" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="nombre" type="string">
+<column name="NOMBRE" length="50" />
+	        </key-property>
+	        <key-property name="razonSocial" type="string">
+<column name="RAZON_SOCIAL" length="50" />
+	        </key-property>
+	        <key-property name="direccion" type="string">
+<column name="DIRECCION" length="50" />
+	        </key-property>
+	        <key-property name="codigoPostal" type="string">
+<column name="CODIGO_POSTAL" length="10" />
+	        </key-property>
+	        <key-property name="telefono" type="string">
+<column name="TELEFONO" length="100" />
+	        </key-property>
+	        <key-property name="observacion" type="string">
+<column name="OBSERVACION" length="2000" />
+	        </key-property>
+	        <key-property name="pagoIdFormaPago" type="int">
+<column name="PAGO_ID_FORMA_PAGO" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="fax" type="string">
+<column name="FAX" length="100" />
+	        </key-property>
+	        <key-property name="fechaAlta" type="date">
+<column name="FECHA_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="cuit" type="string">
+<column name="CUIT" length="20" />
+	        </key-property>
+	        <key-property name="descuento" type="big_decimal">
+<column name="DESCUENTO" precision="5" />
+	        </key-property>
+	        <key-property name="usrAlta" type="string">
+<column name="USR_ALTA" length="35" />
+	        </key-property>
+	        <key-property name="FAlta" type="date">
+<column name="F_ALTA" length="7" />
+	        </key-property>
+	        <key-property name="usrModi" type="string">
+<column name="USR_MODI" length="35" />
+	        </key-property>
+	        <key-property name="FModi" type="date">
+<column name="F_MODI" length="7" />
+	        </key-property>
+	        <key-property name="idUsrAlta" type="java.lang.Long">
+<column name="ID_USR_ALTA" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idUsrModi" type="java.lang.Long">
+<column name="ID_USR_MODI" precision="10" scale="0" />
+	        </key-property>
+	        <key-property name="idProvincia" type="int">
+<column name="ID_PROVINCIA" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="idLocalidad" type="int">
+<column name="ID_LOCALIDAD" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="idPais" type="int">
+<column name="ID_PAIS" precision="5" scale="0" />
+	        </key-property>
+	        <key-property name="fechaUltimoPedido" type="date">
+<column name="FECHA_ULTIMO_PEDIDO" length="7" />
+	        </key-property>
+	        <key-property name="formaComercial" type="string">
+<column name="FORMA_COMERCIAL" length="3" />
+	        </key-property>
+	        <key-property name="fechaUltimaLiq" type="date">
+<column name="FECHA_ULTIMA_LIQ" length="7" />
+	        </key-property>
+	        <key-property name="fechaBaja" type="date">
+<column name="FECHA_BAJA" length="7" />
+	        </key-property>
+	        <key-property name="generarPedidosAutom" type="string">
+<column name="GENERAR_PEDIDOS_AUTOM" length="1" />
+	        </key-property>
+	        <key-property name="diasPedidosAutom" type="string">
+<column name="DIAS_PEDIDOS_AUTOM" length="7" />
+	        </key-property>
+	        <key-property name="frecPedidosAutom" type="java.lang.Short">
+<column name="FREC_PEDIDOS_AUTOM" precision="3" scale="0" />
+	        </key-property>
+	        <key-property name="fechaUltimoPedidoAutom" type="date">
+<column name="FECHA_ULTIMO_PEDIDO_AUTOM" length="7" />
+	        </key-property>
+	        <key-property name="entCodigo" type="java.lang.Integer">
+<column name="ENT_CODIGO" precision="6" scale="0" />
+	        </key-property>
+	        <key-property name="permiteNd" type="string">
+<column name="PERMITE_ND" length="2" />
+	        </key-property>
+	        <key-property name="plazoPago" type="java.lang.Short">
+<column name="PLAZO_PAGO" precision="3" scale="0" />
+	        </key-property>
+	        <key-property name="fechaCierreMensualLiquid" type="date">
+<column name="FECHA_CIERRE_MENSUAL_LIQUID" length="7" />
+	        </key-property>
+	        <key-property name="leyenda" type="string">
+<column name="LEYENDA" length="100" />
+	        </key-property>
+	        <key-property name="auxvarchar1" type="string">
+<column name="AUXVARCHAR1" length="100" />
+	        </key-property>
+	        <key-property name="auxvarchar2" type="string">
+<column name="AUXVARCHAR2" length="100" />
+	        </key-property>
+	        <key-property name="auxvarchar3" type="string">
+<column name="AUXVARCHAR3" length="100" />
+	        </key-property>
+	        <key-property name="auxnumber1" type="big_decimal">
+<column name="AUXNUMBER1" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="auxnumber2" type="big_decimal">
+<column name="AUXNUMBER2" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="auxnumber3" type="big_decimal">
+<column name="AUXNUMBER3" precision="22" scale="0" />
+	        </key-property>
+	        <key-property name="auxflag1" type="string">
+<column name="AUXFLAG1" length="2" />
+	        </key-property>
+	        <key-property name="auxflag2" type="string">
+<column name="AUXFLAG2" length="2" />
+	        </key-property>
+	        <key-property name="auxflag3" type="string">
+<column name="AUXFLAG3" length="2" />
+	        </key-property>
+	        <key-property name="mcaCtaYOrden" type="string">
+<column name="MCA_CTA_Y_ORDEN" length="2" />
+	        </key-property>
+	        <key-property name="fechaUltimaLiqAjustes" type="date">
+<column name="FECHA_ULTIMA_LIQ_AJUSTES" length="7" />
+	        </key-property>
+	        <key-property name="auxdate1" type="date">
+<column name="AUXDATE1" length="7" />
+	        </key-property>
+	        <key-property name="auxdate2" type="date">
+<column name="AUXDATE2" length="7" />
+	        </key-property>
+	        <key-property name="auxdate3" type="date">
+<column name="AUXDATE3" length="7" />
+	        </key-property>
+    </composite-id>	
+
+
+
+
+
+</class>
+
+</hibernate-mapping>
