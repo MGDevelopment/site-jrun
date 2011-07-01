@@ -55,7 +55,7 @@ public class GeneradorDeArticulo {
 	public static final int MESA_CH_PAGINA = 10;
 	//filtros
 	public static final String MESA_FILTRO_TOTAL = "T";
-	public static final String MESA_FILTRO_A„O = "Y";
+	public static final String MESA_FILTRO_AÑO = "Y";
 	public static final String MESA_FILTRO_MES = "M";
 	
 	//ordenamientos
@@ -68,12 +68,12 @@ public class GeneradorDeArticulo {
 	
 	//Filtros SQL
 	public static final String MESA_FILTRO_TOTAL_SQL = " AND fecha_alta < sysdate -15 ";
-	public static final String MESA_FILTRO_A„O_SQL = " AND fecha_alta < sysdate -15 AND fecha_alta > sysdate -365 ";
+	public static final String MESA_FILTRO_AÑO_SQL = " AND fecha_alta < sysdate -15 AND fecha_alta > sysdate -365 ";
 	public static final String MESA_FILTRO_MES_SQL = " AND fecha_alta < sysdate -15 AND fecha_alta > sysdate -105 ";
 	
 	//Filtros SQL tematika recomienda	
 	public static final String TMKRDA_MESA_FILTRO_MES_SQL = " en_filtro = 'UTM'";//altimo tres meses
-	public static final String TMKRDA_MESA_FILTRO_A„O_SQL = " en_filtro = 'UA' ";//ultimo año
+	public static final String TMKRDA_MESA_FILTRO_AÑO_SQL = " en_filtro = 'UA' ";//ultimo año
 	
 	//TIENE EN CUENTA IMAGEN
 	public static final String TIENE_EN_CUENTA_IMAGEN =" AND a.archivo_imagen in ('C', 'T') ";
@@ -84,28 +84,28 @@ public class GeneradorDeArticulo {
 			
 			mesaFiltroOrdenWrapper.M_MV = generarTotalMesa(MESA_ORDEN_MV, MESA_FILTRO_MES, MESA_FILTRO_MES_SQL);
 			generarListaMesa(MESA_ORDEN_MV, MESA_FILTRO_MES, MESA_FILTRO_MES_SQL);
-			mesaFiltroOrdenWrapper.Y_MV = generarTotalMesa(MESA_ORDEN_MV, MESA_FILTRO_A„O, MESA_FILTRO_A„O_SQL);
-			generarListaMesa(MESA_ORDEN_MV, MESA_FILTRO_A„O, MESA_FILTRO_A„O_SQL);
+			mesaFiltroOrdenWrapper.Y_MV = generarTotalMesa(MESA_ORDEN_MV, MESA_FILTRO_AÑO, MESA_FILTRO_AÑO_SQL);
+			generarListaMesa(MESA_ORDEN_MV, MESA_FILTRO_AÑO, MESA_FILTRO_AÑO_SQL);
 
 			mesaFiltroOrdenWrapper.M_MVA = generarTotalMesa(MESA_ORDEN_MVA, MESA_FILTRO_MES, MESA_FILTRO_MES_SQL);
 			generarListaMesa(MESA_ORDEN_MVA, MESA_FILTRO_MES, MESA_FILTRO_MES_SQL);
-			mesaFiltroOrdenWrapper.Y_MVA = generarTotalMesa(MESA_ORDEN_MVA, MESA_FILTRO_A„O, MESA_FILTRO_A„O_SQL);
-			generarListaMesa(MESA_ORDEN_MVA, MESA_FILTRO_A„O, MESA_FILTRO_A„O_SQL);
+			mesaFiltroOrdenWrapper.Y_MVA = generarTotalMesa(MESA_ORDEN_MVA, MESA_FILTRO_AÑO, MESA_FILTRO_AÑO_SQL);
+			generarListaMesa(MESA_ORDEN_MVA, MESA_FILTRO_AÑO, MESA_FILTRO_AÑO_SQL);
 			mesaFiltroOrdenWrapper.T_MVA = generarTotalMesa(MESA_ORDEN_MVA, MESA_FILTRO_TOTAL, MESA_FILTRO_TOTAL_SQL);
 			generarListaMesa(MESA_ORDEN_MVA, MESA_FILTRO_TOTAL, MESA_FILTRO_TOTAL_SQL);
 
 			mesaFiltroOrdenWrapper.M_MP = generarTotalMesa(MESA_ORDEN_MP, MESA_FILTRO_MES, MESA_FILTRO_MES_SQL);
 			generarListaMesa(MESA_ORDEN_MP, MESA_FILTRO_MES, MESA_FILTRO_MES_SQL);
-			mesaFiltroOrdenWrapper.Y_MP = generarTotalMesa(MESA_ORDEN_MP, MESA_FILTRO_A„O, MESA_FILTRO_A„O_SQL);
-			generarListaMesa(MESA_ORDEN_MP, MESA_FILTRO_A„O, MESA_FILTRO_A„O_SQL);
+			mesaFiltroOrdenWrapper.Y_MP = generarTotalMesa(MESA_ORDEN_MP, MESA_FILTRO_AÑO, MESA_FILTRO_AÑO_SQL);
+			generarListaMesa(MESA_ORDEN_MP, MESA_FILTRO_AÑO, MESA_FILTRO_AÑO_SQL);
 			mesaFiltroOrdenWrapper.T_MP = generarTotalMesa(MESA_ORDEN_MP, MESA_FILTRO_TOTAL, MESA_FILTRO_TOTAL_SQL);
 			generarListaMesa(MESA_ORDEN_MP, MESA_FILTRO_TOTAL, MESA_FILTRO_TOTAL_SQL);
 						
 			
 			mesaFiltroOrdenWrapper.M_TMK_RDA = generarTotalMesa(MESA_ORDEN_TMK_RDA, MESA_FILTRO_MES, TMKRDA_MESA_FILTRO_MES_SQL);
 			generarListaMesa(MESA_ORDEN_TMK_RDA, MESA_FILTRO_MES, TMKRDA_MESA_FILTRO_MES_SQL);
-			mesaFiltroOrdenWrapper.Y_TMK_RDA = generarTotalMesa(MESA_ORDEN_TMK_RDA, MESA_FILTRO_A„O, TMKRDA_MESA_FILTRO_A„O_SQL);
-			generarListaMesa(MESA_ORDEN_TMK_RDA, MESA_FILTRO_A„O, TMKRDA_MESA_FILTRO_A„O_SQL);
+			mesaFiltroOrdenWrapper.Y_TMK_RDA = generarTotalMesa(MESA_ORDEN_TMK_RDA, MESA_FILTRO_AÑO, TMKRDA_MESA_FILTRO_AÑO_SQL);
+			generarListaMesa(MESA_ORDEN_TMK_RDA, MESA_FILTRO_AÑO, TMKRDA_MESA_FILTRO_AÑO_SQL);
 			
 			
 			try{
@@ -394,20 +394,20 @@ public class GeneradorDeArticulo {
 				MesaFiltroOrdenWrapper mesaFiltroOrdenWrapper = new MesaFiltroOrdenWrapper();
 				mesaFiltroOrdenWrapper.M_MV = generarTotalMesaCategoria(MESA_ORDEN_MV, MESA_FILTRO_MES, MESA_FILTRO_MES_SQL, categoria[i].getCategoriaPK());
 				generarListaMesaCategoria(MESA_ORDEN_MV, MESA_FILTRO_MES, MESA_FILTRO_MES_SQL, categoria[i].getCategoriaPK());
-				mesaFiltroOrdenWrapper.Y_MV = generarTotalMesaCategoria(MESA_ORDEN_MV, MESA_FILTRO_A„O, MESA_FILTRO_A„O_SQL, categoria[i].getCategoriaPK());
-				generarListaMesaCategoria(MESA_ORDEN_MV, MESA_FILTRO_A„O, MESA_FILTRO_A„O_SQL, categoria[i].getCategoriaPK());
+				mesaFiltroOrdenWrapper.Y_MV = generarTotalMesaCategoria(MESA_ORDEN_MV, MESA_FILTRO_AÑO, MESA_FILTRO_AÑO_SQL, categoria[i].getCategoriaPK());
+				generarListaMesaCategoria(MESA_ORDEN_MV, MESA_FILTRO_AÑO, MESA_FILTRO_AÑO_SQL, categoria[i].getCategoriaPK());
 
 				mesaFiltroOrdenWrapper.M_MVA = generarTotalMesaCategoria(MESA_ORDEN_MVA, MESA_FILTRO_MES, MESA_FILTRO_MES_SQL, categoria[i].getCategoriaPK());
 				generarListaMesaCategoria(MESA_ORDEN_MVA, MESA_FILTRO_MES, MESA_FILTRO_MES_SQL, categoria[i].getCategoriaPK());
-				mesaFiltroOrdenWrapper.Y_MVA = generarTotalMesaCategoria(MESA_ORDEN_MVA, MESA_FILTRO_A„O, MESA_FILTRO_A„O_SQL, categoria[i].getCategoriaPK());
-				generarListaMesaCategoria(MESA_ORDEN_MVA, MESA_FILTRO_A„O, MESA_FILTRO_A„O_SQL, categoria[i].getCategoriaPK());
+				mesaFiltroOrdenWrapper.Y_MVA = generarTotalMesaCategoria(MESA_ORDEN_MVA, MESA_FILTRO_AÑO, MESA_FILTRO_AÑO_SQL, categoria[i].getCategoriaPK());
+				generarListaMesaCategoria(MESA_ORDEN_MVA, MESA_FILTRO_AÑO, MESA_FILTRO_AÑO_SQL, categoria[i].getCategoriaPK());
 				mesaFiltroOrdenWrapper.T_MVA = generarTotalMesaCategoria(MESA_ORDEN_MVA, MESA_FILTRO_TOTAL, MESA_FILTRO_TOTAL_SQL, categoria[i].getCategoriaPK());
 				generarListaMesaCategoria(MESA_ORDEN_MVA, MESA_FILTRO_TOTAL, MESA_FILTRO_TOTAL_SQL, categoria[i].getCategoriaPK());
 
 				mesaFiltroOrdenWrapper.M_MP = generarTotalMesaCategoria(MESA_ORDEN_MP, MESA_FILTRO_MES, MESA_FILTRO_MES_SQL, categoria[i].getCategoriaPK());
 				generarListaMesaCategoria(MESA_ORDEN_MP, MESA_FILTRO_MES, MESA_FILTRO_MES_SQL, categoria[i].getCategoriaPK());
-				mesaFiltroOrdenWrapper.Y_MP = generarTotalMesaCategoria(MESA_ORDEN_MP, MESA_FILTRO_A„O, MESA_FILTRO_A„O_SQL, categoria[i].getCategoriaPK());
-				generarListaMesaCategoria(MESA_ORDEN_MP, MESA_FILTRO_A„O, MESA_FILTRO_A„O_SQL, categoria[i].getCategoriaPK());
+				mesaFiltroOrdenWrapper.Y_MP = generarTotalMesaCategoria(MESA_ORDEN_MP, MESA_FILTRO_AÑO, MESA_FILTRO_AÑO_SQL, categoria[i].getCategoriaPK());
+				generarListaMesaCategoria(MESA_ORDEN_MP, MESA_FILTRO_AÑO, MESA_FILTRO_AÑO_SQL, categoria[i].getCategoriaPK());
 				mesaFiltroOrdenWrapper.T_MP = generarTotalMesaCategoria(MESA_ORDEN_MP, MESA_FILTRO_TOTAL, MESA_FILTRO_TOTAL_SQL, categoria[i].getCategoriaPK());
 				generarListaMesaCategoria(MESA_ORDEN_MP, MESA_FILTRO_TOTAL, MESA_FILTRO_TOTAL_SQL, categoria[i].getCategoriaPK());
 
