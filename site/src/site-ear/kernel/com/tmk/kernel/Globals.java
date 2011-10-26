@@ -1560,17 +1560,33 @@ public final class Globals implements XMLLoader.Listener {
 
     public static final String getGoogleAnalytics() {
     	StringBuffer retorno = new StringBuffer();
-    	retorno.append("<script src=\"http://www.google-analytics.com/urchin.js\" type=\"text/javascript\">");
-    	retorno.append(ENTER);
-    	retorno.append("</script>");
-    	retorno.append(ENTER);
-    	retorno.append("<script type=\"text/javascript\">");
-    	retorno.append(ENTER);
-    	retorno.append("_uacct = \"UA-635166-1\";");
-    	retorno.append(ENTER);
-    	retorno.append("urchinTracker();");
-    	retorno.append(ENTER);
-    	retorno.append("</script>");
+
+        retorno.append("<script type=\"text/javascript\">");
+        retorno.append(ENTER);
+        retorno.append("  var _gaq = _gaq || [];");
+        retorno.append(ENTER);
+        retorno.append("  _gaq.push(['_setAccount', 'UA-635166-1']);");
+        retorno.append(ENTER);
+        retorno.append("  _gaq.push(['_trackPageview']);");
+        retorno.append(ENTER);
+        retorno.append("  (function() {");
+        retorno.append(ENTER);
+        retorno.append("    var ga = document.createElement('script');");
+        retorno.append(ENTER);
+        retorno.append("    ga.type = 'text/javascript'; ga.async = true;");
+        retorno.append(ENTER);
+        retorno.append("    ga.src = ('https:' == document.location.protocol ?");
+        retorno.append(           " 'https://ssl' : 'http://www') + ");
+        retorno.append(           "  '.google-analytics.com/ga.js';");
+        retorno.append(ENTER);
+        retorno.append("    var s = document.getElementsByTagName('script')[0];");
+        retorno.append(ENTER);
+        retorno.append("    s.parentNode.insertBefore(ga, s);");
+        retorno.append(ENTER);
+        retorno.append("  })();");
+        retorno.append(ENTER);
+        retorno.append("</script>");
+        retorno.append(ENTER);
 
     	return retorno.toString();
     }
@@ -1579,17 +1595,33 @@ public final class Globals implements XMLLoader.Listener {
 
     	StringBuffer retorno = new StringBuffer("");
     	if (esModoRelease()) {
-	    	retorno.append("<script src=\"https://ssl.google-analytics.com/urchin.js\" type=\"text/javascript\">");
-	    	retorno.append(ENTER);
-	    	retorno.append("</script>");
-	    	retorno.append(ENTER);
-	    	retorno.append("<script type=\"text/javascript\">");
-	    	retorno.append(ENTER);
-	    	retorno.append("_uacct = \"UA-635166-1\";");
-	    	retorno.append(ENTER);
-	    	retorno.append("urchinTracker();");
-	    	retorno.append(ENTER);
-	    	retorno.append("</script>");
+            retorno.append("<script type=\"text/javascript\">");
+            retorno.append(ENTER);
+            retorno.append("  var _gaq = _gaq || [];");
+            retorno.append(ENTER);
+            retorno.append("  _gaq.push(['_setAccount', 'UA-635166-1']);");
+            retorno.append(ENTER);
+            retorno.append("  _gaq.push(['_trackPageview']);");
+            retorno.append(ENTER);
+            retorno.append("  (function() {");
+            retorno.append(ENTER);
+            retorno.append("    var ga = document.createElement('script');");
+            retorno.append(ENTER);
+            retorno.append("    ga.type = 'text/javascript'; ga.async = true;");
+            retorno.append(ENTER);
+            retorno.append("    ga.src = ('https:' == document.location.protocol ?");
+            retorno.append(           " 'https://ssl' : 'http://www') + ");
+            retorno.append(           "  '.google-analytics.com/ga.js';");
+            retorno.append(ENTER);
+            retorno.append("    var s = document.getElementsByTagName('script')[0];");
+            retorno.append(ENTER);
+            retorno.append("    s.parentNode.insertBefore(ga, s);");
+            retorno.append(ENTER);
+            retorno.append("  })();");
+            retorno.append(ENTER);
+            retorno.append("</script>");
+            retorno.append(ENTER);
+
     	}
     	return retorno.toString();
     }
