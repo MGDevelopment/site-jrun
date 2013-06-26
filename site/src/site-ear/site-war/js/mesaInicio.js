@@ -1,5 +1,8 @@
 /*mesaInicio*/
 function verificarFiltros() {
+	// fix mgoldsman 20110905
+	document.getElementById('ctrlDisabled').innerHTML = '<br/><br/><br/><b>Cargando...</b>';
+	// fix mgoldsman 20110905
 	$.ajax({
 		type : 'GET',
 		cache : false,
@@ -18,7 +21,7 @@ function verificarFiltros() {
 				cboF[cboF.length] = new Array('Y', 'Último año');
 			}	
 		    if (obj.filtroOrden.M_TMK_RDA) {
-			    cboO[cboO.length] = new Array('TMK_RDA', 'Te Recomendamos');
+			    cboO[cboO.length] = new Array('TMK_RDA', 'Te Recomendamosb');
 			    hasFiltros.put('TMK_RDA', cboF);
 		    }
 			
@@ -83,6 +86,9 @@ function verificarFiltros() {
 
 //Total de articulos por categoria
 function getTotal() {
+	// fix mgoldsman 20110905
+	document.getElementById('ctrlDisabled').innerHTML = '<br/><br/><br/><b>Cargando...</b>';
+	// fix mgoldsman 20110905
 	inicializarVariables();
 	var aux = "";
 	$.ajax({

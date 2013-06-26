@@ -1,5 +1,8 @@
 var subSeccion="";
 function verificarFiltros() {
+	// fix mgoldsman 20110905
+	document.getElementById('ctrlDisabled').innerHTML = '<br><br><br>Cargando...';
+	// fix mgoldsman 20110905
 	var urlFrom = '/contenidosEstaticos/articulos/mesa/filtroOrdenCat_sec' + idsCat[0];
 	if (subSeccion != "") {
 		urlFrom = urlFrom + subSeccion;
@@ -63,6 +66,9 @@ function verificarFiltros() {
 }
 //Total de articulos por categoria
 function getTotal() {
+	// fix mgoldsman 20110905
+	document.getElementById('ctrlDisabled').innerHTML = '<br><br><br>Cargando...';
+	// fix mgoldsman 20110905
 	inicializarVariables();
 	var urlFrom = '/contenidosEstaticos/articulos/mesa/totalCat' + filtro + "_" + orden + '_sec' + idsCat[0];
 	if (subSeccion != "") {

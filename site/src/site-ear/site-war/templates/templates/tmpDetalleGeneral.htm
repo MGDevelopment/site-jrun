@@ -5,7 +5,7 @@
 	<div id="efectoCarritoB"><a href="javascript:carrito_CloseCarrito();"><img src="/imagenes/b-carrContinuar.gif" alt="Continuar" border="0"></a></div>
 </div>
 <div id="modalBack" style="display:none"></div>    
-<div class="globoArticuloLoad" id="loadArticulo" style="display:none;" >cargando</div>    
+<div class="globoArticuloLoad" id="loadArticulo" style="display:none;" ></div>    
 <div class="globoArticulo" style="display:none;" id="globo" onMouseOver="this.style.display=''"><table  bgcolor="dddddd" border="0" cellspacing="0" cellpadding="0" onMouseOver="this.style.display=''" onMouseOut="ocultarGlobo()">
 	<tr><td>Titulo:</td><td id="artTitulo"></td></tr>
 	<tr id="trAutor"><td id="autor"></td><td id="artAutor"></td></tr>
@@ -37,7 +37,7 @@
             <span>Publicaci&oacute;n: <tmpl_var fechaPublicacion> | Idioma: <tmpl_var idioma></span>
             <div class="dInfoM"><tmpl_if tienePrimerCapitulo><a href="#primerCap">[+] Primer capitulo</a></tmpl_if><tmpl_if tieneIndiceDeContenido><a href="#indCont">[+] Indice de contenidos</a></tmpl_if><tmpl_if tieneBiografia><a href="#biogra">[+] Biografia</a></tmpl_if><tmpl_if tieneEntrevista><a href="#entrevista">[+] Ver Entrevista</a></tmpl_if></div>
             <tmpl_if tieneImagenGrande><a href="javascript:mostrarImagen('<tmpl_var pathImgGde>')">Ampliar imagen</a></tmpl_if>
-			<div id="divEvaluacion"><div id="divEvaluacion"><div class="dInfoCalif"><div class="dInfoCalifStarMod"><span>Calificación delectores:</span><label>	<a href="#">Cargando...</a></label></div><div class="dInfoCalifBoton"><span><a href="#">Cargando...</a></span><a href="#"><div>AGREGAR COMENTARIO</div></a></div></div></div></div>
+			<div id="divEvaluacion"><div id="divEvaluacion"><div class="dInfoCalif"><div class="dInfoCalifStarMod"><span>Calificación de lectores:</span><label>	<a href="#"></a></label></div><div class="dInfoCalifBoton"><span><a href="#"></a></span><a href="#"><div>AGREGAR COMENTARIO</div></a></div></div></div></div>
 		</div>
 	</div>
     <div id="dInfoCompl">
@@ -73,11 +73,11 @@
 	</div>
 </div>
 <!-- <tmpl_var contenidoSEO> -->
-<div id="divModuloExtra"><div id="dTopRight"><div class="dCompra"><p align="center">Cargando extra...</p></div></div></div>	
+<div id="divModuloExtra"><div id="dTopRight"><div class="dCompra"><p align="center"></p></div></div></div>	
 <input type="hidden" value="<tmpl_var idSeccion>" id="idSccion">
 <input type="hidden" value="<tmpl_var precio>" id="precio">
 <input type="hidden" value="<tmpl_var idArticulo>" id="idArticulo">
 <input type="hidden" value="<tmpl_var estaDisponible>" id="estaDisponible">
 <input type="hidden" value="<tmpl_var urlPage>" id="urlPage">
 <input type="hidden" value="<tmpl_var titulo>" id="titulParaRedSocial">
-<div id="dRecomendaciones" style="height: 550px;" ><div id="divArticulosRelacionados"><div class="dRecomendTit" >Cargando obras relacionadas...</div></div></div>
+<div id="dRecomendaciones" style="height: 550px;" ><div id="divArticulosRelacionados"><div class="dRecomendTit" ></div></div></div>

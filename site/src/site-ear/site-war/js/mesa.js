@@ -383,6 +383,9 @@ function ocultarGlobo(){
 }
 function setArticulo(objArticulo) {
 	//alert("setArticulo(objArticulo)");
+	 // fix mgoldsman 20110907
+	 $('#loadArticulo').get(0).innerHTML = 'Cargando';
+	 // fix mgoldsman 20110907
 	 $('#artTitulo').get(0).innerHTML = objArticulo.titulo;
 	 $('#artTitulo').get(0).href = objArticulo.cls_urlDetalle;
 	 $('#precioArticulo').get(0).innerHTML = '$ ' + formatCurrency(objArticulo.cls_precio);
