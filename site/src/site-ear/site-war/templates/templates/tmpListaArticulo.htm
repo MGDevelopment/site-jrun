@@ -31,19 +31,13 @@
 						</tmpl_if>
 					</div>
 				</tmpl_if>
-                                   
-                   <span>Clasificaci&oacute;n: <a href="<tmpl_var urlGenero>"><tmpl_var genero></a></span>
-
+					<!-- fix mg20130617: modificacion en la clasifiacion para que se vea la ruta completa -->
+				   <span>Clasificaci&oacute;n: <tmpl_loop clasificaciones><a href="<tmpl_var urlGenero>"><tmpl_var genero></a></tmpl_loop></span>
                    <tmpl_if tieneSinopsis>
                     <span>Sinopsis:                    
                     		<tmpl_var sinopsis>
                     </span>
-                   </tmpl_if>
-                   <!-- <p>
-                       <div class="dInfoLinks">Listas: <a href="#">apelación</a>, <a href="#">autor</a>, <a href="#">john grisham</a>, <a href="#">abogados</a>, <a href="#">política</a>, <a href="#listas">(15+)</a></div>
-                       <div class="dInfoLinks">Etiquetas: <a href="#">leyes</a>, <a href="#">autor</a>, <a href="#">john grisham</a>, <a href="#">abogados</a>, <a href="#tags">(15+)</a></div>
-                   </p>-->
-                   
+                   </tmpl_if>            
                </div>
            	</div>
                <div class="listadoModAcciones">
@@ -53,22 +47,17 @@
                       <tmpl_var totalEuro></b></span>
                       <tmpl_if estaDisponible>
                       		<a href="javascript:carrito_AgregarArticulo(<tmpl_var idArticulo>);window.scrollTo(0,0);"></a>
-                      <tmpl_else>
-                       	<!-- <a href="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO=<tmpl_var idArticulo>';" rel="nofollow">-->
-	                   	<img onclick="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO=<tmpl_var idArticulo>';" src="/imagenes/rediseno/imagenes/seccion<tmpl_var enSeccion>/b-pedir.png" alt="Pedir" style="cursor: pointer;" />
-	                   		
-	                  	</a>
-	                  </tmpl_if>	
-                   </div>	                   
-                   <!-- se oculta por hasta la implementacion
-                   <h4 class="detalleModMenu">
-                       <a class="detalleBotonMenu" onclick="javascript:desplegarOpciones('detalleList<tmpl_var indice>');javascript:getMisListas(<tmpl_var indice>,<tmpl_var idArticulo>);">
-                       <span>AGREGAR A UNA LISTA</span></a>                       
-                      	el contenido del div de abajo se llena dinamicamente con ajax, lenvatado con el js jsListasTmk.js
-                       <h5  class="detalleListaMenu" id="detalleList<tmpl_var indice>" onMouseOver="clearTimeout(tempo);" onmouseout="ocultarOpcionesT('detalleList<tmpl_var indice>');" style="display:none;z-index:15">                                              	   
-                       </h5>
-                   </h4>
-                   -->
+                      </tmpl_else>
+	                   		<!-- fix mg20130611: No disponible (id = 3)-->
+	                    	<tmpl_if noDisponible>
+	                    		<img src="/imagenes/rediseno/imagenes/seccion<tmpl_var enSeccion>/b-noDisp.png" alt="No Disponible" title="Actualmente este art&iacute;culo no puede ser solicitado como Pedido Especial"/>
+	                    	<tmpl_else>
+	                      	<!-- <a href="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO=<tmpl_var idArticulo>';" rel="nofollow">-->
+	                   			<img onclick="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO=<tmpl_var idArticulo>';" src="/imagenes/rediseno/imagenes/seccion<tmpl_var enSeccion>/b-pedir.png" alt="Pedir" style="cursor: pointer;" />
+	                  		<!--  /a -->
+	              			</tmpl_if>
+              		  </tmpl_if>	
+                   </div>
                </div>
            </div><!-- FIN 01 --> 
 	</tmpl_loop>
