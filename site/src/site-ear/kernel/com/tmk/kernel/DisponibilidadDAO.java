@@ -121,15 +121,25 @@ import java.util.Vector;
 
 public class DisponibilidadDAO {
 
+	private static int idNoDisponible = 3;
+	
 	private int id;
 	private String nombre;
 	private boolean estaDisponible;
+	private boolean noDisponible;
 
 	public DisponibilidadDAO(int id, String nombre, boolean estaDisponible) {
 		super();
 		this.id = id;
 		this.nombre = Convert.toJavaScript(nombre, false);
-		this.estaDisponible = estaDisponible;
+		// fix mg20130611: No disponible (id = 3)
+		if (id == DisponibilidadDAO.idNoDisponible) {
+			this.noDisponible = true;
+			this.estaDisponible = false;
+		} else { 
+			this.estaDisponible = estaDisponible;
+			this.noDisponible = false;
+		}
 	}
 
 	public int getId() {
@@ -167,6 +177,14 @@ public class DisponibilidadDAO {
 		return (idDisponibilidad == null)
 		        ? Globals.DISPONIBILIDAD_DESCONOCIDA
 		        : buscaDisponibilidad(idDisponibilidad.intValue());
+	}
+
+	public boolean isNoDisponible() {
+		return noDisponible;
+	}
+
+	public void setNoDisponible(boolean noDisponible) {
+		this.noDisponible = noDisponible;
 	}
 
 	static {
