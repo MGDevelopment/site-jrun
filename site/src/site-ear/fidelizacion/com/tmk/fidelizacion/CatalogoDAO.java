@@ -181,8 +181,11 @@ public class CatalogoDAO {
 						                        resultSet.getDate("HABILITADO_FECHA")));
 					        }
 				        });
-				Globals.CATALOGOS = (CatalogoDAO)catalogo.get(0); //(CatalogoDAO[]) catalogo.toArray(new CatalogoDAO[catalogo.size()]);
-				CatalogoDAO.clearCaches();
+				// FIX mgoldsman 12/07/2011
+				if (catalogo != null && !catalogo.isEmpty()) {
+					Globals.CATALOGOS = (CatalogoDAO)catalogo.get(0); //(CatalogoDAO[]) catalogo.toArray(new CatalogoDAO[catalogo.size()]);
+					CatalogoDAO.clearCaches();
+				}
 			}
 
 			protected String getMensaje() {
