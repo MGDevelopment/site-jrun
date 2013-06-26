@@ -1,5 +1,5 @@
 <%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
-<tiles:useAttribute name="idSeccion" scope="session" ignore="true" classname="java.lang.Long"/>
+<tiles:useAttribute name="idSeccion" scope="session" ignore="true" classname="java.lang.Integer"/>
 <tiles:useAttribute name="idGrupo" scope="request" ignore="true" classname="java.lang.String"/>
 <tiles:useAttribute name="idFamilia" scope="request" ignore="true" classname="java.lang.String"/>
 <tiles:useAttribute name="idSubFamilia" scope="request" ignore="true" classname="java.lang.String"/>
