@@ -1,5 +1,7 @@
 @echo off
 
+rem DEPRECATED
+
 echo Borra temporales?
 pause
 
