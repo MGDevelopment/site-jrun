@@ -491,7 +491,17 @@ public class OrdenDAO implements Serializable {
     
     private Vector tarjetasPrepagas = new Vector();
         
+    // mg20130422 : agregado de importeReembolso
+    private double importeReembolso = 0.0;
     
+	public double getImporteReembolso() {
+		return importeReembolso;
+	}
+
+	public void setImporteReembolso(double importeReembolso) {
+		this.importeReembolso = importeReembolso;
+	}
+
 	public OrdenDAO() {
 		super();
 		// La crea el usuario, registra la fecha de creacion
@@ -905,7 +915,11 @@ public class OrdenDAO implements Serializable {
 	
 	
 //PROMOII
+	// fix mg20130503: sobrecarga de metodo
 	public double totalSitioCompleto() {
+		return totalSitioCompleto(false);
+	}
+	public double totalSitioCompleto(boolean sinReembolso) {
 		double total = 0.0; 
 		//double interes = 0.0;
 		total = (interesCobradoDAO == null) ? 0.0 : interesCobradoDAO.getPrecioPromocion();
@@ -922,6 +936,9 @@ public class OrdenDAO implements Serializable {
 				total = total + articulo.getPapelDeRegalo().getPrecioPromocion() * articulo.getPapelDeRegalo().getCantidad(); 
 			}
 		}
+		// fix mg20130422: agregado de reembolso
+		if (!sinReembolso)
+			total += this.getImporteReembolso();
 		return Convert.round(total);
 	}
 
