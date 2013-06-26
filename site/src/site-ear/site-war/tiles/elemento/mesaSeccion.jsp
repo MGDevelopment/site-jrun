@@ -1,7 +1,7 @@
 <%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
 <%@page import="com.tmk.kernel.Globals"%>
 <tiles:useAttribute name="idSeccion" scope="page" ignore="true" classname="java.lang.Integer"/> 
-<div class="globoArticuloLoad" id="loadArticulo" style="display:none;" >cargando</div>
+<div class="globoArticuloLoad" id="loadArticulo" style="display:none;" ></div>
 <div class="globoArticulo" style="display:none;" id="globo" onMouseOver="this.style.display=''; clearTimeout(tempo);" onmouseout="tempo=setTimeout('ocultarGlobo()',10);">
 	<div id="globoArticuloTop" class="globoArticuloTop">
 		<a id="linkDetalleImagen" href="">
@@ -53,7 +53,6 @@ try{
 <table border="0" cellpadding="0" cellspacing="0"><tr><td>
 <table  border="0" cellpadding="0" cellspacing="0"><tr><td>
 <div class="disabledEfectCtrl" id="ctrlDisabled" style="font-family:'Tahoma'; text-align:center;vertical-align:middle; font-size: 30px;font-weight:bolder; ;">
-<br><br><br>Cargando...
 </div>
 </td></tr><tr style="display:none;"><td colspan="4" align="center">
 <select id="orden" name="orden" onChange="cargarFiltro();"></select>

@@ -1,4 +1,4 @@
-<div class="globoArticuloLoad" id="loadArticulo" style="display:none;" >cargando</div>
+<div class="globoArticuloLoad" id="loadArticulo" style="display:none;" ></div>
 <div class="globoArticulo" style="display:none;" id="globo" onmouseover="this.style.display=''; clearTimeout(tempo);" onmouseout="tempo=setTimeout('ocultarGlobo();',10);">
 <div id="globoArticuloTop" class="globoArticuloTop">
 <a id="linkDetalleImagen" href=""><img id="urlImagen" class="globoArticuloTapa" src="" alt=""/></a>
@@ -75,9 +75,7 @@ El horario de entrega para los pedidos dentro de Argentina es de Lunes a Viernes
 <table  border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td>
-<div class="disabledEfectCtrl" id="ctrlDisabled" style="font-family:'Tahoma'; text-align:center;vertical-align:middle; font-size: 30px;">                                        	
-<br/><br/><br/>
-<b>Cargando...</b>
+<div class="disabledEfectCtrl" id="ctrlDisabled" style="font-family:'Tahoma'; text-align:center;vertical-align:middle; font-size: 30px;">
 </div>
 </td>
 </tr>
