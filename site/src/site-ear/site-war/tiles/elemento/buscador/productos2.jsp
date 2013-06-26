@@ -51,8 +51,7 @@ div .arbol{
 	int seccionElegida = Convert.toNumber(idSeccion, Globals.SECCION_HOME);
 	String textoABuscar = request.getParameter(BuscadorHelper.TEXTO);
 %>
-<%
-	// Lo crea vacio al comienzo por si alguna clasificacion no esta terminada, o si el usuario quita algun parametro intencionalmente
+<%	// Lo crea vacio al comienzo por si alguna clasificacion no esta terminada, o si el usuario quita algun parametro intencionalmente
 	BusquedaGenerica busquedaDAO;
 	textoABuscar = (textoABuscar != null)? textoABuscar.replaceAll("\\'", " "): "";
 	Integer seccion = Convert.toNumber(seccionElegida + "", (Integer)null);
@@ -375,7 +374,14 @@ div .arbol{
 					                while (clasificacion.getSubCategoria().length>0) {
 					                	clasificacion = clasificacion.getSubCategoria()[0];			
 					        		}
-			                		String genero=Convert.capitalizar(clasificacion.getDescripcion(), true);
+					                
+					                // fix mg20130418: cambiar s__d por Varios para la clasificacion
+					                String genero = "";
+					                if ("s__d".equals(clasificacion.getDescripcion())) {
+					                	genero = "Varios";	
+					                } else {
+			                			genero=Convert.capitalizar(clasificacion.getDescripcion(), true);
+					                }
 			                		
 			                		BusquedaPorCategorias busquedaPorCategoria = new BusquedaPorCategorias(
 			        						articulo.getCategoria().getSubCategoria()[0].getDescripcion(), 
@@ -389,7 +395,7 @@ div .arbol{
 			        						!disponibilidad.estaDisponible());		
 			                		
 			                		StringBuffer urlGenero=busquedaPorCategoria.salto();
-			                		
+     					           
 			                %>
 			                	<span>Clasificaci&oacute;n: <a href="<%=urlGenero%></a>"><%=genero%></a></span>
 			                <%	} %>
