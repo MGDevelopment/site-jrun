@@ -3,16 +3,20 @@
     	<div class="vPrevModif">
             <div class="vistaPrevTit1"><span>Productos:</span></div>
             <div class="vistaPrevTit2"><span>¿Regalo?</span></div>
-            <div class="vistaPrevTit3"><span>Dedicatoria:</span></div>
-            <div class="vistaPrevTit4"><span>Descuento:</span></div>
+            <div class="vistaPrevTit3" align="center"><span>Subtotal:</span></div>
+            <div class="vistaPrevTit4" align="center"><span>Beneficio:</span></div>
             <tmpl_loop articulos>
             	<table border="0" cellspacing="0" cellpadding="0">
               	<tr>
                 	<td class="vPrevTD1">
-                		<a href="<tmpl_var urlDetalle>" class="dInfoTit"><tmpl_var titulo> (x<tmpl_var cantidadArticulo>) </a>
+                		<a href="<tmpl_var urlDetalle>" class="dInfoTit"><tmpl_var titulo><br><tmpl_var precio>
+                		<tmpl_if cantidadMayor1>
+                			 (x<tmpl_var cantidadArticulo>)
+                		</tmpl_if>
+                		</a>
                 	</td>
-                	<td class="vPrevTD2"><span><tmpl_var textoSobre></span></td>
-                	<td class="vPrevTD3"><span><tmpl_var tieneMensaje></span></td>
+                	<td class="vPrevTD2"><span><tmpl_var regalo></span></td>
+                	<td class="vPrevTD3"><span><b><tmpl_var subTotal></b></span></td>
                 	<td class="vPrevTD4"><span><tmpl_var descuento></span></td>
               	</tr>
             	</table>
@@ -20,20 +24,23 @@
             </tmpl_loop>            
             <div class="vistaPrevTit1"><a href="/compra/carrito.do" class="cProcForButton">MODIFICAR</a></div>
             <div class="vistaPrevTit2"><a href="/compra/papelDeRegalo.do" class="cProcForButton">MODIFICAR</a></div>
-            <div class="vistaPrevTit3"><a href="/compra/papelDeRegalo.do" class="cProcForButton">MODIFICAR</a></div>
+            <!-- div class="vistaPrevTit3"><a href="/compra/papelDeRegalo.do" class="cProcForButton">MODIFICAR</a></div-->
             <!-- <div class="vistaPrevTit4"><a href="#" class="cProcForButton">MODIFICAR</a></div>-->
         </div>
         
         <div class="vPreviResumen">
-        	<b>Productos:</b><span><tmpl_var subTotal></span><br />
-            <b>Envío:</b><span><tmpl_var totalGastoEnvio></span><br />
-            <b>Sobres:</b><span><tmpl_var totalPapelRegalo></span><br />
+        	<div style="text-align:left;font-size: 12px;"><b>Productos:</b><div style="text-align:right;font-size: 12px;"><span><tmpl_var subTotal></span></div></div>
+            <div style="text-align:left;font-size: 12px;"><b>Sobres:</b><div style="text-align:right;font-size: 12px;"><span><tmpl_var totalPapelRegalo></span></div></div>
             <tmpl_if esTarjeta>
             	<tmpl_if interes>
-            		<b>Inter&eacute;s:</b><span><tmpl_var interes></span><br />
+            		<div style="text-align:left;font-size: 12px;"><b>Inter&eacute;s:</b><div style="text-align:right;font-size: 12px;"><span><tmpl_var interes></span></div></div>
             	</tmpl_if>
             </tmpl_if>
-            <b>Beneficios:</b><span><p> <tmpl_var totalBeneficio></p></span><br />            
+            <div style="text-align:left;font-size: 12px;"><b>Beneficios:</b><div style="text-align:right;font-size: 12px;"><span><p> <tmpl_var totalBeneficio></p></span></div></div>
+            <div style="text-align:left;font-size: 12px;"><b>Envío:</b><div style="text-align:right;font-size: 12px;"><span><tmpl_var totalGastoEnvio></span></div></div>
+            <!-- fix mg20130422: agregado de reembolsos -->
+            <div style="text-align:left;font-size: 12px;"><b>Reembolso:</b><div style="text-align:right;font-size: 12px;"><span><tmpl_var totalReembolso></span></div><br /></div>            
+            <br>
             <div>Total: </div>
             <div style="text-align:right;"><tmpl_var total></div>            
             <div style="text-align:right;"><tmpl_var totalDolar></div>
