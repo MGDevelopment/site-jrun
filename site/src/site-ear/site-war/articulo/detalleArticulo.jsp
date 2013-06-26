@@ -11,6 +11,8 @@
 <%
 	response.setStatus(301);
 	String newLocation="";
+	String idAlianza="";
+	String idSeccion="";
 	if((request.getParameter("isbn")!=null)&&(!request.getParameter("isbn").equals("")))
 		newLocation="/buscar.do?claveDeBusqueda=porISBN&idSeccionPropia=1" +
 					"&optSeleccionada=ISBN&idSeccion=1&seccionDeBusqueda=En%20Libros" +
@@ -21,9 +23,13 @@
 			Articulo articulo=ServiceLocator.getArticuloService().getDatosPrincipal(idArticulo);
 			newLocation=articulo.getUrlDetalle();
 			if(request.getParameter("ID_ALIANZA")!=null)
-				newLocation=newLocation.replace(".htm", "--"+request.getParameter("ID_ALIANZA")+".htm");
+				idAlianza = request.getParameter("ID_ALIANZA");
+				//newLocation=newLocation.replace(".htm", "--"+request.getParameter("ID_ALIANZA")+".htm");
 			if(request.getParameter("ID_SECCION")!=null)
-				newLocation=newLocation.replace(".htm", "--"+request.getParameter("ID_SECCION")+".htm");
+				idSeccion = request.getParameter("ID_SECCION");
+							//newLocation=newLocation.replace(".htm", "--"+request.getParameter("ID_SECCION")+".htm");
+			newLocation=newLocation.replace(".htm", ".htm?ID_ARTICULO="+request.getParameter("idArticulo")+
+												     "&ID_ALIANZA="+idAlianza+"&ID_SECCION="+idSeccion);
 		}catch(Exception e){
 			TmkLogger.error(e);
 			newLocation="/articulo/detalleArticuloRedireccionSEO.jsp";
