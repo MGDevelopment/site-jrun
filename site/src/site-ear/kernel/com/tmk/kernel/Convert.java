@@ -634,7 +634,13 @@ public final class Convert {
 		}
 		return capitalizar(result, true);
 	}
-
+	
+	// fix mg20130306: corregirCasosEspeciales()
+	// fix mg20130311: correcciones casos "..."
+	public static final String corregirCasosEspeciales(String original) {
+		return original.replaceAll("¡", "").replaceAll("!", "").replace("...", " ...");
+	}
+	
 	/**
 	 * Capitaliza el texto. Se puede elegir si solo el comienzo de la frase o todas las palabras.
 	 */
@@ -645,10 +651,15 @@ public final class Convert {
 	/**
 	 * Capitaliza el texto. Se puede elegir si solo el comienzo de la frase o todas las palabras.
 	 */
+	// mg20130227: elimine la logica de reemplazo de los caracteres space + , o space + ; o space + .
+	// mg20130617: logica de reemplazo para Sr., Sra., Mr., Mrs., Ms.
 	public static final String corregir(String original, boolean todasLasPalabras, boolean cambiarArticulos) {
 		if (original == null) return "";
 		// Variable resultado
-		String result = original.trim().toUpperCase().replaceFirst("\\.", " .").replaceFirst(",", " , ").replaceFirst(";", " ; ").replaceFirst("-", " - ").replaceFirst("/", " / ").replaceAll("  ", " ");
+		String result = original.trim().toUpperCase()
+				.replaceAll("SR.", "@1").replaceAll("SRA.", "@2").replaceAll("MR.", "@3").replaceAll("MRS.", "@4").replaceAll("MS.", "@5")
+				.replaceAll(" \\. ", "@6")
+				.replaceFirst("\\.", " .").replaceFirst(",", " , ").replaceFirst(";", " ; ").replaceFirst("-", " - ").replaceFirst("/", " / ").replaceAll("  ", " ");
 		if (Globals.MEJORAR_TEXTOS) {
 			// Prepara para aplicar los cambios
 			result = capitalizarOriginal((cambiarArticulos) ? mejorarTextos(result) : result, todasLasPalabras).append(' ').toString();
@@ -665,7 +676,10 @@ public final class Convert {
 				result = reemplaza(result, puntuacion[item].getOrigen(), puntuacion[item].getDestino());
 			}
 		}
-		return result.replaceFirst(" \\.", ".").replaceFirst(" ,", ",").replaceFirst(" ;", ";").trim();
+		return result
+				.replaceAll("@1", "Sr.").replaceAll("@2", "Sra.").replaceAll("@3", "Mr.").replaceAll("@4", "Mrs.").replaceAll("@5.", "Ms.")
+				.replaceFirst(" \\...", "...").replaceFirst(" \\.", ".").replaceFirst(" ,", ",").replaceFirst(" ;", ";")
+				.replaceAll("@6", " . ").trim();
 	}
 
 
@@ -1533,8 +1547,8 @@ public final class Convert {
 		return texto;
 	}
 
-
-	public static String soloLetrasYNros(String cadena) {
+	// fix mg20130221: modificacion para el soloLetrasYNrosCategoria
+	public static String soloLetrasYNrosCategoria(String cadena) {
 		StringBuffer retorno = new StringBuffer("");
 		int c = 0;
 		for (int i = 0; i < cadena.length(); i++) {
@@ -1544,7 +1558,39 @@ public final class Convert {
 			}
 			if (c == 44 || c == 45 || c == 46 || c == 32) {
 				retorno.append("_");
+			}			
+		}
+		return retorno.toString();
+	}
+	
+	// fix mg20130221: control por nuevos caracteres y combinacion de anulacion de secuencia
+	public static String soloLetrasYNros(String cadena) {
+		StringBuffer retorno = new StringBuffer("");
+		int c = 0;
+		int cAnt = 0;
+		for (int i = 0; i < cadena.length(); i++) {
+			c = (int)cadena.charAt(i);
+			if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122)) {
+				retorno.append(cadena.charAt(i));
 			}
+			
+			if (c == 180 || c == 32 || c == 46 || c == 44 || c == 45) {
+				retorno.append("_");
+			}
+			// combinacion space? o .? anula hasta encontrar un caracter <> _
+			if ((cAnt == 32 || cAnt == 46) && c == 63) {
+				try {
+					while(true) {
+						if (retorno != null && !"".equals(retorno) && retorno.charAt(retorno.length()-1) == '_')
+							retorno.deleteCharAt(retorno.length()-1);
+						else
+							break;
+					}
+				} catch (Exception e) {
+					//e.printStackTrace()
+				}
+			}
+			cAnt = c;
 		}
 		return retorno.toString();
 	}
