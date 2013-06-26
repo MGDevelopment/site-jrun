@@ -1419,15 +1419,20 @@ public final class DBUtil {
 	public static final double cargarUltimaCotizacion(int idMoneda) throws Exception {
 		Connection connection = buildConnection();
 		try {
+			// FIX mgoldsman 20110806 - begin
 			PreparedStatement statement = connection.prepareStatement(
 			        "SELECT COMPRA FROM COTIZACIONES c WHERE c.ID_MONEDA = ?" +
 			        " AND c.FECHA_VIGENCIA = " +
 			        "  (SELECT MAX(d.FECHA_VIGENCIA) " +
 			        "   FROM COTIZACIONES d " +
-			        "   WHERE d.ID_MONEDA = c.ID_MONEDA AND d.FECHA_VIGENCIA <= SYSDATE)");
+			        "   WHERE d.ID_MONEDA = ? AND d.FECHA_VIGENCIA <= SYSDATE)");
+			// FIX mgoldsman 20110806 - end
 			try {
 				int index = 0;
 				statement.setInt(++index, idMoneda);
+				// FIX mgoldsman 20110806 - begin
+				statement.setInt(++index, idMoneda);
+				// FIX mgoldsman 20110806 - end
 				ResultSet resultSet = statement.executeQuery();
 				try {
 					resultSet.next();
