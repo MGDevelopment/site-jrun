@@ -852,6 +852,38 @@ public class OrdenService {
 						        itemOrden);
 					}					
 				}
+				
+				if (ordenDAO.getImporteReembolso() > 0) {
+					// fix mg20130425: agrego a los items el concepto de reembolso
+					// articulo concepto reembolso
+					Integer idArticulo = new Integer(562477);
+					//Integer idArticulo = new Integer(666);
+					// crea un item de orden
+					TmkLogger.info("Orden #" + idOrden + ": grabando item orden " + idArticulo + "...");
+					//obtiene la secuencia que le corresponde a cada item.
+					Long itemOrden = DBUtil.getSequenceLong("TEMATIKA.ITEM_ORDEN_SEQ");
+					itemOrdenLocalHome.create(
+					        idOrden,
+					        idArticulo,
+					        1,
+					        new Double(Convert.round(ordenDAO.getImporteReembolso())),
+					        null,
+					        new Double(Convert.round(ordenDAO.getImporteReembolso())),
+					        new Double(Convert.round(ordenDAO.getImporteReembolso())),
+					        new Double(Convert.round(ordenDAO.getImporteReembolso())),
+					        null,
+					        null,
+					        null,
+					        new Double(Convert.round(ordenDAO.getImporteReembolso())),
+							null,
+					        itemOrden,
+					        null,
+					        null,
+					        null,
+					        null,
+					        null
+					);
+				}
 				//FIN GRABADO ITEM DE ORDEN
 				
 				// Si tiene un cupon que quede en el log
