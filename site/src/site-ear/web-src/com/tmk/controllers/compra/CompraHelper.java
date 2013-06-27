@@ -738,7 +738,8 @@ public class CompraHelper {
 				TmkLogger.debug("total orden sin recargo: " + ordenDAO.totalSitioCompleto());
 				double monto = (ordenDAO.totalSitioCompleto() * importeExtra) /100;
 
-				articulo.getGastoDeEvio().agregarRecargo(monto);
+				// mg20130422: no suma el importe del reembolso a los gastos de envio
+				//articulo.getGastoDeEvio().agregarRecargo(monto);
 			}
 		}
 
@@ -751,6 +752,9 @@ public class CompraHelper {
 		
 		Promocion2.aplicarPromocion(ordenDAO, new com.tmk.socio.SocioPK(socioPK.ID_SUCURSAL,socioPK.ID_SOCIO));
 		ordenDAO.recalcularIntereses();
+		
+		// calculo reembolso 
+		ordenDAO.setImporteReembolso((ordenDAO.totalSitioCompleto(true) * importeExtra) /100);
 
 		//tarjeta prepaga
 		if (ordenDAO.getMedioDeCobro() != null) {
