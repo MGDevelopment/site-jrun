@@ -1,2 +1,73 @@
-/*detalleArticulo.js*/
-eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('3 A(1){1=$(\'#b\').2(0).5;6 c=$(\'#c\').2(0).5;$.o({p:\'/q.8?7=\'+9.a()+\'&1=\'+1+\'&c=\'+c,r:s,t:3(d){$(\'#g\').2(0).f=\'\';$(\'#g\').2(0).f=d;m(d==""){$(\'#u\').2(0).v.w="x"}h()}})}3 B(){6 1=$(\'#b\').2(0).5;$(\'#C\').e(\'/D.8?7=\'+9.a()+\'&1=\'+1)}3 E(1){1=$(\'#b\').2(0).5;6 c=4;$.o({p:\'/q.8?7=\'+9.a()+\'&1=\'+1+\'&c=\'+c,r:s,t:3(d){m(d==""||d.F==0){$(\'#u\').2(0).v.w="x"}y{$(\'#g\').2(0).f=\'\';$(\'#g\').2(0).f=d;h()}}})}3 G(){6 i=$(\'#i\').2(0).5;6 j=$(\'#j\').2(0).5;6 k=$(\'#k\').2(0).5;$(\'#H\').e(\'/I.8?7=\'+9.a()+\'&i=\'+i+\'&j=\'+j+\'&1=\'+$(\'#1\').2(0).5+\'&k=\'+k)}3 J(1){1=$(\'#b\').2(0).5;$(\'#K\').e(\'/L.8?7=\'+9.a()+\'&1=\'+1)}3 h(7){m($(\'#l\').2(0)==M){N("h()",O)}y{6 l=$(\'#l\').2(0).f;P(l)}}3 Q(n){R.S(\'/T/U/V.W?n=\'+n+\'&X=\',\'\',\'Y=0,Z=0,10=11,12=13,14=z,15=z\')}3 16(){6 1=$(\'#b\').2(0).5;$(\'#17\').e(\'/18.8?7=\'+9.a()+\'&1=\'+1)}3 19(){6 1=$(\'#b\').2(0).5;$(\'#1a\').e(\'/1b.8?7=\'+9.a()+\'&1=\'+1)}3 1c(1){6 1=$(\'#b\').2(0).5;$(\'#1d\').e(\'/1e.8?1=\'+1+\'&7=\'+9.a())}',62,77,'|idArticulo|get|function||value|var|param|do|Math|random|articulo|cantidad|data|load|innerHTML|divComentarios|lanzarPopego|idSeccion|precio|estaDisponible|scriptPopego|if|path|ajax|url|GetComentarioXArticuloAction|cache|false|success|comentarios|style|display|none|else|30|verTodosComentarios|getEvaluacionDeArticulo|divEvaluacion|GetEvaluacionXArticuloAction|verTodosComentarios1|length|getModuloExtra|divModuloExtra|GetModuloExtraAction|getArticulosRelacionados|divArticulosRelacionados|GetArticulosRelacionadosAction|null|setTimeout|1000|eval|mostrarImagen|window|open|componentes|comunes|detalleTapaNuevo|jsp|textoH1|toolbar|status|scrollbars|no|resizable|yes|width|height|getPrimerCapitulo|divPrimerCapitulo|GetPrimerCapitulo|getBiografia|divBiografia|GetBiografiaByIdArticulo|getEntrevista|divEnrevista|GetEntrevista'.split('|'),0,{}))
+function verTodosComentarios(idArticulo) {
+    idArticulo = $('#articulo').get(0).value;
+    var cantidad = $('#cantidad').get(0).value;
+    $.ajax({
+        url: '/GetComentarioXArticuloAction.do?param=' + Math.random() + '&idArticulo=' + idArticulo + '&cantidad=' + cantidad,
+        cache: false,
+        success: function (data) {
+            $('#divComentarios').get(0).innerHTML = '';
+            $('#divComentarios').get(0).innerHTML = data;
+            if (data == "") {
+                $('#comentarios').get(0).style.display = "none"
+            }
+            lanzarPopego()
+        }
+    })
+}
+function getEvaluacionDeArticulo() {
+	$('#divEvaluacion').get(0).innerHTML = '<div id="divEvaluacion"><div class="dInfoCalif"><div class="dInfoCalifStarMod"><span>Calificación de lectores:</span><label>	<a href="#">Cargando...</a></label></div><div class="dInfoCalifBoton"><span><a href="#">Cargando...</a></span><a href="#"><div>AGREGAR COMENTARIO</div></a></div></div></div>';
+	var idArticulo = $('#articulo').get(0).value;
+    $('#divEvaluacion').load('/GetEvaluacionXArticuloAction.do?param=' + Math.random() + '&idArticulo=' + idArticulo)
+}
+function verTodosComentarios1(idArticulo) {
+    idArticulo = $('#articulo').get(0).value;
+    var cantidad = 4;
+    $.ajax({
+        url: '/GetComentarioXArticuloAction.do?param=' + Math.random() + '&idArticulo=' + idArticulo + '&cantidad=' + cantidad,
+        cache: false,
+        success: function (data) {
+            if (data == "" || data.length == 0) {
+                $('#comentarios').get(0).style.display = "none"
+            } else {
+                $('#divComentarios').get(0).innerHTML = '';
+                $('#divComentarios').get(0).innerHTML = data;
+                lanzarPopego()
+            }
+        }
+    })
+}
+function getModuloExtra() {
+	$('#divModuloExtra').get(0).innerHTML = '<div id="dTopRight"><div class="dCompra"><p align="center">Cargando extra...</p></div></div>';
+    var idSeccion = $('#idSeccion').get(0).value;
+    var precio = $('#precio').get(0).value;
+    var estaDisponible = $('#estaDisponible').get(0).value;
+    $('#divModuloExtra').load('/GetModuloExtraAction.do?param=' + Math.random() + '&idSeccion=' + idSeccion + '&precio=' + precio + '&idArticulo=' + $('#idArticulo').get(0).value + '&estaDisponible=' + estaDisponible)
+}
+function getArticulosRelacionados(idArticulo) {
+	$('#divArticulosRelacionados').get(0).innerHTML = '<div class="dRecomendTit" >Cargando obras relacionadas...</div>';
+	idArticulo = $('#articulo').get(0).value;
+    $('#divArticulosRelacionados').load('/GetArticulosRelacionadosAction.do?param=' + Math.random() + '&idArticulo=' + idArticulo)
+}
+function lanzarPopego(param) {
+    if ($('#scriptPopego').get(0) == null) {
+        setTimeout("lanzarPopego()", 1000)
+    } else {
+        var scriptPopego = $('#scriptPopego').get(0).innerHTML;
+        eval(scriptPopego)
+    }
+}
+function mostrarImagen(path) {
+    window.open('/componentes/comunes/detalleTapaNuevo.jsp?path=' + path + '&textoH1=', '', 'toolbar=0,status=0,scrollbars=no,resizable=yes,width=30,height=30')
+}
+function getPrimerCapitulo() {
+    var idArticulo = $('#articulo').get(0).value;
+    $('#divPrimerCapitulo').load('/GetPrimerCapitulo.do?param=' + Math.random() + '&idArticulo=' + idArticulo)
+}
+function getBiografia() {
+    var idArticulo = $('#articulo').get(0).value;
+    $('#divBiografia').load('/GetBiografiaByIdArticulo.do?param=' + Math.random() + '&idArticulo=' + idArticulo)
+}
+function getEntrevista(idArticulo) {
+    var idArticulo = $('#articulo').get(0).value;
+    $('#divEnrevista').load('/GetEntrevista.do?idArticulo=' + idArticulo + '&param=' + Math.random())
+}
