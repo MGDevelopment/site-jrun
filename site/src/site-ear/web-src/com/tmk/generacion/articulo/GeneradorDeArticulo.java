@@ -78,6 +78,9 @@ public class GeneradorDeArticulo {
 	//TIENE EN CUENTA IMAGEN
 	public static final String TIENE_EN_CUENTA_IMAGEN =" AND a.archivo_imagen in ('C', 'T') ";
 
+	//Control de la cantidad de Links generados para SEO
+	private static int maxLen = 10;
+	
 	public static void generarMesa() throws Exception {
 		try {
 			MesaFiltroOrdenWrapper mesaFiltroOrdenWrapper = new MesaFiltroOrdenWrapper();
@@ -319,6 +322,7 @@ public class GeneradorDeArticulo {
 								try {
 									if((rs.getInt("categoria_seccion")<articulos.length)
 										&&(iterador[rs.getInt("categoria_seccion")]<articulos[rs.getInt("categoria_seccion")].length)){
+										
 										articulos[rs.getInt("categoria_seccion")][iterador[rs.getInt("categoria_seccion")]] = rs.getInt("id_articulo");
 										iterador[rs.getInt("categoria_seccion")]++;
 										iteradorGlobal[rs.getInt("categoria_seccion")]++;
@@ -680,14 +684,18 @@ public class GeneradorDeArticulo {
 			ids.add(articulos[i]);
 		}		
 		Collection<Articulo> bos = ServiceLocator.getArticuloService().getListaArticulosParaSEO(ids);
+		int count = 0;
 		if(bos!=null && bos.size() > 0) {
+			if (bos.size() < 10) { 
+				maxLen = bos.size();
+			}
 			Template tmpSEO = (Template )ServiceLocator.getTemplateService().getTemplate("tmpLinksMesa");
-			Vector vecDetalles = new Vector(bos.size());//guarda todos los detalles
+			Vector vecDetalles = new Vector(maxLen);//guarda todos los detalles
 			Hashtable hasDetalles = null;		
 			Vector vecAutores = null;		
 			Iterator<Articulo> itArticulo = bos.iterator();
 			while(itArticulo.hasNext()){
-				hasDetalles = new Hashtable(bos.size());
+				hasDetalles = new Hashtable(maxLen);
 				Articulo articulo = itArticulo.next();  
 				articulo.setUrlDetalle();
 				//hasDetalles.put("urlDetalle", articulo.getUrlDetalle());
@@ -713,6 +721,11 @@ public class GeneradorDeArticulo {
 				}	
 				hasDetalles.put("dominio", Globals.DOMINIO_SITIO);
 				vecDetalles.add(hasDetalles);
+				
+				count++;
+				if (count == maxLen) {
+					break;
+				}
 			}		
 			tmpSEO.setParam("links", vecDetalles);
 			tmpSEO.setParam("dominio", Globals.DOMINIO_SITIO);
