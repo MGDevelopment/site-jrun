@@ -329,9 +329,12 @@ public class Articulo extends DBO {
 		this.cls_urlImagen = getImagen();
 	}
 
+	// fix mg20121005: modificacion URLs para la busqueda de articulos en catgorias S/D
+	// fix mg20130221: modificacion para el soloLetrasYNrosCategoria
+	// fix mg20130306: corregirCasosEspeciales()
 	public void setUrlDetalle() {
 		if(this.cls_urlDetalle!=null){
-			return ;
+			return;
 		}
 		Categoria categoria = getCategoria();
 		StringBuffer url = new StringBuffer();
@@ -345,15 +348,27 @@ public class Articulo extends DBO {
 		}
 		while (categoria.getSubCategoria().length>0) {
 			categoria = categoria.getSubCategoria()[0];
-			String descripcion=Convert.soloLetrasYNros(Convert.sinTildesNiEnie(Convert.corregir(categoria.getDescripcion(), true)).toLowerCase());
+			String descripcion = "";
+			if ("s__d".equals(categoria.getDescripcion())) {
+				descripcion = categoria.getDescripcion();
+			} else {
+				descripcion=Convert.soloLetrasYNrosCategoria(Convert.sinTildesNiEnie(Convert.corregir(categoria.getDescripcion(), true)).toLowerCase());
+			}
 			while(descripcion.endsWith("_"))
 				descripcion=descripcion.substring(0, descripcion.length()-1);				
-			url.append("/").append(descripcion);
-			url.append("--").append(categoria.getCategoriaPK().getPK()
+			if ("s__d".equals(categoria.getDescripcion()) && 0 == categoria.getCategoriaPK().getPK()
+					[categoria.getCategoriaPK().getPK().length-1]) {
+				// nada
+			}
+			else {
+				url.append("/").append(descripcion);
+				url.append("--").append(categoria.getCategoriaPK().getPK()
 					[categoria.getCategoriaPK().getPK().length-1]);
+			}
 		}
 
-		url.append("/").append(Convert.soloLetrasYNros(Convert.sinTildesNiEnie(Convert.corregir(this.titulo, true)).toLowerCase())).append("--").append(this.id_articulo).append(".htm");
+		
+		url.append("/").append(Convert.soloLetrasYNros(Convert.sinTildesNiEnie(Convert.corregir(Convert.corregirCasosEspeciales(this.titulo), true)).toLowerCase())).append("--").append(this.id_articulo).append(".htm");
 		this.cls_urlDetalle = url.toString();
 	}
 	
