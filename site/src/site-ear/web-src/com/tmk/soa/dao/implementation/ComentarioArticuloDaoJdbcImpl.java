@@ -105,6 +105,11 @@ public class ComentarioArticuloDaoJdbcImpl implements ComentarioArticuloDAO {
 		qry.append(" AND ART.archivo_imagen != 'N' ");
 		qry.append(" AND art.habilitado_tematika = 'S' ");
 		qry.append(" AND art.id_disponibilidad > 1 ");
+		
+		// FIX mgoldsman 20110806 - begin
+		qry.append(" AND ROWNUM < " + (cantidad + 1));
+		// FIX mgoldsman 20110806 - end
+		
 		//qry.append(" GROUP BY art.categoria_seccion " );
 		qry.append(" GROUP BY com.id_comentario,art.categoria_seccion " );		
 		//qry.append(" ORDER BY art.categoria_seccion asc" );
@@ -271,6 +276,11 @@ public class ComentarioArticuloDaoJdbcImpl implements ComentarioArticuloDAO {
 		qry.append(" AND ART.archivo_imagen != 'N' ");
 		qry.append(" AND art.habilitado_tematika = 'S' ");
 		qry.append(" AND art.id_disponibilidad > 1 ");
+		
+		// FIX mgoldsman 20110806 - begin
+		qry.append(" AND ROWNUM < " + (cantidad + 1));
+		// FIX mgoldsman 20110806 - end
+		
 		qry.append(" ORDER BY com.id_comentario desc " );
 		
 				
