@@ -295,6 +295,9 @@ public class BusquedaInicio extends BusquedaGenerica {
     	//sinopsis
         sql.append(Globals.ENTER).append("            ").append((criterio == null) ? "" : criterio.getTextoQuery());
         */
+    	// fix mg2012115 - begin
+    	sql.append(Globals.ENTER).append("            ").append((criterio == null) ? "" : criterio.getTextoQuery());
+    	// fix mg20121115 - end
 		return sql;
 	}
 
