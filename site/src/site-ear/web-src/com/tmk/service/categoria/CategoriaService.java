@@ -86,7 +86,7 @@ public class CategoriaService {
 		Vector<Categoria> aux = new Vector<Categoria>();
 		while (it.hasNext()) {
 			DynaBean dyn = (DynaBean) it.next();
-			aux.add(new Categoria(new CategoriaPK(new Integer[]{ new Integer(dyn.get("categoria_seccion").toString()) }), dyn.get("descripcion").toString()));
+			aux.add(new Categoria(new CategoriaPK(new Integer[]{ new Integer(dyn.get("categoria_seccion").toString()) }), checkDescription(dyn.get("descripcion").toString())));
 		}
 		return (Categoria[])aux.toArray( new Categoria[aux.size()]);
 	}
@@ -122,7 +122,7 @@ public class CategoriaService {
 		Vector<Categoria> aux = new Vector<Categoria>();
 		while (it.hasNext()) {
 			DynaBean dyn = (DynaBean) it.next();
-			aux.add(new Categoria(new CategoriaPK(new Integer[]{ new Integer(dyn.get("categoria_seccion").toString()), new Integer(dyn.get("categoria_grupo").toString())}),(String)dyn.get("descripcion")));
+			aux.add(new Categoria(new CategoriaPK(new Integer[]{ new Integer(dyn.get("categoria_seccion").toString()), new Integer(dyn.get("categoria_grupo").toString())}),checkDescription((String)dyn.get("descripcion"))));
 		}
 		return (Categoria[])aux.toArray( new Categoria[aux.size()]);
 	}
@@ -177,7 +177,7 @@ public class CategoriaService {
 		Vector<Categoria> aux = new Vector<Categoria>();
 		while (it.hasNext()) {
 			DynaBean dyn = (DynaBean) it.next();
-			aux.add(new Categoria(new CategoriaPK(new Integer[]{ new Integer(dyn.get("categoria_seccion").toString()), new Integer(dyn.get("categoria_grupo").toString()), new Integer(dyn.get("categoria_familia").toString())}),(String)dyn.get("descripcion")));
+			aux.add(new Categoria(new CategoriaPK(new Integer[]{ new Integer(dyn.get("categoria_seccion").toString()), new Integer(dyn.get("categoria_grupo").toString()), new Integer(dyn.get("categoria_familia").toString())}),checkDescription((String)dyn.get("descripcion"))));
 		}
 		return (Categoria[])aux.toArray( new Categoria[aux.size()]);
 	}
@@ -249,11 +249,12 @@ public class CategoriaService {
 		Vector<Categoria> aux = new Vector<Categoria>();
 		while (it.hasNext()) {
 			DynaBean dyn = (DynaBean) it.next();
-			aux.add(new Categoria(new CategoriaPK(new Integer[]{ new Integer(dyn.get("categoria_seccion").toString()), new Integer(dyn.get("categoria_grupo").toString()), new Integer(dyn.get("categoria_familia").toString()), new Integer(dyn.get("categoria_subfamilia").toString())}),(String)dyn.get("descripcion")));
+			aux.add(new Categoria(new CategoriaPK(new Integer[]{ new Integer(dyn.get("categoria_seccion").toString()), new Integer(dyn.get("categoria_grupo").toString()), new Integer(dyn.get("categoria_familia").toString()), new Integer(dyn.get("categoria_subfamilia").toString())}),checkDescription((String)dyn.get("descripcion"))));
 		}
 		return (Categoria[])aux.toArray( new Categoria[aux.size()]);
 	}
 
+	// fix mg20130418: elimino el componente s__d de la url de los articulos
 	public static String getURL(Categoria categoria) {
 		StringBuffer url = new StringBuffer();
 		url.append("/");
@@ -266,14 +267,25 @@ public class CategoriaService {
 		}
 		while (categoria.getSubCategoria().length>0) {
 			categoria = categoria.getSubCategoria()[0];
-			url.append("/").append(Convert.soloLetrasYNros(Convert.sinTildesNiEnie(Convert.corregir(categoria.getDescripcion(), true)).toLowerCase()));
-			url.append("--").append(categoria.getCategoriaPK().getPK()
+			if ("s__d".equals(categoria.getDescripcion())) {
+				// nada
+			} else {
+				url.append("/").append(Convert.soloLetrasYNros(Convert.sinTildesNiEnie(Convert.corregir(categoria.getDescripcion(), true)).toLowerCase()));
+				url.append("--").append(categoria.getCategoriaPK().getPK()
 					[categoria.getCategoriaPK().getPK().length-1]);
+			}
 		}
 		return url.toString();
 	}
+	// fix mg20130418: nuevo metodo para reemplazar S / D por Varios
+	private static String checkDescription(String desc) {
+		if ("S / D".equals(desc)) {
+			return "Varios";
+		}
+		return desc;
+	}
 
-
+	// fix mg20121005: modificacion URLs para la busqueda de articulos en catgorias S/D
 	public static Categoria getCategoriaEspecifica(CategoriaPK id) {
 		Categoria categoria = null;
 		for (int i=id.getPK().length; i>0; i--) {
@@ -291,6 +303,9 @@ public class CategoriaService {
 					aux.setSubCategoria(categoria);
 					categoria = aux;
 				}
+			} else {
+				Categoria aux = new Categoria(catPK, "s__d");
+				categoria = aux;
 			}
 		}
 
@@ -491,8 +506,6 @@ public class CategoriaService {
 	/**
 	 * @see genera los menues estaticos si recibe
 	 */
-
-
 	public static String generarArbolXCategoria(CategoriaPK categoriaPK) {
 		String paginaDinamica;
 		String paginaGenerada;
