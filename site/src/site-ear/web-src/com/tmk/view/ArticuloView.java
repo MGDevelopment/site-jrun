@@ -6,14 +6,17 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import com.tmk.bus.articulo.Articulo;
+import com.tmk.bus.categoria.Categoria;
 import com.tmk.controllers.buscador.BuscadorHelper;
 import com.tmk.controllers.buscador.BusquedaPorCategorias;
 import com.tmk.kernel.Convert;
 import com.tmk.kernel.DisponibilidadDAO;
+import com.tmk.kernel.Globals;
 import com.tmk.service.comentario.ComentarioService;
 import com.tmk.setup.Contenido;
 import com.tmk.soa.servicios.ConstantesService;
 import com.tmk.soa.servicios.ServiceLocator;
+import com.tmk.soa.servicios.implementation.ArticuloServiceUtil;
 import com.tmk.util.HTML.Template;
 
 /**
@@ -65,9 +68,13 @@ public final class ArticuloView {
 				precio = Contenido.precioDollarToString(articulo.getPrecio());
 				hasDetalles.put("totalDolar", precio.substring(0, precio.length() - 2)+"|");
 				precio  = Contenido.precioEuroToString(articulo.getPrecio());
-				hasDetalles.put("totalEuro", precio.substring(0, precio.length() - 2));			
-				hasDetalles.put("genero", Convert.capitalizar(articulo.getGenero().getDescripcion(), true));
+				hasDetalles.put("totalEuro", precio.substring(0, precio.length() - 2));	
+				String genero = checkDescription(articulo.getGenero().getDescripcion());
+				hasDetalles.put("genero", Convert.capitalizar(genero, true));
 	
+				// fix mg20130611: No disponible (id = 3)
+				DisponibilidadDAO disponibilidadDao = DisponibilidadDAO.buscaDisponibilidad(articulo.getDisponibilidad().getIdDisponibilidad());
+				
 				BusquedaPorCategorias busquedaPorCategoria = new BusquedaPorCategorias(
 						articulo.getCategoria().getSubCategoria()[0].getDescripcion(), 
 						articulo.getCategoria_seccion(),
@@ -77,21 +84,56 @@ public final class ArticuloView {
 						new Integer(1),
 						new Integer(10),
 						BuscadorHelper.CRIT_MAS_VENDIDOS, 
-						!DisponibilidadDAO.buscaDisponibilidad(
-										articulo.getDisponibilidad().getIdDisponibilidad()).estaDisponible());
-	
+						!disponibilidadDao.estaDisponible());
+				
 				boolean esPedidoEspecial = articulo.getDisponibilidad().getPedido_especial().equals("S"); 
+				// fix mg20130611: No disponible (id = 3)}
+				if(articulo.getCategoria_seccion() == 3) {
+					hasDetalles.put("enSeccion", "Pasatiempos");
+				}else {
+					hasDetalles.put("enSeccion", Convert.capitalizar(com.tmk.kernel.Globals.seccion(articulo.getCategoria_seccion()),false));
+				}
+				
 				if(esPedidoEspecial){
 					hasDetalles.put("estaDisponible","");
+					hasDetalles.put("noDisponible","");
 					hasDetalles.put("idArticulo",articulo.getId_articulo().intValue());
-					if(articulo.getCategoria_seccion() == 3) {
-						hasDetalles.put("enSeccion", "Pasatiempos");
-					}else {
-						hasDetalles.put("enSeccion", Convert.capitalizar(com.tmk.kernel.Globals.seccion(articulo.getCategoria_seccion()),false));
-					}
 				}else {
-					hasDetalles.put("estaDisponible","true");								
+					// fix mg20130611: No disponible (id = 3)
+					if (disponibilidadDao.estaDisponible()) {
+						hasDetalles.put("estaDisponible","true");
+						hasDetalles.put("noDisponible","");
+					} else {
+						hasDetalles.put("estaDisponible","");
+						hasDetalles.put("noDisponible","true");
+					}
 				}
+				// fix mg20130613 Clasificaciones
+				Categoria cat = articulo.getCategoria();
+				/*tmpListaArticulo.setParam("urlGenero", ArticuloServiceUtil.gerUrl(cat));
+				tmpListaArticulo.setParam("genero", Convert.capitalizar(cat.getDescripcion(),false));*/
+				cat = cat.getSubCategoria()[0];
+				Vector vecClasificaciones = new Vector();
+				Hashtable hashClasificaciones  = null;
+				for(int ii=0;cat!=null;ii++) {
+					hashClasificaciones  = new Hashtable();
+					hashClasificaciones.put("urlGenero", ArticuloServiceUtil.gerUrl(cat));
+					if(cat.getSubCategoria().length > 0 && !"s__d".equals(cat.getSubCategoria()[0].getDescripcion())) {
+						hashClasificaciones.put("genero", Convert.capitalizar(cat.getDescripcion(), true) +" &raquo;");
+					}else{
+						hashClasificaciones.put("genero", Convert.capitalizar(cat.getDescripcion(), true));
+					}
+					if (!"s__d".equals(cat.getDescripcion())) {
+						vecClasificaciones.add(hashClasificaciones);
+					}
+					cat = (cat.getSubCategoria().length > 0)?cat.getSubCategoria()[0]:null;
+				}
+				//SI ES MUSICA ELIMINO UNA CATEGORIA DEL VECTOR POR QUE SON IGUALES ES PARA QUE NO QUEDE ASI:
+				//R&P Castellano »  R&P Castellano
+				if(articulo.getCategoria_seccion()==Globals.SECCION_MUSICA){
+					vecClasificaciones.remove(0);
+				}
+				hasDetalles.put("clasificaciones", vecClasificaciones);
 				hasDetalles.put("urlGenero", busquedaPorCategoria.salto());
 	
 				// estrellas llenas,vacias y media estrella
@@ -142,7 +184,13 @@ public final class ArticuloView {
 			 e.printStackTrace();
 		}
 	}
-
+	// fix mg20130418: nuevo metodo para reemplazar S / D por Varios
+	private static String checkDescription(String desc) {
+		if ("s__d".equals(desc)) {
+			return "Varios";
+		}
+		return desc;
+	}
 	/**
 	 * Devuelve en base a la seccion Si corresponde poner categoria, discorafica o productora"
 	 * @param descripcion
