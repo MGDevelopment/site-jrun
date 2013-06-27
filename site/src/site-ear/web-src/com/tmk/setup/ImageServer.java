@@ -142,8 +142,8 @@ public final class ImageServer extends Daemon {
 	private static int DESCUENTO_MINIMO = 0;
 	private static int DESCUENTO_MAXIMO = 100;
 
-	private static int TAMA„O_CHICO  = 0;
-	private static int TAMA„O_GRANDE = 1;
+	private static int TAMAÑO_CHICO  = 0;
+	private static int TAMAÑO_GRANDE = 1;
 
 	private static boolean generarTapasProtegidas;
 
@@ -291,9 +291,9 @@ public final class ImageServer extends Daemon {
 
 				}
 
-				InformacionDeImagen marca = marcas[tapaChica ? TAMA„O_CHICO : TAMA„O_GRANDE][seccion];
-				InformacionDeImagen novedad = novedades[tapaChica ? TAMA„O_CHICO : TAMA„O_GRANDE][seccion];
-				InformacionDeImagen descuento = descuentos[porcDescuento][tapaChica ? TAMA„O_CHICO : TAMA„O_GRANDE][seccion];
+				InformacionDeImagen marca = marcas[tapaChica ? TAMAÑO_CHICO : TAMAÑO_GRANDE][seccion];
+				InformacionDeImagen novedad = novedades[tapaChica ? TAMAÑO_CHICO : TAMAÑO_GRANDE][seccion];
+				InformacionDeImagen descuento = descuentos[porcDescuento][tapaChica ? TAMAÑO_CHICO : TAMAÑO_GRANDE][seccion];
 
 				InformacionDeImagen icono = (esNovedad && (novedad != null)) ? novedad : marca;
 
@@ -326,11 +326,11 @@ public final class ImageServer extends Daemon {
 		// cantidad de secciones
 		int secciones = Globals.SECCIONES.length;
 
-		marcas = new InformacionDeImagen[TAMA„O_GRANDE - TAMA„O_CHICO + 1][secciones];
+		marcas = new InformacionDeImagen[TAMAÑO_GRANDE - TAMAÑO_CHICO + 1][secciones];
 
-		novedades = new InformacionDeImagen[TAMA„O_GRANDE - TAMA„O_CHICO + 1][secciones];
+		novedades = new InformacionDeImagen[TAMAÑO_GRANDE - TAMAÑO_CHICO + 1][secciones];
 
-		descuentos = new InformacionDeImagen[DESCUENTO_MAXIMO - DESCUENTO_MINIMO + 1][TAMA„O_GRANDE - TAMA„O_CHICO + 1][secciones];
+		descuentos = new InformacionDeImagen[DESCUENTO_MAXIMO - DESCUENTO_MINIMO + 1][TAMAÑO_GRANDE - TAMAÑO_CHICO + 1][secciones];
 	}
 
 	/**
@@ -346,18 +346,18 @@ public final class ImageServer extends Daemon {
 		TmkLogger.debug("Cargando iconos para marcas...");
 		for (int seccion = 0; seccion < Globals.SECCIONES.length; seccion++) {
 			Pagina pagina = solapaSeccion(seccion);
-			for (int tamaño = TAMA„O_CHICO; tamaño <= TAMA„O_GRANDE; tamaño++) {
+			for (int tamaño = TAMAÑO_CHICO; tamaño <= TAMAÑO_GRANDE; tamaño++) {
 				PosicionesType posicion = PosicionesType.ARRIBACENTRADO;
-				posicion = ((tamaño == TAMA„O_CHICO) && (pagina != null) && pagina.getPosicionMarcaChica() != null) ? pagina.getPosicionMarcaChica() : posicion;
-				posicion = ((tamaño == TAMA„O_GRANDE) && (pagina != null) && (pagina.getPosicionMarcaGrande() != null)) ? pagina.getPosicionMarcaGrande() : posicion;
+				posicion = ((tamaño == TAMAÑO_CHICO) && (pagina != null) && pagina.getPosicionMarcaChica() != null) ? pagina.getPosicionMarcaChica() : posicion;
+				posicion = ((tamaño == TAMAÑO_GRANDE) && (pagina != null) && (pagina.getPosicionMarcaGrande() != null)) ? pagina.getPosicionMarcaGrande() : posicion;
 				int porcentaje = (pagina == null || !pagina.hasPorcentajeAlphaMarca()) ? 100 : pagina.getPorcentajeAlphaMarca();
 				// Carga el archivo si lo tiene
-				String nombreDeMarca = pathDeImagenesEspeciales("marca" + (tamaño == TAMA„O_CHICO ? "_chica_" : "_grande_") + seccion + ".gif");
+				String nombreDeMarca = pathDeImagenesEspeciales("marca" + (tamaño == TAMAÑO_CHICO ? "_chica_" : "_grande_") + seccion + ".gif");
 				File archivoMarca = obtenerArchivo(nombreDeMarca);
 				// Crea la imagen con toda la informacion
 				marcas[tamaño][seccion] = ((archivoMarca == null) || (!archivoMarca.exists())) ? null : new InformacionDeImagen(archivoMarca, posicion, porcentaje);
 				// La informacion de la novedad casi la misma que la marca
-				String nombreDeNovedad = pathDeImagenesEspeciales("novedad" + (tamaño == TAMA„O_CHICO ? "_chica_" : "_grande_") + seccion + ".gif");
+				String nombreDeNovedad = pathDeImagenesEspeciales("novedad" + (tamaño == TAMAÑO_CHICO ? "_chica_" : "_grande_") + seccion + ".gif");
 				File archivoNovedad = obtenerArchivo(nombreDeNovedad);
 				novedades[tamaño][seccion] = ((archivoNovedad == null) || (!archivoNovedad.exists())) ? null : new InformacionDeImagen(archivoNovedad, posicion, 100); 
 				// El icono de novedad al maximo de visibilidad 
@@ -367,14 +367,14 @@ public final class ImageServer extends Daemon {
 		TmkLogger.debug("Cargando iconos para descuentos...");
 		for (int seccion = 0; seccion < Globals.SECCIONES.length; seccion++) {
 			Pagina pagina = solapaSeccion(seccion);
-			for (int tamaño = TAMA„O_CHICO; tamaño <= TAMA„O_GRANDE; tamaño++) {
+			for (int tamaño = TAMAÑO_CHICO; tamaño <= TAMAÑO_GRANDE; tamaño++) {
 				PosicionesType posicion = PosicionesType.ABAJOCENTRADO;
-				posicion = ((tamaño == TAMA„O_CHICO) && (pagina != null) && pagina.getPosicionDescuentoChico() != null) ? pagina.getPosicionDescuentoChico() : posicion;
-				posicion = ((tamaño == TAMA„O_GRANDE) && (pagina != null) && (pagina.getPosicionDescuentoGrande() != null)) ? pagina.getPosicionDescuentoGrande() : posicion;
+				posicion = ((tamaño == TAMAÑO_CHICO) && (pagina != null) && pagina.getPosicionDescuentoChico() != null) ? pagina.getPosicionDescuentoChico() : posicion;
+				posicion = ((tamaño == TAMAÑO_GRANDE) && (pagina != null) && (pagina.getPosicionDescuentoGrande() != null)) ? pagina.getPosicionDescuentoGrande() : posicion;
 				int porcentaje = (pagina == null || !pagina.hasPorcentajeAlphaDescuento()) ? 100 : pagina.getPorcentajeAlphaDescuento();
 				for (int descuento = DESCUENTO_MINIMO; descuento <= DESCUENTO_MAXIMO; descuento++) {
 					// Carga el archivo si lo tiene
-					String nombreDescuento = pathDeImagenesEspeciales("descuento_" + descuento + "%" + (tamaño == TAMA„O_CHICO ? "_chica_" : "_grande_") + seccion + ".gif");
+					String nombreDescuento = pathDeImagenesEspeciales("descuento_" + descuento + "%" + (tamaño == TAMAÑO_CHICO ? "_chica_" : "_grande_") + seccion + ".gif");
 					File archivo = obtenerArchivo(nombreDescuento);
 					// Crea la imagen con toda la informacion
 					descuentos[descuento][tamaño][seccion] = ((archivo == null) || (!archivo.exists())) ? null : new InformacionDeImagen(archivo, posicion, porcentaje);
