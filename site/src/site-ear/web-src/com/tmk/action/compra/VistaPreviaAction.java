@@ -75,9 +75,19 @@ public class VistaPreviaAction extends Action {
 				hasArticulos.put("urlDetalle", "#");	
 			}else{
 				hasArticulos.put("urlDetalle", articuloBo.getUrlDetalle());
-			}			
+			}	
 			hasArticulos.put("textoSobre", (articulo.getSubArticulo()!=null)?articulo.getSubArticulo().getTitulo():"No");
-			hasArticulos.put("tieneMensaje", (articulo.getNota()!=null && articulo.getNota().trim().length()>0)? "Si":"No");			
+			hasArticulos.put("tieneMensaje", (articulo.getNota()!=null && articulo.getNota().trim().length()>0)? "Si":"No");
+			// fix mg20130425: nueva logica para la columna de regalo
+			if (articulo.getSubArticulo()!=null){
+				// Tiene papel
+				// fix mg20130503: descripcion del papel
+				String papel = 	articulo.getSubArticulo().getTitulo();
+				hasArticulos.put("regalo", (papel.length() > 20) ? papel.substring(0,17) + "..." : papel);
+			} else {
+				// No papel
+				hasArticulos.put("regalo", (articulo.getNota()!=null && articulo.getNota().trim().length()>0)? "Si":"No");
+			}
 			
 			if (prodDesc) {
 				hasArticulos.put("descuento",Contenido.precioToString((Math.abs(articulo.getAhorro()))* articulo.getCantidad()) );
@@ -88,11 +98,24 @@ public class VistaPreviaAction extends Action {
             	hasArticulos.put("descuento",Contenido.precioToString((articulo.getPrecioConImpuesto() + Math.abs(articulo.getAhorro()) - articulo.getPrecioPromocion())* articulo.getCantidad()));
             	totalDescuento += (articulo.getPrecioConImpuesto() + Math.abs(articulo.getAhorro()) - articulo.getPrecioPromocion())* articulo.getCantidad();
             }
+            
+            // fix mg20130425: modificacion de la logica para la columna descuento cuando es 0
             //si no hay descuento ni promocion
             if(!prodDesc && !prodPromo) {
-            	hasArticulos.put("descuento","No");
+            	hasArticulos.put("descuento", Contenido.precioToString(0));
             }
             
+            // fix mg20130422: agregado del precio de articulo
+//            hasArticulos.put("precio", Contenido.precioToString(articulo.getPrecioSitio()));
+//            hasArticulos.put("subTotal", Contenido.precioToString(articulo.getPrecioSitio() * articulo.getCantidad()));
+            // fix mg20130515: utilizo el precio original
+            hasArticulos.put("precio", Contenido.precioToString(articulo.getPrecioOriginal()));
+            hasArticulos.put("subTotal", Contenido.precioToString(articulo.getPrecioOriginal() * articulo.getCantidad()));
+            if (articulo.getCantidad() > 1) {
+            	hasArticulos.put("cantidadMayor1", true);
+            } else {
+            	hasArticulos.put("cantidadMayor1", false);
+            }
             //descuento si, promcion no(PRECIO FINAL)
            /* if (prodDesc && !prodPromo) { 
             	hasArticulos.put("descuento",Contenido.precioToString((articulo.getPrecioPromocion()< articulo.getPrecioConDescuento())? articulo.getPrecioPromocion() * articulo.getCantidad(): articulo.getPrecioConDescuento() * articulo.getCantidad()));
@@ -111,10 +134,18 @@ public class VistaPreviaAction extends Action {
 		tmpDomicilios.setParam("subTotal", Contenido.precioToString(ordenDao.totalSitio()));
 		tmpDomicilios.setParam("totalGastoEnvio", Contenido.precioToString(ordenDao.totalGastoDeEnvio()));
 		tmpDomicilios.setParam("totalPapelRegalo", Contenido.precioToString(ordenDao.totalPapelDeRegalo()));
-		tmpDomicilios.setParam("totalBeneficio", Contenido.precioToString(totalDescuento));
+		// fix mg20130515: el total de descuento pasa a ser un numero negativo
+		if (totalDescuento == 0) {
+			tmpDomicilios.setParam("totalBeneficio", Contenido.precioToString(totalDescuento));
+		} else {
+			tmpDomicilios.setParam("totalBeneficio", Contenido.precioToString(Math.abs(totalDescuento) * -1));
+		}
 		tmpDomicilios.setParam("total", Contenido.precioToString(ordenDao.totalSitioCompleto()));
 		tmpDomicilios.setParam("totalDolar", Contenido.precioDollarToString(ordenDao.totalSitioCompleto()));
 		tmpDomicilios.setParam("totalEuro", Contenido.precioEuroToString(ordenDao.totalSitioCompleto()));
+		// fix mg20130422: agregado de total para reembolsos
+		tmpDomicilios.setParam("totalReembolso", Contenido.precioToString(ordenDao.getImporteReembolso()));
+		
 		//promocion aplicada
 		String promosAplicadas = ordenDao.getPromocionesAplicadas("<br>&middot; ");
 		tmpDomicilios.setParam("promocionAplicada",promosAplicadas.equals("")? "Ninguna ": promosAplicadas);
