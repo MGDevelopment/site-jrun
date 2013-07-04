@@ -92,7 +92,8 @@ public class BusquedaPorAutor extends BusquedaGenerica {
 		sql.append(Globals.ENTER).append("  	 	  ON a.id_disponibilidad = d.id_disponibilidad");
 		sql.append(Globals.ENTER).append("           " + criterio.getAddFromJoin());
 		sql.append(Globals.ENTER).append("  	WHERE d.pedido_especial = '").append(pedidoEspecial()).append("'");
-		sql.append(Globals.ENTER).append("  	  AND d.id_esquema = 'PROD' ");
+		// fix mg20130703: evita los no disponibles (3) en el buscador
+		sql.append(Globals.ENTER).append("  	  AND d.id_esquema = 'PROD' AND d.id_disponibilidad NOT IN (3) ");
 		sql.append(Globals.ENTER).append("  	  AND a.categoria_seccion  ").append((tieneCategoriaSeccion() ? ("+0= " + getSeccion()) : "is not null"));
 		sql.append(Globals.ENTER).append("  	  AND a.habilitado_tematika = 'S'");
 		if (!tieneCategoriaSeccion()) {
@@ -126,7 +127,8 @@ public class BusquedaPorAutor extends BusquedaGenerica {
 		sql.append(Globals.ENTER).append("  	 	  INNER JOIN disponibilidades d");
 		sql.append(Globals.ENTER).append("  	 	  ON a.id_disponibilidad = d.id_disponibilidad");
 		sql.append(Globals.ENTER).append("  	WHERE d.pedido_especial = '").append(pedidoEspecial()).append("'");
-		sql.append(Globals.ENTER).append("  	  AND d.id_esquema = 'PROD' ");
+		// fix mg20130703: evita los no disponibles (3) en el buscador
+		sql.append(Globals.ENTER).append("  	  AND d.id_esquema = 'PROD' AND d.id_disponibilidad NOT IN (3) ");
 		sql.append(Globals.ENTER).append("  	  AND a.categoria_seccion  ").append((tieneCategoriaSeccion() ? ("+0= " + getSeccion()) : "is not null"));
 		sql.append(Globals.ENTER).append("  	  AND a.habilitado_tematika = 'S'");
 		if (!tieneCategoriaSeccion()) {
