@@ -658,7 +658,8 @@ public final class Convert {
 		// Variable resultado
 		String result = original.trim().toUpperCase()
 				.replaceAll("SR.", "@1").replaceAll("SRA.", "@2").replaceAll("MR.", "@3").replaceAll("MRS.", "@4").replaceAll("MS.", "@5")
-				.replaceAll(" \\. ", "@6")
+				.replaceAll("\\.\\.\\.", "@7")
+				.replaceAll(" \\. ", ".@6 ")
 				.replaceFirst("\\.", " .").replaceFirst(",", " , ").replaceFirst(";", " ; ").replaceFirst("-", " - ").replaceFirst("/", " / ").replaceAll("  ", " ");
 		if (Globals.MEJORAR_TEXTOS) {
 			// Prepara para aplicar los cambios
@@ -678,8 +679,8 @@ public final class Convert {
 		}
 		return result
 				.replaceAll("@1", "Sr.").replaceAll("@2", "Sra.").replaceAll("@3", "Mr.").replaceAll("@4", "Mrs.").replaceAll("@5.", "Ms.")
-				.replaceFirst(" \\...", "...").replaceFirst(" \\.", ".").replaceFirst(" ,", ",").replaceFirst(" ;", ";")
-				.replaceAll("@6", " . ").trim();
+				.replaceFirst(" \\.", ".").replaceFirst(" ,", ",").replaceFirst(" ;", ";")
+				.replaceFirst("@7", "...").replaceAll(".@6 ", " . ").trim();
 	}
 
 
