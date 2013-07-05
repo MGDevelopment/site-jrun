@@ -59,7 +59,8 @@ public class BusquedaPorTemaMusical extends BusquedaGenerica {
 		sql.append(Globals.ENTER).append("       articulos_temas_musicales tm");
 		sql.append(Globals.ENTER).append("      " + criterio.getAddFrom());
 		sql.append(Globals.ENTER).append(" WHERE d.pedido_especial      = '").append(pedidoEspecial()).append("'");
-		sql.append(Globals.ENTER).append("   and d.id_esquema = 'PROD'");
+		// fix mg20130705: evita los no disponibles (3) en el buscador
+        sql.append(Globals.ENTER).append("   AND d.id_esquema = 'PROD' AND d.id_disponibilidad NOT IN (3)");
 		sql.append(Globals.ENTER).append("   and d.id_disponibilidad    = a.id_disponibilidad");
 		sql.append(Globals.ENTER).append("   and a.activo               = 'SI'");
 		sql.append(Globals.ENTER).append("   and a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
@@ -86,7 +87,8 @@ public class BusquedaPorTemaMusical extends BusquedaGenerica {
 		sql.append(Globals.ENTER).append("       articulos                 a,");
 		sql.append(Globals.ENTER).append("       articulos_temas_musicales tm");
 		sql.append(Globals.ENTER).append(" WHERE d.pedido_especial      = '").append(pedidoEspecial()).append("'");
-		sql.append(Globals.ENTER).append("   and d.id_esquema = 'PROD'");
+		// fix mg20130705: evita los no disponibles (3) en el buscador
+        sql.append(Globals.ENTER).append("   AND d.id_esquema = 'PROD' AND d.id_disponibilidad NOT IN (3)");
 		sql.append(Globals.ENTER).append("   and d.id_disponibilidad    = a.id_disponibilidad");
 		sql.append(Globals.ENTER).append("   and a.activo               = 'SI'");
 		sql.append(Globals.ENTER).append("   and a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));

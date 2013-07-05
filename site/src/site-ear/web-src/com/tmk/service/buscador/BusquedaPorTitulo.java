@@ -67,7 +67,8 @@ public class BusquedaPorTitulo extends BusquedaGenerica {
         sql.append("        articulos a");
 		sql.append("      " + criterio.getAddFrom());
         sql.append("    WHERE d.id_disponibilidad = a.id_disponibilidad");
-        sql.append("        AND d.id_esquema = 'PROD'");
+        // fix mg20130703: evita los no disponibles (3) en el buscador
+        sql.append("        AND d.id_esquema = 'PROD' AND d.id_disponibilidad NOT IN (3)");
         sql.append("        AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
         sql.append("        AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
         sql.append("        AND habilitado_tematika = 'S'");
@@ -96,7 +97,8 @@ public class BusquedaPorTitulo extends BusquedaGenerica {
         sql.append("        articulos a");
         //sql.append(filtro.getFrom());
 		sql.append("    WHERE d.id_disponibilidad = a.id_disponibilidad");
-        sql.append("        AND d.id_esquema = 'PROD'");
+        // fix mg20130703: evita los no disponibles (3) en el buscador
+        sql.append("        AND d.id_esquema = 'PROD' AND d.id_disponibilidad NOT IN (3)");
         sql.append("        AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
         sql.append("        AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
         sql.append("        AND habilitado_tematika = 'S'");

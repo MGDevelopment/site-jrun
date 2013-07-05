@@ -48,7 +48,8 @@ public class BusquedaPorISBN extends BusquedaGenerica {
 		sql.append(Globals.ENTER).append("        articulos_isbn i");
 		sql.append(Globals.ENTER).append("      " + criterio.getAddFrom());
         sql.append(Globals.ENTER).append("    WHERE d.id_disponibilidad = a.id_disponibilidad");
-        sql.append(Globals.ENTER).append("        AND d.id_esquema = 'PROD'");
+        // fix mg20130704: evita los no disponibles (3) en el buscador
+        sql.append(Globals.ENTER).append("  	  AND d.id_esquema = 'PROD' AND d.id_disponibilidad NOT IN (3) ");
         sql.append(Globals.ENTER).append("        AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
         sql.append(Globals.ENTER).append("        AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
         sql.append(Globals.ENTER).append("        AND habilitado_tematika = 'S'");
@@ -70,7 +71,8 @@ public class BusquedaPorISBN extends BusquedaGenerica {
         sql.append(Globals.ENTER).append("        articulos a,");
 		sql.append(Globals.ENTER).append("        articulos_isbn i");
 		sql.append(Globals.ENTER).append("    WHERE d.id_disponibilidad = a.id_disponibilidad");
-        sql.append(Globals.ENTER).append("        AND d.id_esquema = 'PROD'");
+		// fix mg20130704: evita los no disponibles (3) en el buscador
+		sql.append(Globals.ENTER).append("  	  AND d.id_esquema = 'PROD' AND d.id_disponibilidad NOT IN (3) ");
         sql.append(Globals.ENTER).append("        AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
         sql.append(Globals.ENTER).append("        AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
         sql.append(Globals.ENTER).append("        AND habilitado_tematika = 'S'");
