@@ -63,16 +63,16 @@ public class BusquedaPorTitulo extends BusquedaGenerica {
 		
 		sql.append("    SELECT  a.id_articulo,a.categoria_seccion ");
         sql.append("      " + criterio.getAddSelect());
-        sql.append("    FROM disponibilidades d,");
-        sql.append("        articulos a");
+      //  sql.append("    FROM disponibilidades d,");
+        sql.append("      FROM  articulos a");
 		sql.append("      " + criterio.getAddFrom());
-        sql.append("    WHERE d.id_disponibilidad = a.id_disponibilidad");
-        // fix mg20130703: evita los no disponibles (3) en el buscador
-        sql.append("        AND d.id_esquema = 'PROD' AND d.id_disponibilidad NOT IN (3)");
-        sql.append("        AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
-        sql.append("        AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+     //   sql.append("    WHERE d.id_disponibilidad = a.id_disponibilidad");
+     //   sql.append("        AND d.id_esquema = 'PROD'");
+     //   sql.append("        AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
+        sql.append("        WHERE a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
         sql.append("        AND habilitado_tematika = 'S'");
 		sql.append("        AND a.activo            = 'SI'");
+		sql.append(" 		AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );	      
         sql.append("        AND catsearch (a.titulo, '").append(getTexto()).append("*', ").append("'categoria_seccion = ").append(getSeccion()).append(" and activo = ''SI''') > 0");
 		sql.append("      " + criterio.getAddWhere());
         sql.append("            ").append((criterio == null) ? "" : criterio.getTextoQuery());
@@ -96,11 +96,11 @@ public class BusquedaPorTitulo extends BusquedaGenerica {
         sql.append("    FROM disponibilidades d,");
         sql.append("        articulos a");
         //sql.append(filtro.getFrom());
-		sql.append("    WHERE d.id_disponibilidad = a.id_disponibilidad");
-        // fix mg20130703: evita los no disponibles (3) en el buscador
-        sql.append("        AND d.id_esquema = 'PROD' AND d.id_disponibilidad NOT IN (3)");
-        sql.append("        AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
-        sql.append("        AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+		//sql.append("    WHERE d.id_disponibilidad = a.id_disponibilidad");
+        // sql.append("        AND d.id_esquema = 'PROD'");
+        // sql.append("     AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
+        sql.append("        WHERE a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+        sql.append(" 		AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
         sql.append("        AND habilitado_tematika = 'S'");
 		sql.append("        AND a.activo            = 'SI'");
         sql.append("        AND catsearch (a.titulo, '").append(getTexto()).append("*', ").append("'categoria_seccion = ").append(getSeccion()).append(" and activo = ''SI''') > 0 ");

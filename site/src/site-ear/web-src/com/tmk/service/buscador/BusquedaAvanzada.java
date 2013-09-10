@@ -138,9 +138,9 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 	}
 
 	
-	public StringBuffer getQueryTitulo() {
+	/* public StringBuffer getQueryTitulo() {
 		StringBuffer sql = new StringBuffer();
-		sql.append(Globals.ENTER).append(" SELECT /*+ INDEX(d DISP_IDX) INDEX(a ARTICULOS_OT_IDX_1)*/ a.id_articulo");
+		sql.append(Globals.ENTER).append(" SELECT **+ INDEX(d DISP_IDX) INDEX(a ARTICULOS_OT_IDX_1)** a.id_articulo");
 		sql.append(Globals.ENTER).append(criterio.getAddSelect());
 		sql.append(" ,a.categoria_seccion ");
 		sql.append(Globals.ENTER).append(" FROM disponibilidades d, articulos a");
@@ -158,8 +158,30 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 	    sql.append(Globals.ENTER).append("    AND catsearch (a.titulo, '").append(titulo).append("*', NULL) > 0");
 	    sql.append(Globals.ENTER).append(criterio.getAddWhere());
 		return sql;
+	} */
+	
+	public StringBuffer getQueryTitulo() {
+		StringBuffer sql = new StringBuffer();
+		sql.append(Globals.ENTER).append(" SELECT a.id_articulo");
+		sql.append(Globals.ENTER).append(criterio.getAddSelect());
+		sql.append(" ,a.categoria_seccion ");
+		sql.append(Globals.ENTER).append(" FROM articulos a");
+		sql.append(Globals.ENTER).append(criterio.getAddFrom());
+		sql.append(Globals.ENTER).append(" WHERE ");
+	    sql.append(Globals.ENTER).append(" a.habilitado_tematika = 'S'");
+	    sql.append(Globals.ENTER).append(" AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
+        sql.append(Globals.ENTER).append(" AND a.activo            = 'SI'");
+	    if (idioma != null) sql.append(getQueryIdioma());
+	    if (clasificacion != null) sql.append(getQueryClasificacion());
+	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+	    if (formato != null) sql.append(getQueryFormato());
+	    if (precio != null) sql.append(getQueryPrecio());
+	    sql.append(Globals.ENTER).append("    AND catsearch (a.titulo, '").append(titulo).append("*', NULL) > 0");
+	    sql.append(Globals.ENTER).append(criterio.getAddWhere());
+		return sql;
 	}
-	public StringBuffer getQueryTitulo(Filtro filtro) {
+	
+	/* public StringBuffer getQueryTitulo(Filtro filtro) {
 		StringBuffer sql = new StringBuffer();
 		sql.append(" select ");
 		sql.append(Globals.ENTER).append("  a.id_articulo");
@@ -182,9 +204,33 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 	    sql.append(Globals.ENTER).append("    AND catsearch (a.titulo, '").append(titulo).append("*', NULL) > 0");
 	    //sql.append(Globals.ENTER).append(criterio.getAddWhere());
 		return sql;
-	}
+	}	*/	
 	
-	public StringBuffer getQueryTituloCount() {
+	public StringBuffer getQueryTitulo(Filtro filtro) {
+		StringBuffer sql = new StringBuffer();
+		sql.append(" select ");
+		sql.append(Globals.ENTER).append("  a.id_articulo");
+		if(!filtro.getId().equals("0")){
+			sql.append(",a.categoria_seccion");	
+		}
+		sql.append(Globals.ENTER).append(filtro.getSelectInterno());
+		sql.append(Globals.ENTER).append(" FROM articulos a");
+		//sql.append(Globals.ENTER).append(criterio.getAddFrom());
+		sql.append(Globals.ENTER).append(" WHERE ");		
+		sql.append(Globals.ENTER).append(" a.habilitado_tematika = 'S'");
+	    sql.append(Globals.ENTER).append(" AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
+        sql.append(Globals.ENTER).append(" AND a.activo            = 'SI'");	    
+	    if (idioma != null) sql.append(getQueryIdioma());
+	    if (clasificacion != null) sql.append(getQueryClasificacion());
+	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+	    if (formato != null) sql.append(getQueryFormato());
+	    if (precio != null) sql.append(getQueryPrecio());
+	    sql.append(Globals.ENTER).append("    AND catsearch (a.titulo, '").append(titulo).append("*', NULL) > 0");
+	    //sql.append(Globals.ENTER).append(criterio.getAddWhere());
+		return sql;
+	}
+		
+	/* public StringBuffer getQueryTituloCount() {
 		StringBuffer sql = new StringBuffer();
 		sql.append(Globals.ENTER).append(" SELECT ");
 		sql.append(Globals.ENTER).append(" a.id_articulo ");
@@ -201,9 +247,27 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 	    if (precio != null) sql.append(getQueryPrecio());
 	    sql.append(Globals.ENTER).append("    AND catsearch (a.titulo, '").append(titulo).append("*', NULL) > 0");
 		return sql;
+	} */
+	
+	public StringBuffer getQueryTituloCount() {
+		StringBuffer sql = new StringBuffer();
+		sql.append(Globals.ENTER).append(" SELECT ");
+		sql.append(Globals.ENTER).append(" a.id_articulo ");
+		sql.append(Globals.ENTER).append(" FROM articulos a");
+		sql.append(Globals.ENTER).append(" WHERE ");
+	    sql.append(Globals.ENTER).append(" a.habilitado_tematika = 'S'");
+	    sql.append(Globals.ENTER).append(" AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
+        sql.append(Globals.ENTER).append(" AND a.activo            = 'SI'");
+	    if (idioma != null) sql.append(getQueryIdioma());
+	    if (clasificacion != null) sql.append(getQueryClasificacion());
+	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+	    if (formato != null) sql.append(getQueryFormato());
+	    if (precio != null) sql.append(getQueryPrecio());
+	    sql.append(Globals.ENTER).append("    AND catsearch (a.titulo, '").append(titulo).append("*', NULL) > 0");
+		return sql;
 	}
 
-	public StringBuffer getQueryAutor() {
+	/* public StringBuffer getQueryAutor() {
 		StringBuffer sql = new StringBuffer();
 		sql.append(Globals.ENTER).append(" SELECT  ");
 		sql.append(Globals.ENTER).append(" a.id_articulo ");
@@ -226,7 +290,61 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 	    sql.append(Globals.ENTER).append("	  AND catsearch (au.descripcion, '").append(autor).append("*', NULL) > 0");
 	    sql.append(Globals.ENTER).append(criterio.getAddWhere());
 		return sql;
+	} */
+	
+	public StringBuffer getQueryAutor() {
+		StringBuffer sql = new StringBuffer();
+		sql.append(Globals.ENTER).append(" SELECT  ");
+		sql.append(Globals.ENTER).append(" a.id_articulo ");
+		sql.append(Globals.ENTER).append(criterio.getAddSelect());
+		sql.append(" ,a.categoria_seccion ");
+		sql.append(Globals.ENTER).append(" FROM articulos a, articulos_autores aa, autores au");
+		sql.append(Globals.ENTER).append(criterio.getAddFrom());
+		sql.append(Globals.ENTER).append(" WHERE ");		
+		sql.append(Globals.ENTER).append(" a.habilitado_tematika = 'S'");
+	    sql.append(Globals.ENTER).append(" AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
+        sql.append(Globals.ENTER).append(" AND a.activo            = 'SI'");
+	    if (idioma != null) sql.append(getQueryIdioma());
+	    if (clasificacion != null) sql.append(getQueryClasificacion());
+	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+	    if (formato != null) sql.append(getQueryFormato());
+	    if (precio != null) sql.append(getQueryPrecio());
+	    sql.append(Globals.ENTER).append("	  AND a.id_articulo = aa.id_articulo");
+	    sql.append(Globals.ENTER).append("    AND aa.id_autor = au.id_autor");   							
+	    sql.append(Globals.ENTER).append("	  AND catsearch (au.descripcion, '").append(autor).append("*', NULL) > 0");
+	    sql.append(Globals.ENTER).append(criterio.getAddWhere());
+		return sql;
 	}
+	
+	
+	/* public StringBuffer getQueryAutor(Filtro filtro) {
+		StringBuffer sql = new StringBuffer();
+		sql.append(Globals.ENTER).append(" SELECT  ");
+		sql.append(Globals.ENTER).append(" a.id_articulo ");
+		if(!filtro.getId().equals("0")){
+			sql.append(",a.categoria_seccion");	
+		}
+		//sql.append(Globals.ENTER).append(criterio.getAddSelect());
+		sql.append(Globals.ENTER).append(filtro.getSelectInterno());
+		sql.append(Globals.ENTER).append(" FROM disponibilidades d, articulos a, articulos_autores aa, autores au");
+		//sql.append(Globals.ENTER).append(criterio.getAddFrom());
+		sql.append(Globals.ENTER).append(" WHERE ");
+		sql.append(Globals.ENTER).append("    d.id_esquema = 'PROD'");
+	    sql.append(Globals.ENTER).append("    AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
+	    sql.append(Globals.ENTER).append("    AND d.id_disponibilidad = a.id_disponibilidad");
+	    sql.append(Globals.ENTER).append("    AND a.habilitado_tematika = 'S'");
+	    if (idioma != null) sql.append(getQueryIdioma());
+	    if (clasificacion != null) sql.append(getQueryClasificacion());
+	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+	    if (formato != null) sql.append(getQueryFormato());
+	    if (precio != null) sql.append(getQueryPrecio());
+	    sql.append(Globals.ENTER).append("	  AND a.id_articulo = aa.id_articulo");
+	    sql.append(Globals.ENTER).append("    AND aa.id_autor = au.id_autor");   							
+	    sql.append(Globals.ENTER).append("	  AND catsearch (au.descripcion, '").append(autor).append("*', NULL) > 0");
+	    //sql.append(Globals.ENTER).append(criterio.getAddWhere());
+		return sql;
+	} */
+
 	public StringBuffer getQueryAutor(Filtro filtro) {
 		StringBuffer sql = new StringBuffer();
 		sql.append(Globals.ENTER).append(" SELECT  ");
@@ -236,13 +354,12 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 		}
 		//sql.append(Globals.ENTER).append(criterio.getAddSelect());
 		sql.append(Globals.ENTER).append(filtro.getSelectInterno());
-		sql.append(Globals.ENTER).append(" FROM disponibilidades d, articulos a, articulos_autores aa, autores au");
+		sql.append(Globals.ENTER).append(" FROM articulos a, articulos_autores aa, autores au");
 		//sql.append(Globals.ENTER).append(criterio.getAddFrom());
-		sql.append(Globals.ENTER).append(" WHERE ");
-		sql.append(Globals.ENTER).append("    d.id_esquema = 'PROD'");
-	    sql.append(Globals.ENTER).append("    AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
-	    sql.append(Globals.ENTER).append("    AND d.id_disponibilidad = a.id_disponibilidad");
-	    sql.append(Globals.ENTER).append("    AND a.habilitado_tematika = 'S'");
+		sql.append(Globals.ENTER).append(" WHERE ");		
+		sql.append(Globals.ENTER).append(" a.habilitado_tematika = 'S'");
+	    sql.append(Globals.ENTER).append(" AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
+        sql.append(Globals.ENTER).append(" AND a.activo            = 'SI'");
 	    if (idioma != null) sql.append(getQueryIdioma());
 	    if (clasificacion != null) sql.append(getQueryClasificacion());
 	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
@@ -255,9 +372,9 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 		return sql;
 	}
 
-	public StringBuffer getQueryAutorCount() {
+	/* public StringBuffer getQueryAutorCount() {
 		StringBuffer sql = new StringBuffer();
-		sql.append(Globals.ENTER).append(" SELECT /*+ INDEX(aa borrame) USE_NL(au aa) USE_NL (aa a) USE_NL (a d)*/ ");
+		sql.append(Globals.ENTER).append(" SELECT ***+ INDEX(aa borrame) USE_NL(au aa) USE_NL (aa a) USE_NL (a d)*** ");
 		sql.append(Globals.ENTER).append(" a.id_articulo ");
 		sql.append(Globals.ENTER).append(" FROM disponibilidades d, articulos a, articulos_autores aa, autores au");
 		sql.append(Globals.ENTER).append(" WHERE ");
@@ -274,20 +391,61 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 	    sql.append(Globals.ENTER).append("    AND aa.id_autor = au.id_autor");   							
 	    sql.append(Globals.ENTER).append("	  AND catsearch (au.descripcion, '").append(autor).append("*', NULL) > 0");
 		return sql;
+	} */
+	
+	public StringBuffer getQueryAutorCount() {
+		StringBuffer sql = new StringBuffer();
+		sql.append(Globals.ENTER).append(" SELECT a.id_articulo ");
+		sql.append(Globals.ENTER).append(" FROM articulos a, articulos_autores aa, autores au");
+		sql.append(Globals.ENTER).append(" WHERE ");
+		sql.append(Globals.ENTER).append(" a.habilitado_tematika = 'S'");
+	    sql.append(Globals.ENTER).append(" AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
+        sql.append(Globals.ENTER).append(" AND a.activo            = 'SI'");
+	    if (idioma != null) sql.append(getQueryIdioma());
+	    if (clasificacion != null) sql.append(getQueryClasificacion());
+	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+	    if (formato != null) sql.append(getQueryFormato());
+	    if (precio != null) sql.append(getQueryPrecio());
+	    sql.append(Globals.ENTER).append("	  AND a.id_articulo = aa.id_articulo");
+	    sql.append(Globals.ENTER).append("    AND aa.id_autor = au.id_autor");   							
+	    sql.append(Globals.ENTER).append("	  AND catsearch (au.descripcion, '").append(autor).append("*', NULL) > 0");
+		return sql;
 	}
+	
+	/* public StringBuffer getQueryEditorial() {
+		StringBuffer sql = new StringBuffer();
+		sql.append(Globals.ENTER).append(" SELECT ***+ USE_NL(e a) USE_NL (a d) INDEX(a ARTI2_EDIT_FK_I)***  a.id_articulo ");
+		sql.append(Globals.ENTER).append(criterio.getAddSelect());
+		sql.append(" ,a.categoria_seccion ");
+		sql.append(Globals.ENTER).append(" FROM disponibilidades d, articulos a, editores e");
+		sql.append(Globals.ENTER).append(criterio.getAddFrom());
+		sql.append(Globals.ENTER).append(" WHERE ");
+		sql.append(Globals.ENTER).append("    d.id_esquema = 'PROD'");
+	    sql.append(Globals.ENTER).append("    AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
+	    sql.append(Globals.ENTER).append("    AND d.id_disponibilidad = a.id_disponibilidad");
+	    sql.append(Globals.ENTER).append("    AND a.habilitado_tematika = 'S'");
+	    if (idioma != null) sql.append(getQueryIdioma());
+	    if (clasificacion != null) sql.append(getQueryClasificacion());
+	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+	    if (formato != null) sql.append(getQueryFormato());
+	    if (precio != null) sql.append(getQueryPrecio());
+	    sql.append(Globals.ENTER).append("    AND a.id_editor            = e.id_editor");
+	    sql.append(Globals.ENTER).append("	  AND catsearch(e.nombre, '").append(editorial).append("*', '') > 0");
+	    sql.append(Globals.ENTER).append(criterio.getAddWhere());
+		return sql;
+	} */
 	
 	public StringBuffer getQueryEditorial() {
 		StringBuffer sql = new StringBuffer();
-		sql.append(Globals.ENTER).append(" SELECT /*+ USE_NL(e a) USE_NL (a d) INDEX(a ARTI2_EDIT_FK_I)*/  a.id_articulo ");
+		sql.append(Globals.ENTER).append(" SELECT a.id_articulo ");
 		sql.append(Globals.ENTER).append(criterio.getAddSelect());
 		sql.append(" ,a.categoria_seccion ");
-		sql.append(Globals.ENTER).append(" FROM disponibilidades d, articulos a, editores e");
+		sql.append(Globals.ENTER).append(" FROM articulos a, editores e");
 		sql.append(Globals.ENTER).append(criterio.getAddFrom());
 		sql.append(Globals.ENTER).append(" WHERE ");
-		sql.append(Globals.ENTER).append("    d.id_esquema = 'PROD'");
-	    sql.append(Globals.ENTER).append("    AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
-	    sql.append(Globals.ENTER).append("    AND d.id_disponibilidad = a.id_disponibilidad");
-	    sql.append(Globals.ENTER).append("    AND a.habilitado_tematika = 'S'");
+		sql.append(Globals.ENTER).append(" a.habilitado_tematika = 'S'");
+	    sql.append(Globals.ENTER).append(" AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
+        sql.append(Globals.ENTER).append(" AND a.activo            = 'SI'");
 	    if (idioma != null) sql.append(getQueryIdioma());
 	    if (clasificacion != null) sql.append(getQueryClasificacion());
 	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
@@ -297,10 +455,11 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 	    sql.append(Globals.ENTER).append("	  AND catsearch(e.nombre, '").append(editorial).append("*', '') > 0");
 	    sql.append(Globals.ENTER).append(criterio.getAddWhere());
 		return sql;
-	}
-	public StringBuffer getQueryEditorial(Filtro filtro) {
+	}	
+	
+	/* public StringBuffer getQueryEditorial(Filtro filtro) {
 		StringBuffer sql = new StringBuffer();
-		sql.append(Globals.ENTER).append(" SELECT /*+ USE_NL(e a) USE_NL (a d) INDEX(a ARTI2_EDIT_FK_I)*/  a.id_articulo ");
+		sql.append(Globals.ENTER).append(" SELECT ***+ USE_NL(e a) USE_NL (a d) INDEX(a ARTI2_EDIT_FK_I)***  a.id_articulo ");
 		if(!filtro.getId().equals("0")){
 			sql.append(",a.categoria_seccion");	
 		}
@@ -322,18 +481,61 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 	    sql.append(Globals.ENTER).append("	  AND catsearch(e.nombre, '").append(editorial).append("*', '') > 0");
 	    //sql.append(Globals.ENTER).append(criterio.getAddWhere());
 		return sql;
+	} */
+	
+	public StringBuffer getQueryEditorial(Filtro filtro) {
+		StringBuffer sql = new StringBuffer();
+		sql.append(Globals.ENTER).append(" SELECT a.id_articulo ");
+		if(!filtro.getId().equals("0")){
+			sql.append(",a.categoria_seccion");	
+		}
+		//sql.append(Globals.ENTER).append(criterio.getAddSelect());
+		sql.append(Globals.ENTER).append(filtro.getSelectInterno());
+		sql.append(Globals.ENTER).append(" FROM articulos a, editores e");
+		//sql.append(Globals.ENTER).append(criterio.getAddFrom());
+		sql.append(Globals.ENTER).append(" WHERE ");
+		sql.append(Globals.ENTER).append(" a.habilitado_tematika = 'S'");
+	    sql.append(Globals.ENTER).append(" AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
+        sql.append(Globals.ENTER).append(" AND a.activo            = 'SI'");
+	    if (idioma != null) sql.append(getQueryIdioma());
+	    if (clasificacion != null) sql.append(getQueryClasificacion());
+	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+	    if (formato != null) sql.append(getQueryFormato());
+	    if (precio != null) sql.append(getQueryPrecio());
+	    sql.append(Globals.ENTER).append("    AND a.id_editor            = e.id_editor");
+	    sql.append(Globals.ENTER).append("	  AND catsearch(e.nombre, '").append(editorial).append("*', '') > 0");
+	    //sql.append(Globals.ENTER).append(criterio.getAddWhere());
+		return sql;
 	}
+	
+	/* public StringBuffer getQueryEditorialCount() {
+		StringBuffer sql = new StringBuffer();
+		sql.append(Globals.ENTER).append(" SELECT ***+ USE_NL(e a) USE_NL (a d) INDEX(a ARTI2_EDIT_FK_I)***");
+		sql.append(Globals.ENTER).append("	  a.id_articulo ");
+		sql.append(Globals.ENTER).append(" FROM disponibilidades d, articulos a, editores e");
+		sql.append(Globals.ENTER).append(" WHERE ");
+		sql.append(Globals.ENTER).append("    d.id_esquema = 'PROD'");
+	    sql.append(Globals.ENTER).append("    AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
+	    sql.append(Globals.ENTER).append("    AND d.id_disponibilidad = a.id_disponibilidad");
+	    sql.append(Globals.ENTER).append("    AND a.habilitado_tematika = 'S'");
+	    if (idioma != null) sql.append(getQueryIdioma());
+	    if (clasificacion != null) sql.append(getQueryClasificacion());
+	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+	    if (formato != null) sql.append(getQueryFormato());
+	    if (precio != null) sql.append(getQueryPrecio());
+	    sql.append(Globals.ENTER).append("    AND a.id_editor            = e.id_editor");
+	    sql.append(Globals.ENTER).append("	  AND catsearch(e.nombre, '").append(editorial).append("*', '') > 0");
+		return sql;
+	} */
 	
 	public StringBuffer getQueryEditorialCount() {
 		StringBuffer sql = new StringBuffer();
-		sql.append(Globals.ENTER).append(" SELECT /*+ USE_NL(e a) USE_NL (a d) INDEX(a ARTI2_EDIT_FK_I)*/");
-		sql.append(Globals.ENTER).append("	  a.id_articulo ");
-		sql.append(Globals.ENTER).append(" FROM disponibilidades d, articulos a, editores e");
+		sql.append(Globals.ENTER).append(" SELECT a.id_articulo ");
+		sql.append(Globals.ENTER).append(" FROM articulos a, editores e");
 		sql.append(Globals.ENTER).append(" WHERE ");
-		sql.append(Globals.ENTER).append("    d.id_esquema = 'PROD'");
-	    sql.append(Globals.ENTER).append("    AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
-	    sql.append(Globals.ENTER).append("    AND d.id_disponibilidad = a.id_disponibilidad");
-	    sql.append(Globals.ENTER).append("    AND a.habilitado_tematika = 'S'");
+		sql.append(Globals.ENTER).append(" a.habilitado_tematika = 'S'");
+	    sql.append(Globals.ENTER).append(" AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
+        sql.append(Globals.ENTER).append(" AND a.activo            = 'SI'");
 	    if (idioma != null) sql.append(getQueryIdioma());
 	    if (clasificacion != null) sql.append(getQueryClasificacion());
 	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
@@ -344,9 +546,9 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 		return sql;
 	}
 
-	public StringBuffer getQueryPalabrasClaves() {
+	/* public StringBuffer getQueryPalabrasClaves() {
 		StringBuffer sql = new StringBuffer();
-		sql.append(Globals.ENTER).append(" SELECT /*+ USE_NL (s a d)*/ a.id_articulo ");
+		sql.append(Globals.ENTER).append(" SELECT ***+ USE_NL (s a d)*** a.id_articulo ");
 		sql.append(Globals.ENTER).append(criterio.getAddSelect());
 		sql.append(" ,a.categoria_seccion ");
 		sql.append(Globals.ENTER).append(" FROM articulos a, articulos_textos s, disponibilidades d");
@@ -365,10 +567,33 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 	    sql.append(Globals.ENTER).append("	  AND catsearch(s.texto, '").append(palabrasClaves).append("*', ' tipo=''01''') > 0");
 	    sql.append(Globals.ENTER).append(criterio.getAddWhere());
 		return sql;
-	}
-	public StringBuffer getQueryPalabrasClaves(Filtro filtro) {
+	} */
+	
+	public StringBuffer getQueryPalabrasClaves() {
 		StringBuffer sql = new StringBuffer();
-		sql.append(Globals.ENTER).append(" SELECT /*+ USE_NL (s a d)*/ a.id_articulo ");
+		sql.append(Globals.ENTER).append(" SELECT a.id_articulo ");
+		sql.append(Globals.ENTER).append(criterio.getAddSelect());
+		sql.append(" ,a.categoria_seccion ");
+		sql.append(Globals.ENTER).append(" FROM articulos a, articulos_textos s ");
+		sql.append(Globals.ENTER).append(criterio.getAddFrom());
+		sql.append(Globals.ENTER).append(" WHERE ");
+		sql.append(Globals.ENTER).append(" a.habilitado_tematika = 'S'");
+	    sql.append(Globals.ENTER).append(" AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
+        sql.append(Globals.ENTER).append(" AND a.activo            = 'SI'");
+	    if (idioma != null) sql.append(getQueryIdioma());
+	    if (clasificacion != null) sql.append(getQueryClasificacion());
+	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+	    if (formato != null) sql.append(getQueryFormato());
+	    if (precio != null) sql.append(getQueryPrecio());
+	    sql.append(Globals.ENTER).append("    AND a.id_articulo = s.id_articulo");
+	    sql.append(Globals.ENTER).append("	  AND catsearch(s.texto, '").append(palabrasClaves).append("*', ' tipo=''01''') > 0");
+	    sql.append(Globals.ENTER).append(criterio.getAddWhere());
+		return sql;
+	}	
+	
+	/* public StringBuffer getQueryPalabrasClaves(Filtro filtro) {
+		StringBuffer sql = new StringBuffer();
+		sql.append(Globals.ENTER).append(" SELECT ***+ USE_NL (s a d)*** a.id_articulo ");
 		if(!filtro.getId().equals("0")){
 			sql.append(",a.categoria_seccion");	
 		}
@@ -390,18 +615,61 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 	    sql.append(Globals.ENTER).append("	  AND catsearch(s.texto, '").append(palabrasClaves).append("*', ' tipo=''01''') > 0");
 	    //sql.append(Globals.ENTER).append(criterio.getAddWhere());
 		return sql;
+	} */
+	
+	public StringBuffer getQueryPalabrasClaves(Filtro filtro) {
+		StringBuffer sql = new StringBuffer();
+		sql.append(Globals.ENTER).append(" SELECT a.id_articulo ");
+		if(!filtro.getId().equals("0")){
+			sql.append(",a.categoria_seccion");	
+		}
+		//sql.append(Globals.ENTER).append(criterio.getAddSelect());
+		sql.append(Globals.ENTER).append(filtro.getSelectInterno());
+		sql.append(Globals.ENTER).append(" FROM articulos a, articulos_textos s ");
+		//sql.append(Globals.ENTER).append(criterio.getAddFrom());
+		sql.append(Globals.ENTER).append(" WHERE ");
+		sql.append(Globals.ENTER).append(" a.habilitado_tematika = 'S'");
+	    sql.append(Globals.ENTER).append(" AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
+        sql.append(Globals.ENTER).append(" AND a.activo            = 'SI'");
+	    if (idioma != null) sql.append(getQueryIdioma());
+	    if (clasificacion != null) sql.append(getQueryClasificacion());
+	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+	    if (formato != null) sql.append(getQueryFormato());
+	    if (precio != null) sql.append(getQueryPrecio());
+	    sql.append(Globals.ENTER).append("    AND a.id_articulo = s.id_articulo");
+	    sql.append(Globals.ENTER).append("	  AND catsearch(s.texto, '").append(palabrasClaves).append("*', ' tipo=''01''') > 0");
+	    //sql.append(Globals.ENTER).append(criterio.getAddWhere());
+		return sql;
 	}
+
+	/* public StringBuffer getQueryPalabrasClavesCount() {
+		StringBuffer sql = new StringBuffer();
+		sql.append(Globals.ENTER).append(" SELECT ***+ USE_NL (s a d)***");
+		sql.append(Globals.ENTER).append("	  a.id_articulo ");
+		sql.append(Globals.ENTER).append(" FROM articulos a, articulos_textos s, disponibilidades d");
+		sql.append(Globals.ENTER).append(" WHERE ");
+		sql.append(Globals.ENTER).append("    d.id_esquema = 'PROD'");
+	    sql.append(Globals.ENTER).append("    AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
+	    sql.append(Globals.ENTER).append("    AND d.id_disponibilidad = a.id_disponibilidad");
+	    sql.append(Globals.ENTER).append("    AND a.habilitado_tematika = 'S'");
+	    if (idioma != null) sql.append(getQueryIdioma());
+	    if (clasificacion != null) sql.append(getQueryClasificacion());
+	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+	    if (formato != null) sql.append(getQueryFormato());
+	    if (precio != null) sql.append(getQueryPrecio());
+	    sql.append(Globals.ENTER).append("    AND a.id_articulo = s.id_articulo");
+	    sql.append(Globals.ENTER).append("	  AND catsearch(s.texto, '").append(palabrasClaves).append("*', ' tipo=''01''') > 0");
+		return sql;
+	} */
 
 	public StringBuffer getQueryPalabrasClavesCount() {
 		StringBuffer sql = new StringBuffer();
-		sql.append(Globals.ENTER).append(" SELECT /*+ USE_NL (s a d)*/");
-		sql.append(Globals.ENTER).append("	  a.id_articulo ");
-		sql.append(Globals.ENTER).append(" FROM articulos a, articulos_textos s, disponibilidades d");
+		sql.append(Globals.ENTER).append(" SELECT a.id_articulo ");
+		sql.append(Globals.ENTER).append(" FROM articulos a, articulos_textos s ");
 		sql.append(Globals.ENTER).append(" WHERE ");
-		sql.append(Globals.ENTER).append("    d.id_esquema = 'PROD'");
-	    sql.append(Globals.ENTER).append("    AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
-	    sql.append(Globals.ENTER).append("    AND d.id_disponibilidad = a.id_disponibilidad");
-	    sql.append(Globals.ENTER).append("    AND a.habilitado_tematika = 'S'");
+		sql.append(Globals.ENTER).append(" a.habilitado_tematika = 'S'");
+	    sql.append(Globals.ENTER).append(" AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
+        sql.append(Globals.ENTER).append(" AND a.activo            = 'SI'");
 	    if (idioma != null) sql.append(getQueryIdioma());
 	    if (clasificacion != null) sql.append(getQueryClasificacion());
 	    sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
@@ -411,11 +679,10 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 	    sql.append(Globals.ENTER).append("	  AND catsearch(s.texto, '").append(palabrasClaves).append("*', ' tipo=''01''') > 0");
 		return sql;
 	}
-
 	
-	public StringBuffer getQueryISBN() {
+	/* public StringBuffer getQueryISBN() {
 		StringBuffer sql = new StringBuffer();
-		sql.append(Globals.ENTER).append(" SELECT /*+ USE_NL (s a)*/ a.id_articulo ");
+		sql.append(Globals.ENTER).append(" SELECT ***+ USE_NL (s a)*** a.id_articulo ");
 		sql.append(Globals.ENTER).append(criterio.getAddSelect());
 		sql.append(" ,a.categoria_seccion ");
 		sql.append(Globals.ENTER).append(" FROM disponibilidades d, articulos a, articulos_isbn s");
@@ -434,10 +701,33 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 	    sql.append(Globals.ENTER).append("	  AND s.isbn = UPPER(REPLACE(REPLACE('").append(isbn).append("', '-', ''), ' ', ''))");
 	    sql.append(Globals.ENTER).append(criterio.getAddWhere());
 		return sql;
-	}
-	public StringBuffer getQueryISBN(Filtro filtro) {
+	} */
+	
+	public StringBuffer getQueryISBN() {
 		StringBuffer sql = new StringBuffer();
-		sql.append(Globals.ENTER).append(" SELECT /*+ USE_NL (s a)*/ a.id_articulo ");
+		sql.append(Globals.ENTER).append(" SELECT a.id_articulo ");
+		sql.append(Globals.ENTER).append(criterio.getAddSelect());
+		sql.append(" ,a.categoria_seccion ");
+		sql.append(Globals.ENTER).append(" FROM articulos a, articulos_isbn s");
+		sql.append(Globals.ENTER).append(criterio.getAddFrom());
+		sql.append(Globals.ENTER).append(" WHERE "); 
+		sql.append(Globals.ENTER).append(" a.habilitado_tematika = 'S'");
+	    sql.append(Globals.ENTER).append(" AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
+        sql.append(Globals.ENTER).append(" AND a.activo            = 'SI'");
+		if (idioma != null) sql.append(getQueryIdioma());
+		if (clasificacion != null) sql.append(getQueryClasificacion());		
+		sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+		if (formato != null) sql.append(getQueryFormato());
+		if (precio != null) sql.append(getQueryPrecio());
+		sql.append(Globals.ENTER).append("    AND a.id_articulo = s.id_articulo");
+	    sql.append(Globals.ENTER).append("	  AND s.isbn = UPPER(REPLACE(REPLACE('").append(isbn).append("', '-', ''), ' ', ''))");
+	    sql.append(Globals.ENTER).append(criterio.getAddWhere());
+		return sql;
+	}
+	
+	/* public StringBuffer getQueryISBN(Filtro filtro) {
+		StringBuffer sql = new StringBuffer();
+		sql.append(Globals.ENTER).append(" SELECT ***+ USE_NL (s a)*** a.id_articulo ");
 		if(!filtro.getId().equals("0")){
 			sql.append(",a.categoria_seccion");	
 		}
@@ -459,11 +749,36 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 	    sql.append(Globals.ENTER).append("	  AND s.isbn = UPPER(REPLACE(REPLACE('").append(isbn).append("', '-', ''), ' ', ''))");
 	    //sql.append(Globals.ENTER).append(criterio.getAddWhere());
 		return sql;
-	}
-
-	public StringBuffer getQueryISBNCount() {
+	}*/
+	
+	public StringBuffer getQueryISBN(Filtro filtro) {
 		StringBuffer sql = new StringBuffer();
-		sql.append(Globals.ENTER).append(" SELECT /*+ USE_NL (s a)*/");
+		sql.append(Globals.ENTER).append(" SELECT a.id_articulo ");
+		if(!filtro.getId().equals("0")){
+			sql.append(",a.categoria_seccion");	
+		}
+		//sql.append(Globals.ENTER).append(criterio.getAddSelect());
+		sql.append(Globals.ENTER).append(filtro.getSelectInterno());
+		sql.append(Globals.ENTER).append(" FROM articulos a, articulos_isbn s");
+		//sql.append(Globals.ENTER).append(criterio.getAddFrom());
+		sql.append(Globals.ENTER).append(" WHERE "); 
+		sql.append(Globals.ENTER).append(" a.habilitado_tematika = 'S'");
+	    sql.append(Globals.ENTER).append(" AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
+        sql.append(Globals.ENTER).append(" AND a.activo            = 'SI'");
+		if (idioma != null) sql.append(getQueryIdioma());
+		if (clasificacion != null) sql.append(getQueryClasificacion());		
+		sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+		if (formato != null) sql.append(getQueryFormato());
+		if (precio != null) sql.append(getQueryPrecio());
+		sql.append(Globals.ENTER).append("    AND a.id_articulo = s.id_articulo");
+	    sql.append(Globals.ENTER).append("	  AND s.isbn = UPPER(REPLACE(REPLACE('").append(isbn).append("', '-', ''), ' ', ''))");
+	    //sql.append(Globals.ENTER).append(criterio.getAddWhere());
+		return sql;
+	}
+	
+	/* public StringBuffer getQueryISBNCount() {
+		StringBuffer sql = new StringBuffer();
+		sql.append(Globals.ENTER).append(" SELECT ***+ USE_NL (s a)***");
 		sql.append(Globals.ENTER).append("	  a.id_articulo ");
 		sql.append(Globals.ENTER).append(" FROM disponibilidades d, articulos a, articulos_isbn s");
 		sql.append(Globals.ENTER).append(" WHERE "); 
@@ -479,8 +794,25 @@ public class BusquedaAvanzada extends BusquedaGenerica {
 		sql.append(Globals.ENTER).append("    AND a.id_articulo = s.id_articulo");
 	    sql.append(Globals.ENTER).append("	  AND s.isbn = UPPER(REPLACE(REPLACE('").append(isbn).append("', '-', ''), ' ', ''))");
 		return sql;
-	}
+	} */
 
+	public StringBuffer getQueryISBNCount() {
+		StringBuffer sql = new StringBuffer();
+		sql.append(Globals.ENTER).append(" SELECT a.id_articulo ");
+		sql.append(Globals.ENTER).append(" FROM articulos a, articulos_isbn s");
+		sql.append(Globals.ENTER).append(" WHERE "); 
+		sql.append(Globals.ENTER).append(" a.habilitado_tematika = 'S'");
+	    sql.append(Globals.ENTER).append(" AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
+        sql.append(Globals.ENTER).append(" AND a.activo            = 'SI'");
+        if (idioma != null) sql.append(getQueryIdioma());
+		if (clasificacion != null) sql.append(getQueryClasificacion());		
+		sql.append(Globals.ENTER).append("    AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
+		if (formato != null) sql.append(getQueryFormato());
+		if (precio != null) sql.append(getQueryPrecio());
+		sql.append(Globals.ENTER).append("    AND a.id_articulo = s.id_articulo");
+	    sql.append(Globals.ENTER).append("	  AND s.isbn = UPPER(REPLACE(REPLACE('").append(isbn).append("', '-', ''), ' ', ''))");
+		return sql;
+	}
 	
 	public StringBuffer getQueryClasificacion() {
 		StringBuffer sql = new StringBuffer();

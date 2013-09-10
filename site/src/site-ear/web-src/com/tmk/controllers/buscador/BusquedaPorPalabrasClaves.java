@@ -94,7 +94,7 @@ public class BusquedaPorPalabrasClaves extends BusquedaGenerica {
                        boolean soloPedidoEspecial) {
 	    super(texto, seccion, registroInicial, registroFinal, criterio, soloPedidoEspecial);
     }
-
+    // fix mg20130823: fix disponibilidades y pedido especial
 	public StringBuffer getQueryParcial() {
 		StringBuffer sql = new StringBuffer();
 
@@ -115,7 +115,10 @@ public class BusquedaPorPalabrasClaves extends BusquedaGenerica {
 		sql.append(Globals.ENTER).append("      " + criterio.getAddFrom());
         sql.append(Globals.ENTER).append("    WHERE d.id_disponibilidad = a.id_disponibilidad");
         sql.append(Globals.ENTER).append("        AND d.id_esquema = 'PROD'");
-        sql.append(Globals.ENTER).append("        AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
+        if (soloPedidoEspecial)
+        	sql.append(Globals.ENTER).append("        AND a.id_disponibilidad in ( 3,1 )" );		
+        else 
+            sql.append(Globals.ENTER).append("        AND d.id_disponibilidad NOT IN (3)");
         sql.append(Globals.ENTER).append("        AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
         sql.append(Globals.ENTER).append("        AND habilitado_tematika = 'S'");
 		sql.append(Globals.ENTER).append("        and a.activo            = 'SI'");
@@ -136,7 +139,11 @@ public class BusquedaPorPalabrasClaves extends BusquedaGenerica {
 		sql.append(Globals.ENTER).append("                articulos a, articulos_isbn i");
 		sql.append(Globals.ENTER).append("      " + criterio.getAddFrom());
 		sql.append(Globals.ENTER).append("          WHERE d.id_disponibilidad = a.id_disponibilidad");
-		sql.append(Globals.ENTER).append("            AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
+		sql.append(Globals.ENTER).append("        AND d.id_esquema = 'PROD'");
+		if (soloPedidoEspecial)
+			sql.append(Globals.ENTER).append("        AND a.id_disponibilidad in ( 3,1 )" );		
+		else 
+		    sql.append(Globals.ENTER).append("        AND d.id_disponibilidad NOT IN (3)");
 		sql.append(Globals.ENTER).append("        	  AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
 		sql.append(Globals.ENTER).append("            AND habilitado_tematika = 'S'");
 		sql.append(Globals.ENTER).append("        	  AND i.isbn                = UPPER(REPLACE(REPLACE('").append(getTexto()).append("', '-', ''), ' ', ''))");
@@ -158,7 +165,10 @@ public class BusquedaPorPalabrasClaves extends BusquedaGenerica {
 		sql.append(Globals.ENTER).append("      " + criterio.getAddFrom());
         sql.append(Globals.ENTER).append("    WHERE d.id_disponibilidad = a.id_disponibilidad");
         sql.append(Globals.ENTER).append("        AND d.id_esquema = 'PROD'");
-        sql.append(Globals.ENTER).append("        AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
+        if (soloPedidoEspecial)
+        	sql.append(Globals.ENTER).append("        AND a.id_disponibilidad in ( 3,1 )" );		
+        else 
+            sql.append(Globals.ENTER).append("        AND d.id_disponibilidad NOT IN (3)");
         sql.append(Globals.ENTER).append("        AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
         sql.append(Globals.ENTER).append("        AND habilitado_tematika = 'S'");
 		sql.append(Globals.ENTER).append("        and a.activo            = 'SI'");

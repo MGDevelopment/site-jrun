@@ -45,10 +45,9 @@ public class BusquedaDeNovedades extends BusquedaGenerica {
 	    this.diasConsideradosNovedad = (diasConsideradosNovedad == null) ? new Integer(Globals.DIAS_CONSIDERADOS_NOVEDAD) : diasConsideradosNovedad;
 	    this.diasIgnoradosNovedad = (diasIgnoradosNovedad == null) ? new Integer(Globals.DIAS_IGNORADOS_NOVEDAD) : diasIgnoradosNovedad;
     }
-
+ // fix mg20130823: fix disponibilidades y pedido especial
 	public StringBuffer getQueryParcial() {
 		StringBuffer sql = new StringBuffer();
-
 		sql.append(Globals.ENTER).append("    SELECT a.id_articulo,");
         sql.append(Globals.ENTER).append("        a.categoria_seccion,");
         sql.append(Globals.ENTER).append("        a.fecha_alta,");
@@ -60,7 +59,10 @@ public class BusquedaDeNovedades extends BusquedaGenerica {
         sql.append(Globals.ENTER).append("      " + criterio.getAddFrom());
         sql.append(Globals.ENTER).append("    WHERE d.id_disponibilidad = a.id_disponibilidad");
         sql.append(Globals.ENTER).append("        AND d.id_esquema = 'PROD'");
-        sql.append(Globals.ENTER).append("        AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
+        if (soloPedidoEspecial)
+        	sql.append(Globals.ENTER).append("        AND a.id_disponibilidad in ( 3,1 )" );		
+        else 
+            sql.append(Globals.ENTER).append("        AND d.id_disponibilidad NOT IN (3)");
         sql.append(Globals.ENTER).append("        AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
 		sql.append(Globals.ENTER).append("        AND a.categoria_grupo ").append(((grupo != null) ? ("= " + grupo) : "is not null"));
 		sql.append(Globals.ENTER).append("        AND a.categoria_familia ").append(((familia != null) ? ("= " + familia) : "is not null"));

@@ -34,7 +34,7 @@ public class BusquedaPorMarca extends BusquedaGenerica {
                        boolean soloPedidoEspecial) {
 	    super(texto, seccion, registroInicial, registroFinal, criterio, soloPedidoEspecial);
     }
-
+    // fix mg20130823: fix disponibilidades y pedido especial
 	public StringBuffer getQueryParcial() {
 		StringBuffer sql = new StringBuffer();
 
@@ -47,8 +47,11 @@ public class BusquedaPorMarca extends BusquedaGenerica {
 		sql.append(Globals.ENTER).append("      " + criterio.getAddFrom());
         sql.append(Globals.ENTER).append("    WHERE d.id_disponibilidad = a.id_disponibilidad");
         // fix mg20130705: evita los no disponibles (3) en el buscador
-        sql.append(Globals.ENTER).append("        AND d.id_esquema = 'PROD' AND d.id_disponibilidad NOT IN (3)");
-        sql.append(Globals.ENTER).append("        AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
+        sql.append(Globals.ENTER).append("        AND d.id_esquema = 'PROD' ");
+        if (soloPedidoEspecial)
+        	sql.append(Globals.ENTER).append("        AND a.id_disponibilidad in ( 3,1 )" );		
+        else 
+            sql.append(Globals.ENTER).append("        AND d.id_disponibilidad NOT IN (3)");
         sql.append(Globals.ENTER).append("        AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
         sql.append(Globals.ENTER).append("        AND habilitado_tematika = 'S'");
 		sql.append(Globals.ENTER).append("        AND a.activo            = 'SI'");
@@ -60,7 +63,7 @@ public class BusquedaPorMarca extends BusquedaGenerica {
 
 		return sql;
 	}
-
+	// fix mg20130823: fix disponibilidades y pedido especial
 	public StringBuffer getQueryParcial(Filtro filtro) {
 		StringBuffer sql = new StringBuffer();
 
@@ -72,8 +75,11 @@ public class BusquedaPorMarca extends BusquedaGenerica {
 		sql.append(Globals.ENTER).append("        cg_ref_codes c");
 		sql.append(Globals.ENTER).append("    WHERE d.id_disponibilidad = a.id_disponibilidad");
 		// fix mg20130705: evita los no disponibles (3) en el buscador
-        sql.append(Globals.ENTER).append("        AND d.id_esquema = 'PROD' AND d.id_disponibilidad NOT IN (3)");
-        sql.append(Globals.ENTER).append("        AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
+        sql.append(Globals.ENTER).append("        AND d.id_esquema = 'PROD' ");
+        if (soloPedidoEspecial)
+        	sql.append(Globals.ENTER).append("        AND a.id_disponibilidad in ( 3,1 )" );		
+        else 
+            sql.append(Globals.ENTER).append("        AND d.id_disponibilidad NOT IN (3)");
         sql.append(Globals.ENTER).append("        AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
         sql.append(Globals.ENTER).append("        AND habilitado_tematika = 'S'");
 		sql.append(Globals.ENTER).append("        AND a.activo            = 'SI'");

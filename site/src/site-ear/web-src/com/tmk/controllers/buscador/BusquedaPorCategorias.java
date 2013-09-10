@@ -68,9 +68,9 @@ public class BusquedaPorCategorias extends BusquedaGenerica {
 		return (subfamilia != null);
 	}
 
+    // fix mg20130823: merge con codigo provisto por Gaston
 	public StringBuffer getQueryParcial() {
 		StringBuffer sql = new StringBuffer();
-
 		sql.append(Globals.ENTER).append("    SELECT");
 		sql.append(Globals.ENTER).append("        a.id_articulo,");
         sql.append(Globals.ENTER).append("        a.categoria_seccion,");
@@ -78,12 +78,15 @@ public class BusquedaPorCategorias extends BusquedaGenerica {
         sql.append(Globals.ENTER).append("        a.titulo,");
         sql.append(Globals.ENTER).append("        a.precio_venta_vigente");
 		sql.append(Globals.ENTER).append("       " + criterio.getAddSelect());
-        sql.append(Globals.ENTER).append("    FROM disponibilidades d,");
-        sql.append(Globals.ENTER).append("        articulos a");
+		sql.append(Globals.ENTER).append("    FROM disponibilidades d,");
+        sql.append(Globals.ENTER).append("     articulos a");
         sql.append(Globals.ENTER).append("      " + criterio.getAddFrom());
         sql.append(Globals.ENTER).append("    WHERE d.id_disponibilidad = a.id_disponibilidad");
         sql.append(Globals.ENTER).append("        AND d.id_esquema = 'PROD'");
-        sql.append(Globals.ENTER).append("        AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
+        if (soloPedidoEspecial)
+        	sql.append(Globals.ENTER).append("        AND a.id_disponibilidad in ( 3,1 )" );		
+        else 
+            sql.append(Globals.ENTER).append("        AND d.id_disponibilidad NOT IN (3)");
 		sql.append(Globals.ENTER).append("        AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
 		sql.append(Globals.ENTER).append("        AND a.categoria_grupo ").append((tieneCategoriaGrupo() ? ("= " + getGrupo()) : "is not null"));
 		sql.append(Globals.ENTER).append("        AND a.categoria_familia ").append((tieneCategoriaFamilia() ? ("= " + getFamilia()) : "is not null"));
@@ -91,9 +94,9 @@ public class BusquedaPorCategorias extends BusquedaGenerica {
         sql.append(Globals.ENTER).append("        AND habilitado_tematika = 'S'");
 		sql.append(Globals.ENTER).append("        and a.activo            = 'SI'");
 		sql.append(Globals.ENTER).append("       " + criterio.getAddWhere());
-        sql.append(Globals.ENTER).append("            ").append((criterio == null) ? "" : criterio.getTextoQuery());
-
-		return sql;
+        sql.append(Globals.ENTER).append("            ").append((criterio == null) ? "" : criterio.getTextoQuery());        
+        
+        return sql;
 	}
 
 	public StringBuffer salto() {

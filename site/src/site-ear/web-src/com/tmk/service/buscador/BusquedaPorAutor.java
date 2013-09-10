@@ -88,14 +88,15 @@ public class BusquedaPorAutor extends BusquedaGenerica {
 		sql.append(Globals.ENTER).append("  	 FROM autores au INNER JOIN articulos_autores aa");
 		sql.append(Globals.ENTER).append("  	      ON au.id_autor = aa.id_autor");
 		sql.append(Globals.ENTER).append("    		  INNER JOIN articulos a ON aa.id_articulo = a.id_articulo");
-		sql.append(Globals.ENTER).append("  	 	  INNER JOIN disponibilidades d");
-		sql.append(Globals.ENTER).append("  	 	  ON a.id_disponibilidad = d.id_disponibilidad");
+		//sql.append(Globals.ENTER).append("  	 	  INNER JOIN disponibilidades d");
+		//sql.append(Globals.ENTER).append("  	 	  ON a.id_disponibilidad = d.id_disponibilidad");
 		sql.append(Globals.ENTER).append("           " + criterio.getAddFromJoin());
-		sql.append(Globals.ENTER).append("  	WHERE d.pedido_especial = '").append(pedidoEspecial()).append("'");
-		// fix mg20130703: evita los no disponibles (3) en el buscador
-		sql.append(Globals.ENTER).append("  	  AND d.id_esquema = 'PROD' AND d.id_disponibilidad NOT IN (3) ");
-		sql.append(Globals.ENTER).append("  	  AND a.categoria_seccion  ").append((tieneCategoriaSeccion() ? ("+0= " + getSeccion()) : "is not null"));
+		// sql.append(Globals.ENTER).append("  	WHERE d.pedido_especial = '").append(pedidoEspecial()).append("'");
+		// sql.append(Globals.ENTER).append("  	  AND d.id_esquema = 'PROD' ");
+		sql.append(Globals.ENTER).append("  	  WHERE a.categoria_seccion  ").append((tieneCategoriaSeccion() ? ("+0= " + getSeccion()) : "is not null"));
 		sql.append(Globals.ENTER).append("  	  AND a.habilitado_tematika = 'S'");
+		sql.append(Globals.ENTER).append("        AND a.activo            = 'SI'");
+		sql.append(Globals.ENTER).append(" 		AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );
 		if (!tieneCategoriaSeccion()) {
 			sql.append(Globals.ENTER).append(" 		and aa.role in ('A01', 'D02', 'E01')");
 		} else if (getSeccion().intValue() == Globals.SECCION_PELICULA) {
@@ -124,13 +125,14 @@ public class BusquedaPorAutor extends BusquedaGenerica {
         sql.append(Globals.ENTER).append("  	 FROM autores au INNER JOIN articulos_autores aa");
 		sql.append(Globals.ENTER).append("  	      ON au.id_autor = aa.id_autor");
 		sql.append(Globals.ENTER).append("    		  INNER JOIN articulos a ON aa.id_articulo = a.id_articulo");
-		sql.append(Globals.ENTER).append("  	 	  INNER JOIN disponibilidades d");
-		sql.append(Globals.ENTER).append("  	 	  ON a.id_disponibilidad = d.id_disponibilidad");
-		sql.append(Globals.ENTER).append("  	WHERE d.pedido_especial = '").append(pedidoEspecial()).append("'");
-		// fix mg20130703: evita los no disponibles (3) en el buscador
-		sql.append(Globals.ENTER).append("  	  AND d.id_esquema = 'PROD' AND d.id_disponibilidad NOT IN (3) ");
-		sql.append(Globals.ENTER).append("  	  AND a.categoria_seccion  ").append((tieneCategoriaSeccion() ? ("+0= " + getSeccion()) : "is not null"));
+		// sql.append(Globals.ENTER).append("  	 	  INNER JOIN disponibilidades d");
+		// sql.append(Globals.ENTER).append("  	 	  ON a.id_disponibilidad = d.id_disponibilidad");
+		// sql.append(Globals.ENTER).append("  	WHERE d.pedido_especial = '").append(pedidoEspecial()).append("'");
+		// sql.append(Globals.ENTER).append("  	  AND d.id_esquema = 'PROD' ");
+		sql.append(Globals.ENTER).append("  	  WHERE a.categoria_seccion  ").append((tieneCategoriaSeccion() ? ("+0= " + getSeccion()) : "is not null"));
 		sql.append(Globals.ENTER).append("  	  AND a.habilitado_tematika = 'S'");
+		sql.append(Globals.ENTER).append("        AND a.activo            = 'SI'");
+		sql.append(Globals.ENTER).append(" 		AND a.id_disponibilidad ").append( soloPedidoEspecial ? "" : "not" ).append(" in ( 3,1 )" );		
 		if (!tieneCategoriaSeccion()) {
 			sql.append(Globals.ENTER).append(" 		and aa.role in ('A01', 'D02', 'E01')");
 		} else if (getSeccion().intValue() == Globals.SECCION_PELICULA) {

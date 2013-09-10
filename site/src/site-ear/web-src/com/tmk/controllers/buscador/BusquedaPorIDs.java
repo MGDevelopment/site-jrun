@@ -37,7 +37,7 @@ public class BusquedaPorIDs extends BusquedaGenerica {
 	    // Ahora toma los números de los artículos desde el string
 	    this.idArticulos = idArticulos;
     }
-
+    // fix mg20130823: fix disponibilidades y pedido especial
 	public StringBuffer getQueryParcial() {
 		StringBuffer sql = new StringBuffer();
 
@@ -54,7 +54,10 @@ public class BusquedaPorIDs extends BusquedaGenerica {
 		sql.append(Globals.ENTER).append("      " + criterio.getAddFrom());
         sql.append(Globals.ENTER).append("    WHERE d.id_disponibilidad = a.id_disponibilidad");
         sql.append(Globals.ENTER).append("        AND d.id_esquema = 'PROD'");
-        sql.append(Globals.ENTER).append("        AND d.pedido_especial   = '").append(pedidoEspecial()).append("'");
+        if (soloPedidoEspecial)
+        	sql.append(Globals.ENTER).append("        AND a.id_disponibilidad in ( 3,1 )" );		
+        else 
+            sql.append(Globals.ENTER).append("        AND d.id_disponibilidad NOT IN (3)");
         sql.append(Globals.ENTER).append("        AND a.categoria_seccion ").append((tieneCategoriaSeccion() ? ("= " + getSeccion()) : "is not null"));
         sql.append(Globals.ENTER).append("        AND habilitado_tematika = 'S'");
 		sql.append(Globals.ENTER).append("        AND a.activo            = 'SI'");
